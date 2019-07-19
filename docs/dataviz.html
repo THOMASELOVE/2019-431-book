@@ -1,0 +1,1252 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 3 Visualizing Data | Data Science for Biological, Medical and Health Research: Notes for PQHS 431</title>
+  <meta name="description" content="Chapter 3 Visualizing Data | Data Science for Biological, Medical and Health Research: Notes for PQHS 431" />
+  <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 3 Visualizing Data | Data Science for Biological, Medical and Health Research: Notes for PQHS 431" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 3 Visualizing Data | Data Science for Biological, Medical and Health Research: Notes for PQHS 431" />
+  
+  
+  
+
+<meta name="author" content="Thomas E. Love, Ph.D." />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="Rsetup.html">
+<link rel="next" href="data-structures-and-types-of-variables.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  { background-color: #f8f8f8; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Notes for PQHS 431</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#structure"><i class="fa fa-check"></i>Structure</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#course-philosophy"><i class="fa fa-check"></i>Course Philosophy</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#working-with-this-document"><i class="fa fa-check"></i>Working with this Document</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="data-science.html"><a href="data-science.html"><i class="fa fa-check"></i><b>1</b> Data Science</a><ul>
+<li class="chapter" data-level="1.1" data-path="data-science.html"><a href="data-science.html#why-a-unicorn"><i class="fa fa-check"></i><b>1.1</b> Why a unicorn?</a></li>
+<li class="chapter" data-level="1.2" data-path="data-science.html"><a href="data-science.html#data-science-project-cycle"><i class="fa fa-check"></i><b>1.2</b> Data Science Project Cycle</a></li>
+<li class="chapter" data-level="1.3" data-path="data-science.html"><a href="data-science.html#what-will-we-discuss-in-431"><i class="fa fa-check"></i><b>1.3</b> What Will We Discuss in 431?</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="Rsetup.html"><a href="Rsetup.html"><i class="fa fa-check"></i><b>2</b> Setting Up R</a><ul>
+<li class="chapter" data-level="2.1" data-path="Rsetup.html"><a href="Rsetup.html#r-markdown"><i class="fa fa-check"></i><b>2.1</b> R Markdown</a></li>
+<li class="chapter" data-level="2.2" data-path="Rsetup.html"><a href="Rsetup.html#r-packages"><i class="fa fa-check"></i><b>2.2</b> R Packages</a></li>
+<li class="chapter" data-level="2.3" data-path="Rsetup.html"><a href="Rsetup.html#other-packages"><i class="fa fa-check"></i><b>2.3</b> Other Packages</a></li>
+</ul></li>
+<li class="part"><span><b>Part A. Exploring Data</b></span></li>
+<li class="chapter" data-level="3" data-path="dataviz.html"><a href="dataviz.html"><i class="fa fa-check"></i><b>3</b> Visualizing Data</a><ul>
+<li class="chapter" data-level="3.1" data-path="dataviz.html"><a href="dataviz.html#the-nhanes-data-collecting-a-sample"><i class="fa fa-check"></i><b>3.1</b> The NHANES data: Collecting a Sample</a></li>
+<li class="chapter" data-level="3.2" data-path="dataviz.html"><a href="dataviz.html#age-and-height"><i class="fa fa-check"></i><b>3.2</b> Age and Height</a></li>
+<li class="chapter" data-level="3.3" data-path="dataviz.html"><a href="dataviz.html#subset-of-subjects-with-known-age-and-height"><i class="fa fa-check"></i><b>3.3</b> Subset of Subjects with Known Age and Height</a></li>
+<li class="chapter" data-level="3.4" data-path="dataviz.html"><a href="dataviz.html#age-height-and-gender"><i class="fa fa-check"></i><b>3.4</b> Age-Height and Gender?</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="dataviz.html"><a href="dataviz.html#can-we-show-the-female-and-male-relationships-in-separate-panels"><i class="fa fa-check"></i><b>3.4.1</b> Can we show the Female and Male relationships in separate panels?</a></li>
+<li class="chapter" data-level="3.4.2" data-path="dataviz.html"><a href="dataviz.html#can-we-add-a-smooth-curve-to-show-the-relationship-in-each-plot"><i class="fa fa-check"></i><b>3.4.2</b> Can we add a smooth curve to show the relationship in each plot?</a></li>
+<li class="chapter" data-level="3.4.3" data-path="dataviz.html"><a href="dataviz.html#what-if-we-want-to-assume-straight-line-relationships"><i class="fa fa-check"></i><b>3.4.3</b> What if we want to assume straight line relationships?</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="dataviz.html"><a href="dataviz.html#a-subset-ages-21-79"><i class="fa fa-check"></i><b>3.5</b> A Subset: Ages 21-79</a></li>
+<li class="chapter" data-level="3.6" data-path="dataviz.html"><a href="dataviz.html#distribution-of-heights"><i class="fa fa-check"></i><b>3.6</b> Distribution of Heights</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="dataviz.html"><a href="dataviz.html#changing-a-histograms-fill-and-color"><i class="fa fa-check"></i><b>3.6.1</b> Changing a Histogram’s Fill and Color</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="dataviz.html"><a href="dataviz.html#height-and-gender"><i class="fa fa-check"></i><b>3.7</b> Height and Gender</a><ul>
+<li class="chapter" data-level="3.7.1" data-path="dataviz.html"><a href="dataviz.html#a-boxplot-of-height-by-gender"><i class="fa fa-check"></i><b>3.7.1</b> A Boxplot of Height by Gender</a></li>
+<li class="chapter" data-level="3.7.2" data-path="dataviz.html"><a href="dataviz.html#histograms-of-height-by-gender"><i class="fa fa-check"></i><b>3.7.2</b> Histograms of Height by Gender</a></li>
+</ul></li>
+<li class="chapter" data-level="3.8" data-path="dataviz.html"><a href="dataviz.html#a-look-at-body-mass-index"><i class="fa fa-check"></i><b>3.8</b> A Look at Body-Mass Index</a><ul>
+<li class="chapter" data-level="3.8.1" data-path="dataviz.html"><a href="dataviz.html#bmi-by-gender"><i class="fa fa-check"></i><b>3.8.1</b> BMI by Gender</a></li>
+<li class="chapter" data-level="3.8.2" data-path="dataviz.html"><a href="dataviz.html#bmi-and-diabetes"><i class="fa fa-check"></i><b>3.8.2</b> BMI and Diabetes</a></li>
+<li class="chapter" data-level="3.8.3" data-path="dataviz.html"><a href="dataviz.html#bmi-and-race"><i class="fa fa-check"></i><b>3.8.3</b> BMI and Race</a></li>
+<li class="chapter" data-level="3.8.4" data-path="dataviz.html"><a href="dataviz.html#bmi-and-pulse-rate"><i class="fa fa-check"></i><b>3.8.4</b> BMI and Pulse Rate</a></li>
+<li class="chapter" data-level="3.8.5" data-path="dataviz.html"><a href="dataviz.html#diabetes-vs.-no-diabetes"><i class="fa fa-check"></i><b>3.8.5</b> Diabetes vs. No Diabetes</a></li>
+</ul></li>
+<li class="chapter" data-level="3.9" data-path="dataviz.html"><a href="dataviz.html#general-health-status"><i class="fa fa-check"></i><b>3.9</b> General Health Status</a><ul>
+<li class="chapter" data-level="3.9.1" data-path="dataviz.html"><a href="dataviz.html#bar-chart-for-categorical-data"><i class="fa fa-check"></i><b>3.9.1</b> Bar Chart for Categorical Data</a></li>
+<li class="chapter" data-level="3.9.2" data-path="dataviz.html"><a href="dataviz.html#working-with-tables"><i class="fa fa-check"></i><b>3.9.2</b> Working with Tables</a></li>
+<li class="chapter" data-level="3.9.3" data-path="dataviz.html"><a href="dataviz.html#bmi-by-general-health-status"><i class="fa fa-check"></i><b>3.9.3</b> BMI by General Health Status</a></li>
+<li class="chapter" data-level="3.9.4" data-path="dataviz.html"><a href="dataviz.html#bmi-by-gender-and-general-health-status"><i class="fa fa-check"></i><b>3.9.4</b> BMI by Gender and General Health Status</a></li>
+</ul></li>
+<li class="chapter" data-level="3.10" data-path="dataviz.html"><a href="dataviz.html#conclusions"><i class="fa fa-check"></i><b>3.10</b> Conclusions</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="data-structures-and-types-of-variables.html"><a href="data-structures-and-types-of-variables.html"><i class="fa fa-check"></i><b>4</b> Data Structures and Types of Variables</a><ul>
+<li class="chapter" data-level="4.1" data-path="data-structures-and-types-of-variables.html"><a href="data-structures-and-types-of-variables.html#data-require-structure-and-context"><i class="fa fa-check"></i><b>4.1</b> Data require structure and context</a></li>
+<li class="chapter" data-level="4.2" data-path="data-structures-and-types-of-variables.html"><a href="data-structures-and-types-of-variables.html#createnh_adults"><i class="fa fa-check"></i><b>4.2</b> A New NHANES Adult Sample</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="data-structures-and-types-of-variables.html"><a href="data-structures-and-types-of-variables.html#summarizing-the-datas-structure"><i class="fa fa-check"></i><b>4.2.1</b> Summarizing the Data’s Structure</a></li>
+<li class="chapter" data-level="4.2.2" data-path="data-structures-and-types-of-variables.html"><a href="data-structures-and-types-of-variables.html#what-are-the-variables"><i class="fa fa-check"></i><b>4.2.2</b> What are the variables?</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="data-structures-and-types-of-variables.html"><a href="data-structures-and-types-of-variables.html#types-of-variables"><i class="fa fa-check"></i><b>4.3</b> Types of Variables</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="data-structures-and-types-of-variables.html"><a href="data-structures-and-types-of-variables.html#quantitative-variables"><i class="fa fa-check"></i><b>4.3.1</b> Quantitative Variables</a></li>
+<li class="chapter" data-level="4.3.2" data-path="data-structures-and-types-of-variables.html"><a href="data-structures-and-types-of-variables.html#qualitative-categorical-variables"><i class="fa fa-check"></i><b>4.3.2</b> Qualitative (Categorical) Variables</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="summarizing-quantities.html"><a href="summarizing-quantities.html"><i class="fa fa-check"></i><b>5</b> Summarizing Quantitative Variables</a><ul>
+<li class="chapter" data-level="5.1" data-path="summarizing-quantities.html"><a href="summarizing-quantities.html#the-summary-function-for-quantitative-data"><i class="fa fa-check"></i><b>5.1</b> The <code>summary</code> function for Quantitative data</a></li>
+<li class="chapter" data-level="5.2" data-path="summarizing-quantities.html"><a href="summarizing-quantities.html#measuring-the-center-of-a-distribution"><i class="fa fa-check"></i><b>5.2</b> Measuring the Center of a Distribution</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="summarizing-quantities.html"><a href="summarizing-quantities.html#the-mean-and-the-median"><i class="fa fa-check"></i><b>5.2.1</b> The Mean and The Median</a></li>
+<li class="chapter" data-level="5.2.2" data-path="summarizing-quantities.html"><a href="summarizing-quantities.html#dealing-with-missingness"><i class="fa fa-check"></i><b>5.2.2</b> Dealing with Missingness</a></li>
+<li class="chapter" data-level="5.2.3" data-path="summarizing-quantities.html"><a href="summarizing-quantities.html#the-mode-of-a-quantitative-variable"><i class="fa fa-check"></i><b>5.2.3</b> The Mode of a Quantitative Variable</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="summarizing-quantities.html"><a href="summarizing-quantities.html#measuring-the-spread-of-a-distribution"><i class="fa fa-check"></i><b>5.3</b> Measuring the Spread of a Distribution</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="summarizing-quantities.html"><a href="summarizing-quantities.html#rangeandiqr"><i class="fa fa-check"></i><b>5.3.1</b> The Range and the Interquartile Range (IQR)</a></li>
+<li class="chapter" data-level="5.3.2" data-path="summarizing-quantities.html"><a href="summarizing-quantities.html#the-variance-and-the-standard-deviation"><i class="fa fa-check"></i><b>5.3.2</b> The Variance and the Standard Deviation</a></li>
+<li class="chapter" data-level="5.3.3" data-path="summarizing-quantities.html"><a href="summarizing-quantities.html#obtaining-the-variance-and-standard-deviation-in-r"><i class="fa fa-check"></i><b>5.3.3</b> Obtaining the Variance and Standard Deviation in R</a></li>
+<li class="chapter" data-level="5.3.4" data-path="summarizing-quantities.html"><a href="summarizing-quantities.html#defining-the-variance-and-standard-deviation"><i class="fa fa-check"></i><b>5.3.4</b> Defining the Variance and Standard Deviation</a></li>
+<li class="chapter" data-level="5.3.5" data-path="summarizing-quantities.html"><a href="summarizing-quantities.html#empirical-rule-interpretation-of-the-standard-deviation"><i class="fa fa-check"></i><b>5.3.5</b> Empirical Rule Interpretation of the Standard Deviation</a></li>
+<li class="chapter" data-level="5.3.6" data-path="summarizing-quantities.html"><a href="summarizing-quantities.html#chebyshevs-inequality-one-interpretation-of-the-standard-deviation"><i class="fa fa-check"></i><b>5.3.6</b> Chebyshev’s Inequality: One Interpretation of the Standard Deviation</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="summarizing-quantities.html"><a href="summarizing-quantities.html#measuring-the-shape-of-a-distribution"><i class="fa fa-check"></i><b>5.4</b> Measuring the Shape of a Distribution</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="summarizing-quantities.html"><a href="summarizing-quantities.html#multimodal-vs.-unimodal-distributions"><i class="fa fa-check"></i><b>5.4.1</b> Multimodal vs. Unimodal distributions</a></li>
+<li class="chapter" data-level="5.4.2" data-path="summarizing-quantities.html"><a href="summarizing-quantities.html#skew"><i class="fa fa-check"></i><b>5.4.2</b> Skew</a></li>
+<li class="chapter" data-level="5.4.3" data-path="summarizing-quantities.html"><a href="summarizing-quantities.html#kurtosis"><i class="fa fa-check"></i><b>5.4.3</b> Kurtosis</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="summarizing-quantities.html"><a href="summarizing-quantities.html#more-detailed-numerical-summaries-for-quantitative-variables"><i class="fa fa-check"></i><b>5.5</b> More Detailed Numerical Summaries for Quantitative Variables</a><ul>
+<li class="chapter" data-level="5.5.1" data-path="summarizing-quantities.html"><a href="summarizing-quantities.html#favstats-in-the-mosaic-package"><i class="fa fa-check"></i><b>5.5.1</b> <code>favstats</code> in the <code>mosaic</code> package</a></li>
+<li class="chapter" data-level="5.5.2" data-path="summarizing-quantities.html"><a href="summarizing-quantities.html#describe-in-the-psych-package"><i class="fa fa-check"></i><b>5.5.2</b> <code>describe</code> in the <code>psych</code> package</a></li>
+<li class="chapter" data-level="5.5.3" data-path="summarizing-quantities.html"><a href="summarizing-quantities.html#describe-in-the-hmisc-package"><i class="fa fa-check"></i><b>5.5.3</b> <code>describe</code> in the <code>Hmisc</code> package</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="summarizing-categorical-variables.html"><a href="summarizing-categorical-variables.html"><i class="fa fa-check"></i><b>6</b> Summarizing Categorical Variables</a><ul>
+<li class="chapter" data-level="6.1" data-path="summarizing-categorical-variables.html"><a href="summarizing-categorical-variables.html#the-summary-function-for-categorical-data"><i class="fa fa-check"></i><b>6.1</b> The <code>summary</code> function for Categorical data</a></li>
+<li class="chapter" data-level="6.2" data-path="summarizing-categorical-variables.html"><a href="summarizing-categorical-variables.html#tables-to-describe-one-categorical-variable"><i class="fa fa-check"></i><b>6.2</b> Tables to describe One Categorical Variable</a></li>
+<li class="chapter" data-level="6.3" data-path="summarizing-categorical-variables.html"><a href="summarizing-categorical-variables.html#the-mode-of-a-categorical-variable"><i class="fa fa-check"></i><b>6.3</b> The Mode of a Categorical Variable</a></li>
+<li class="chapter" data-level="6.4" data-path="summarizing-categorical-variables.html"><a href="summarizing-categorical-variables.html#describe-in-the-hmisc-package-1"><i class="fa fa-check"></i><b>6.4</b> <code>describe</code> in the <code>Hmisc</code> package</a></li>
+<li class="chapter" data-level="6.5" data-path="summarizing-categorical-variables.html"><a href="summarizing-categorical-variables.html#cross-tabulations"><i class="fa fa-check"></i><b>6.5</b> Cross-Tabulations</a><ul>
+<li class="chapter" data-level="6.5.1" data-path="summarizing-categorical-variables.html"><a href="summarizing-categorical-variables.html#cross-classifying-three-categorical-variables"><i class="fa fa-check"></i><b>6.5.1</b> Cross-Classifying Three Categorical Variables</a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="summarizing-categorical-variables.html"><a href="summarizing-categorical-variables.html#constructing-tables-well"><i class="fa fa-check"></i><b>6.6</b> Constructing Tables Well</a><ul>
+<li class="chapter" data-level="6.6.1" data-path="summarizing-categorical-variables.html"><a href="summarizing-categorical-variables.html#alabama-first"><i class="fa fa-check"></i><b>6.6.1</b> Alabama First!</a></li>
+<li class="chapter" data-level="6.6.2" data-path="summarizing-categorical-variables.html"><a href="summarizing-categorical-variables.html#order-rows-and-columns-sensibly"><i class="fa fa-check"></i><b>6.6.2</b> Order rows and columns sensibly</a></li>
+<li class="chapter" data-level="6.6.3" data-path="summarizing-categorical-variables.html"><a href="summarizing-categorical-variables.html#round---a-lot"><i class="fa fa-check"></i><b>6.6.3</b> Round - a lot!</a></li>
+<li class="chapter" data-level="6.6.4" data-path="summarizing-categorical-variables.html"><a href="summarizing-categorical-variables.html#all-is-different-and-important"><i class="fa fa-check"></i><b>6.6.4</b> ALL is different and important</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="NYFS-Study.html"><a href="NYFS-Study.html"><i class="fa fa-check"></i><b>7</b> The National Youth Fitness Survey (<code>nyfs1</code>)</a><ul>
+<li class="chapter" data-level="7.1" data-path="NYFS-Study.html"><a href="NYFS-Study.html#looking-over-the-data-set"><i class="fa fa-check"></i><b>7.1</b> Looking over the Data Set</a><ul>
+<li class="chapter" data-level="7.1.1" data-path="NYFS-Study.html"><a href="NYFS-Study.html#subject.id"><i class="fa fa-check"></i><b>7.1.1</b> subject.id</a></li>
+<li class="chapter" data-level="7.1.2" data-path="NYFS-Study.html"><a href="NYFS-Study.html#sex"><i class="fa fa-check"></i><b>7.1.2</b> sex</a></li>
+<li class="chapter" data-level="7.1.3" data-path="NYFS-Study.html"><a href="NYFS-Study.html#age.exam"><i class="fa fa-check"></i><b>7.1.3</b> age.exam</a></li>
+<li class="chapter" data-level="7.1.4" data-path="NYFS-Study.html"><a href="NYFS-Study.html#bmi"><i class="fa fa-check"></i><b>7.1.4</b> bmi</a></li>
+<li class="chapter" data-level="7.1.5" data-path="NYFS-Study.html"><a href="NYFS-Study.html#bmi.cat"><i class="fa fa-check"></i><b>7.1.5</b> bmi.cat</a></li>
+<li class="chapter" data-level="7.1.6" data-path="NYFS-Study.html"><a href="NYFS-Study.html#waist.circ"><i class="fa fa-check"></i><b>7.1.6</b> waist.circ</a></li>
+<li class="chapter" data-level="7.1.7" data-path="NYFS-Study.html"><a href="NYFS-Study.html#triceps.skinfold"><i class="fa fa-check"></i><b>7.1.7</b> triceps.skinfold</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="NYFS-Study.html"><a href="NYFS-Study.html#summarizing-the-data-set"><i class="fa fa-check"></i><b>7.2</b> Summarizing the Data Set</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="NYFS-Study.html"><a href="NYFS-Study.html#the-five-number-summary-quantiles-and-iqr"><i class="fa fa-check"></i><b>7.2.1</b> The Five Number Summary, Quantiles and IQR</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="NYFS-Study.html"><a href="NYFS-Study.html#additional-summaries-from-favstats"><i class="fa fa-check"></i><b>7.3</b> Additional Summaries from <code>favstats</code></a></li>
+<li class="chapter" data-level="7.4" data-path="NYFS-Study.html"><a href="NYFS-Study.html#the-histogram"><i class="fa fa-check"></i><b>7.4</b> The Histogram</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="NYFS-Study.html"><a href="NYFS-Study.html#freedman-diaconis-rule-to-select-bin-width"><i class="fa fa-check"></i><b>7.4.1</b> Freedman-Diaconis Rule to select bin width</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="NYFS-Study.html"><a href="NYFS-Study.html#a-note-on-colors"><i class="fa fa-check"></i><b>7.5</b> A Note on Colors</a></li>
+<li class="chapter" data-level="7.6" data-path="NYFS-Study.html"><a href="NYFS-Study.html#the-stem-and-leaf"><i class="fa fa-check"></i><b>7.6</b> The Stem-and-Leaf</a><ul>
+<li class="chapter" data-level="7.6.1" data-path="NYFS-Study.html"><a href="NYFS-Study.html#a-fancier-stem-and-leaf-display"><i class="fa fa-check"></i><b>7.6.1</b> A Fancier Stem-and-Leaf Display</a></li>
+</ul></li>
+<li class="chapter" data-level="7.7" data-path="NYFS-Study.html"><a href="NYFS-Study.html#the-dot-plot-to-display-a-distribution"><i class="fa fa-check"></i><b>7.7</b> The Dot Plot to display a distribution</a></li>
+<li class="chapter" data-level="7.8" data-path="NYFS-Study.html"><a href="NYFS-Study.html#the-frequency-polygon"><i class="fa fa-check"></i><b>7.8</b> The Frequency Polygon</a></li>
+<li class="chapter" data-level="7.9" data-path="NYFS-Study.html"><a href="NYFS-Study.html#plotting-the-probability-density-function"><i class="fa fa-check"></i><b>7.9</b> Plotting the Probability Density Function</a></li>
+<li class="chapter" data-level="7.10" data-path="NYFS-Study.html"><a href="NYFS-Study.html#the-boxplot"><i class="fa fa-check"></i><b>7.10</b> The Boxplot</a><ul>
+<li class="chapter" data-level="7.10.1" data-path="NYFS-Study.html"><a href="NYFS-Study.html#drawing-a-boxplot-for-one-variable-in-ggplot2"><i class="fa fa-check"></i><b>7.10.1</b> Drawing a Boxplot for One Variable in <code>ggplot2</code></a></li>
+</ul></li>
+<li class="chapter" data-level="7.11" data-path="NYFS-Study.html"><a href="NYFS-Study.html#a-simple-comparison-boxplot"><i class="fa fa-check"></i><b>7.11</b> A Simple Comparison Boxplot</a></li>
+<li class="chapter" data-level="7.12" data-path="NYFS-Study.html"><a href="NYFS-Study.html#using-describe-in-the-psych-library"><i class="fa fa-check"></i><b>7.12</b> Using <code>describe</code> in the <code>psych</code> library</a><ul>
+<li class="chapter" data-level="7.12.1" data-path="NYFS-Study.html"><a href="NYFS-Study.html#the-trimmed-mean"><i class="fa fa-check"></i><b>7.12.1</b> The Trimmed Mean</a></li>
+<li class="chapter" data-level="7.12.2" data-path="NYFS-Study.html"><a href="NYFS-Study.html#the-median-absolute-deviation"><i class="fa fa-check"></i><b>7.12.2</b> The Median Absolute Deviation</a></li>
+</ul></li>
+<li class="chapter" data-level="7.13" data-path="NYFS-Study.html"><a href="NYFS-Study.html#assessing-skew"><i class="fa fa-check"></i><b>7.13</b> Assessing Skew</a><ul>
+<li class="chapter" data-level="7.13.1" data-path="NYFS-Study.html"><a href="NYFS-Study.html#non-parametric-skew-via-skew1"><i class="fa fa-check"></i><b>7.13.1</b> Non-parametric Skew via skew<sub>1</sub></a></li>
+</ul></li>
+<li class="chapter" data-level="7.14" data-path="NYFS-Study.html"><a href="NYFS-Study.html#assessing-kurtosis-heavy-tailedness"><i class="fa fa-check"></i><b>7.14</b> Assessing Kurtosis (Heavy-Tailedness)</a><ul>
+<li class="chapter" data-level="7.14.1" data-path="NYFS-Study.html"><a href="NYFS-Study.html#the-standard-error-of-the-sample-mean"><i class="fa fa-check"></i><b>7.14.1</b> The Standard Error of the Sample Mean</a></li>
+</ul></li>
+<li class="chapter" data-level="7.15" data-path="NYFS-Study.html"><a href="NYFS-Study.html#the-describe-function-in-the-hmisc-library"><i class="fa fa-check"></i><b>7.15</b> The <code>describe</code> function in the <code>Hmisc</code> library</a></li>
+<li class="chapter" data-level="7.16" data-path="NYFS-Study.html"><a href="NYFS-Study.html#xda-from-github-for-numerical-summaries-for-exploratory-data-analysis"><i class="fa fa-check"></i><b>7.16</b> <code>xda</code> from GitHub for numerical summaries for exploratory data analysis</a></li>
+<li class="chapter" data-level="7.17" data-path="NYFS-Study.html"><a href="NYFS-Study.html#what-summaries-to-report"><i class="fa fa-check"></i><b>7.17</b> What Summaries to Report</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="assessing-normality.html"><a href="assessing-normality.html"><i class="fa fa-check"></i><b>8</b> Assessing Normality</a><ul>
+<li class="chapter" data-level="8.1" data-path="assessing-normality.html"><a href="assessing-normality.html#empirical-rule-interpretation-of-the-standard-deviation-1"><i class="fa fa-check"></i><b>8.1</b> Empirical Rule Interpretation of the Standard Deviation</a></li>
+<li class="chapter" data-level="8.2" data-path="assessing-normality.html"><a href="assessing-normality.html#describing-outlying-values-with-z-scores"><i class="fa fa-check"></i><b>8.2</b> Describing Outlying Values with Z Scores</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="assessing-normality.html"><a href="assessing-normality.html#fences-and-z-scores"><i class="fa fa-check"></i><b>8.2.1</b> Fences and Z Scores</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="assessing-normality.html"><a href="assessing-normality.html#comparing-a-histogram-to-a-normal-distribution"><i class="fa fa-check"></i><b>8.3</b> Comparing a Histogram to a Normal Distribution</a><ul>
+<li class="chapter" data-level="8.3.1" data-path="assessing-normality.html"><a href="assessing-normality.html#histogram-of-bmi-with-normal-model-with-counts"><i class="fa fa-check"></i><b>8.3.1</b> Histogram of BMI with Normal model (with Counts)</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="assessing-normality.html"><a href="assessing-normality.html#does-a-normal-model-work-well-for-the-ages"><i class="fa fa-check"></i><b>8.4</b> Does a Normal model work well for the Ages?</a></li>
+<li class="chapter" data-level="8.5" data-path="assessing-normality.html"><a href="assessing-normality.html#the-normal-q-q-plot"><i class="fa fa-check"></i><b>8.5</b> The Normal Q-Q Plot</a></li>
+<li class="chapter" data-level="8.6" data-path="assessing-normality.html"><a href="assessing-normality.html#interpreting-the-normal-q-q-plot"><i class="fa fa-check"></i><b>8.6</b> Interpreting the Normal Q-Q Plot</a><ul>
+<li class="chapter" data-level="8.6.1" data-path="assessing-normality.html"><a href="assessing-normality.html#data-from-a-normal-distribution-shows-up-as-a-straight-line-in-a-normal-q-q-plot"><i class="fa fa-check"></i><b>8.6.1</b> Data from a Normal distribution shows up as a straight line in a Normal Q-Q plot</a></li>
+<li class="chapter" data-level="8.6.2" data-path="assessing-normality.html"><a href="assessing-normality.html#skew-is-indicated-by-monotonic-curves-in-the-normal-q-q-plot"><i class="fa fa-check"></i><b>8.6.2</b> Skew is indicated by monotonic curves in the Normal Q-Q plot</a></li>
+<li class="chapter" data-level="8.6.3" data-path="assessing-normality.html"><a href="assessing-normality.html#direction-of-skew"><i class="fa fa-check"></i><b>8.6.3</b> Direction of Skew</a></li>
+<li class="chapter" data-level="8.6.4" data-path="assessing-normality.html"><a href="assessing-normality.html#outlier-proneness-is-indicated-by-s-shaped-curves-in-a-normal-q-q-plot"><i class="fa fa-check"></i><b>8.6.4</b> Outlier-proneness is indicated by “s-shaped” curves in a Normal Q-Q plot</a></li>
+</ul></li>
+<li class="chapter" data-level="8.7" data-path="assessing-normality.html"><a href="assessing-normality.html#does-a-normal-distribution-fit-the-nyfs1-data-well"><i class="fa fa-check"></i><b>8.7</b> Does a Normal Distribution Fit the <code>nyfs1</code> Data Well?</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="using-transformations-to-normalize-distributions.html"><a href="using-transformations-to-normalize-distributions.html"><i class="fa fa-check"></i><b>9</b> Using Transformations to “Normalize” Distributions</a><ul>
+<li class="chapter" data-level="9.1" data-path="using-transformations-to-normalize-distributions.html"><a href="using-transformations-to-normalize-distributions.html#the-ladder-of-power-transformations"><i class="fa fa-check"></i><b>9.1</b> The Ladder of Power Transformations</a></li>
+<li class="chapter" data-level="9.2" data-path="using-transformations-to-normalize-distributions.html"><a href="using-transformations-to-normalize-distributions.html#using-the-ladder"><i class="fa fa-check"></i><b>9.2</b> Using the Ladder</a></li>
+<li class="chapter" data-level="9.3" data-path="using-transformations-to-normalize-distributions.html"><a href="using-transformations-to-normalize-distributions.html#can-we-transform-waist-circumferences"><i class="fa fa-check"></i><b>9.3</b> Can we transform Waist Circumferences?</a><ul>
+<li class="chapter" data-level="9.3.1" data-path="using-transformations-to-normalize-distributions.html"><a href="using-transformations-to-normalize-distributions.html#the-square"><i class="fa fa-check"></i><b>9.3.1</b> The Square</a></li>
+<li class="chapter" data-level="9.3.2" data-path="using-transformations-to-normalize-distributions.html"><a href="using-transformations-to-normalize-distributions.html#the-square-root"><i class="fa fa-check"></i><b>9.3.2</b> The Square Root</a></li>
+<li class="chapter" data-level="9.3.3" data-path="using-transformations-to-normalize-distributions.html"><a href="using-transformations-to-normalize-distributions.html#the-logarithm"><i class="fa fa-check"></i><b>9.3.3</b> The Logarithm</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="using-transformations-to-normalize-distributions.html"><a href="using-transformations-to-normalize-distributions.html#a-simulated-data-set-with-left-skew"><i class="fa fa-check"></i><b>9.4</b> A Simulated Data Set with Left Skew</a></li>
+<li class="chapter" data-level="9.5" data-path="using-transformations-to-normalize-distributions.html"><a href="using-transformations-to-normalize-distributions.html#transformation-example-2-ladder-of-potential-transformations-in-frequency-polygons"><i class="fa fa-check"></i><b>9.5</b> Transformation Example 2: Ladder of Potential Transformations in Frequency Polygons</a></li>
+<li class="chapter" data-level="9.6" data-path="using-transformations-to-normalize-distributions.html"><a href="using-transformations-to-normalize-distributions.html#transformation-example-2-ladder-with-normal-q-q-plots"><i class="fa fa-check"></i><b>9.6</b> Transformation Example 2 Ladder with Normal Q-Q Plots</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="summarizing-data-within-subgroups.html"><a href="summarizing-data-within-subgroups.html"><i class="fa fa-check"></i><b>10</b> Summarizing data within subgroups</a><ul>
+<li class="chapter" data-level="10.1" data-path="summarizing-data-within-subgroups.html"><a href="summarizing-data-within-subgroups.html#using-dplyr-and-summarise-to-build-a-tibble-of-summary-information"><i class="fa fa-check"></i><b>10.1</b> Using dplyr and summarise to build a tibble of summary information</a></li>
+<li class="chapter" data-level="10.2" data-path="summarizing-data-within-subgroups.html"><a href="summarizing-data-within-subgroups.html#using-the-by-function-to-summarize-groups-numerically"><i class="fa fa-check"></i><b>10.2</b> Using the by function to summarize groups numerically</a></li>
+<li class="chapter" data-level="10.3" data-path="summarizing-data-within-subgroups.html"><a href="summarizing-data-within-subgroups.html#boxplots-to-relate-an-outcome-to-a-categorical-predictor"><i class="fa fa-check"></i><b>10.3</b> Boxplots to Relate an Outcome to a Categorical Predictor</a><ul>
+<li class="chapter" data-level="10.3.1" data-path="summarizing-data-within-subgroups.html"><a href="summarizing-data-within-subgroups.html#augmenting-the-boxplot-with-the-sample-mean"><i class="fa fa-check"></i><b>10.3.1</b> Augmenting the Boxplot with the Sample Mean</a></li>
+<li class="chapter" data-level="10.3.2" data-path="summarizing-data-within-subgroups.html"><a href="summarizing-data-within-subgroups.html#adding-notches-to-a-boxplot"><i class="fa fa-check"></i><b>10.3.2</b> Adding Notches to a Boxplot</a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="summarizing-data-within-subgroups.html"><a href="summarizing-data-within-subgroups.html#using-multiple-histograms-to-make-comparisons"><i class="fa fa-check"></i><b>10.4</b> Using Multiple Histograms to Make Comparisons</a></li>
+<li class="chapter" data-level="10.5" data-path="summarizing-data-within-subgroups.html"><a href="summarizing-data-within-subgroups.html#using-multiple-density-plots-to-make-comparisons"><i class="fa fa-check"></i><b>10.5</b> Using Multiple Density Plots to Make Comparisons</a></li>
+<li class="chapter" data-level="10.6" data-path="summarizing-data-within-subgroups.html"><a href="summarizing-data-within-subgroups.html#building-a-violin-plot"><i class="fa fa-check"></i><b>10.6</b> Building a Violin Plot</a></li>
+<li class="chapter" data-level="10.7" data-path="summarizing-data-within-subgroups.html"><a href="summarizing-data-within-subgroups.html#a-ridgeline-plot"><i class="fa fa-check"></i><b>10.7</b> A Ridgeline Plot</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="straight-line-models-and-correlation.html"><a href="straight-line-models-and-correlation.html"><i class="fa fa-check"></i><b>11</b> Straight Line Models and Correlation</a><ul>
+<li class="chapter" data-level="11.1" data-path="straight-line-models-and-correlation.html"><a href="straight-line-models-and-correlation.html#assessing-a-scatterplot"><i class="fa fa-check"></i><b>11.1</b> Assessing A Scatterplot</a><ul>
+<li class="chapter" data-level="11.1.1" data-path="straight-line-models-and-correlation.html"><a href="straight-line-models-and-correlation.html#highlighting-an-unusual-point"><i class="fa fa-check"></i><b>11.1.1</b> Highlighting an unusual point</a></li>
+<li class="chapter" data-level="11.1.2" data-path="straight-line-models-and-correlation.html"><a href="straight-line-models-and-correlation.html#adding-a-scatterplot-smooth-using-loess"><i class="fa fa-check"></i><b>11.1.2</b> Adding a Scatterplot Smooth using loess</a></li>
+<li class="chapter" data-level="11.1.3" data-path="straight-line-models-and-correlation.html"><a href="straight-line-models-and-correlation.html#adding-a-straight-line-to-the-scatterplot"><i class="fa fa-check"></i><b>11.1.3</b> Adding a Straight Line to the Scatterplot</a></li>
+<li class="chapter" data-level="11.1.4" data-path="straight-line-models-and-correlation.html"><a href="straight-line-models-and-correlation.html#what-line-does-r-fit"><i class="fa fa-check"></i><b>11.1.4</b> What Line Does R Fit?</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="straight-line-models-and-correlation.html"><a href="straight-line-models-and-correlation.html#correlation-coefficients"><i class="fa fa-check"></i><b>11.2</b> Correlation Coefficients</a></li>
+<li class="chapter" data-level="11.3" data-path="straight-line-models-and-correlation.html"><a href="straight-line-models-and-correlation.html#the-pearson-correlation-coefficient"><i class="fa fa-check"></i><b>11.3</b> The Pearson Correlation Coefficient</a></li>
+<li class="chapter" data-level="11.4" data-path="straight-line-models-and-correlation.html"><a href="straight-line-models-and-correlation.html#a-simulated-example"><i class="fa fa-check"></i><b>11.4</b> A simulated example</a><ul>
+<li class="chapter" data-level="11.4.1" data-path="straight-line-models-and-correlation.html"><a href="straight-line-models-and-correlation.html#data-set-alex"><i class="fa fa-check"></i><b>11.4.1</b> Data Set Alex</a></li>
+<li class="chapter" data-level="11.4.2" data-path="straight-line-models-and-correlation.html"><a href="straight-line-models-and-correlation.html#data-set-bonnie"><i class="fa fa-check"></i><b>11.4.2</b> Data Set Bonnie</a></li>
+<li class="chapter" data-level="11.4.3" data-path="straight-line-models-and-correlation.html"><a href="straight-line-models-and-correlation.html#correlations-for-all-six-data-sets-in-the-correx1-example"><i class="fa fa-check"></i><b>11.4.3</b> Correlations for All Six Data Sets in the Correx1 Example</a></li>
+<li class="chapter" data-level="11.4.4" data-path="straight-line-models-and-correlation.html"><a href="straight-line-models-and-correlation.html#data-set-colin"><i class="fa fa-check"></i><b>11.4.4</b> Data Set Colin</a></li>
+<li class="chapter" data-level="11.4.5" data-path="straight-line-models-and-correlation.html"><a href="straight-line-models-and-correlation.html#draw-the-picture"><i class="fa fa-check"></i><b>11.4.5</b> Draw the Picture!</a></li>
+</ul></li>
+<li class="chapter" data-level="11.5" data-path="straight-line-models-and-correlation.html"><a href="straight-line-models-and-correlation.html#estimating-correlation-from-scatterplots"><i class="fa fa-check"></i><b>11.5</b> Estimating Correlation from Scatterplots</a></li>
+<li class="chapter" data-level="11.6" data-path="straight-line-models-and-correlation.html"><a href="straight-line-models-and-correlation.html#the-spearman-rank-correlation"><i class="fa fa-check"></i><b>11.6</b> The Spearman Rank Correlation</a><ul>
+<li class="chapter" data-level="11.6.1" data-path="straight-line-models-and-correlation.html"><a href="straight-line-models-and-correlation.html#spearman-formula"><i class="fa fa-check"></i><b>11.6.1</b> Spearman Formula</a></li>
+<li class="chapter" data-level="11.6.2" data-path="straight-line-models-and-correlation.html"><a href="straight-line-models-and-correlation.html#comparing-pearson-and-spearman-correlations"><i class="fa fa-check"></i><b>11.6.2</b> Comparing Pearson and Spearman Correlations</a></li>
+<li class="chapter" data-level="11.6.3" data-path="straight-line-models-and-correlation.html"><a href="straight-line-models-and-correlation.html#spearman-vs.-pearson-example-1"><i class="fa fa-check"></i><b>11.6.3</b> Spearman vs. Pearson Example 1</a></li>
+<li class="chapter" data-level="11.6.4" data-path="straight-line-models-and-correlation.html"><a href="straight-line-models-and-correlation.html#spearman-vs.-pearson-example-2"><i class="fa fa-check"></i><b>11.6.4</b> Spearman vs. Pearson Example 2</a></li>
+<li class="chapter" data-level="11.6.5" data-path="straight-line-models-and-correlation.html"><a href="straight-line-models-and-correlation.html#spearman-vs.-pearson-example-3"><i class="fa fa-check"></i><b>11.6.5</b> Spearman vs. Pearson Example 3</a></li>
+<li class="chapter" data-level="11.6.6" data-path="straight-line-models-and-correlation.html"><a href="straight-line-models-and-correlation.html#spearman-vs.-pearson-example-4"><i class="fa fa-check"></i><b>11.6.6</b> Spearman vs. Pearson Example 4</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="studying-crab-claws-crabs.html"><a href="studying-crab-claws-crabs.html"><i class="fa fa-check"></i><b>12</b> Studying Crab Claws (<code>crabs</code>)</a><ul>
+<li class="chapter" data-level="12.1" data-path="studying-crab-claws-crabs.html"><a href="studying-crab-claws-crabs.html#association-of-size-and-force"><i class="fa fa-check"></i><b>12.1</b> Association of Size and Force</a></li>
+<li class="chapter" data-level="12.2" data-path="studying-crab-claws-crabs.html"><a href="studying-crab-claws-crabs.html#loess_smooth"><i class="fa fa-check"></i><b>12.2</b> The <code>loess</code> smooth</a><ul>
+<li class="chapter" data-level="12.2.1" data-path="studying-crab-claws-crabs.html"><a href="studying-crab-claws-crabs.html#smoothing-within-species"><i class="fa fa-check"></i><b>12.2.1</b> Smoothing within Species</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="studying-crab-claws-crabs.html"><a href="studying-crab-claws-crabs.html#fitting-a-linear-regression-model"><i class="fa fa-check"></i><b>12.3</b> Fitting a Linear Regression Model</a></li>
+<li class="chapter" data-level="12.4" data-path="studying-crab-claws-crabs.html"><a href="studying-crab-claws-crabs.html#is-a-linear-model-appropriate"><i class="fa fa-check"></i><b>12.4</b> Is a Linear Model Appropriate?</a><ul>
+<li class="chapter" data-level="12.4.1" data-path="studying-crab-claws-crabs.html"><a href="studying-crab-claws-crabs.html#the-log-log-model"><i class="fa fa-check"></i><b>12.4.1</b> The log-log model</a></li>
+<li class="chapter" data-level="12.4.2" data-path="studying-crab-claws-crabs.html"><a href="studying-crab-claws-crabs.html#how-does-this-compare-to-our-original-linear-model"><i class="fa fa-check"></i><b>12.4.2</b> How does this compare to our original linear model?</a></li>
+</ul></li>
+<li class="chapter" data-level="12.5" data-path="studying-crab-claws-crabs.html"><a href="studying-crab-claws-crabs.html#making-predictions-with-a-model"><i class="fa fa-check"></i><b>12.5</b> Making Predictions with a Model</a><ul>
+<li class="chapter" data-level="12.5.1" data-path="studying-crab-claws-crabs.html"><a href="studying-crab-claws-crabs.html#predictions-after-a-transformation"><i class="fa fa-check"></i><b>12.5.1</b> Predictions After a Transformation</a></li>
+<li class="chapter" data-level="12.5.2" data-path="studying-crab-claws-crabs.html"><a href="studying-crab-claws-crabs.html#comparing-model-predictions"><i class="fa fa-check"></i><b>12.5.2</b> Comparing Model Predictions</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="WCGS-Study.html"><a href="WCGS-Study.html"><i class="fa fa-check"></i><b>13</b> The Western Collaborative Group Study</a><ul>
+<li class="chapter" data-level="13.1" data-path="WCGS-Study.html"><a href="WCGS-Study.html#the-western-collaborative-group-study-wcgs-data-set"><i class="fa fa-check"></i><b>13.1</b> The Western Collaborative Group Study (<code>wcgs</code>) data set</a><ul>
+<li class="chapter" data-level="13.1.1" data-path="WCGS-Study.html"><a href="WCGS-Study.html#structure-of-wcgs"><i class="fa fa-check"></i><b>13.1.1</b> Structure of <code>wcgs</code></a></li>
+<li class="chapter" data-level="13.1.2" data-path="WCGS-Study.html"><a href="WCGS-Study.html#codebook-for-wcgs"><i class="fa fa-check"></i><b>13.1.2</b> Codebook for <code>wcgs</code></a></li>
+<li class="chapter" data-level="13.1.3" data-path="WCGS-Study.html"><a href="WCGS-Study.html#quick-summary"><i class="fa fa-check"></i><b>13.1.3</b> Quick Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="13.2" data-path="WCGS-Study.html"><a href="WCGS-Study.html#are-the-sbps-normally-distributed"><i class="fa fa-check"></i><b>13.2</b> Are the SBPs Normally Distributed?</a></li>
+<li class="chapter" data-level="13.3" data-path="WCGS-Study.html"><a href="WCGS-Study.html#describing-outlying-values-with-z-scores-1"><i class="fa fa-check"></i><b>13.3</b> Describing Outlying Values with Z Scores</a></li>
+<li class="chapter" data-level="13.4" data-path="WCGS-Study.html"><a href="WCGS-Study.html#does-weight-category-relate-to-sbp"><i class="fa fa-check"></i><b>13.4</b> Does Weight Category Relate to SBP?</a></li>
+<li class="chapter" data-level="13.5" data-path="WCGS-Study.html"><a href="WCGS-Study.html#re-leveling-a-factor"><i class="fa fa-check"></i><b>13.5</b> Re-Leveling a Factor</a><ul>
+<li class="chapter" data-level="13.5.1" data-path="WCGS-Study.html"><a href="WCGS-Study.html#sbp-by-weight-category"><i class="fa fa-check"></i><b>13.5.1</b> SBP by Weight Category</a></li>
+</ul></li>
+<li class="chapter" data-level="13.6" data-path="WCGS-Study.html"><a href="WCGS-Study.html#are-weight-and-sbp-linked"><i class="fa fa-check"></i><b>13.6</b> Are Weight and SBP Linked?</a></li>
+<li class="chapter" data-level="13.7" data-path="WCGS-Study.html"><a href="WCGS-Study.html#sbp-and-weight-by-arcus-senilis-groups"><i class="fa fa-check"></i><b>13.7</b> SBP and Weight by Arcus Senilis groups?</a></li>
+<li class="chapter" data-level="13.8" data-path="WCGS-Study.html"><a href="WCGS-Study.html#linear-model-for-sbp-weight-relationship-subjects-without-arcus-senilis"><i class="fa fa-check"></i><b>13.8</b> Linear Model for SBP-Weight Relationship: subjects without Arcus Senilis</a></li>
+<li class="chapter" data-level="13.9" data-path="WCGS-Study.html"><a href="WCGS-Study.html#linear-model-for-sbp-weight-relationship-subjects-with-arcus-senilis"><i class="fa fa-check"></i><b>13.9</b> Linear Model for SBP-Weight Relationship: subjects with Arcus Senilis</a></li>
+<li class="chapter" data-level="13.10" data-path="WCGS-Study.html"><a href="WCGS-Study.html#including-arcus-status-in-the-model"><i class="fa fa-check"></i><b>13.10</b> Including Arcus Status in the model</a></li>
+<li class="chapter" data-level="13.11" data-path="WCGS-Study.html"><a href="WCGS-Study.html#predictions-from-these-linear-models"><i class="fa fa-check"></i><b>13.11</b> Predictions from these Linear Models</a></li>
+<li class="chapter" data-level="13.12" data-path="WCGS-Study.html"><a href="WCGS-Study.html#scatterplots-with-facets-across-a-categorical-variable"><i class="fa fa-check"></i><b>13.12</b> Scatterplots with Facets Across a Categorical Variable</a></li>
+<li class="chapter" data-level="13.13" data-path="WCGS-Study.html"><a href="WCGS-Study.html#scatterplot-and-correlation-matrices"><i class="fa fa-check"></i><b>13.13</b> Scatterplot and Correlation Matrices</a><ul>
+<li class="chapter" data-level="13.13.1" data-path="WCGS-Study.html"><a href="WCGS-Study.html#using-the-car-package"><i class="fa fa-check"></i><b>13.13.1</b> Using the car package</a></li>
+<li class="chapter" data-level="13.13.2" data-path="WCGS-Study.html"><a href="WCGS-Study.html#displaying-a-correlation-matrix"><i class="fa fa-check"></i><b>13.13.2</b> Displaying a Correlation Matrix</a></li>
+<li class="chapter" data-level="13.13.3" data-path="WCGS-Study.html"><a href="WCGS-Study.html#augmented-scatterplot-matrix"><i class="fa fa-check"></i><b>13.13.3</b> Augmented Scatterplot Matrix</a></li>
+<li class="chapter" data-level="13.13.4" data-path="WCGS-Study.html"><a href="WCGS-Study.html#using-the-ggally-package"><i class="fa fa-check"></i><b>13.13.4</b> Using the <code>GGally</code> package</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="part-a-a-few-of-the-key-points.html"><a href="part-a-a-few-of-the-key-points.html"><i class="fa fa-check"></i><b>14</b> Part A: A Few of the Key Points</a><ul>
+<li class="chapter" data-level="14.1" data-path="part-a-a-few-of-the-key-points.html"><a href="part-a-a-few-of-the-key-points.html#key-graphical-descriptive-summaries-for-quantitative-data"><i class="fa fa-check"></i><b>14.1</b> Key Graphical Descriptive Summaries for Quantitative Data</a></li>
+<li class="chapter" data-level="14.2" data-path="part-a-a-few-of-the-key-points.html"><a href="part-a-a-few-of-the-key-points.html#key-numerical-descriptive-summaries-for-quantitative-data"><i class="fa fa-check"></i><b>14.2</b> Key Numerical Descriptive Summaries for Quantitative Data</a></li>
+<li class="chapter" data-level="14.3" data-path="part-a-a-few-of-the-key-points.html"><a href="part-a-a-few-of-the-key-points.html#the-empirical-rule---interpreting-a-standard-deviation"><i class="fa fa-check"></i><b>14.3</b> The Empirical Rule - Interpreting a Standard Deviation</a></li>
+<li class="chapter" data-level="14.4" data-path="part-a-a-few-of-the-key-points.html"><a href="part-a-a-few-of-the-key-points.html#identifying-outliers-using-fences-andor-z-scores"><i class="fa fa-check"></i><b>14.4</b> Identifying “Outliers” Using Fences and/or Z Scores</a></li>
+<li class="chapter" data-level="14.5" data-path="part-a-a-few-of-the-key-points.html"><a href="part-a-a-few-of-the-key-points.html#summarizing-bivariate-associations-scatterplots-and-regression-lines"><i class="fa fa-check"></i><b>14.5</b> Summarizing Bivariate Associations: Scatterplots and Regression Lines</a></li>
+<li class="chapter" data-level="14.6" data-path="part-a-a-few-of-the-key-points.html"><a href="part-a-a-few-of-the-key-points.html#summarizing-bivariate-associations-with-correlations"><i class="fa fa-check"></i><b>14.6</b> Summarizing Bivariate Associations With Correlations</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="this-is-work-in-progress.html"><a href="this-is-work-in-progress.html"><i class="fa fa-check"></i>This is Work in Progress</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Data Science for Biological, Medical and Health Research: Notes for PQHS 431</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="dataviz" class="section level1">
+<h1><span class="header-section-number">Chapter 3</span> Visualizing Data</h1>
+<p>Part A of these Notes is designed to ease your transition into working effectively with data, so that you can better understand it. We’ll start by visualizing some data from the US National Health and Nutrition Examination Survey, or NHANES. We’ll display R code as we go, but we’ll return to all of the key coding ideas involved later in the Notes.</p>
+<div id="the-nhanes-data-collecting-a-sample" class="section level2">
+<h2><span class="header-section-number">3.1</span> The NHANES data: Collecting a Sample</h2>
+<p>To begin, we’ll gather a random sample of 1,000 subjects participating in NHANES, and then identify several variables of interest about those subjects<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>. The motivation for this example came from a Figure in <span class="citation">Baumer, Kaplan, and Horton (<a href="#ref-BaumerKaplanHorton">2017</a>)</span>.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1"><span class="co"># library(NHANES) # already loaded NHANES package/library of functions, data</span></a>
+<a class="sourceLine" id="cb3-2" title="2"></a>
+<a class="sourceLine" id="cb3-3" title="3"><span class="kw">set.seed</span>(<span class="dv">431001</span>) </a>
+<a class="sourceLine" id="cb3-4" title="4"><span class="co"># use set.seed to ensure that we all get the same random sample </span></a>
+<a class="sourceLine" id="cb3-5" title="5"><span class="co"># of 1,000 NHANES subjects in our nh_data collection</span></a>
+<a class="sourceLine" id="cb3-6" title="6"></a>
+<a class="sourceLine" id="cb3-7" title="7">nh_data &lt;-<span class="st"> </span><span class="kw">sample_n</span>(NHANES, <span class="dt">size =</span> <span class="dv">1000</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb3-8" title="8"><span class="st">    </span><span class="kw">select</span>(ID, Gender, Age, Height, Weight, BMI, Pulse, Race1, HealthGen, Diabetes)</a>
+<a class="sourceLine" id="cb3-9" title="9"></a>
+<a class="sourceLine" id="cb3-10" title="10">nh_data</a></code></pre></div>
+<pre><code># A tibble: 1,000 x 10
+      ID Gender   Age Height Weight   BMI Pulse Race1   HealthGen Diabetes
+   &lt;int&gt; &lt;fct&gt;  &lt;int&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;fct&gt;   &lt;fct&gt;     &lt;fct&gt;   
+ 1 69638 female     5   106.   19.3  17      NA White   &lt;NA&gt;      No      
+ 2 70782 male      64   176.   79.4  25.7    78 White   Vgood     No      
+ 3 52408 female    54   162.   67.9  25.9    80 White   Vgood     No      
+ 4 59031 female    15   155.   46.2  19.3    NA White   &lt;NA&gt;      No      
+ 5 64530 male      53   185.  140.   41     100 White   Good      No      
+ 6 71040 male      63   169.   85.1  29.9    70 White   Good      No      
+ 7 55186 female    30   168.   73.3  25.9    76 Mexican Good      No      
+ 8 60211 male       5   103.   14.9  14.1    NA White   &lt;NA&gt;      No      
+ 9 55730 male      66   161.   62.5  24.0    78 Black   Vgood     No      
+10 68229 female    36   170.   88.9  30.8    90 White   Vgood     No      
+# ... with 990 more rows</code></pre>
+<p>We have 1000 rows (observations) and 10 columns (variables) that describe the subjects listed in the rows.</p>
+</div>
+<div id="age-and-height" class="section level2">
+<h2><span class="header-section-number">3.2</span> Age and Height</h2>
+<p>Suppose we want to visualize the relationship of Height and Age in our 1,000 NHANES observations. The best choice is likely to be a scatterplot.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> nh_data, <span class="kw">aes</span>(<span class="dt">x =</span> Age, <span class="dt">y =</span> Height)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb5-2" title="2"><span class="st">    </span><span class="kw">geom_point</span>()</a></code></pre></div>
+<pre><code>Warning: Removed 37 rows containing missing values (geom_point).</code></pre>
+<p><img src="2019-431-book_files/figure-html/nh_data_heightbyage1-fig-1.png" width="672" /></p>
+<p>We note several interesting results here.</p>
+<ol style="list-style-type: decimal">
+<li>As a warning, R tells us that it has “Removed 25 rows containing missing values (geom_point).” Only 963 subjects plotted here, because the remaining 37 people have missing (NA) values for either Height, Age or both.</li>
+<li>Unsurprisingly, the measured Heights of subjects grow from Age 0 to Age 20 or so, and we see that a typical Height increases rapidly across these Ages. The middle of the distribution at later Ages is pretty consistent at at a Height somewhere between 150 and 175. The units aren’t specified, but we expect they must be centimeters. The Ages are clearly reported in Years.</li>
+<li>No Age is reported over 80, and it appears that there is a large cluster of Ages at 80. This may be due to a requirement that Ages 80 and above be reported at 80 so as to help mask the identity of those individuals.<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></li>
+</ol>
+<p>As in this case, we’re going to build most of our visualizations using tools from the <code>ggplot2</code> package, which is part of the <code>tidyverse</code> series of packages. You’ll see similar coding structures throughout this Chapter, most of which are covered as well in Chapter 3 of <span class="citation">Grolemund and Wickham (<a href="#ref-R4DS">2019</a>)</span>.</p>
+</div>
+<div id="subset-of-subjects-with-known-age-and-height" class="section level2">
+<h2><span class="header-section-number">3.3</span> Subset of Subjects with Known Age and Height</h2>
+<p>Before we move on, let’s manipulate the data set a bit, to focus on only those subjects who have complete data on both Age and Height. This will help us avoid that warning message.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1">nh_dat2 &lt;-<span class="st"> </span>nh_data <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb7-2" title="2"><span class="st">    </span><span class="kw">filter</span>(<span class="kw">complete.cases</span>(Age, Height))</a>
+<a class="sourceLine" id="cb7-3" title="3"></a>
+<a class="sourceLine" id="cb7-4" title="4"><span class="kw">summary</span>(nh_dat2)</a></code></pre></div>
+<pre><code>       ID           Gender         Age            Height     
+ Min.   :51624   female:484   Min.   : 2.00   Min.   : 85.0  
+ 1st Qu.:57034   male  :479   1st Qu.:19.00   1st Qu.:156.2  
+ Median :62056                Median :37.00   Median :165.0  
+ Mean   :61967                Mean   :38.29   Mean   :162.3  
+ 3rd Qu.:67269                3rd Qu.:56.00   3rd Qu.:174.5  
+ Max.   :71875                Max.   :80.00   Max.   :195.9  
+                                                             
+     Weight            BMI            Pulse            Race1    
+ Min.   :  9.60   Min.   :12.90   Min.   : 48.0   Black   :105  
+ 1st Qu.: 58.75   1st Qu.:21.93   1st Qu.: 66.0   Hispanic: 55  
+ Median : 73.80   Median :26.30   Median : 74.0   Mexican :108  
+ Mean   : 73.63   Mean   :26.95   Mean   : 74.2   White   :619  
+ 3rd Qu.: 90.05   3rd Qu.:31.10   3rd Qu.: 82.0   Other   : 76  
+ Max.   :170.50   Max.   :59.20   Max.   :128.0                 
+                                  NA&#39;s   :102                   
+     HealthGen   Diabetes  
+ Excellent: 84   No  :893  
+ Vgood    :257   Yes : 69  
+ Good     :316   NA&#39;s:  1  
+ Fair     : 96             
+ Poor     : 24             
+ NA&#39;s     :186             
+                           </code></pre>
+<p>Note that the units and explanations for these variables are contained in the NHANES help file, available via ?NHANES in the Console of R Studio.</p>
+</div>
+<div id="age-height-and-gender" class="section level2">
+<h2><span class="header-section-number">3.4</span> Age-Height and Gender?</h2>
+<p>Let’s add Gender to the plot using color, and also adjust the y axis label to incorporate the units of measurement.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> nh_dat2, <span class="kw">aes</span>(<span class="dt">x =</span> Age, <span class="dt">y =</span> Height, <span class="dt">color =</span> Gender)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb9-2" title="2"><span class="st">    </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb9-3" title="3"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Height-Age Relationship in NHANES sample&quot;</span>, </a>
+<a class="sourceLine" id="cb9-4" title="4">         <span class="dt">y =</span> <span class="st">&quot;Height in cm.&quot;</span>)</a></code></pre></div>
+<p><img src="2019-431-book_files/figure-html/nh_data_heightbyageandgender1-fig-1.png" width="672" /></p>
+<div id="can-we-show-the-female-and-male-relationships-in-separate-panels" class="section level3">
+<h3><span class="header-section-number">3.4.1</span> Can we show the Female and Male relationships in separate panels?</h3>
+<p>Sure.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> nh_dat2, <span class="kw">aes</span>(<span class="dt">x =</span> Age, <span class="dt">y =</span> Height, <span class="dt">color =</span> Gender)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb10-2" title="2"><span class="st">    </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb10-3" title="3"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Height-Age Relationship in NHANES sample&quot;</span>, </a>
+<a class="sourceLine" id="cb10-4" title="4">         <span class="dt">y =</span> <span class="st">&quot;Height in cm.&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb10-5" title="5"><span class="st">    </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>Gender)</a></code></pre></div>
+<p><img src="2019-431-book_files/figure-html/nh_data_heightbyageandgender2-fig-1.png" width="672" /></p>
+</div>
+<div id="can-we-add-a-smooth-curve-to-show-the-relationship-in-each-plot" class="section level3">
+<h3><span class="header-section-number">3.4.2</span> Can we add a smooth curve to show the relationship in each plot?</h3>
+<p>Yep, and let’s change the theme of the graph to remove the gray background, too.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> nh_dat2, <span class="kw">aes</span>(<span class="dt">x =</span> Age, <span class="dt">y =</span> Height, <span class="dt">color =</span> Gender)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb11-2" title="2"><span class="st">    </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb11-3" title="3"><span class="st">    </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;loess&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb11-4" title="4"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Height-Age Relationship in NHANES sample&quot;</span>, </a>
+<a class="sourceLine" id="cb11-5" title="5">         <span class="dt">y =</span> <span class="st">&quot;Height in cm.&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb11-6" title="6"><span class="st">    </span><span class="kw">theme_bw</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb11-7" title="7"><span class="st">    </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>Gender)</a></code></pre></div>
+<p><img src="2019-431-book_files/figure-html/nh_data_heightbyageandgender3-fig-1.png" width="672" /></p>
+</div>
+<div id="what-if-we-want-to-assume-straight-line-relationships" class="section level3">
+<h3><span class="header-section-number">3.4.3</span> What if we want to assume straight line relationships?</h3>
+<p>We could look at a linear model in the plot. Does this make sense here?</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> nh_dat2, <span class="kw">aes</span>(<span class="dt">x =</span> Age, <span class="dt">y =</span> Height, <span class="dt">color =</span> Gender)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb12-2" title="2"><span class="st">    </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb12-3" title="3"><span class="st">    </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb12-4" title="4"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Height-Age Relationship in NHANES sample&quot;</span>, </a>
+<a class="sourceLine" id="cb12-5" title="5">         <span class="dt">y =</span> <span class="st">&quot;Height in cm.&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb12-6" title="6"><span class="st">    </span><span class="kw">theme_bw</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb12-7" title="7"><span class="st">    </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>Gender)</a></code></pre></div>
+<p><img src="2019-431-book_files/figure-html/nh_data_heightbyageandgender4-fig-1.png" width="672" /></p>
+</div>
+</div>
+<div id="a-subset-ages-21-79" class="section level2">
+<h2><span class="header-section-number">3.5</span> A Subset: Ages 21-79</h2>
+<p>Suppose we wanted to look at a subset of our sample - those observations (subjects) whose Age is at least 21 and at most 79. We’ll create that sample below, and also subset the variables to include nine of particular interest, and remove any observations with any missingness on <em>any</em> of the nine variables we’re including here.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" title="1">nh_data_<span class="dv">2179</span> &lt;-<span class="st"> </span>nh_data <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb13-2" title="2"><span class="st">    </span><span class="kw">filter</span>(Age <span class="op">&gt;</span><span class="st"> </span><span class="dv">20</span> <span class="op">&amp;</span><span class="st"> </span>Age <span class="op">&lt;</span><span class="st"> </span><span class="dv">80</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb13-3" title="3"><span class="st">    </span><span class="kw">select</span>(ID, Gender, Age, Height, Weight, BMI, Pulse, Race1, HealthGen, Diabetes) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb13-4" title="4"><span class="st">    </span>na.omit</a>
+<a class="sourceLine" id="cb13-5" title="5"></a>
+<a class="sourceLine" id="cb13-6" title="6">nh_data_<span class="dv">2179</span></a></code></pre></div>
+<pre><code># A tibble: 603 x 10
+      ID Gender   Age Height Weight   BMI Pulse Race1   HealthGen Diabetes
+   &lt;int&gt; &lt;fct&gt;  &lt;int&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;fct&gt;   &lt;fct&gt;     &lt;fct&gt;   
+ 1 70782 male      64   176.   79.4  25.7    78 White   Vgood     No      
+ 2 52408 female    54   162.   67.9  25.9    80 White   Vgood     No      
+ 3 64530 male      53   185.  140.   41     100 White   Good      No      
+ 4 71040 male      63   169.   85.1  29.9    70 White   Good      No      
+ 5 55186 female    30   168.   73.3  25.9    76 Mexican Good      No      
+ 6 55730 male      66   161.   62.5  24.0    78 Black   Vgood     No      
+ 7 68229 female    36   170.   88.9  30.8    90 White   Vgood     No      
+ 8 63762 male      23   180.   92.2  28.3    66 White   Vgood     Yes     
+ 9 66290 female    63   162.   61.3  23.4    88 White   Fair      No      
+10 66984 male      75   174.  132.   43.7    84 White   Vgood     No      
+# ... with 593 more rows</code></pre>
+</div>
+<div id="distribution-of-heights" class="section level2">
+<h2><span class="header-section-number">3.6</span> Distribution of Heights</h2>
+<p>What is the distribution of height in this new sample?</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> nh_data_<span class="dv">2179</span>, <span class="kw">aes</span>(<span class="dt">x =</span> Height)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb15-2" title="2"><span class="st">    </span><span class="kw">geom_histogram</span>() </a></code></pre></div>
+<pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p><img src="2019-431-book_files/figure-html/nh_data_2179_heighthistogram-fig-1.png" width="672" /></p>
+<p>We can do several things to clean this up.</p>
+<ol style="list-style-type: decimal">
+<li>We’ll change the color of the lines for each bar of the histogram.</li>
+<li>We’ll change the fill inside each bar to make them stand out a bit more.</li>
+<li>We’ll add a title and relabel the horizontal (x) axis to include the units of measurement.</li>
+<li>We’ll avoid the warning by selecting a number of bins (we’ll use 25 here) into which we’ll group the heights before drawing the histogram.</li>
+</ol>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> nh_data_<span class="dv">2179</span>, <span class="kw">aes</span>(<span class="dt">x =</span> Height)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb17-2" title="2"><span class="st">    </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">25</span>, <span class="dt">col =</span> <span class="st">&quot;yellow&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;blue&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb17-3" title="3"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Height of NHANES subjects ages 21-79&quot;</span>,</a>
+<a class="sourceLine" id="cb17-4" title="4">         <span class="dt">x =</span> <span class="st">&quot;Height in cm.&quot;</span>)</a></code></pre></div>
+<p><img src="2019-431-book_files/figure-html/nh_data_2179_heighthistogram2-fig-1.png" width="672" /></p>
+<div id="changing-a-histograms-fill-and-color" class="section level3">
+<h3><span class="header-section-number">3.6.1</span> Changing a Histogram’s Fill and Color</h3>
+<p>The CWRU color guide (<a href="https://case.edu/umc/our-brand/visual-guidelines/" class="uri">https://case.edu/umc/our-brand/visual-guidelines/</a>) lists the HTML color schemes for CWRU blue and CWRU gray. Let’s match that color scheme.</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" title="1">cwru.blue &lt;-<span class="st"> &#39;#0a304e&#39;</span></a>
+<a class="sourceLine" id="cb18-2" title="2">cwru.gray &lt;-<span class="st"> &#39;#626262&#39;</span></a>
+<a class="sourceLine" id="cb18-3" title="3"></a>
+<a class="sourceLine" id="cb18-4" title="4"><span class="kw">ggplot</span>(<span class="dt">data =</span> nh_data_<span class="dv">2179</span>, <span class="kw">aes</span>(<span class="dt">x =</span> Height)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb18-5" title="5"><span class="st">    </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="dv">2</span>, <span class="dt">col =</span> cwru.gray, <span class="dt">fill =</span> cwru.blue) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb18-6" title="6"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Height of NHANES subjects ages 21-79&quot;</span>,</a>
+<a class="sourceLine" id="cb18-7" title="7">         <span class="dt">x =</span> <span class="st">&quot;Height in cm.&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb18-8" title="8"><span class="st">    </span><span class="kw">theme_bw</span>()</a></code></pre></div>
+<p><img src="2019-431-book_files/figure-html/nh_data_2179_histogramwithCWRUscheme-fig-1.png" width="672" /></p>
+<p>Note the other changes to the graph above.</p>
+<ol style="list-style-type: decimal">
+<li>We changed the theme to replace the gray background.</li>
+<li>We changed the bins for the histogram, to gather observations into groups of 2 cm. each.</li>
+</ol>
+</div>
+</div>
+<div id="height-and-gender" class="section level2">
+<h2><span class="header-section-number">3.7</span> Height and Gender</h2>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> nh_data_<span class="dv">2179</span>, <span class="kw">aes</span>(<span class="dt">x =</span> Gender, <span class="dt">y =</span> Height, <span class="dt">color =</span> Gender)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb19-2" title="2"><span class="st">    </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb19-3" title="3"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Height by Gender for NHANES subjects ages 21-79&quot;</span>,</a>
+<a class="sourceLine" id="cb19-4" title="4">         <span class="dt">y =</span> <span class="st">&quot;Height in cm.&quot;</span>)</a></code></pre></div>
+<p><img src="2019-431-book_files/figure-html/nh_data_2179_heightbygender1-fig-1.png" width="672" /></p>
+<p>This plot isn’t so useful. We can improve things a little by jittering the points horizontally, so that the overlap is reduced.</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> nh_data_<span class="dv">2179</span>, <span class="kw">aes</span>(<span class="dt">x =</span> Gender, <span class="dt">y =</span> Height, <span class="dt">color =</span> Gender)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb20-2" title="2"><span class="st">    </span><span class="kw">geom_jitter</span>(<span class="dt">width =</span> <span class="fl">0.2</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb20-3" title="3"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Height by Gender (jittered) for NHANES subjects ages 21-79&quot;</span>,</a>
+<a class="sourceLine" id="cb20-4" title="4">         <span class="dt">y =</span> <span class="st">&quot;Height in cm.&quot;</span>)</a></code></pre></div>
+<p><img src="2019-431-book_files/figure-html/nh_data_2179_heightbygender2-fig-1.png" width="672" /></p>
+<p>Perhaps it might be better to summarise the distribution in a different way. We might consider a boxplot of the data.</p>
+<div id="a-boxplot-of-height-by-gender" class="section level3">
+<h3><span class="header-section-number">3.7.1</span> A Boxplot of Height by Gender</h3>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> nh_data_<span class="dv">2179</span>, <span class="kw">aes</span>(<span class="dt">x =</span> Gender, <span class="dt">y =</span> Height, <span class="dt">fill =</span> Gender)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb21-2" title="2"><span class="st">    </span><span class="kw">geom_boxplot</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb21-3" title="3"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Boxplot of Height by Gender for NHANES subjects ages 21-79&quot;</span>,</a>
+<a class="sourceLine" id="cb21-4" title="4">         <span class="dt">y =</span> <span class="st">&quot;Height in cm.&quot;</span>)</a></code></pre></div>
+<p><img src="2019-431-book_files/figure-html/nh_data_2179_heightbygenderbox-fig-1.png" width="672" /></p>
+<p>Or perhaps we’d like to see a pair of histograms?</p>
+</div>
+<div id="histograms-of-height-by-gender" class="section level3">
+<h3><span class="header-section-number">3.7.2</span> Histograms of Height by Gender</h3>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> nh_data_<span class="dv">2179</span>, <span class="kw">aes</span>(<span class="dt">x =</span> Height, <span class="dt">fill =</span> Gender)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb22-2" title="2"><span class="st">    </span><span class="kw">geom_histogram</span>(<span class="dt">color =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">bins =</span> <span class="dv">20</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb22-3" title="3"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Histogram of Height by Gender for NHANES subjects ages 21-79&quot;</span>,</a>
+<a class="sourceLine" id="cb22-4" title="4">         <span class="dt">x =</span> <span class="st">&quot;Height in cm.&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb22-5" title="5"><span class="st">    </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>Gender)</a></code></pre></div>
+<p><img src="2019-431-book_files/figure-html/nh_data_2179_heightbygenderhist-fig-1.png" width="672" /></p>
+<p>Can we redraw these histograms so that they are a little more comparable, and to get rid of the unnecessary legend?</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb23-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> nh_data_<span class="dv">2179</span>, <span class="kw">aes</span>(<span class="dt">x =</span> Height, <span class="dt">fill =</span> Gender)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb23-2" title="2"><span class="st">    </span><span class="kw">geom_histogram</span>(<span class="dt">color =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">bins =</span> <span class="dv">20</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb23-3" title="3"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Histogram of Height by Gender for NHANES subjects ages 21-79 (Revised)&quot;</span>,</a>
+<a class="sourceLine" id="cb23-4" title="4">         <span class="dt">x =</span> <span class="st">&quot;Height in cm.&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb23-5" title="5"><span class="st">    </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb23-6" title="6"><span class="st">    </span><span class="kw">facet_grid</span>(Gender <span class="op">~</span><span class="st"> </span>.)</a></code></pre></div>
+<p><img src="2019-431-book_files/figure-html/nh_data_2179_heightbygenderhist2-fig-1.png" width="672" /></p>
+</div>
+</div>
+<div id="a-look-at-body-mass-index" class="section level2">
+<h2><span class="header-section-number">3.8</span> A Look at Body-Mass Index</h2>
+<p>Let’s look at a different outcome, the <em>body-mass index</em>, or BMI. The definition of BMI for adult subjects (which is expressed in units of kg/m<sup>2</sup>) is:</p>
+<p><span class="math display">\[
+\mbox{Body Mass Index} = \frac{\mbox{weight in kg}}{(\mbox{height in meters})^2} = 703 \times \frac{\mbox{weight in pounds}}{(\mbox{height in inches})^2}
+\]</span></p>
+<blockquote>
+<p>[BMI is essentially] … a measure of a person’s <em>thinness</em> or <em>thickness</em>… BMI was designed for use as a simple means of classifying average sedentary (physically inactive) populations, with an average body composition. For these individuals, the current value recommendations are as follow: a BMI from 18.5 up to 25 may indicate optimal weight, a BMI lower than 18.5 suggests the person is underweight, a number from 25 up to 30 may indicate the person is overweight, and a number from 30 upwards suggests the person is obese.</p>
+<p>Wikipedia, <a href="https://en.wikipedia.org/wiki/Body_mass_index" class="uri">https://en.wikipedia.org/wiki/Body_mass_index</a></p>
+</blockquote>
+<p>Here’s a histogram, again with CWRU colors, for the BMI data.</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> nh_data_<span class="dv">2179</span>, <span class="kw">aes</span>(<span class="dt">x =</span> BMI)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb24-2" title="2"><span class="st">    </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="dv">1</span>, <span class="dt">fill =</span> cwru.blue, <span class="dt">col =</span> cwru.gray) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb24-3" title="3"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Histogram of BMI: NHANES subjects ages 21-79&quot;</span>,</a>
+<a class="sourceLine" id="cb24-4" title="4">         <span class="dt">x =</span> <span class="st">&quot;Body-mass index&quot;</span>)</a></code></pre></div>
+<p><img src="2019-431-book_files/figure-html/nh_data_2179_bmihistbin1-fig-1.png" width="672" /></p>
+<p>Note how different this picture looks if instead we bin up groups of 5 kg/m<sup>2</sup> at a time. Which is the more useful representation will depend a lot on what questions you’re trying to answer.</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb25-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> nh_data_<span class="dv">2179</span>, <span class="kw">aes</span>(<span class="dt">x =</span> BMI)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb25-2" title="2"><span class="st">    </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="dv">5</span>, <span class="dt">fill =</span> cwru.blue, <span class="dt">col =</span> cwru.gray) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb25-3" title="3"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Histogram of BMI: NHANES subjects ages 21-79&quot;</span>,</a>
+<a class="sourceLine" id="cb25-4" title="4">         <span class="dt">x =</span> <span class="st">&quot;Body-mass index&quot;</span>)</a></code></pre></div>
+<p><img src="2019-431-book_files/figure-html/nh_data_2179_bmihistbin5-fig-1.png" width="672" /></p>
+<div id="bmi-by-gender" class="section level3">
+<h3><span class="header-section-number">3.8.1</span> BMI by Gender</h3>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> nh_data_<span class="dv">2179</span>, <span class="kw">aes</span>(<span class="dt">x =</span> BMI, <span class="dt">fill =</span> Gender)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb26-2" title="2"><span class="st">    </span><span class="kw">geom_histogram</span>(<span class="dt">color =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">bins =</span> <span class="dv">20</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb26-3" title="3"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Histogram of BMI by Gender for NHANES subjects ages 21-79&quot;</span>,</a>
+<a class="sourceLine" id="cb26-4" title="4">         <span class="dt">x =</span> <span class="st">&quot;Body-mass index&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb26-5" title="5"><span class="st">    </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb26-6" title="6"><span class="st">    </span><span class="kw">facet_grid</span>(Gender <span class="op">~</span><span class="st"> </span>.)</a></code></pre></div>
+<p><img src="2019-431-book_files/figure-html/nh_data_2179_bmibygenderhist-fig-1.png" width="672" /></p>
+<p>As an accompanying numerical summary, we might ask how many people fall into each of these Gender categories, and what is their “average” BMI.</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb27-1" title="1">nh_data_<span class="dv">2179</span> <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb27-2" title="2"><span class="st">    </span><span class="kw">group_by</span>(Gender) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb27-3" title="3"><span class="st">    </span><span class="kw">summarise</span>(<span class="dt">count =</span> <span class="kw">n</span>(), <span class="kw">mean</span>(BMI), <span class="kw">median</span>(BMI)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb27-4" title="4"><span class="st">    </span>knitr<span class="op">::</span><span class="kw">kable</span>() </a></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Gender</th>
+<th align="right">count</th>
+<th align="right">mean(BMI)</th>
+<th align="right">median(BMI)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">female</td>
+<td align="right">299</td>
+<td align="right">29.68779</td>
+<td align="right">28.24</td>
+</tr>
+<tr class="even">
+<td align="left">male</td>
+<td align="right">304</td>
+<td align="right">29.13628</td>
+<td align="right">28.40</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="bmi-and-diabetes" class="section level3">
+<h3><span class="header-section-number">3.8.2</span> BMI and Diabetes</h3>
+<p>We can split up our histogram into groups based on whether the subjects have been told they have diabetes.</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb28-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> nh_data_<span class="dv">2179</span>, <span class="kw">aes</span>(<span class="dt">x =</span> BMI, <span class="dt">fill =</span> Diabetes)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb28-2" title="2"><span class="st">    </span><span class="kw">geom_histogram</span>(<span class="dt">color =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">bins =</span> <span class="dv">20</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb28-3" title="3"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;BMI by Diabetes Status for NHANES ages 21-79&quot;</span>,</a>
+<a class="sourceLine" id="cb28-4" title="4">         <span class="dt">x =</span> <span class="st">&quot;Body-mass index&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb28-5" title="5"><span class="st">    </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>) </a></code></pre></div>
+<p><img src="2019-431-book_files/figure-html/nh_data_2179_bmibydiabetes-fig-1.png" width="672" /></p>
+<p>How many people fall into each of these Diabetes categories, and what is their “average” BMI?</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb29-1" title="1">nh_data_<span class="dv">2179</span> <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb29-2" title="2"><span class="st">    </span><span class="kw">group_by</span>(Diabetes) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb29-3" title="3"><span class="st">    </span><span class="kw">summarise</span>(<span class="dt">count =</span> <span class="kw">n</span>(), <span class="kw">mean</span>(BMI), <span class="kw">median</span>(BMI)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb29-4" title="4"><span class="st">    </span>knitr<span class="op">::</span><span class="kw">kable</span>() </a></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Diabetes</th>
+<th align="right">count</th>
+<th align="right">mean(BMI)</th>
+<th align="right">median(BMI)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">No</td>
+<td align="right">547</td>
+<td align="right">29.18106</td>
+<td align="right">27.900</td>
+</tr>
+<tr class="even">
+<td align="left">Yes</td>
+<td align="right">56</td>
+<td align="right">31.64357</td>
+<td align="right">31.845</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="bmi-and-race" class="section level3">
+<h3><span class="header-section-number">3.8.3</span> BMI and Race</h3>
+<p>We can compare the distribution of BMI across Race groups, as well.</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb30-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> nh_data_<span class="dv">2179</span>, <span class="kw">aes</span>(<span class="dt">x =</span> Race1, <span class="dt">y =</span> BMI, <span class="dt">fill =</span> Race1)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb30-2" title="2"><span class="st">    </span><span class="kw">geom_boxplot</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb30-3" title="3"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;BMI by Race for NHANES ages 21-79&quot;</span>,</a>
+<a class="sourceLine" id="cb30-4" title="4">         <span class="dt">x =</span> <span class="st">&quot;Body-mass index&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb30-5" title="5"><span class="st">    </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>) </a></code></pre></div>
+<p><img src="2019-431-book_files/figure-html/nh_data_2179_bmibyrace-fig-1.png" width="672" /></p>
+<p>How many people fall into each of these Race1 categories, and what is their “average” BMI?</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb31-1" title="1"><span class="kw">library</span>(tidyverse)</a>
+<a class="sourceLine" id="cb31-2" title="2">nh_data_<span class="dv">2179</span> <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb31-3" title="3"><span class="st">    </span><span class="kw">group_by</span>(Race1) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb31-4" title="4"><span class="st">    </span><span class="kw">summarise</span>(<span class="dt">count =</span> <span class="kw">n</span>(), <span class="kw">mean</span>(BMI), <span class="kw">median</span>(BMI)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb31-5" title="5"><span class="st">    </span>knitr<span class="op">::</span><span class="kw">kable</span>() </a></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Race1</th>
+<th align="right">count</th>
+<th align="right">mean(BMI)</th>
+<th align="right">median(BMI)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Black</td>
+<td align="right">58</td>
+<td align="right">30.72741</td>
+<td align="right">30.475</td>
+</tr>
+<tr class="even">
+<td align="left">Hispanic</td>
+<td align="right">33</td>
+<td align="right">30.43455</td>
+<td align="right">29.360</td>
+</tr>
+<tr class="odd">
+<td align="left">Mexican</td>
+<td align="right">56</td>
+<td align="right">30.05929</td>
+<td align="right">28.475</td>
+</tr>
+<tr class="even">
+<td align="left">White</td>
+<td align="right">407</td>
+<td align="right">29.31472</td>
+<td align="right">28.240</td>
+</tr>
+<tr class="odd">
+<td align="left">Other</td>
+<td align="right">49</td>
+<td align="right">27.20694</td>
+<td align="right">26.560</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="bmi-and-pulse-rate" class="section level3">
+<h3><span class="header-section-number">3.8.4</span> BMI and Pulse Rate</h3>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb32-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> nh_data_<span class="dv">2179</span>, <span class="kw">aes</span>(<span class="dt">x =</span> BMI, <span class="dt">y =</span> Pulse)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb32-2" title="2"><span class="st">    </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb32-3" title="3"><span class="st">    </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;loess&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb32-4" title="4"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;BMI vs. Pulse rate for NHANES subjects, ages 21-79&quot;</span>)</a></code></pre></div>
+<p><img src="2019-431-book_files/figure-html/nh_data_2179_bmivspulse-fig-1.png" width="672" /></p>
+</div>
+<div id="diabetes-vs.-no-diabetes" class="section level3">
+<h3><span class="header-section-number">3.8.5</span> Diabetes vs. No Diabetes</h3>
+<p>Could we see whether subjects who have been told they have diabetes show different BMI-pulse rate patterns than the subjects who haven’t?</p>
+<ul>
+<li>Let’s try doing this by changing the shape <em>and</em> the color of the points based on diabetes status.</li>
+</ul>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb33-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> nh_data_<span class="dv">2179</span>, </a>
+<a class="sourceLine" id="cb33-2" title="2">       <span class="kw">aes</span>(<span class="dt">x =</span> BMI, <span class="dt">y =</span> Pulse, </a>
+<a class="sourceLine" id="cb33-3" title="3">           <span class="dt">color =</span> Diabetes, <span class="dt">shape =</span> Diabetes)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb33-4" title="4"><span class="st">    </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb33-5" title="5"><span class="st">    </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;loess&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb33-6" title="6"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;BMI vs. Pulse rate for NHANES subjects, ages 21-79&quot;</span>)</a></code></pre></div>
+<p><img src="2019-431-book_files/figure-html/nh_data_2179_bmivspulsewithdm-fig-1.png" width="672" /></p>
+<p>This plot might be easier to interpret if we faceted by Diabetes status, as well.</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb34-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> nh_data_<span class="dv">2179</span>, </a>
+<a class="sourceLine" id="cb34-2" title="2">       <span class="kw">aes</span>(<span class="dt">x =</span> BMI, <span class="dt">y =</span> Pulse, </a>
+<a class="sourceLine" id="cb34-3" title="3">           <span class="dt">color =</span> Diabetes, <span class="dt">shape =</span> Diabetes)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb34-4" title="4"><span class="st">    </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb34-5" title="5"><span class="st">    </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;loess&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb34-6" title="6"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;BMI vs. Pulse rate for NHANES subjects, ages 21-79&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb34-7" title="7"><span class="st">    </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>Diabetes)</a></code></pre></div>
+<p><img src="2019-431-book_files/figure-html/nh_data_2179_bmivspulsewithdmfacets-fig-1.png" width="672" /></p>
+</div>
+</div>
+<div id="general-health-status" class="section level2">
+<h2><span class="header-section-number">3.9</span> General Health Status</h2>
+<p>Here’s a Table of the General Health Status results. This is a self-reported rating of each subject’s health on a five point scale (Excellent, Very Good, Good, Fair, Poor.)</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb35-1" title="1">nh_data_<span class="dv">2179</span> <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb35-2" title="2"><span class="st">    </span><span class="kw">select</span>(HealthGen) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb35-3" title="3"><span class="st">    </span><span class="kw">table</span>()</a></code></pre></div>
+<pre><code>.
+Excellent     Vgood      Good      Fair      Poor 
+       64       196       238        83        22 </code></pre>
+<p>The HealthGen data are categorical, which means that summarizing them with averages isn’t as appealing as looking at percentages, proportions and rates.</p>
+<div id="bar-chart-for-categorical-data" class="section level3">
+<h3><span class="header-section-number">3.9.1</span> Bar Chart for Categorical Data</h3>
+<p>Usually, a <strong>bar chart</strong> is the best choice for a graphing a variable made up of categories.</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb37-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> nh_data_<span class="dv">2179</span>, <span class="kw">aes</span>(<span class="dt">x =</span> HealthGen)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb37-2" title="2"><span class="st">    </span><span class="kw">geom_bar</span>()</a></code></pre></div>
+<p><img src="2019-431-book_files/figure-html/HealthGengraph1-fig-1.png" width="672" /></p>
+<p>There are lots of things we can do to make this plot fancier.</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb38-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> nh_data_<span class="dv">2179</span>, <span class="kw">aes</span>(<span class="dt">x =</span> HealthGen, <span class="dt">fill =</span> HealthGen)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb38-2" title="2"><span class="st">    </span><span class="kw">geom_bar</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb38-3" title="3"><span class="st">    </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb38-4" title="4"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Self-Reported Health Status&quot;</span>,</a>
+<a class="sourceLine" id="cb38-5" title="5">         <span class="dt">y =</span> <span class="st">&quot;Number of NHANES subjects&quot;</span>,</a>
+<a class="sourceLine" id="cb38-6" title="6">         <span class="dt">title =</span> <span class="st">&quot;Self-Reported Health Status in NHANES subjects ages 21-79&quot;</span>)</a></code></pre></div>
+<p><img src="2019-431-book_files/figure-html/HealthGengraph2-fig-1.png" width="672" /></p>
+<p>Or, we can really go crazy…</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb39-1" title="1">nh_data_<span class="dv">2179</span> <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb39-2" title="2"><span class="st">    </span><span class="kw">count</span>(HealthGen) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb39-3" title="3"><span class="st">    </span><span class="kw">ungroup</span>() <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb39-4" title="4"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">pct =</span> <span class="kw">round</span>(<span class="kw">prop.table</span>(n) <span class="op">*</span><span class="st"> </span><span class="dv">100</span>, <span class="dv">1</span>)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb39-5" title="5"><span class="st">    </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> HealthGen, <span class="dt">y =</span> pct, <span class="dt">fill =</span> HealthGen)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb39-6" title="6"><span class="st">    </span><span class="kw">geom_bar</span>(<span class="dt">stat =</span> <span class="st">&quot;identity&quot;</span>, <span class="dt">position =</span> <span class="st">&quot;dodge&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb39-7" title="7"><span class="st">    </span><span class="kw">scale_fill_viridis</span>(<span class="dt">discrete =</span> <span class="ot">TRUE</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb39-8" title="8"><span class="st">    </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb39-9" title="9"><span class="st">    </span><span class="kw">geom_text</span>(<span class="kw">aes</span>(<span class="dt">y =</span> pct <span class="op">+</span><span class="st"> </span><span class="dv">1</span>,    <span class="co"># nudge above top of bar</span></a>
+<a class="sourceLine" id="cb39-10" title="10">                  <span class="dt">label =</span> <span class="kw">paste0</span>(pct, <span class="st">&#39;%&#39;</span>)),  <span class="co"># prettify</span></a>
+<a class="sourceLine" id="cb39-11" title="11">              <span class="dt">position =</span> <span class="kw">position_dodge</span>(<span class="dt">width =</span> <span class="fl">.9</span>), </a>
+<a class="sourceLine" id="cb39-12" title="12">              <span class="dt">size =</span> <span class="dv">4</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb39-13" title="13"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Self-Reported Health Status&quot;</span>,</a>
+<a class="sourceLine" id="cb39-14" title="14">         <span class="dt">y =</span> <span class="st">&quot;Percentage of NHANES subjects&quot;</span>,</a>
+<a class="sourceLine" id="cb39-15" title="15">         <span class="dt">title =</span> <span class="st">&quot;Self-Reported Health Status in NHANES subjects ages 21-79&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb39-16" title="16"><span class="st">    </span><span class="kw">theme_bw</span>()</a></code></pre></div>
+<p><img src="2019-431-book_files/figure-html/HealthGengraph3-fig-1.png" width="672" /></p>
+</div>
+<div id="working-with-tables" class="section level3">
+<h3><span class="header-section-number">3.9.2</span> Working with Tables</h3>
+<p>We can add a marginal total, and compare subjects by Gender, as follows…</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb40-1" title="1">nh_data_<span class="dv">2179</span> <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb40-2" title="2"><span class="st">    </span><span class="kw">select</span>(Gender, HealthGen) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb40-3" title="3"><span class="st">    </span><span class="kw">table</span>() <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb40-4" title="4"><span class="st">    </span><span class="kw">addmargins</span>() </a></code></pre></div>
+<pre><code>        HealthGen
+Gender   Excellent Vgood Good Fair Poor Sum
+  female        27    96  121   41   14 299
+  male          37   100  117   42    8 304
+  Sum           64   196  238   83   22 603</code></pre>
+<p>If we like, we can make this look a little more polished with the <code>knitr::kable</code> function…</p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb42-1" title="1">nh_data_<span class="dv">2179</span> <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb42-2" title="2"><span class="st">    </span><span class="kw">select</span>(Gender, HealthGen) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb42-3" title="3"><span class="st">    </span><span class="kw">table</span>() <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb42-4" title="4"><span class="st">    </span><span class="kw">addmargins</span>() <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb42-5" title="5"><span class="st">    </span>knitr<span class="op">::</span><span class="kw">kable</span>()</a></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th align="right">Excellent</th>
+<th align="right">Vgood</th>
+<th align="right">Good</th>
+<th align="right">Fair</th>
+<th align="right">Poor</th>
+<th align="right">Sum</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>female</td>
+<td align="right">27</td>
+<td align="right">96</td>
+<td align="right">121</td>
+<td align="right">41</td>
+<td align="right">14</td>
+<td align="right">299</td>
+</tr>
+<tr class="even">
+<td>male</td>
+<td align="right">37</td>
+<td align="right">100</td>
+<td align="right">117</td>
+<td align="right">42</td>
+<td align="right">8</td>
+<td align="right">304</td>
+</tr>
+<tr class="odd">
+<td>Sum</td>
+<td align="right">64</td>
+<td align="right">196</td>
+<td align="right">238</td>
+<td align="right">83</td>
+<td align="right">22</td>
+<td align="right">603</td>
+</tr>
+</tbody>
+</table>
+<p>If we want the proportions of patients within each Gender that fall in each HealthGen category (the row percentages), we can get them, too.</p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb43-1" title="1">nh_data_<span class="dv">2179</span> <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb43-2" title="2"><span class="st">    </span><span class="kw">select</span>(Gender, HealthGen) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb43-3" title="3"><span class="st">    </span><span class="kw">table</span>() <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb43-4" title="4"><span class="st">    </span><span class="kw">prop.table</span>(.,<span class="dv">1</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb43-5" title="5"><span class="st">    </span>knitr<span class="op">::</span><span class="kw">kable</span>()</a></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th align="right">Excellent</th>
+<th align="right">Vgood</th>
+<th align="right">Good</th>
+<th align="right">Fair</th>
+<th align="right">Poor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>female</td>
+<td align="right">0.0903010</td>
+<td align="right">0.3210702</td>
+<td align="right">0.4046823</td>
+<td align="right">0.1371237</td>
+<td align="right">0.0468227</td>
+</tr>
+<tr class="even">
+<td>male</td>
+<td align="right">0.1217105</td>
+<td align="right">0.3289474</td>
+<td align="right">0.3848684</td>
+<td align="right">0.1381579</td>
+<td align="right">0.0263158</td>
+</tr>
+</tbody>
+</table>
+<p>To make this a little easier to use, we might consider rounding.</p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb44-1" title="1">nh_data_<span class="dv">2179</span> <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb44-2" title="2"><span class="st">    </span><span class="kw">select</span>(Gender, HealthGen) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb44-3" title="3"><span class="st">    </span><span class="kw">table</span>() <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb44-4" title="4"><span class="st">    </span><span class="kw">prop.table</span>(.,<span class="dv">1</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb44-5" title="5"><span class="st">    </span><span class="kw">round</span>(.,<span class="dv">2</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb44-6" title="6"><span class="st">    </span>knitr<span class="op">::</span><span class="kw">kable</span>()</a></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th align="right">Excellent</th>
+<th align="right">Vgood</th>
+<th align="right">Good</th>
+<th align="right">Fair</th>
+<th align="right">Poor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>female</td>
+<td align="right">0.09</td>
+<td align="right">0.32</td>
+<td align="right">0.40</td>
+<td align="right">0.14</td>
+<td align="right">0.05</td>
+</tr>
+<tr class="even">
+<td>male</td>
+<td align="right">0.12</td>
+<td align="right">0.33</td>
+<td align="right">0.38</td>
+<td align="right">0.14</td>
+<td align="right">0.03</td>
+</tr>
+</tbody>
+</table>
+<p>Another possibility would be to show the percentages, rather than the proportions (which requires multiplying the proportion by 100.) Note the strange "*" function, which is needed to convince R to multiply each entry by 100 here.</p>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb45-1" title="1">nh_data_<span class="dv">2179</span> <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb45-2" title="2"><span class="st">    </span><span class="kw">select</span>(Gender, HealthGen) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb45-3" title="3"><span class="st">    </span><span class="kw">table</span>() <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb45-4" title="4"><span class="st">    </span><span class="kw">prop.table</span>(.,<span class="dv">1</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb45-5" title="5"><span class="st">    &quot;*&quot;</span>(<span class="dv">100</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb45-6" title="6"><span class="st">    </span><span class="kw">round</span>(.,<span class="dv">2</span>)  <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb45-7" title="7"><span class="st">    </span>knitr<span class="op">::</span><span class="kw">kable</span>()</a></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th align="right">Excellent</th>
+<th align="right">Vgood</th>
+<th align="right">Good</th>
+<th align="right">Fair</th>
+<th align="right">Poor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>female</td>
+<td align="right">9.03</td>
+<td align="right">32.11</td>
+<td align="right">40.47</td>
+<td align="right">13.71</td>
+<td align="right">4.68</td>
+</tr>
+<tr class="even">
+<td>male</td>
+<td align="right">12.17</td>
+<td align="right">32.89</td>
+<td align="right">38.49</td>
+<td align="right">13.82</td>
+<td align="right">2.63</td>
+</tr>
+</tbody>
+</table>
+<p>And, if we wanted the column percentages, to determine which gender had the higher rate of each HealthGen status level, we can get that by changing the prop.table to calculate 2 (column) proportions, rather than 1 (rows.)</p>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb46-1" title="1">nh_data_<span class="dv">2179</span> <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb46-2" title="2"><span class="st">    </span><span class="kw">select</span>(Gender, HealthGen) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb46-3" title="3"><span class="st">    </span><span class="kw">table</span>() <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb46-4" title="4"><span class="st">    </span><span class="kw">prop.table</span>(.,<span class="dv">2</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb46-5" title="5"><span class="st">    &quot;*&quot;</span>(<span class="dv">100</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb46-6" title="6"><span class="st">    </span><span class="kw">round</span>(.,<span class="dv">2</span>)  <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb46-7" title="7"><span class="st">    </span>knitr<span class="op">::</span><span class="kw">kable</span>()</a></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th align="right">Excellent</th>
+<th align="right">Vgood</th>
+<th align="right">Good</th>
+<th align="right">Fair</th>
+<th align="right">Poor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>female</td>
+<td align="right">42.19</td>
+<td align="right">48.98</td>
+<td align="right">50.84</td>
+<td align="right">49.4</td>
+<td align="right">63.64</td>
+</tr>
+<tr class="even">
+<td>male</td>
+<td align="right">57.81</td>
+<td align="right">51.02</td>
+<td align="right">49.16</td>
+<td align="right">50.6</td>
+<td align="right">36.36</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="bmi-by-general-health-status" class="section level3">
+<h3><span class="header-section-number">3.9.3</span> BMI by General Health Status</h3>
+<p>Let’s consider now the relationship between self-reported overall health and body-mass index.</p>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb47-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> nh_data_<span class="dv">2179</span>, <span class="kw">aes</span>(<span class="dt">x =</span> HealthGen, <span class="dt">y =</span> BMI, <span class="dt">fill =</span> HealthGen)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb47-2" title="2"><span class="st">    </span><span class="kw">geom_boxplot</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb47-3" title="3"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;BMI by Health Status, Overall Health for NHANES ages 21-79&quot;</span>,</a>
+<a class="sourceLine" id="cb47-4" title="4">         <span class="dt">y =</span> <span class="st">&quot;Body-mass index&quot;</span>, <span class="dt">x =</span> <span class="st">&quot;Self-Reported Overall Health&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb47-5" title="5"><span class="st">    </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>) </a></code></pre></div>
+<p><img src="2019-431-book_files/figure-html/nh_data_2179_bmibyhealth-fig-1.png" width="672" /></p>
+<p>We can see that not too many people self-identify with the “Poor” health category.</p>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb48-1" title="1">nh_data_<span class="dv">2179</span> <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb48-2" title="2"><span class="st">    </span><span class="kw">group_by</span>(HealthGen) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb48-3" title="3"><span class="st">    </span><span class="kw">summarise</span>(<span class="dt">count =</span> <span class="kw">n</span>(), <span class="kw">mean</span>(BMI), <span class="kw">median</span>(BMI)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb48-4" title="4"><span class="st">    </span>knitr<span class="op">::</span><span class="kw">kable</span>() </a></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">HealthGen</th>
+<th align="right">count</th>
+<th align="right">mean(BMI)</th>
+<th align="right">median(BMI)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Excellent</td>
+<td align="right">64</td>
+<td align="right">26.60797</td>
+<td align="right">25.825</td>
+</tr>
+<tr class="even">
+<td align="left">Vgood</td>
+<td align="right">196</td>
+<td align="right">28.34153</td>
+<td align="right">27.400</td>
+</tr>
+<tr class="odd">
+<td align="left">Good</td>
+<td align="right">238</td>
+<td align="right">30.21819</td>
+<td align="right">29.525</td>
+</tr>
+<tr class="even">
+<td align="left">Fair</td>
+<td align="right">83</td>
+<td align="right">31.11759</td>
+<td align="right">29.900</td>
+</tr>
+<tr class="odd">
+<td align="left">Poor</td>
+<td align="right">22</td>
+<td align="right">31.88818</td>
+<td align="right">31.240</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="bmi-by-gender-and-general-health-status" class="section level3">
+<h3><span class="header-section-number">3.9.4</span> BMI by Gender and General Health Status</h3>
+<p>We’ll start with two panels of boxplots to try to understand the relationships between BMI, General Health Status and Gender. Note the use of <code>coord_flip</code> to rotate the graph 90 degrees.</p>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb49-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> nh_data_<span class="dv">2179</span>, <span class="kw">aes</span>(<span class="dt">x =</span> HealthGen, <span class="dt">y =</span> BMI, <span class="dt">fill =</span> HealthGen)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb49-2" title="2"><span class="st">    </span><span class="kw">geom_boxplot</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb49-3" title="3"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;BMI by Health Status, Overall Health for NHANES ages 21-79&quot;</span>,</a>
+<a class="sourceLine" id="cb49-4" title="4">         <span class="dt">y =</span> <span class="st">&quot;Body-mass index&quot;</span>, <span class="dt">x =</span> <span class="st">&quot;Self-Reported Overall Health&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb49-5" title="5"><span class="st">    </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb49-6" title="6"><span class="st">    </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>Gender) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb49-7" title="7"><span class="st">    </span><span class="kw">coord_flip</span>()</a></code></pre></div>
+<p><img src="2019-431-book_files/figure-html/nh_data_2179_bmibyhealthbygender1-fig-1.png" width="672" /></p>
+<p>Here’s a plot of faceted histograms, which might be used to address similar questions.</p>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb50-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> nh_data_<span class="dv">2179</span>, <span class="kw">aes</span>(<span class="dt">x =</span> BMI, <span class="dt">fill =</span> Gender)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb50-2" title="2"><span class="st">    </span><span class="kw">geom_histogram</span>(<span class="dt">color =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">bins =</span> <span class="dv">20</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb50-3" title="3"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;BMI by Gender, Overall Health for NHANES ages 21-79&quot;</span>,</a>
+<a class="sourceLine" id="cb50-4" title="4">         <span class="dt">x =</span> <span class="st">&quot;Body-mass index&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb50-5" title="5"><span class="st">    </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb50-6" title="6"><span class="st">    </span><span class="kw">facet_grid</span>(HealthGen <span class="op">~</span><span class="st"> </span>Gender)</a></code></pre></div>
+<p><img src="2019-431-book_files/figure-html/nh_data_2179_bmibyhealthbygender2-fig-1.png" width="672" /></p>
+</div>
+</div>
+<div id="conclusions" class="section level2">
+<h2><span class="header-section-number">3.10</span> Conclusions</h2>
+<p>This is just a small piece of the toolbox for visualizations that we’ll create in this class. Many additional tools are on the way, but the main idea won’t change. Using the <code>ggplot2</code> package, we can accomplish several critical tasks in creating a visualization, including:</p>
+<ul>
+<li>Identifying (and labeling) the axes and titles</li>
+<li>Identifying a type of <code>geom</code> to use, like a point, bar or histogram</li>
+<li>Changing fill, color, shape, size to facilitate comparisons</li>
+<li>Building “small multiples” of plots with faceting</li>
+</ul>
+<p>Good data visualizations make it easy to see the data, and <code>ggplot2</code>’s tools make it relatively difficult to make a really bad graph.</p>
+
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-BaumerKaplanHorton">
+<p>Baumer, Benjamin S., Daniel T. Kaplan, and Nicholas J. Horton. 2017. <em>Modern Data Science with R</em>. Boca Raton, FL: CRC Press. <a href="https://mdsr-book.github.io/">https://mdsr-book.github.io/</a>.</p>
+</div>
+<div id="ref-R4DS">
+<p>Grolemund, Garrett, and Hadley Wickham. 2019. <em>R for Data Science</em>. O’Reilly. <a href="http://r4ds.had.co.nz/">http://r4ds.had.co.nz/</a>.</p>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>For more on the NHANES data available in the NHANES package, type ?NHANES in the Console in R Studio.<a href="dataviz.html#fnref1" class="footnote-back">↩</a></p></li>
+<li id="fn2"><p>If you visit the NHANES help file with ?NHANES, you will see that subjects 80 years or older were indeed recorded as 80.<a href="dataviz.html#fnref2" class="footnote-back">↩</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="Rsetup.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="data-structures-and-types-of-variables.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/03_dataviz.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["2019-431-book.pdf", "2019-431-book.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

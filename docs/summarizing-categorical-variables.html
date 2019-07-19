@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 6 Summarizing Categorical Variables | Data Science for Biological, Medical and Health Research: Notes for PQHS 431</title>
+  <meta name="description" content="Chapter 6 Summarizing Categorical Variables | Data Science for Biological, Medical and Health Research: Notes for PQHS 431" />
+  <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 6 Summarizing Categorical Variables | Data Science for Biological, Medical and Health Research: Notes for PQHS 431" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 6 Summarizing Categorical Variables | Data Science for Biological, Medical and Health Research: Notes for PQHS 431" />
+  
+  
+  
+
+<meta name="author" content="Thomas E. Love, Ph.D." />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="summarizing-quantities.html">
+<link rel="next" href="NYFS-Study.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  { background-color: #f8f8f8; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Notes for PQHS 431</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#structure"><i class="fa fa-check"></i>Structure</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#course-philosophy"><i class="fa fa-check"></i>Course Philosophy</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#working-with-this-document"><i class="fa fa-check"></i>Working with this Document</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="data-science.html"><a href="data-science.html"><i class="fa fa-check"></i><b>1</b> Data Science</a><ul>
+<li class="chapter" data-level="1.1" data-path="data-science.html"><a href="data-science.html#why-a-unicorn"><i class="fa fa-check"></i><b>1.1</b> Why a unicorn?</a></li>
+<li class="chapter" data-level="1.2" data-path="data-science.html"><a href="data-science.html#data-science-project-cycle"><i class="fa fa-check"></i><b>1.2</b> Data Science Project Cycle</a></li>
+<li class="chapter" data-level="1.3" data-path="data-science.html"><a href="data-science.html#what-will-we-discuss-in-431"><i class="fa fa-check"></i><b>1.3</b> What Will We Discuss in 431?</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="Rsetup.html"><a href="Rsetup.html"><i class="fa fa-check"></i><b>2</b> Setting Up R</a><ul>
+<li class="chapter" data-level="2.1" data-path="Rsetup.html"><a href="Rsetup.html#r-markdown"><i class="fa fa-check"></i><b>2.1</b> R Markdown</a></li>
+<li class="chapter" data-level="2.2" data-path="Rsetup.html"><a href="Rsetup.html#r-packages"><i class="fa fa-check"></i><b>2.2</b> R Packages</a></li>
+<li class="chapter" data-level="2.3" data-path="Rsetup.html"><a href="Rsetup.html#other-packages"><i class="fa fa-check"></i><b>2.3</b> Other Packages</a></li>
+</ul></li>
+<li class="part"><span><b>Part A. Exploring Data</b></span></li>
+<li class="chapter" data-level="3" data-path="dataviz.html"><a href="dataviz.html"><i class="fa fa-check"></i><b>3</b> Visualizing Data</a><ul>
+<li class="chapter" data-level="3.1" data-path="dataviz.html"><a href="dataviz.html#the-nhanes-data-collecting-a-sample"><i class="fa fa-check"></i><b>3.1</b> The NHANES data: Collecting a Sample</a></li>
+<li class="chapter" data-level="3.2" data-path="dataviz.html"><a href="dataviz.html#age-and-height"><i class="fa fa-check"></i><b>3.2</b> Age and Height</a></li>
+<li class="chapter" data-level="3.3" data-path="dataviz.html"><a href="dataviz.html#subset-of-subjects-with-known-age-and-height"><i class="fa fa-check"></i><b>3.3</b> Subset of Subjects with Known Age and Height</a></li>
+<li class="chapter" data-level="3.4" data-path="dataviz.html"><a href="dataviz.html#age-height-and-gender"><i class="fa fa-check"></i><b>3.4</b> Age-Height and Gender?</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="dataviz.html"><a href="dataviz.html#can-we-show-the-female-and-male-relationships-in-separate-panels"><i class="fa fa-check"></i><b>3.4.1</b> Can we show the Female and Male relationships in separate panels?</a></li>
+<li class="chapter" data-level="3.4.2" data-path="dataviz.html"><a href="dataviz.html#can-we-add-a-smooth-curve-to-show-the-relationship-in-each-plot"><i class="fa fa-check"></i><b>3.4.2</b> Can we add a smooth curve to show the relationship in each plot?</a></li>
+<li class="chapter" data-level="3.4.3" data-path="dataviz.html"><a href="dataviz.html#what-if-we-want-to-assume-straight-line-relationships"><i class="fa fa-check"></i><b>3.4.3</b> What if we want to assume straight line relationships?</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="dataviz.html"><a href="dataviz.html#a-subset-ages-21-79"><i class="fa fa-check"></i><b>3.5</b> A Subset: Ages 21-79</a></li>
+<li class="chapter" data-level="3.6" data-path="dataviz.html"><a href="dataviz.html#distribution-of-heights"><i class="fa fa-check"></i><b>3.6</b> Distribution of Heights</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="dataviz.html"><a href="dataviz.html#changing-a-histograms-fill-and-color"><i class="fa fa-check"></i><b>3.6.1</b> Changing a Histogram’s Fill and Color</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="dataviz.html"><a href="dataviz.html#height-and-gender"><i class="fa fa-check"></i><b>3.7</b> Height and Gender</a><ul>
+<li class="chapter" data-level="3.7.1" data-path="dataviz.html"><a href="dataviz.html#a-boxplot-of-height-by-gender"><i class="fa fa-check"></i><b>3.7.1</b> A Boxplot of Height by Gender</a></li>
+<li class="chapter" data-level="3.7.2" data-path="dataviz.html"><a href="dataviz.html#histograms-of-height-by-gender"><i class="fa fa-check"></i><b>3.7.2</b> Histograms of Height by Gender</a></li>
+</ul></li>
+<li class="chapter" data-level="3.8" data-path="dataviz.html"><a href="dataviz.html#a-look-at-body-mass-index"><i class="fa fa-check"></i><b>3.8</b> A Look at Body-Mass Index</a><ul>
+<li class="chapter" data-level="3.8.1" data-path="dataviz.html"><a href="dataviz.html#bmi-by-gender"><i class="fa fa-check"></i><b>3.8.1</b> BMI by Gender</a></li>
+<li class="chapter" data-level="3.8.2" data-path="dataviz.html"><a href="dataviz.html#bmi-and-diabetes"><i class="fa fa-check"></i><b>3.8.2</b> BMI and Diabetes</a></li>
+<li class="chapter" data-level="3.8.3" data-path="dataviz.html"><a href="dataviz.html#bmi-and-race"><i class="fa fa-check"></i><b>3.8.3</b> BMI and Race</a></li>
+<li class="chapter" data-level="3.8.4" data-path="dataviz.html"><a href="dataviz.html#bmi-and-pulse-rate"><i class="fa fa-check"></i><b>3.8.4</b> BMI and Pulse Rate</a></li>
+<li class="chapter" data-level="3.8.5" data-path="dataviz.html"><a href="dataviz.html#diabetes-vs.-no-diabetes"><i class="fa fa-check"></i><b>3.8.5</b> Diabetes vs. No Diabetes</a></li>
+</ul></li>
+<li class="chapter" data-level="3.9" data-path="dataviz.html"><a href="dataviz.html#general-health-status"><i class="fa fa-check"></i><b>3.9</b> General Health Status</a><ul>
+<li class="chapter" data-level="3.9.1" data-path="dataviz.html"><a href="dataviz.html#bar-chart-for-categorical-data"><i class="fa fa-check"></i><b>3.9.1</b> Bar Chart for Categorical Data</a></li>
+<li class="chapter" data-level="3.9.2" data-path="dataviz.html"><a href="dataviz.html#working-with-tables"><i class="fa fa-check"></i><b>3.9.2</b> Working with Tables</a></li>
+<li class="chapter" data-level="3.9.3" data-path="dataviz.html"><a href="dataviz.html#bmi-by-general-health-status"><i class="fa fa-check"></i><b>3.9.3</b> BMI by General Health Status</a></li>
+<li class="chapter" data-level="3.9.4" data-path="dataviz.html"><a href="dataviz.html#bmi-by-gender-and-general-health-status"><i class="fa fa-check"></i><b>3.9.4</b> BMI by Gender and General Health Status</a></li>
+</ul></li>
+<li class="chapter" data-level="3.10" data-path="dataviz.html"><a href="dataviz.html#conclusions"><i class="fa fa-check"></i><b>3.10</b> Conclusions</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="data-structures-and-types-of-variables.html"><a href="data-structures-and-types-of-variables.html"><i class="fa fa-check"></i><b>4</b> Data Structures and Types of Variables</a><ul>
+<li class="chapter" data-level="4.1" data-path="data-structures-and-types-of-variables.html"><a href="data-structures-and-types-of-variables.html#data-require-structure-and-context"><i class="fa fa-check"></i><b>4.1</b> Data require structure and context</a></li>
+<li class="chapter" data-level="4.2" data-path="data-structures-and-types-of-variables.html"><a href="data-structures-and-types-of-variables.html#createnh_adults"><i class="fa fa-check"></i><b>4.2</b> A New NHANES Adult Sample</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="data-structures-and-types-of-variables.html"><a href="data-structures-and-types-of-variables.html#summarizing-the-datas-structure"><i class="fa fa-check"></i><b>4.2.1</b> Summarizing the Data’s Structure</a></li>
+<li class="chapter" data-level="4.2.2" data-path="data-structures-and-types-of-variables.html"><a href="data-structures-and-types-of-variables.html#what-are-the-variables"><i class="fa fa-check"></i><b>4.2.2</b> What are the variables?</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="data-structures-and-types-of-variables.html"><a href="data-structures-and-types-of-variables.html#types-of-variables"><i class="fa fa-check"></i><b>4.3</b> Types of Variables</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="data-structures-and-types-of-variables.html"><a href="data-structures-and-types-of-variables.html#quantitative-variables"><i class="fa fa-check"></i><b>4.3.1</b> Quantitative Variables</a></li>
+<li class="chapter" data-level="4.3.2" data-path="data-structures-and-types-of-variables.html"><a href="data-structures-and-types-of-variables.html#qualitative-categorical-variables"><i class="fa fa-check"></i><b>4.3.2</b> Qualitative (Categorical) Variables</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="summarizing-quantities.html"><a href="summarizing-quantities.html"><i class="fa fa-check"></i><b>5</b> Summarizing Quantitative Variables</a><ul>
+<li class="chapter" data-level="5.1" data-path="summarizing-quantities.html"><a href="summarizing-quantities.html#the-summary-function-for-quantitative-data"><i class="fa fa-check"></i><b>5.1</b> The <code>summary</code> function for Quantitative data</a></li>
+<li class="chapter" data-level="5.2" data-path="summarizing-quantities.html"><a href="summarizing-quantities.html#measuring-the-center-of-a-distribution"><i class="fa fa-check"></i><b>5.2</b> Measuring the Center of a Distribution</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="summarizing-quantities.html"><a href="summarizing-quantities.html#the-mean-and-the-median"><i class="fa fa-check"></i><b>5.2.1</b> The Mean and The Median</a></li>
+<li class="chapter" data-level="5.2.2" data-path="summarizing-quantities.html"><a href="summarizing-quantities.html#dealing-with-missingness"><i class="fa fa-check"></i><b>5.2.2</b> Dealing with Missingness</a></li>
+<li class="chapter" data-level="5.2.3" data-path="summarizing-quantities.html"><a href="summarizing-quantities.html#the-mode-of-a-quantitative-variable"><i class="fa fa-check"></i><b>5.2.3</b> The Mode of a Quantitative Variable</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="summarizing-quantities.html"><a href="summarizing-quantities.html#measuring-the-spread-of-a-distribution"><i class="fa fa-check"></i><b>5.3</b> Measuring the Spread of a Distribution</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="summarizing-quantities.html"><a href="summarizing-quantities.html#rangeandiqr"><i class="fa fa-check"></i><b>5.3.1</b> The Range and the Interquartile Range (IQR)</a></li>
+<li class="chapter" data-level="5.3.2" data-path="summarizing-quantities.html"><a href="summarizing-quantities.html#the-variance-and-the-standard-deviation"><i class="fa fa-check"></i><b>5.3.2</b> The Variance and the Standard Deviation</a></li>
+<li class="chapter" data-level="5.3.3" data-path="summarizing-quantities.html"><a href="summarizing-quantities.html#obtaining-the-variance-and-standard-deviation-in-r"><i class="fa fa-check"></i><b>5.3.3</b> Obtaining the Variance and Standard Deviation in R</a></li>
+<li class="chapter" data-level="5.3.4" data-path="summarizing-quantities.html"><a href="summarizing-quantities.html#defining-the-variance-and-standard-deviation"><i class="fa fa-check"></i><b>5.3.4</b> Defining the Variance and Standard Deviation</a></li>
+<li class="chapter" data-level="5.3.5" data-path="summarizing-quantities.html"><a href="summarizing-quantities.html#empirical-rule-interpretation-of-the-standard-deviation"><i class="fa fa-check"></i><b>5.3.5</b> Empirical Rule Interpretation of the Standard Deviation</a></li>
+<li class="chapter" data-level="5.3.6" data-path="summarizing-quantities.html"><a href="summarizing-quantities.html#chebyshevs-inequality-one-interpretation-of-the-standard-deviation"><i class="fa fa-check"></i><b>5.3.6</b> Chebyshev’s Inequality: One Interpretation of the Standard Deviation</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="summarizing-quantities.html"><a href="summarizing-quantities.html#measuring-the-shape-of-a-distribution"><i class="fa fa-check"></i><b>5.4</b> Measuring the Shape of a Distribution</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="summarizing-quantities.html"><a href="summarizing-quantities.html#multimodal-vs.-unimodal-distributions"><i class="fa fa-check"></i><b>5.4.1</b> Multimodal vs. Unimodal distributions</a></li>
+<li class="chapter" data-level="5.4.2" data-path="summarizing-quantities.html"><a href="summarizing-quantities.html#skew"><i class="fa fa-check"></i><b>5.4.2</b> Skew</a></li>
+<li class="chapter" data-level="5.4.3" data-path="summarizing-quantities.html"><a href="summarizing-quantities.html#kurtosis"><i class="fa fa-check"></i><b>5.4.3</b> Kurtosis</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="summarizing-quantities.html"><a href="summarizing-quantities.html#more-detailed-numerical-summaries-for-quantitative-variables"><i class="fa fa-check"></i><b>5.5</b> More Detailed Numerical Summaries for Quantitative Variables</a><ul>
+<li class="chapter" data-level="5.5.1" data-path="summarizing-quantities.html"><a href="summarizing-quantities.html#favstats-in-the-mosaic-package"><i class="fa fa-check"></i><b>5.5.1</b> <code>favstats</code> in the <code>mosaic</code> package</a></li>
+<li class="chapter" data-level="5.5.2" data-path="summarizing-quantities.html"><a href="summarizing-quantities.html#describe-in-the-psych-package"><i class="fa fa-check"></i><b>5.5.2</b> <code>describe</code> in the <code>psych</code> package</a></li>
+<li class="chapter" data-level="5.5.3" data-path="summarizing-quantities.html"><a href="summarizing-quantities.html#describe-in-the-hmisc-package"><i class="fa fa-check"></i><b>5.5.3</b> <code>describe</code> in the <code>Hmisc</code> package</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="summarizing-categorical-variables.html"><a href="summarizing-categorical-variables.html"><i class="fa fa-check"></i><b>6</b> Summarizing Categorical Variables</a><ul>
+<li class="chapter" data-level="6.1" data-path="summarizing-categorical-variables.html"><a href="summarizing-categorical-variables.html#the-summary-function-for-categorical-data"><i class="fa fa-check"></i><b>6.1</b> The <code>summary</code> function for Categorical data</a></li>
+<li class="chapter" data-level="6.2" data-path="summarizing-categorical-variables.html"><a href="summarizing-categorical-variables.html#tables-to-describe-one-categorical-variable"><i class="fa fa-check"></i><b>6.2</b> Tables to describe One Categorical Variable</a></li>
+<li class="chapter" data-level="6.3" data-path="summarizing-categorical-variables.html"><a href="summarizing-categorical-variables.html#the-mode-of-a-categorical-variable"><i class="fa fa-check"></i><b>6.3</b> The Mode of a Categorical Variable</a></li>
+<li class="chapter" data-level="6.4" data-path="summarizing-categorical-variables.html"><a href="summarizing-categorical-variables.html#describe-in-the-hmisc-package-1"><i class="fa fa-check"></i><b>6.4</b> <code>describe</code> in the <code>Hmisc</code> package</a></li>
+<li class="chapter" data-level="6.5" data-path="summarizing-categorical-variables.html"><a href="summarizing-categorical-variables.html#cross-tabulations"><i class="fa fa-check"></i><b>6.5</b> Cross-Tabulations</a><ul>
+<li class="chapter" data-level="6.5.1" data-path="summarizing-categorical-variables.html"><a href="summarizing-categorical-variables.html#cross-classifying-three-categorical-variables"><i class="fa fa-check"></i><b>6.5.1</b> Cross-Classifying Three Categorical Variables</a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="summarizing-categorical-variables.html"><a href="summarizing-categorical-variables.html#constructing-tables-well"><i class="fa fa-check"></i><b>6.6</b> Constructing Tables Well</a><ul>
+<li class="chapter" data-level="6.6.1" data-path="summarizing-categorical-variables.html"><a href="summarizing-categorical-variables.html#alabama-first"><i class="fa fa-check"></i><b>6.6.1</b> Alabama First!</a></li>
+<li class="chapter" data-level="6.6.2" data-path="summarizing-categorical-variables.html"><a href="summarizing-categorical-variables.html#order-rows-and-columns-sensibly"><i class="fa fa-check"></i><b>6.6.2</b> Order rows and columns sensibly</a></li>
+<li class="chapter" data-level="6.6.3" data-path="summarizing-categorical-variables.html"><a href="summarizing-categorical-variables.html#round---a-lot"><i class="fa fa-check"></i><b>6.6.3</b> Round - a lot!</a></li>
+<li class="chapter" data-level="6.6.4" data-path="summarizing-categorical-variables.html"><a href="summarizing-categorical-variables.html#all-is-different-and-important"><i class="fa fa-check"></i><b>6.6.4</b> ALL is different and important</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="NYFS-Study.html"><a href="NYFS-Study.html"><i class="fa fa-check"></i><b>7</b> The National Youth Fitness Survey (<code>nyfs1</code>)</a><ul>
+<li class="chapter" data-level="7.1" data-path="NYFS-Study.html"><a href="NYFS-Study.html#looking-over-the-data-set"><i class="fa fa-check"></i><b>7.1</b> Looking over the Data Set</a><ul>
+<li class="chapter" data-level="7.1.1" data-path="NYFS-Study.html"><a href="NYFS-Study.html#subject.id"><i class="fa fa-check"></i><b>7.1.1</b> subject.id</a></li>
+<li class="chapter" data-level="7.1.2" data-path="NYFS-Study.html"><a href="NYFS-Study.html#sex"><i class="fa fa-check"></i><b>7.1.2</b> sex</a></li>
+<li class="chapter" data-level="7.1.3" data-path="NYFS-Study.html"><a href="NYFS-Study.html#age.exam"><i class="fa fa-check"></i><b>7.1.3</b> age.exam</a></li>
+<li class="chapter" data-level="7.1.4" data-path="NYFS-Study.html"><a href="NYFS-Study.html#bmi"><i class="fa fa-check"></i><b>7.1.4</b> bmi</a></li>
+<li class="chapter" data-level="7.1.5" data-path="NYFS-Study.html"><a href="NYFS-Study.html#bmi.cat"><i class="fa fa-check"></i><b>7.1.5</b> bmi.cat</a></li>
+<li class="chapter" data-level="7.1.6" data-path="NYFS-Study.html"><a href="NYFS-Study.html#waist.circ"><i class="fa fa-check"></i><b>7.1.6</b> waist.circ</a></li>
+<li class="chapter" data-level="7.1.7" data-path="NYFS-Study.html"><a href="NYFS-Study.html#triceps.skinfold"><i class="fa fa-check"></i><b>7.1.7</b> triceps.skinfold</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="NYFS-Study.html"><a href="NYFS-Study.html#summarizing-the-data-set"><i class="fa fa-check"></i><b>7.2</b> Summarizing the Data Set</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="NYFS-Study.html"><a href="NYFS-Study.html#the-five-number-summary-quantiles-and-iqr"><i class="fa fa-check"></i><b>7.2.1</b> The Five Number Summary, Quantiles and IQR</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="NYFS-Study.html"><a href="NYFS-Study.html#additional-summaries-from-favstats"><i class="fa fa-check"></i><b>7.3</b> Additional Summaries from <code>favstats</code></a></li>
+<li class="chapter" data-level="7.4" data-path="NYFS-Study.html"><a href="NYFS-Study.html#the-histogram"><i class="fa fa-check"></i><b>7.4</b> The Histogram</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="NYFS-Study.html"><a href="NYFS-Study.html#freedman-diaconis-rule-to-select-bin-width"><i class="fa fa-check"></i><b>7.4.1</b> Freedman-Diaconis Rule to select bin width</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="NYFS-Study.html"><a href="NYFS-Study.html#a-note-on-colors"><i class="fa fa-check"></i><b>7.5</b> A Note on Colors</a></li>
+<li class="chapter" data-level="7.6" data-path="NYFS-Study.html"><a href="NYFS-Study.html#the-stem-and-leaf"><i class="fa fa-check"></i><b>7.6</b> The Stem-and-Leaf</a><ul>
+<li class="chapter" data-level="7.6.1" data-path="NYFS-Study.html"><a href="NYFS-Study.html#a-fancier-stem-and-leaf-display"><i class="fa fa-check"></i><b>7.6.1</b> A Fancier Stem-and-Leaf Display</a></li>
+</ul></li>
+<li class="chapter" data-level="7.7" data-path="NYFS-Study.html"><a href="NYFS-Study.html#the-dot-plot-to-display-a-distribution"><i class="fa fa-check"></i><b>7.7</b> The Dot Plot to display a distribution</a></li>
+<li class="chapter" data-level="7.8" data-path="NYFS-Study.html"><a href="NYFS-Study.html#the-frequency-polygon"><i class="fa fa-check"></i><b>7.8</b> The Frequency Polygon</a></li>
+<li class="chapter" data-level="7.9" data-path="NYFS-Study.html"><a href="NYFS-Study.html#plotting-the-probability-density-function"><i class="fa fa-check"></i><b>7.9</b> Plotting the Probability Density Function</a></li>
+<li class="chapter" data-level="7.10" data-path="NYFS-Study.html"><a href="NYFS-Study.html#the-boxplot"><i class="fa fa-check"></i><b>7.10</b> The Boxplot</a><ul>
+<li class="chapter" data-level="7.10.1" data-path="NYFS-Study.html"><a href="NYFS-Study.html#drawing-a-boxplot-for-one-variable-in-ggplot2"><i class="fa fa-check"></i><b>7.10.1</b> Drawing a Boxplot for One Variable in <code>ggplot2</code></a></li>
+</ul></li>
+<li class="chapter" data-level="7.11" data-path="NYFS-Study.html"><a href="NYFS-Study.html#a-simple-comparison-boxplot"><i class="fa fa-check"></i><b>7.11</b> A Simple Comparison Boxplot</a></li>
+<li class="chapter" data-level="7.12" data-path="NYFS-Study.html"><a href="NYFS-Study.html#using-describe-in-the-psych-library"><i class="fa fa-check"></i><b>7.12</b> Using <code>describe</code> in the <code>psych</code> library</a><ul>
+<li class="chapter" data-level="7.12.1" data-path="NYFS-Study.html"><a href="NYFS-Study.html#the-trimmed-mean"><i class="fa fa-check"></i><b>7.12.1</b> The Trimmed Mean</a></li>
+<li class="chapter" data-level="7.12.2" data-path="NYFS-Study.html"><a href="NYFS-Study.html#the-median-absolute-deviation"><i class="fa fa-check"></i><b>7.12.2</b> The Median Absolute Deviation</a></li>
+</ul></li>
+<li class="chapter" data-level="7.13" data-path="NYFS-Study.html"><a href="NYFS-Study.html#assessing-skew"><i class="fa fa-check"></i><b>7.13</b> Assessing Skew</a><ul>
+<li class="chapter" data-level="7.13.1" data-path="NYFS-Study.html"><a href="NYFS-Study.html#non-parametric-skew-via-skew1"><i class="fa fa-check"></i><b>7.13.1</b> Non-parametric Skew via skew<sub>1</sub></a></li>
+</ul></li>
+<li class="chapter" data-level="7.14" data-path="NYFS-Study.html"><a href="NYFS-Study.html#assessing-kurtosis-heavy-tailedness"><i class="fa fa-check"></i><b>7.14</b> Assessing Kurtosis (Heavy-Tailedness)</a><ul>
+<li class="chapter" data-level="7.14.1" data-path="NYFS-Study.html"><a href="NYFS-Study.html#the-standard-error-of-the-sample-mean"><i class="fa fa-check"></i><b>7.14.1</b> The Standard Error of the Sample Mean</a></li>
+</ul></li>
+<li class="chapter" data-level="7.15" data-path="NYFS-Study.html"><a href="NYFS-Study.html#the-describe-function-in-the-hmisc-library"><i class="fa fa-check"></i><b>7.15</b> The <code>describe</code> function in the <code>Hmisc</code> library</a></li>
+<li class="chapter" data-level="7.16" data-path="NYFS-Study.html"><a href="NYFS-Study.html#xda-from-github-for-numerical-summaries-for-exploratory-data-analysis"><i class="fa fa-check"></i><b>7.16</b> <code>xda</code> from GitHub for numerical summaries for exploratory data analysis</a></li>
+<li class="chapter" data-level="7.17" data-path="NYFS-Study.html"><a href="NYFS-Study.html#what-summaries-to-report"><i class="fa fa-check"></i><b>7.17</b> What Summaries to Report</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="assessing-normality.html"><a href="assessing-normality.html"><i class="fa fa-check"></i><b>8</b> Assessing Normality</a><ul>
+<li class="chapter" data-level="8.1" data-path="assessing-normality.html"><a href="assessing-normality.html#empirical-rule-interpretation-of-the-standard-deviation-1"><i class="fa fa-check"></i><b>8.1</b> Empirical Rule Interpretation of the Standard Deviation</a></li>
+<li class="chapter" data-level="8.2" data-path="assessing-normality.html"><a href="assessing-normality.html#describing-outlying-values-with-z-scores"><i class="fa fa-check"></i><b>8.2</b> Describing Outlying Values with Z Scores</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="assessing-normality.html"><a href="assessing-normality.html#fences-and-z-scores"><i class="fa fa-check"></i><b>8.2.1</b> Fences and Z Scores</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="assessing-normality.html"><a href="assessing-normality.html#comparing-a-histogram-to-a-normal-distribution"><i class="fa fa-check"></i><b>8.3</b> Comparing a Histogram to a Normal Distribution</a><ul>
+<li class="chapter" data-level="8.3.1" data-path="assessing-normality.html"><a href="assessing-normality.html#histogram-of-bmi-with-normal-model-with-counts"><i class="fa fa-check"></i><b>8.3.1</b> Histogram of BMI with Normal model (with Counts)</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="assessing-normality.html"><a href="assessing-normality.html#does-a-normal-model-work-well-for-the-ages"><i class="fa fa-check"></i><b>8.4</b> Does a Normal model work well for the Ages?</a></li>
+<li class="chapter" data-level="8.5" data-path="assessing-normality.html"><a href="assessing-normality.html#the-normal-q-q-plot"><i class="fa fa-check"></i><b>8.5</b> The Normal Q-Q Plot</a></li>
+<li class="chapter" data-level="8.6" data-path="assessing-normality.html"><a href="assessing-normality.html#interpreting-the-normal-q-q-plot"><i class="fa fa-check"></i><b>8.6</b> Interpreting the Normal Q-Q Plot</a><ul>
+<li class="chapter" data-level="8.6.1" data-path="assessing-normality.html"><a href="assessing-normality.html#data-from-a-normal-distribution-shows-up-as-a-straight-line-in-a-normal-q-q-plot"><i class="fa fa-check"></i><b>8.6.1</b> Data from a Normal distribution shows up as a straight line in a Normal Q-Q plot</a></li>
+<li class="chapter" data-level="8.6.2" data-path="assessing-normality.html"><a href="assessing-normality.html#skew-is-indicated-by-monotonic-curves-in-the-normal-q-q-plot"><i class="fa fa-check"></i><b>8.6.2</b> Skew is indicated by monotonic curves in the Normal Q-Q plot</a></li>
+<li class="chapter" data-level="8.6.3" data-path="assessing-normality.html"><a href="assessing-normality.html#direction-of-skew"><i class="fa fa-check"></i><b>8.6.3</b> Direction of Skew</a></li>
+<li class="chapter" data-level="8.6.4" data-path="assessing-normality.html"><a href="assessing-normality.html#outlier-proneness-is-indicated-by-s-shaped-curves-in-a-normal-q-q-plot"><i class="fa fa-check"></i><b>8.6.4</b> Outlier-proneness is indicated by “s-shaped” curves in a Normal Q-Q plot</a></li>
+</ul></li>
+<li class="chapter" data-level="8.7" data-path="assessing-normality.html"><a href="assessing-normality.html#does-a-normal-distribution-fit-the-nyfs1-data-well"><i class="fa fa-check"></i><b>8.7</b> Does a Normal Distribution Fit the <code>nyfs1</code> Data Well?</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="using-transformations-to-normalize-distributions.html"><a href="using-transformations-to-normalize-distributions.html"><i class="fa fa-check"></i><b>9</b> Using Transformations to “Normalize” Distributions</a><ul>
+<li class="chapter" data-level="9.1" data-path="using-transformations-to-normalize-distributions.html"><a href="using-transformations-to-normalize-distributions.html#the-ladder-of-power-transformations"><i class="fa fa-check"></i><b>9.1</b> The Ladder of Power Transformations</a></li>
+<li class="chapter" data-level="9.2" data-path="using-transformations-to-normalize-distributions.html"><a href="using-transformations-to-normalize-distributions.html#using-the-ladder"><i class="fa fa-check"></i><b>9.2</b> Using the Ladder</a></li>
+<li class="chapter" data-level="9.3" data-path="using-transformations-to-normalize-distributions.html"><a href="using-transformations-to-normalize-distributions.html#can-we-transform-waist-circumferences"><i class="fa fa-check"></i><b>9.3</b> Can we transform Waist Circumferences?</a><ul>
+<li class="chapter" data-level="9.3.1" data-path="using-transformations-to-normalize-distributions.html"><a href="using-transformations-to-normalize-distributions.html#the-square"><i class="fa fa-check"></i><b>9.3.1</b> The Square</a></li>
+<li class="chapter" data-level="9.3.2" data-path="using-transformations-to-normalize-distributions.html"><a href="using-transformations-to-normalize-distributions.html#the-square-root"><i class="fa fa-check"></i><b>9.3.2</b> The Square Root</a></li>
+<li class="chapter" data-level="9.3.3" data-path="using-transformations-to-normalize-distributions.html"><a href="using-transformations-to-normalize-distributions.html#the-logarithm"><i class="fa fa-check"></i><b>9.3.3</b> The Logarithm</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="using-transformations-to-normalize-distributions.html"><a href="using-transformations-to-normalize-distributions.html#a-simulated-data-set-with-left-skew"><i class="fa fa-check"></i><b>9.4</b> A Simulated Data Set with Left Skew</a></li>
+<li class="chapter" data-level="9.5" data-path="using-transformations-to-normalize-distributions.html"><a href="using-transformations-to-normalize-distributions.html#transformation-example-2-ladder-of-potential-transformations-in-frequency-polygons"><i class="fa fa-check"></i><b>9.5</b> Transformation Example 2: Ladder of Potential Transformations in Frequency Polygons</a></li>
+<li class="chapter" data-level="9.6" data-path="using-transformations-to-normalize-distributions.html"><a href="using-transformations-to-normalize-distributions.html#transformation-example-2-ladder-with-normal-q-q-plots"><i class="fa fa-check"></i><b>9.6</b> Transformation Example 2 Ladder with Normal Q-Q Plots</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="summarizing-data-within-subgroups.html"><a href="summarizing-data-within-subgroups.html"><i class="fa fa-check"></i><b>10</b> Summarizing data within subgroups</a><ul>
+<li class="chapter" data-level="10.1" data-path="summarizing-data-within-subgroups.html"><a href="summarizing-data-within-subgroups.html#using-dplyr-and-summarise-to-build-a-tibble-of-summary-information"><i class="fa fa-check"></i><b>10.1</b> Using dplyr and summarise to build a tibble of summary information</a></li>
+<li class="chapter" data-level="10.2" data-path="summarizing-data-within-subgroups.html"><a href="summarizing-data-within-subgroups.html#using-the-by-function-to-summarize-groups-numerically"><i class="fa fa-check"></i><b>10.2</b> Using the by function to summarize groups numerically</a></li>
+<li class="chapter" data-level="10.3" data-path="summarizing-data-within-subgroups.html"><a href="summarizing-data-within-subgroups.html#boxplots-to-relate-an-outcome-to-a-categorical-predictor"><i class="fa fa-check"></i><b>10.3</b> Boxplots to Relate an Outcome to a Categorical Predictor</a><ul>
+<li class="chapter" data-level="10.3.1" data-path="summarizing-data-within-subgroups.html"><a href="summarizing-data-within-subgroups.html#augmenting-the-boxplot-with-the-sample-mean"><i class="fa fa-check"></i><b>10.3.1</b> Augmenting the Boxplot with the Sample Mean</a></li>
+<li class="chapter" data-level="10.3.2" data-path="summarizing-data-within-subgroups.html"><a href="summarizing-data-within-subgroups.html#adding-notches-to-a-boxplot"><i class="fa fa-check"></i><b>10.3.2</b> Adding Notches to a Boxplot</a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="summarizing-data-within-subgroups.html"><a href="summarizing-data-within-subgroups.html#using-multiple-histograms-to-make-comparisons"><i class="fa fa-check"></i><b>10.4</b> Using Multiple Histograms to Make Comparisons</a></li>
+<li class="chapter" data-level="10.5" data-path="summarizing-data-within-subgroups.html"><a href="summarizing-data-within-subgroups.html#using-multiple-density-plots-to-make-comparisons"><i class="fa fa-check"></i><b>10.5</b> Using Multiple Density Plots to Make Comparisons</a></li>
+<li class="chapter" data-level="10.6" data-path="summarizing-data-within-subgroups.html"><a href="summarizing-data-within-subgroups.html#building-a-violin-plot"><i class="fa fa-check"></i><b>10.6</b> Building a Violin Plot</a></li>
+<li class="chapter" data-level="10.7" data-path="summarizing-data-within-subgroups.html"><a href="summarizing-data-within-subgroups.html#a-ridgeline-plot"><i class="fa fa-check"></i><b>10.7</b> A Ridgeline Plot</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="straight-line-models-and-correlation.html"><a href="straight-line-models-and-correlation.html"><i class="fa fa-check"></i><b>11</b> Straight Line Models and Correlation</a><ul>
+<li class="chapter" data-level="11.1" data-path="straight-line-models-and-correlation.html"><a href="straight-line-models-and-correlation.html#assessing-a-scatterplot"><i class="fa fa-check"></i><b>11.1</b> Assessing A Scatterplot</a><ul>
+<li class="chapter" data-level="11.1.1" data-path="straight-line-models-and-correlation.html"><a href="straight-line-models-and-correlation.html#highlighting-an-unusual-point"><i class="fa fa-check"></i><b>11.1.1</b> Highlighting an unusual point</a></li>
+<li class="chapter" data-level="11.1.2" data-path="straight-line-models-and-correlation.html"><a href="straight-line-models-and-correlation.html#adding-a-scatterplot-smooth-using-loess"><i class="fa fa-check"></i><b>11.1.2</b> Adding a Scatterplot Smooth using loess</a></li>
+<li class="chapter" data-level="11.1.3" data-path="straight-line-models-and-correlation.html"><a href="straight-line-models-and-correlation.html#adding-a-straight-line-to-the-scatterplot"><i class="fa fa-check"></i><b>11.1.3</b> Adding a Straight Line to the Scatterplot</a></li>
+<li class="chapter" data-level="11.1.4" data-path="straight-line-models-and-correlation.html"><a href="straight-line-models-and-correlation.html#what-line-does-r-fit"><i class="fa fa-check"></i><b>11.1.4</b> What Line Does R Fit?</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="straight-line-models-and-correlation.html"><a href="straight-line-models-and-correlation.html#correlation-coefficients"><i class="fa fa-check"></i><b>11.2</b> Correlation Coefficients</a></li>
+<li class="chapter" data-level="11.3" data-path="straight-line-models-and-correlation.html"><a href="straight-line-models-and-correlation.html#the-pearson-correlation-coefficient"><i class="fa fa-check"></i><b>11.3</b> The Pearson Correlation Coefficient</a></li>
+<li class="chapter" data-level="11.4" data-path="straight-line-models-and-correlation.html"><a href="straight-line-models-and-correlation.html#a-simulated-example"><i class="fa fa-check"></i><b>11.4</b> A simulated example</a><ul>
+<li class="chapter" data-level="11.4.1" data-path="straight-line-models-and-correlation.html"><a href="straight-line-models-and-correlation.html#data-set-alex"><i class="fa fa-check"></i><b>11.4.1</b> Data Set Alex</a></li>
+<li class="chapter" data-level="11.4.2" data-path="straight-line-models-and-correlation.html"><a href="straight-line-models-and-correlation.html#data-set-bonnie"><i class="fa fa-check"></i><b>11.4.2</b> Data Set Bonnie</a></li>
+<li class="chapter" data-level="11.4.3" data-path="straight-line-models-and-correlation.html"><a href="straight-line-models-and-correlation.html#correlations-for-all-six-data-sets-in-the-correx1-example"><i class="fa fa-check"></i><b>11.4.3</b> Correlations for All Six Data Sets in the Correx1 Example</a></li>
+<li class="chapter" data-level="11.4.4" data-path="straight-line-models-and-correlation.html"><a href="straight-line-models-and-correlation.html#data-set-colin"><i class="fa fa-check"></i><b>11.4.4</b> Data Set Colin</a></li>
+<li class="chapter" data-level="11.4.5" data-path="straight-line-models-and-correlation.html"><a href="straight-line-models-and-correlation.html#draw-the-picture"><i class="fa fa-check"></i><b>11.4.5</b> Draw the Picture!</a></li>
+</ul></li>
+<li class="chapter" data-level="11.5" data-path="straight-line-models-and-correlation.html"><a href="straight-line-models-and-correlation.html#estimating-correlation-from-scatterplots"><i class="fa fa-check"></i><b>11.5</b> Estimating Correlation from Scatterplots</a></li>
+<li class="chapter" data-level="11.6" data-path="straight-line-models-and-correlation.html"><a href="straight-line-models-and-correlation.html#the-spearman-rank-correlation"><i class="fa fa-check"></i><b>11.6</b> The Spearman Rank Correlation</a><ul>
+<li class="chapter" data-level="11.6.1" data-path="straight-line-models-and-correlation.html"><a href="straight-line-models-and-correlation.html#spearman-formula"><i class="fa fa-check"></i><b>11.6.1</b> Spearman Formula</a></li>
+<li class="chapter" data-level="11.6.2" data-path="straight-line-models-and-correlation.html"><a href="straight-line-models-and-correlation.html#comparing-pearson-and-spearman-correlations"><i class="fa fa-check"></i><b>11.6.2</b> Comparing Pearson and Spearman Correlations</a></li>
+<li class="chapter" data-level="11.6.3" data-path="straight-line-models-and-correlation.html"><a href="straight-line-models-and-correlation.html#spearman-vs.-pearson-example-1"><i class="fa fa-check"></i><b>11.6.3</b> Spearman vs. Pearson Example 1</a></li>
+<li class="chapter" data-level="11.6.4" data-path="straight-line-models-and-correlation.html"><a href="straight-line-models-and-correlation.html#spearman-vs.-pearson-example-2"><i class="fa fa-check"></i><b>11.6.4</b> Spearman vs. Pearson Example 2</a></li>
+<li class="chapter" data-level="11.6.5" data-path="straight-line-models-and-correlation.html"><a href="straight-line-models-and-correlation.html#spearman-vs.-pearson-example-3"><i class="fa fa-check"></i><b>11.6.5</b> Spearman vs. Pearson Example 3</a></li>
+<li class="chapter" data-level="11.6.6" data-path="straight-line-models-and-correlation.html"><a href="straight-line-models-and-correlation.html#spearman-vs.-pearson-example-4"><i class="fa fa-check"></i><b>11.6.6</b> Spearman vs. Pearson Example 4</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="studying-crab-claws-crabs.html"><a href="studying-crab-claws-crabs.html"><i class="fa fa-check"></i><b>12</b> Studying Crab Claws (<code>crabs</code>)</a><ul>
+<li class="chapter" data-level="12.1" data-path="studying-crab-claws-crabs.html"><a href="studying-crab-claws-crabs.html#association-of-size-and-force"><i class="fa fa-check"></i><b>12.1</b> Association of Size and Force</a></li>
+<li class="chapter" data-level="12.2" data-path="studying-crab-claws-crabs.html"><a href="studying-crab-claws-crabs.html#loess_smooth"><i class="fa fa-check"></i><b>12.2</b> The <code>loess</code> smooth</a><ul>
+<li class="chapter" data-level="12.2.1" data-path="studying-crab-claws-crabs.html"><a href="studying-crab-claws-crabs.html#smoothing-within-species"><i class="fa fa-check"></i><b>12.2.1</b> Smoothing within Species</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="studying-crab-claws-crabs.html"><a href="studying-crab-claws-crabs.html#fitting-a-linear-regression-model"><i class="fa fa-check"></i><b>12.3</b> Fitting a Linear Regression Model</a></li>
+<li class="chapter" data-level="12.4" data-path="studying-crab-claws-crabs.html"><a href="studying-crab-claws-crabs.html#is-a-linear-model-appropriate"><i class="fa fa-check"></i><b>12.4</b> Is a Linear Model Appropriate?</a><ul>
+<li class="chapter" data-level="12.4.1" data-path="studying-crab-claws-crabs.html"><a href="studying-crab-claws-crabs.html#the-log-log-model"><i class="fa fa-check"></i><b>12.4.1</b> The log-log model</a></li>
+<li class="chapter" data-level="12.4.2" data-path="studying-crab-claws-crabs.html"><a href="studying-crab-claws-crabs.html#how-does-this-compare-to-our-original-linear-model"><i class="fa fa-check"></i><b>12.4.2</b> How does this compare to our original linear model?</a></li>
+</ul></li>
+<li class="chapter" data-level="12.5" data-path="studying-crab-claws-crabs.html"><a href="studying-crab-claws-crabs.html#making-predictions-with-a-model"><i class="fa fa-check"></i><b>12.5</b> Making Predictions with a Model</a><ul>
+<li class="chapter" data-level="12.5.1" data-path="studying-crab-claws-crabs.html"><a href="studying-crab-claws-crabs.html#predictions-after-a-transformation"><i class="fa fa-check"></i><b>12.5.1</b> Predictions After a Transformation</a></li>
+<li class="chapter" data-level="12.5.2" data-path="studying-crab-claws-crabs.html"><a href="studying-crab-claws-crabs.html#comparing-model-predictions"><i class="fa fa-check"></i><b>12.5.2</b> Comparing Model Predictions</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="WCGS-Study.html"><a href="WCGS-Study.html"><i class="fa fa-check"></i><b>13</b> The Western Collaborative Group Study</a><ul>
+<li class="chapter" data-level="13.1" data-path="WCGS-Study.html"><a href="WCGS-Study.html#the-western-collaborative-group-study-wcgs-data-set"><i class="fa fa-check"></i><b>13.1</b> The Western Collaborative Group Study (<code>wcgs</code>) data set</a><ul>
+<li class="chapter" data-level="13.1.1" data-path="WCGS-Study.html"><a href="WCGS-Study.html#structure-of-wcgs"><i class="fa fa-check"></i><b>13.1.1</b> Structure of <code>wcgs</code></a></li>
+<li class="chapter" data-level="13.1.2" data-path="WCGS-Study.html"><a href="WCGS-Study.html#codebook-for-wcgs"><i class="fa fa-check"></i><b>13.1.2</b> Codebook for <code>wcgs</code></a></li>
+<li class="chapter" data-level="13.1.3" data-path="WCGS-Study.html"><a href="WCGS-Study.html#quick-summary"><i class="fa fa-check"></i><b>13.1.3</b> Quick Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="13.2" data-path="WCGS-Study.html"><a href="WCGS-Study.html#are-the-sbps-normally-distributed"><i class="fa fa-check"></i><b>13.2</b> Are the SBPs Normally Distributed?</a></li>
+<li class="chapter" data-level="13.3" data-path="WCGS-Study.html"><a href="WCGS-Study.html#describing-outlying-values-with-z-scores-1"><i class="fa fa-check"></i><b>13.3</b> Describing Outlying Values with Z Scores</a></li>
+<li class="chapter" data-level="13.4" data-path="WCGS-Study.html"><a href="WCGS-Study.html#does-weight-category-relate-to-sbp"><i class="fa fa-check"></i><b>13.4</b> Does Weight Category Relate to SBP?</a></li>
+<li class="chapter" data-level="13.5" data-path="WCGS-Study.html"><a href="WCGS-Study.html#re-leveling-a-factor"><i class="fa fa-check"></i><b>13.5</b> Re-Leveling a Factor</a><ul>
+<li class="chapter" data-level="13.5.1" data-path="WCGS-Study.html"><a href="WCGS-Study.html#sbp-by-weight-category"><i class="fa fa-check"></i><b>13.5.1</b> SBP by Weight Category</a></li>
+</ul></li>
+<li class="chapter" data-level="13.6" data-path="WCGS-Study.html"><a href="WCGS-Study.html#are-weight-and-sbp-linked"><i class="fa fa-check"></i><b>13.6</b> Are Weight and SBP Linked?</a></li>
+<li class="chapter" data-level="13.7" data-path="WCGS-Study.html"><a href="WCGS-Study.html#sbp-and-weight-by-arcus-senilis-groups"><i class="fa fa-check"></i><b>13.7</b> SBP and Weight by Arcus Senilis groups?</a></li>
+<li class="chapter" data-level="13.8" data-path="WCGS-Study.html"><a href="WCGS-Study.html#linear-model-for-sbp-weight-relationship-subjects-without-arcus-senilis"><i class="fa fa-check"></i><b>13.8</b> Linear Model for SBP-Weight Relationship: subjects without Arcus Senilis</a></li>
+<li class="chapter" data-level="13.9" data-path="WCGS-Study.html"><a href="WCGS-Study.html#linear-model-for-sbp-weight-relationship-subjects-with-arcus-senilis"><i class="fa fa-check"></i><b>13.9</b> Linear Model for SBP-Weight Relationship: subjects with Arcus Senilis</a></li>
+<li class="chapter" data-level="13.10" data-path="WCGS-Study.html"><a href="WCGS-Study.html#including-arcus-status-in-the-model"><i class="fa fa-check"></i><b>13.10</b> Including Arcus Status in the model</a></li>
+<li class="chapter" data-level="13.11" data-path="WCGS-Study.html"><a href="WCGS-Study.html#predictions-from-these-linear-models"><i class="fa fa-check"></i><b>13.11</b> Predictions from these Linear Models</a></li>
+<li class="chapter" data-level="13.12" data-path="WCGS-Study.html"><a href="WCGS-Study.html#scatterplots-with-facets-across-a-categorical-variable"><i class="fa fa-check"></i><b>13.12</b> Scatterplots with Facets Across a Categorical Variable</a></li>
+<li class="chapter" data-level="13.13" data-path="WCGS-Study.html"><a href="WCGS-Study.html#scatterplot-and-correlation-matrices"><i class="fa fa-check"></i><b>13.13</b> Scatterplot and Correlation Matrices</a><ul>
+<li class="chapter" data-level="13.13.1" data-path="WCGS-Study.html"><a href="WCGS-Study.html#using-the-car-package"><i class="fa fa-check"></i><b>13.13.1</b> Using the car package</a></li>
+<li class="chapter" data-level="13.13.2" data-path="WCGS-Study.html"><a href="WCGS-Study.html#displaying-a-correlation-matrix"><i class="fa fa-check"></i><b>13.13.2</b> Displaying a Correlation Matrix</a></li>
+<li class="chapter" data-level="13.13.3" data-path="WCGS-Study.html"><a href="WCGS-Study.html#augmented-scatterplot-matrix"><i class="fa fa-check"></i><b>13.13.3</b> Augmented Scatterplot Matrix</a></li>
+<li class="chapter" data-level="13.13.4" data-path="WCGS-Study.html"><a href="WCGS-Study.html#using-the-ggally-package"><i class="fa fa-check"></i><b>13.13.4</b> Using the <code>GGally</code> package</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="part-a-a-few-of-the-key-points.html"><a href="part-a-a-few-of-the-key-points.html"><i class="fa fa-check"></i><b>14</b> Part A: A Few of the Key Points</a><ul>
+<li class="chapter" data-level="14.1" data-path="part-a-a-few-of-the-key-points.html"><a href="part-a-a-few-of-the-key-points.html#key-graphical-descriptive-summaries-for-quantitative-data"><i class="fa fa-check"></i><b>14.1</b> Key Graphical Descriptive Summaries for Quantitative Data</a></li>
+<li class="chapter" data-level="14.2" data-path="part-a-a-few-of-the-key-points.html"><a href="part-a-a-few-of-the-key-points.html#key-numerical-descriptive-summaries-for-quantitative-data"><i class="fa fa-check"></i><b>14.2</b> Key Numerical Descriptive Summaries for Quantitative Data</a></li>
+<li class="chapter" data-level="14.3" data-path="part-a-a-few-of-the-key-points.html"><a href="part-a-a-few-of-the-key-points.html#the-empirical-rule---interpreting-a-standard-deviation"><i class="fa fa-check"></i><b>14.3</b> The Empirical Rule - Interpreting a Standard Deviation</a></li>
+<li class="chapter" data-level="14.4" data-path="part-a-a-few-of-the-key-points.html"><a href="part-a-a-few-of-the-key-points.html#identifying-outliers-using-fences-andor-z-scores"><i class="fa fa-check"></i><b>14.4</b> Identifying “Outliers” Using Fences and/or Z Scores</a></li>
+<li class="chapter" data-level="14.5" data-path="part-a-a-few-of-the-key-points.html"><a href="part-a-a-few-of-the-key-points.html#summarizing-bivariate-associations-scatterplots-and-regression-lines"><i class="fa fa-check"></i><b>14.5</b> Summarizing Bivariate Associations: Scatterplots and Regression Lines</a></li>
+<li class="chapter" data-level="14.6" data-path="part-a-a-few-of-the-key-points.html"><a href="part-a-a-few-of-the-key-points.html#summarizing-bivariate-associations-with-correlations"><i class="fa fa-check"></i><b>14.6</b> Summarizing Bivariate Associations With Correlations</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="this-is-work-in-progress.html"><a href="this-is-work-in-progress.html"><i class="fa fa-check"></i>This is Work in Progress</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Data Science for Biological, Medical and Health Research: Notes for PQHS 431</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="summarizing-categorical-variables" class="section level1">
+<h1><span class="header-section-number">Chapter 6</span> Summarizing Categorical Variables</h1>
+<p>Summarizing categorical variables numerically is mostly about building tables, and calculating percentages or proportions. We’ll save our discussion of modeling categorical data for later. Recall that in the <code>nh_adults</code> data set we built in Section (@ref(createnh_adults)), we had the following categorical variables. The number of levels indicates the number of possible categories for each categorical variable.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="right">Variable</th>
+<th>Description</th>
+<th>Levels</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">Sex</td>
+<td>sex of subject</td>
+<td>2</td>
+<td>binary</td>
+</tr>
+<tr class="even">
+<td align="right">Race</td>
+<td>subject’s race</td>
+<td>6</td>
+<td>nominal</td>
+</tr>
+<tr class="odd">
+<td align="right">Education</td>
+<td>subject’s educational level</td>
+<td>5</td>
+<td>ordinal</td>
+</tr>
+<tr class="even">
+<td align="right">PhysActive</td>
+<td>Participates in sports?</td>
+<td>2</td>
+<td>binary</td>
+</tr>
+<tr class="odd">
+<td align="right">Smoke100</td>
+<td>Smoked 100+ cigarettes?</td>
+<td>2</td>
+<td>binary</td>
+</tr>
+<tr class="even">
+<td align="right">SleepTrouble</td>
+<td>Trouble sleeping?</td>
+<td>2</td>
+<td>binary</td>
+</tr>
+<tr class="odd">
+<td align="right">HealthGen</td>
+<td>Self-report health</td>
+<td>5</td>
+<td>ordinal</td>
+</tr>
+</tbody>
+</table>
+<div id="the-summary-function-for-categorical-data" class="section level2">
+<h2><span class="header-section-number">6.1</span> The <code>summary</code> function for Categorical data</h2>
+<p>When R recognizes a variable as categorical, it stores it as a <em>factor</em>. Such variables get special treatment from the <code>summary</code> function, in particular a table of available values (so long as there aren’t too many.)</p>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb102-1" title="1">nh_adults <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb102-2" title="2"><span class="st">  </span><span class="kw">select</span>(Sex, Race, Education, PhysActive, Smoke100, SleepTrouble, HealthGen) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb102-3" title="3"><span class="st">  </span><span class="kw">summary</span>()</a></code></pre></div>
+<pre><code>     Sex            Race              Education   PhysActive Smoke100 
+ female:221   Asian   : 42   8th Grade     : 24   No :215    No :297  
+ male  :279   Black   : 63   9 - 11th Grade: 60   Yes:285    Yes:203  
+              Hispanic: 26   High School   : 81                       
+              Mexican : 38   Some College  :153                       
+              White   :313   College Grad  :182                       
+              Other   : 18                                            
+ SleepTrouble     HealthGen  
+ No :380      Excellent: 50  
+ Yes:120      Vgood    :154  
+              Good     :184  
+              Fair     : 49  
+              Poor     : 14  
+              NA&#39;s     : 49  </code></pre>
+</div>
+<div id="tables-to-describe-one-categorical-variable" class="section level2">
+<h2><span class="header-section-number">6.2</span> Tables to describe One Categorical Variable</h2>
+<p>Suppose we build a table to describe the <code>HealthGen</code> distribution.</p>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb104-1" title="1">nh_adults <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb104-2" title="2"><span class="st">    </span><span class="kw">select</span>(HealthGen) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb104-3" title="3"><span class="st">    </span><span class="kw">table</span>(., <span class="dt">useNA =</span> <span class="st">&quot;ifany&quot;</span>)</a></code></pre></div>
+<pre><code>.
+Excellent     Vgood      Good      Fair      Poor      &lt;NA&gt; 
+       50       154       184        49        14        49 </code></pre>
+<p>The main tools we have for augmenting tables are:</p>
+<ul>
+<li>adding in marginal totals, and</li>
+<li>working with proportions/percentages.</li>
+</ul>
+<p>What if we want to add a total count?</p>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb106-1" title="1">nh_adults <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb106-2" title="2"><span class="st">    </span><span class="kw">select</span>(HealthGen) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb106-3" title="3"><span class="st">    </span><span class="kw">table</span>(., <span class="dt">useNA =</span> <span class="st">&quot;ifany&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb106-4" title="4"><span class="st">    </span><span class="kw">addmargins</span>()</a></code></pre></div>
+<pre><code>.
+Excellent     Vgood      Good      Fair      Poor      &lt;NA&gt;       Sum 
+       50       154       184        49        14        49       500 </code></pre>
+<p>What if we want to leave out the missing responses?</p>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb108-1" title="1">nh_adults <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb108-2" title="2"><span class="st">    </span><span class="kw">select</span>(HealthGen) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb108-3" title="3"><span class="st">    </span><span class="kw">table</span>(., <span class="dt">useNA =</span> <span class="st">&quot;no&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb108-4" title="4"><span class="st">    </span><span class="kw">addmargins</span>()</a></code></pre></div>
+<pre><code>.
+Excellent     Vgood      Good      Fair      Poor       Sum 
+       50       154       184        49        14       451 </code></pre>
+<p>Let’s put the missing values back in, but now calculate proportions instead. Since the total will just be 1.0, we’ll leave that out.</p>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb110-1" title="1">nh_adults <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb110-2" title="2"><span class="st">    </span><span class="kw">select</span>(HealthGen) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb110-3" title="3"><span class="st">    </span><span class="kw">table</span>(., <span class="dt">useNA =</span> <span class="st">&quot;ifany&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb110-4" title="4"><span class="st">    </span><span class="kw">prop.table</span>()</a></code></pre></div>
+<pre><code>.
+Excellent     Vgood      Good      Fair      Poor      &lt;NA&gt; 
+    0.100     0.308     0.368     0.098     0.028     0.098 </code></pre>
+<p>Now, we’ll calculate percentages by multiplying the proportions by 100.</p>
+<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb112-1" title="1">nh_adults <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb112-2" title="2"><span class="st">    </span><span class="kw">select</span>(HealthGen) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb112-3" title="3"><span class="st">    </span><span class="kw">table</span>(., <span class="dt">useNA =</span> <span class="st">&quot;ifany&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb112-4" title="4"><span class="st">    </span><span class="kw">prop.table</span>() <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb112-5" title="5"><span class="st">    &quot;*&quot;</span>(<span class="dv">100</span>) </a></code></pre></div>
+<pre><code>.
+Excellent     Vgood      Good      Fair      Poor      &lt;NA&gt; 
+     10.0      30.8      36.8       9.8       2.8       9.8 </code></pre>
+</div>
+<div id="the-mode-of-a-categorical-variable" class="section level2">
+<h2><span class="header-section-number">6.3</span> The Mode of a Categorical Variable</h2>
+<p>A common measure applied to a categorical variable is to identify the mode, the most frequently observed value. To find the mode for variables with lots of categories (so that the <code>summary</code> may not be sufficient), we usually tabulate the data, and then sort by the counts of the numbers of observations, as we did with discrete quantitative variables.</p>
+<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb114-1" title="1">nh_adults <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb114-2" title="2"><span class="st">    </span><span class="kw">group_by</span>(HealthGen) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb114-3" title="3"><span class="st">    </span><span class="kw">summarise</span>(<span class="dt">count =</span> <span class="kw">n</span>()) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb114-4" title="4"><span class="st">    </span><span class="kw">arrange</span>(<span class="kw">desc</span>(count)) </a></code></pre></div>
+<pre><code>Warning: Factor `HealthGen` contains implicit NA, consider using
+`forcats::fct_explicit_na`</code></pre>
+<pre><code># A tibble: 6 x 2
+  HealthGen count
+  &lt;fct&gt;     &lt;int&gt;
+1 Good        184
+2 Vgood       154
+3 Excellent    50
+4 Fair         49
+5 &lt;NA&gt;         49
+6 Poor         14</code></pre>
+</div>
+<div id="describe-in-the-hmisc-package-1" class="section level2">
+<h2><span class="header-section-number">6.4</span> <code>describe</code> in the <code>Hmisc</code> package</h2>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb117-1" title="1">Hmisc<span class="op">::</span><span class="kw">describe</span>(nh_adults <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb117-2" title="2"><span class="st">                    </span><span class="kw">select</span>(Sex, Race, Education, PhysActive, </a>
+<a class="sourceLine" id="cb117-3" title="3">                           Smoke100, SleepTrouble, HealthGen))</a></code></pre></div>
+<pre><code>nh_adults %&gt;% select(Sex, Race, Education, PhysActive, Smoke100, SleepTrouble, HealthGen) 
+
+ 7  Variables      500  Observations
+---------------------------------------------------------------------------
+Sex 
+       n  missing distinct 
+     500        0        2 
+                        
+Value      female   male
+Frequency     221    279
+Proportion  0.442  0.558
+---------------------------------------------------------------------------
+Race 
+       n  missing distinct 
+     500        0        6 
+                                                                
+Value         Asian    Black Hispanic  Mexican    White    Other
+Frequency        42       63       26       38      313       18
+Proportion    0.084    0.126    0.052    0.076    0.626    0.036
+---------------------------------------------------------------------------
+Education 
+       n  missing distinct 
+     500        0        5 
+                                                                      
+Value           8th Grade 9 - 11th Grade    High School   Some College
+Frequency              24             60             81            153
+Proportion          0.048          0.120          0.162          0.306
+                         
+Value        College Grad
+Frequency             182
+Proportion          0.364
+---------------------------------------------------------------------------
+PhysActive 
+       n  missing distinct 
+     500        0        2 
+                    
+Value        No  Yes
+Frequency   215  285
+Proportion 0.43 0.57
+---------------------------------------------------------------------------
+Smoke100 
+       n  missing distinct 
+     500        0        2 
+                      
+Value         No   Yes
+Frequency    297   203
+Proportion 0.594 0.406
+---------------------------------------------------------------------------
+SleepTrouble 
+       n  missing distinct 
+     500        0        2 
+                    
+Value        No  Yes
+Frequency   380  120
+Proportion 0.76 0.24
+---------------------------------------------------------------------------
+HealthGen 
+       n  missing distinct 
+     451       49        5 
+                                                            
+Value      Excellent     Vgood      Good      Fair      Poor
+Frequency         50       154       184        49        14
+Proportion     0.111     0.341     0.408     0.109     0.031
+---------------------------------------------------------------------------</code></pre>
+</div>
+<div id="cross-tabulations" class="section level2">
+<h2><span class="header-section-number">6.5</span> Cross-Tabulations</h2>
+<p>It is very common for us to want to describe the association of one categorical variable with another. For instance, is there a relationship between Education and SleepTrouble in these data?</p>
+<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb119-1" title="1">nh_adults <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb119-2" title="2"><span class="st">    </span><span class="kw">select</span>(Education, SleepTrouble) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb119-3" title="3"><span class="st">    </span><span class="kw">table</span>() <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb119-4" title="4"><span class="st">    </span><span class="kw">addmargins</span>()</a></code></pre></div>
+<pre><code>                SleepTrouble
+Education         No Yes Sum
+  8th Grade       18   6  24
+  9 - 11th Grade  45  15  60
+  High School     62  19  81
+  Some College   118  35 153
+  College Grad   137  45 182
+  Sum            380 120 500</code></pre>
+<p>To get row percentages, we can use:</p>
+<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb121-1" title="1">nh_adults <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb121-2" title="2"><span class="st">    </span><span class="kw">select</span>(Education, SleepTrouble) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb121-3" title="3"><span class="st">    </span><span class="kw">table</span>() <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb121-4" title="4"><span class="st">    </span><span class="kw">prop.table</span>(., <span class="dv">1</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb121-5" title="5"><span class="st">    &quot;*&quot;</span>(<span class="dv">100</span>) </a></code></pre></div>
+<pre><code>                SleepTrouble
+Education              No      Yes
+  8th Grade      75.00000 25.00000
+  9 - 11th Grade 75.00000 25.00000
+  High School    76.54321 23.45679
+  Some College   77.12418 22.87582
+  College Grad   75.27473 24.72527</code></pre>
+<p>For column percentages, we use 2 instead of 1 in the <code>prop.table</code> function. Here, we’ll also round off to two decimal places:</p>
+<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb123-1" title="1">nh_adults <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb123-2" title="2"><span class="st">    </span><span class="kw">select</span>(Education, SleepTrouble) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb123-3" title="3"><span class="st">    </span><span class="kw">table</span>() <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb123-4" title="4"><span class="st">    </span><span class="kw">prop.table</span>(., <span class="dv">2</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb123-5" title="5"><span class="st">    &quot;*&quot;</span>(<span class="dv">100</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb123-6" title="6"><span class="st">    </span><span class="kw">round</span>(.,<span class="dv">2</span>) </a></code></pre></div>
+<pre><code>                SleepTrouble
+Education           No   Yes
+  8th Grade       4.74  5.00
+  9 - 11th Grade 11.84 12.50
+  High School    16.32 15.83
+  Some College   31.05 29.17
+  College Grad   36.05 37.50</code></pre>
+<p>Here’s another approach, to look at the cross-classification of Race and HealthGen:</p>
+<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb125-1" title="1"><span class="kw">xtabs</span>(<span class="op">~</span><span class="st"> </span>Race <span class="op">+</span><span class="st"> </span>HealthGen, <span class="dt">data =</span> nh_adults)</a></code></pre></div>
+<pre><code>          HealthGen
+Race       Excellent Vgood Good Fair Poor
+  Asian            3    11   17    3    0
+  Black            8    11   19   11    6
+  Hispanic         3     3   11    4    1
+  Mexican          2     8   17    6    3
+  White           33   113  114   22    4
+  Other            1     8    6    3    0</code></pre>
+<div id="cross-classifying-three-categorical-variables" class="section level3">
+<h3><span class="header-section-number">6.5.1</span> Cross-Classifying Three Categorical Variables</h3>
+<p>Suppose we are interested in <code>Smoke100</code> and its relationship to <code>PhysActive</code> and <code>SleepTrouble</code>.</p>
+<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb127-1" title="1"><span class="kw">xtabs</span>(<span class="op">~</span><span class="st"> </span>Smoke100 <span class="op">+</span><span class="st"> </span>PhysActive <span class="op">+</span><span class="st"> </span>SleepTrouble, <span class="dt">data =</span> nh_adults)</a></code></pre></div>
+<pre><code>, , SleepTrouble = No
+
+        PhysActive
+Smoke100  No Yes
+     No   99 142
+     Yes  62  77
+
+, , SleepTrouble = Yes
+
+        PhysActive
+Smoke100  No Yes
+     No   21  35
+     Yes  33  31</code></pre>
+<p>We can also build a <strong>flat</strong> version of this table, as follows:</p>
+<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb129-1" title="1"><span class="kw">ftable</span>(Smoke100 <span class="op">~</span><span class="st"> </span>PhysActive <span class="op">+</span><span class="st"> </span>SleepTrouble, <span class="dt">data =</span> nh_adults)</a></code></pre></div>
+<pre><code>                        Smoke100  No Yes
+PhysActive SleepTrouble                 
+No         No                     99  62
+           Yes                    21  33
+Yes        No                    142  77
+           Yes                    35  31</code></pre>
+<p>And we can do this with <code>dplyr</code> functions, as well, for example…</p>
+<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb131-1" title="1">nh_adults <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb131-2" title="2"><span class="st">    </span><span class="kw">select</span>(Smoke100, PhysActive, SleepTrouble) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb131-3" title="3"><span class="st">    </span><span class="kw">table</span>() </a></code></pre></div>
+<pre><code>, , SleepTrouble = No
+
+        PhysActive
+Smoke100  No Yes
+     No   99 142
+     Yes  62  77
+
+, , SleepTrouble = Yes
+
+        PhysActive
+Smoke100  No Yes
+     No   21  35
+     Yes  33  31</code></pre>
+</div>
+</div>
+<div id="constructing-tables-well" class="section level2">
+<h2><span class="header-section-number">6.6</span> Constructing Tables Well</h2>
+<p>The prolific Howard Wainer is responsible for many interesting books on visualization and related issues, including <span class="citation">Wainer (<a href="#ref-HW_GraphicDiscovery">2005</a>)</span> and <span class="citation">Wainer (<a href="#ref-HW_MedicalIlluminations">2013</a>)</span>. These rules come from Chapter 10 of <span class="citation">Wainer (<a href="#ref-HW_VisualRevelations">1997</a>)</span>.</p>
+<ol style="list-style-type: decimal">
+<li>Order the rows and columns in a way that makes sense.</li>
+<li>Round, a lot!</li>
+<li>ALL is different and important</li>
+</ol>
+<div id="alabama-first" class="section level3">
+<h3><span class="header-section-number">6.6.1</span> Alabama First!</h3>
+<p>Which of these Tables is more useful to you?</p>
+<p>2013 Percent of Students in grades 9-12 who are obese</p>
+<table>
+<thead>
+<tr class="header">
+<th>State</th>
+<th>% Obese</th>
+<th>95% CI</th>
+<th>Sample Size</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Alabama</td>
+<td>17.1</td>
+<td>(14.6 - 19.9)</td>
+<td>1,499</td>
+</tr>
+<tr class="even">
+<td>Alaska</td>
+<td>12.4</td>
+<td>(10.5-14.6)</td>
+<td>1,167</td>
+</tr>
+<tr class="odd">
+<td>Arizona</td>
+<td>10.7</td>
+<td>(8.3-13.6)</td>
+<td>1,520</td>
+</tr>
+<tr class="even">
+<td>Arkansas</td>
+<td>17.8</td>
+<td>(15.7-20.1)</td>
+<td>1,470</td>
+</tr>
+<tr class="odd">
+<td>Connecticut</td>
+<td>12.3</td>
+<td>(10.2-14.7)</td>
+<td>2,270</td>
+</tr>
+<tr class="even">
+<td>Delaware</td>
+<td>14.2</td>
+<td>(12.9-15.6)</td>
+<td>2,475</td>
+</tr>
+<tr class="odd">
+<td>Florida</td>
+<td>11.6</td>
+<td>(10.5-12.8)</td>
+<td>5,491</td>
+</tr>
+<tr class="even">
+<td>…</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Wisconsin</td>
+<td>11.6</td>
+<td>(9.7-13.9)</td>
+<td>2,771</td>
+</tr>
+<tr class="even">
+<td>Wyoming</td>
+<td>10.7</td>
+<td>(9.4-12.2)</td>
+<td>2,910</td>
+</tr>
+</tbody>
+</table>
+<p>or …</p>
+<table>
+<thead>
+<tr class="header">
+<th>State</th>
+<th>% Obese</th>
+<th>95% CI</th>
+<th>Sample Size</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Kentucky</td>
+<td>18.0</td>
+<td>(15.7 - 20.6)</td>
+<td>1,537</td>
+</tr>
+<tr class="even">
+<td>Arkansas</td>
+<td>17.8</td>
+<td>(15.7 - 20.1)</td>
+<td>1,470</td>
+</tr>
+<tr class="odd">
+<td>Alabama</td>
+<td>17.1</td>
+<td>(14.6 - 19.9)</td>
+<td>1,499</td>
+</tr>
+<tr class="even">
+<td>Tennessee</td>
+<td>16.9</td>
+<td>(15.1 - 18.8)</td>
+<td>1,831</td>
+</tr>
+<tr class="odd">
+<td>Texas</td>
+<td>15.7</td>
+<td>(13.9 - 17.6)</td>
+<td>3,039</td>
+</tr>
+<tr class="even">
+<td>…</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Massachusetts</td>
+<td>10.2</td>
+<td>(8.5 - 12.1)</td>
+<td>2,547</td>
+</tr>
+<tr class="even">
+<td>Idaho</td>
+<td>9.6</td>
+<td>(8.2 - 11.1)</td>
+<td>1,841</td>
+</tr>
+<tr class="odd">
+<td>Montana</td>
+<td>9.4</td>
+<td>(8.4 - 10.5)</td>
+<td>4,679</td>
+</tr>
+<tr class="even">
+<td>New Jersey</td>
+<td>8.7</td>
+<td>(6.8 - 11.2)</td>
+<td>1,644</td>
+</tr>
+<tr class="odd">
+<td>Utah</td>
+<td>6.4</td>
+<td>(4.8 - 8.5)</td>
+<td>2,136</td>
+</tr>
+</tbody>
+</table>
+<p>It is a rare event when Alabama first is the best choice.</p>
+</div>
+<div id="order-rows-and-columns-sensibly" class="section level3">
+<h3><span class="header-section-number">6.6.2</span> Order rows and columns sensibly</h3>
+<ul>
+<li>Alabama First!
+<ul>
+<li>Size places - put the largest first. We often look most carefully at the top.</li>
+</ul></li>
+<li>Order time from the past to the future to help the viewer.</li>
+<li>If there is a clear predictor-outcome relationship, put the predictors in the rows and the outcomes in the columns.</li>
+</ul>
+</div>
+<div id="round---a-lot" class="section level3">
+<h3><span class="header-section-number">6.6.3</span> Round - a lot!</h3>
+<ul>
+<li>Humans cannot understand more than two digits very easily.</li>
+<li>We almost never care about accuracy of more than two digits.</li>
+<li>We can almost never justify more than two digits of accuracy statistically.</li>
+<li>It’s also helpful to remember that we are almost invariably publishing progress to date, rather than a truly final answer.</li>
+</ul>
+<p>Suppose, for instance, we report a correlation coefficient of 0.25. How many observations do you think you would need to justify such a choice?</p>
+<ul>
+<li>To report 0.25 meaningfully, we want to be sure that the second digit isn’t 4 or 6.</li>
+<li>That requires a standard error less than 0.005</li>
+<li>The <em>standard error</em> of any statistic is proportional to 1 over the square root of the sample size, <em>n</em>.</li>
+</ul>
+<p>So <span class="math inline">\(\frac{1}{\sqrt{n}}\)</span> ~ 0.005, but that means <span class="math inline">\(\sqrt{n} = \frac{1}{0.005} = 200\)</span>. If <span class="math inline">\(\sqrt{n} = 200\)</span>, then <em>n</em> = (200)<sup>2</sup> = 40,000.</p>
+<p>Do we usually have 40,000 observations?</p>
+</div>
+<div id="all-is-different-and-important" class="section level3">
+<h3><span class="header-section-number">6.6.4</span> ALL is different and important</h3>
+<p>Summaries of rows and columns provide a measure of what is typical or usual. Sometimes a sum is helpful, at other times, consider presenting a median or other summary. The ALL category, as <span class="citation">Wainer (<a href="#ref-HW_VisualRevelations">1997</a>)</span> suggests, should be both visually different from the individual entries and set spatially apart.</p>
+<p>On the whole, it’s <em>far</em> easier to fall into a good graph in R (at least if you have some ggplot2 skills) than to produce a good table.</p>
+
+</div>
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-HW_VisualRevelations">
+<p>Wainer, Howard. 1997. <em>Visual Revelations: Graphical Tales of Fate and Deception from Napoleon Bonaparte to Ross Perot</em>. New York: Springer-Verlag.</p>
+</div>
+<div id="ref-HW_GraphicDiscovery">
+<p>Wainer, Howard. 2005. <em>Graphic Discovery: A Trout in the Milk and Other Visual Adventures</em>. Princeton, NJ: Princeton University Press.</p>
+</div>
+<div id="ref-HW_MedicalIlluminations">
+<p>Wainer, Howard. 2013. <em>Medical Illuminations: Using Evidence, Visualization and Statistical Thinking to Improve Healthcare</em>. New York: Oxford University Press.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="summarizing-quantities.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="NYFS-Study.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/06_summarizing_categories.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["2019-431-book.pdf", "2019-431-book.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
