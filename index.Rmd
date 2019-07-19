@@ -1,36 +1,68 @@
---- 
-title: "A Minimal Book Example"
-author: "Yihui Xie"
-date: "`r Sys.Date()`"
+---
+title: "Data Science for Biological, Medical and Health Research: Notes for PQHS 431"
+author: "Thomas E. Love, Ph.D."
+date: "Version: `r Sys.time()`"
 site: bookdown::bookdown_site
-output: bookdown::gitbook
 documentclass: book
-bibliography: [book.bib, packages.bib]
-biblio-style: apalike
-link-citations: yes
-github-repo: rstudio/bookdown-demo
-description: "This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook."
+bibliography: text.bib
+link-citations: true
+output:
+  bookdown::gitbook:
+    highlight: tango
+  bookdown::pdf_book: default
 ---
 
-# Prerequisites
+# Introduction {-}
 
-This is a _sample_ book written in **Markdown**. You can use anything that Pandoc's Markdown supports, e.g., a math equation $a^2 + b^2 = c^2$.
+These Notes provide a series of examples using R to work through issues that are likely to come up in PQHS/CRSP/MPHP 431.
 
-The **bookdown** package can be installed from CRAN or Github:
+While these Notes share some of the features of a textbook, they are neither comprehensive nor completely original. The main purpose is to give 431 students a set of common materials on which to draw during the course. In class, we will sometimes:
 
-```{r eval=FALSE}
-install.packages("bookdown")
-# or the development version
-# devtools::install_github("rstudio/bookdown")
-```
+- reiterate points made in this document, 
+- amplify what is here,
+- simplify the presentation of things done here,
+- use new examples to show some of the same techniques,
+- refer to issues not mentioned in this document,
 
-Remember each Rmd file contains one and only one chapter, and a chapter is defined by the first-level heading `#`.
+but what we don't do is follow these notes very precisely. We assume instead that you will read the materials and try to learn from them, just as you will attend classes and try to learn from them. We welcome feedback of all kinds on this document or anything else. Just email us at 431-help at case dot edu, or submit a pull request.
 
-To compile this example to PDF, you need XeLaTeX. You are recommended to install TinyTeX (which includes XeLaTeX): <https://yihui.name/tinytex/>.
+What you will mostly find are brief explanations of a key idea or summary, accompanied (most of the time) by R code and a demonstration of the results of applying that code. 
 
-```{r include=FALSE}
-# automatically create a bib database for R packages
-knitr::write_bib(c(
-  .packages(), 'bookdown', 'knitr', 'rmarkdown'
-), 'packages.bib')
-```
+Everything you see here is available to you as HTML or PDF. You will also have access to the R Markdown files, which contain the code which generates everything in the document, including all of the R results. We will demonstrate the use of R Markdown (this document is generated with the additional help of an R package called `bookdown`) and R Studio (the "program" which we use to interface with the R language) in class. 
+
+All data and R code related to these notes are available through the course website.
+
+## Structure {-}
+
+The Notes, like the 431 course, fall in three main parts.
+
+Part A is about **visualizing data and exploratory data analyses**. These Notes focus on using R to work through issues that arise in the process of exploring data, managing (cleaning and manipulating) data into a tidy format to facilitate useful work downstream, and describing those data effectively with visualizations, numerical summaries, and some simple models.
+
+Part B is about **making comparisons** with data. The Notes discuss the use of R to address comparisons of means and of rates/proportions, primarily. The main ideas include confidence intervals, using the bootstrap and making decisions about power and sample size. We'll also discuss the value (or lack thereof) of *p* values for assessing hypotheses. Key ideas from Part A that have an impact here include visualizations to check the assumptions behind our inferences, and cleaning/manipulating data to facilitate our comparisons.
+
+Part C is about **building models** with data. The Notes are primarily concerned (in 431) with linear regression models for continuous quantitative outcomes, using one or more predictors. We'll see how to use models to accomplish many of the comparisons discussed in Part B, and make heavy use of visualization and data management tools developed in Part A to assess our models.
+
+## Course Philosophy {-}
+
+In developing this course, we adopt a modern approach that places data at the center of our work. Our goal is to teach you how to do truly reproducible research with modern tools. We want you to be able to answer real questions using data and equip you with the tools you need in order to answer those questions well (@Mine has more on a related teaching philosophy.)
+
+The curriculum includes more on several topics than you might expect from a standard graduate introduction to statistics.
+
+- data gathering
+- data wrangling
+- exploratory data analysis and visualization
+- multivariate modeling
+- communication
+
+It also nearly completely avoids formalism and is extremely applied - this is most definitely **not** a course in theoretical or mathematical statistics.
+
+The 431 course is about **getting things done**. It's not a statistics course, nor is it a computer science course. It is instead a course in **data science**.
+
+## Working with this Document {-}
+
+1. This document is broken down into multiple chapters. Use the table of contents at left to navigate.
+2. At the top of the document, you'll see icons which you can click to
+    - search the document,
+    - change the size, font or color scheme of the page, and
+    - download a PDF or EPUB (Kindle-readable) version of the entire document.
+3. The document is updated occasionally through the semester. Check the Version information above to verify the last update time.

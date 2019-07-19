@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 2 Setting Up R | Applied Data Science for Biological, Medical and Health Research: Notes for 431</title>
+  <meta name="description" content="Chapter 2 Setting Up R | Applied Data Science for Biological, Medical and Health Research: Notes for 431" />
+  <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 2 Setting Up R | Applied Data Science for Biological, Medical and Health Research: Notes for 431" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 2 Setting Up R | Applied Data Science for Biological, Medical and Health Research: Notes for 431" />
+  
+  
+  
+
+<meta name="author" content="Thomas E. Love, Ph.D." />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="data-science.html">
+<link rel="next" href="references.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  { background-color: #f8f8f8; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Notes for 431</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#structure"><i class="fa fa-check"></i>Structure</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#course-philosophy"><i class="fa fa-check"></i>Course Philosophy</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#working-with-this-document"><i class="fa fa-check"></i>Working with this Document</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="data-science.html"><a href="data-science.html"><i class="fa fa-check"></i><b>1</b> Data Science</a><ul>
+<li class="chapter" data-level="1.1" data-path="data-science.html"><a href="data-science.html#why-a-unicorn"><i class="fa fa-check"></i><b>1.1</b> Why a unicorn?</a></li>
+<li class="chapter" data-level="1.2" data-path="data-science.html"><a href="data-science.html#data-science-project-cycle"><i class="fa fa-check"></i><b>1.2</b> Data Science Project Cycle</a></li>
+<li class="chapter" data-level="1.3" data-path="data-science.html"><a href="data-science.html#what-will-we-discuss-in-431"><i class="fa fa-check"></i><b>1.3</b> What Will We Discuss in 431?</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="Rsetup.html"><a href="Rsetup.html"><i class="fa fa-check"></i><b>2</b> Setting Up R</a><ul>
+<li class="chapter" data-level="2.1" data-path="Rsetup.html"><a href="Rsetup.html#r-markdown"><i class="fa fa-check"></i><b>2.1</b> R Markdown</a></li>
+<li class="chapter" data-level="2.2" data-path="Rsetup.html"><a href="Rsetup.html#r-packages"><i class="fa fa-check"></i><b>2.2</b> R Packages</a></li>
+<li class="chapter" data-level="2.3" data-path="Rsetup.html"><a href="Rsetup.html#other-packages"><i class="fa fa-check"></i><b>2.3</b> Other Packages</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Applied Data Science for Biological, Medical and Health Research: Notes for 431</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="Rsetup" class="section level1">
+<h1><span class="header-section-number">Chapter 2</span> Setting Up R</h1>
+<p>These Notes make extensive use of</p>
+<ul>
+<li>the statistical software language R, and</li>
+<li>the development environment R Studio,</li>
+</ul>
+<p>both of which are free, and you’ll need to install them on your machine. Instructions for doing so are in found in the course syllabus.</p>
+<p>If you need an even gentler introduction, or if you’re just new to R and RStudio and need to learn about them, we encourage you to take a look at <a href="http://moderndive.com/" class="uri">http://moderndive.com/</a>, which provides an introduction to statistical and data sciences via R at <span class="citation">Ismay and Kim (<a href="#ref-ModernDive">2017</a>)</span>.</p>
+<div id="r-markdown" class="section level2">
+<h2><span class="header-section-number">2.1</span> R Markdown</h2>
+<p>These notes were written using R Markdown. R Markdown, like R and R Studio, is free and open source.</p>
+<p>R Markdown is described as an <em>authoring framework</em> for data science, which lets you</p>
+<ul>
+<li>save and execute R code</li>
+<li>generate high-quality reports that can be shared with an audience</li>
+</ul>
+<p>This description comes from <a href="http://rmarkdown.rstudio.com/lesson-1.html" class="uri">http://rmarkdown.rstudio.com/lesson-1.html</a> which you can visit to get an overview and quick tour of what’s possible with R Markdown.</p>
+<p>Another excellent resource to learn more about R Markdown tools is the Communicate section (especially the R Markdown chapter) of <span class="citation">Grolemund and Wickham (<a href="#ref-R4DS">2017</a>)</span>.</p>
+</div>
+<div id="r-packages" class="section level2">
+<h2><span class="header-section-number">2.2</span> R Packages</h2>
+<p>To start, I’ll present a series of commands I run at the beginning of these Notes. These particular commands set up the output so it will look nice as either an HTML or PDF file, and also set up R to use several packages (libraries) of functions that expand its capabilities. A chunk of code like this will occur near the top of any R Markdown work.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1">knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(<span class="dt">comment =</span> <span class="ot">NA</span>)</a>
+<a class="sourceLine" id="cb1-2" title="2"></a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="kw">library</span>(boot); <span class="kw">library</span>(devtools); <span class="kw">library</span>(grid); </a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="kw">library</span>(knitr); <span class="kw">library</span>(pander); <span class="kw">library</span>(pwr); </a>
+<a class="sourceLine" id="cb1-5" title="5"><span class="kw">library</span>(viridis); <span class="kw">library</span>(NHANES)</a>
+<a class="sourceLine" id="cb1-6" title="6"><span class="kw">library</span>(tidyverse)</a>
+<a class="sourceLine" id="cb1-7" title="7"></a>
+<a class="sourceLine" id="cb1-8" title="8"><span class="kw">source</span>(<span class="st">&quot;data/Love-boost.R&quot;</span>)</a></code></pre></div>
+<p>I have deliberately set up this list of loaded packages/libraries to be relatively small, and will add some other packages later, as needed. You only need to install a package once, but you need to reload it every time you start a new session.</p>
+</div>
+<div id="other-packages" class="section level2">
+<h2><span class="header-section-number">2.3</span> Other Packages</h2>
+<p>I will also make use of functions in the following packages/libraries, but when I do so, I will explicitly specify the package name, using a command like <code>Hmisc::describe(x)</code>, rather than just <code>describe(x)</code>, so as to specify that I want the Hmisc package’s version of <code>describe</code> applied to whatever <code>x</code> is. Those packages are:</p>
+<ul>
+<li><code>aplpack</code> which provides <code>stem.leaf</code> and <code>stem.leaf.backback</code> for building fancier stem-and-leaf displays</li>
+<li><code>arm</code> which provides a set of functions for model building and checking that are used in <span class="citation">Gelman and Hill (<a href="#ref-Gelman-Hill">2007</a>)</span></li>
+<li><code>broom</code> which turns the results lots of different analyses in R into more useful tidy data frames (tibbles.)</li>
+<li><code>car</code> which provides some tools for building scatterplot matrices, but also many other functions described in <span class="citation">Fox and Weisberg (<a href="#ref-Fox-Weisberg">2011</a>)</span></li>
+<li><code>cowplot</code> which is used in Part C to put multiple graphical objects in the same plot, like <code>gridExtra</code>: <a href="https://cran.r-project.org/web/packages/cowplot/vignettes/introduction.html" class="uri">https://cran.r-project.org/web/packages/cowplot/vignettes/introduction.html</a></li>
+<li><code>Epi</code> for 2x2 table analyses and materials for classical epidemiology: <a href="http://BendixCarstensen.com/Epi/" class="uri">http://BendixCarstensen.com/Epi/</a></li>
+<li><code>GGally</code> for scatterplot and correlation matrix visualizations: <a href="http://ggobi.github.io/ggally/" class="uri">http://ggobi.github.io/ggally/</a></li>
+<li><code>ggridges</code> which is used to make ridgeline plots</li>
+<li><code>gridExtra</code> which includes a variety of functions for manipulating graphs: <a href="https://github.com/baptiste/gridextra" class="uri">https://github.com/baptiste/gridextra</a></li>
+<li><code>Hmisc</code> from Frank Harrell at Vanderbilt U., for its version of <code>describe</code> and for many regression modeling functions we’ll use in 432. Details on Hmisc are at <a href="http://biostat.mc.vanderbilt.edu/wiki/Main/Hmisc" class="uri">http://biostat.mc.vanderbilt.edu/wiki/Main/Hmisc</a>. Frank has written several books - the most useful of which for 431 students is probably <span class="citation">Harrell and Slaughter (<a href="#ref-HarrellBBR">2017</a>)</span></li>
+<li><code>mice</code>, which we’ll use (a little) in 431 for multiple imputation to deal with missing data: <a href="http://www.stefvanbuuren.nl/mi/" class="uri">http://www.stefvanbuuren.nl/mi/</a></li>
+<li><code>mosaic</code>, mostly for its <code>favstats</code> summary, but Project MOSAIC is a community of educators you might be interested in: <a href="http://mosaic-web.org/" class="uri">http://mosaic-web.org/</a></li>
+<li><code>psych</code> for its own version of <code>describe</code>, but other features are described at <a href="http://personality-project.org/r/psych/" class="uri">http://personality-project.org/r/psych/</a></li>
+</ul>
+<p>We also will use a package called <code>xda</code> for two functions called <code>numSummary</code> and <code>charSummary</code>, but that package gets loaded via <code>devtools</code> and GitHub by the code in these Notes.</p>
+<p>Several other packages are included below, even though they are not used in these Notes, because they will be used in class sessions or in 432.</p>
+<p>When compiling the Notes from the original code files, these packages will need to be installed (but not loaded) in R, or an error will be thrown when compiling this document. To install all of the packages used within these Notes, type in (or copy and paste) the following commands and run them in the R Console. Again, you only need to install a package once, but you need to reload it every time you start a new session.</p>
+<pre><code>pkgs &lt;- c(&quot;aplpack&quot;, &quot;arm&quot;, &quot;babynames&quot;, &quot;boot&quot;, &quot;broom&quot;, &quot;car&quot;, &quot;cowplot&quot;,
+          &quot;devtools&quot;, &quot;Epi&quot;, &quot;faraway&quot;, &quot;forcats&quot;, &quot;foreign&quot;, &quot;gapminder&quot;, 
+          &quot;GGally&quot;, &quot;ggridges&quot;, &quot;gridExtra&quot;, &quot;Hmisc&quot;, &quot;knitr&quot;, &quot;lme4&quot;, &quot;magrittr&quot;, 
+          &quot;markdown&quot;, &quot;MASS&quot;, &quot;mice&quot;, &quot;mosaic&quot;, &quot;multcomp&quot;, &quot;NHANES&quot;, 
+          &quot;pander&quot;, &quot;psych&quot;, &quot;pwr&quot;, &quot;qcc&quot;, &quot;rmarkdown&quot;, &quot;rms&quot;, &quot;sandwich&quot;, 
+          &quot;survival&quot;, &quot;tableone&quot;, &quot;tidyverse&quot;, &quot;vcd&quot;, &quot;viridis&quot;)
+
+install.packages(pkgs)</code></pre>
+
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-Fox-Weisberg">
+<p>Fox, John, and Sanford Weisberg. 2011. <em>An R Companion to Applied Regression</em>. Second. Thousand Oaks CA: Sage. <a href="http://socserv.socsci.mcmaster.ca/jfox/Books/Companion">http://socserv.socsci.mcmaster.ca/jfox/Books/Companion</a>.</p>
+</div>
+<div id="ref-Gelman-Hill">
+<p>Gelman, Andrew, and Jennifer Hill. 2007. <em>Data Analysis Using Regression and Multilevel-Hierarchical Models</em>. New York: Cambridge University Press. <a href="http://www.stat.columbia.edu/~gelman/arm/">http://www.stat.columbia.edu/~gelman/arm/</a>.</p>
+</div>
+<div id="ref-R4DS">
+<p>Grolemund, Garrett, and Hadley Wickham. 2017. <em>R for Data Science</em>. O’Reilly. <a href="http://r4ds.had.co.nz/">http://r4ds.had.co.nz/</a>.</p>
+</div>
+<div id="ref-HarrellBBR">
+<p>Harrell, Frank E., and James C. Slaughter. 2017. <em>Biostatistics for Biomedical Research</em>. Vanderbilt University School of Medicine. <a href="biostat.mc.vanderbilt.edu/ClinStat">biostat.mc.vanderbilt.edu/ClinStat</a>.</p>
+</div>
+<div id="ref-ModernDive">
+<p>Ismay, Chester, and Albert Y. Kim. 2017. <em>ModernDive: An Introduction to Statistical and Data Sciences via R</em>. <a href="http://moderndive.com/">http://moderndive.com/</a>.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="data-science.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/02_Rsetup.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["2019-431-book.pdf", "2019-431-book.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
