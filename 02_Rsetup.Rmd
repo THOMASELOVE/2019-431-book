@@ -31,7 +31,7 @@ knitr::opts_chunk$set(comment = NA)
 
 library(boot); library(devtools); library(grid); 
 library(knitr); library(pander); library(pwr); 
-library(viridis); library(NHANES)
+library(viridis); library(NHANES); library(janitor);
 library(tidyverse)
 
 source("data/Love-boost.R")
