@@ -392,7 +392,7 @@ Let's look at the comparison of observed BMI levels across the four categories i
 ```{r nyfs1_boxplot4-fig}
 ggplot(nyfs1, aes(x = factor(bmi.cat), y = bmi, fill = factor(bmi.cat))) +
     geom_boxplot() + 
-    scale_fill_viridis(discrete=TRUE) + 
+    scale_fill_viridis_d() + 
     # above line uses viridis palette to identify color choices 
     labs(title = "Observed BMI by BMI Percentile Category, in NYFS1 data")
 ```
@@ -404,7 +404,7 @@ Let's turn the boxes in the horizontal direction, and get rid of the perhaps unn
 ```{r nyfs1_boxplot5-fig}
 ggplot(nyfs1, aes(x = factor(bmi.cat), y = bmi, fill = factor(bmi.cat))) +
     geom_boxplot() + 
-    scale_fill_viridis(discrete=TRUE) + 
+    scale_fill_viridis_d() + 
     coord_flip() + 
     guides(fill=FALSE) +
     labs(title = "Observed BMI by BMI Percentile Category, in NYFS1 data", x = "")
@@ -462,12 +462,6 @@ A simpler measure of skew, sometimes called the **nonparametric skew** and close
 
 ```{r nyfs1_skew1_bmi}
 (mean(nyfs1$bmi) - median(nyfs1$bmi))/sd(nyfs1$bmi)
-```
-
-There is a function in the `Love-boost.R` script called `skew1` that can be used to do these calculations, so long as the variable has no missing data.
-
-```{r useskew1_nyfs1_bmi}
-skew1(nyfs1$bmi)
 ```
 
 [The Wikipedia page on skewness](https://en.wikipedia.org/wiki/Skewness), from which some of this material is derived, provides definitions for several other skewness measures.

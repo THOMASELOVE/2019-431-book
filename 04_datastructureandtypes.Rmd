@@ -23,7 +23,8 @@ nh_temp <- NHANES %>%
     filter(SurveyYr == "2011_12") %>%
     filter(Age >= 21 & Age < 65) %>%
     mutate(Sex = Gender, Race = Race3, SBP = BPSysAve, DBP = BPDiaAve) %>%
-    select(ID, Sex, Age, Race, Education, BMI, SBP, DBP, Pulse, PhysActive, Smoke100, SleepTrouble, HealthGen)
+    select(ID, Sex, Age, Race, Education, BMI, SBP, DBP, 
+           Pulse, PhysActive, Smoke100, SleepTrouble, HealthGen)
 
 set.seed(431002) 
 # use set.seed to ensure that we all get the same random sample 

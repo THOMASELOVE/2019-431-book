@@ -29,19 +29,21 @@ To start, I'll present a series of commands I run at the beginning of these Note
 ```{r setup, message=FALSE}
 knitr::opts_chunk$set(comment = NA)
 
-library(boot); library(devtools); library(grid); 
-library(knitr); library(pander); library(pwr); 
-library(viridis); library(NHANES); library(janitor);
-library(tidyverse)
+# library(boot); library(devtools); library(grid); 
+# library(pander); library(pwr); 
+# library(viridis)
 
-source("data/Love-boost.R")
+library(knitr); library(NHANES); 
+library(janitor); library(tidyverse)
+
+# source("data/Love-boost.R")
 ```
 
 I have deliberately set up this list of loaded packages/libraries to be relatively small, and will add some other packages later, as needed. You only need to install a package once, but you need to reload it every time you start a new session.
 
 ## Other Packages
 
-I will also make use of functions in the following packages/libraries, but when I do so, I will explicitly specify the package name, using a command like `Hmisc::describe(x)`, rather than just `describe(x)`, so as to specify that I want the Hmisc package's version of `describe` applied to whatever `x` is. Those packages are:
+I may also make use of functions in the following packages/libraries, but when I do so, I will explicitly specify the package name, using a command like `Hmisc::describe(x)`, rather than just `describe(x)`, so as to specify that I want the Hmisc package's version of `describe` applied to whatever `x` is. Those packages are:
 
 - `aplpack` which provides `stem.leaf` and `stem.leaf.backback` for building fancier stem-and-leaf displays
 - `arm` which provides a set of functions for model building and checking that are used in @Gelman-Hill
@@ -64,12 +66,13 @@ Several other packages are included below, even though they are not used in thes
 When compiling the Notes from the original code files, these packages will need to be installed (but not loaded) in R, or an error will be thrown when compiling this document. To install all of the packages used within these Notes, type in (or copy and paste) the following commands and run them in the R Console. Again, you only need to install a package once, but you need to reload it every time you start a new session. 
 
 ```
-pkgs <- c("aplpack", "arm", "babynames", "boot", "broom", "car", "cowplot",
-          "devtools", "Epi", "faraway", "forcats", "foreign", "gapminder", 
-          "GGally", "ggridges", "gridExtra", "Hmisc", "knitr", "lme4", "magrittr", 
-          "markdown", "MASS", "mice", "mosaic", "multcomp", "NHANES", 
-          "pander", "psych", "pwr", "qcc", "rmarkdown", "rms", "sandwich", 
-          "survival", "tableone", "tidyverse", "vcd", "viridis")
+pkgs <- c("aplpack", "arm", "babynames", "boot", "broom", "car", "cowplot", 
+          "devtools", "Epi", "faraway", "fivethirtyeight", "foreign", 
+          "gapminder", "GGally", "ggridges", "gridExtra", "Hmisc", "janitor", 
+          "kableExtra", "knitr", "lme4", "magrittr", "markdown", "MASS", "mice", "mosaic", 
+          "multcomp", "NHANES", "pander", "psych", "pwr", "qcc", "rmarkdown", 
+          "rmdformats", "rms", "sandwich", "simputation", "survival", "tableone", 
+          "tidyverse", "vcd", "viridis")
 
 install.packages(pkgs)
 ```

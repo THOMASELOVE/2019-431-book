@@ -28,7 +28,7 @@ but what we don't do is follow these notes very precisely. We assume instead tha
 
 What you will mostly find are brief explanations of a key idea or summary, accompanied (most of the time) by R code and a demonstration of the results of applying that code. 
 
-Everything you see here is available to you as HTML or PDF. You will also have access to the R Markdown files, which contain the code which generates everything in the document, including all of the R results. We will demonstrate the use of R Markdown (this document is generated with the additional help of an R package called `bookdown`) and R Studio (the "program" which we use to interface with the R language) in class. 
+Everything you see here is available to you as HTML or PDF. You will also have access to the R Markdown files, which contain the code which generates everything in the document, including all of the R results. We will demonstrate the use of R Markdown (this document is generated with the additional help of an R package called `bookdown`) and RStudio (the "program" which we use to interface with the R language) in class. 
 
 All data and R code related to these notes are available through the course website.
 
@@ -56,7 +56,23 @@ The curriculum includes more on several topics than you might expect from a stan
 
 It also nearly completely avoids formalism and is extremely applied - this is most definitely **not** a course in theoretical or mathematical statistics.
 
-The 431 course is about **getting things done**. It's not a statistics course, nor is it a computer science course. It is instead a course in **data science**.
+There's very little of this:
+
+$$
+f(x) = \frac{e^{-(x - \mu)^{2}/(2\sigma^{2})}}{\sigma{\sqrt{2 \pi }}} 
+$$
+
+Instead, there's a lot of this:
+
+```{r, eval = FALSE}
+nyfs1 %>%
+    group_by(bmi.cat) %>%
+    summarise(mean = mean(waist.circ), 
+              median = median(waist.circ),
+              sd = sd(waist.circ))
+```
+
+The 431 course is about **getting things done**. It's not a statistics course alone, nor is it a course in computer programming alone. I think of it as a course in **data science**.
 
 ## Working with this Document {-}
 
