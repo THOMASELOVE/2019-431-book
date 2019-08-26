@@ -60,6 +60,12 @@ tail(nh_adults, 5) # shows the last five observations in the data set
 
 ### What are the variables?
 
+We can use the `glimpse` function to get a short preview of the data.
+
+```{r}
+glimpse(nh_adults)
+```
+
 The variables we have collected are described in the brief table below^[Descriptions are adapted from the ?NHANES help file. Remember that what NHANES lists as Gender is captured here as Sex, and similarly Race3, BPSysAve and BPDiaAve from NHANES are here listed as Race, SBP and DBP.].
 
 Variable | Description | Sample Values
@@ -85,6 +91,18 @@ The levels for the multi-categorical variables are:
 - **Education**: 8th Grade, 9 - 11th Grade, High School, Some College, or College Grad.
 - **MaritalStatus**: Married, Widowed, Divorced, Separated, NeverMarried or LivePartner (living with partner).
 - **HealthGen**: Excellent, Vgood, Good, Fair or Poor.
+
+A more detailed summary can be obtained using either the `summary` function applied to our data frame, or perhaps the `skim` function from the `skimr` package.
+
+```{r}
+summary(nh_adults)
+```
+
+Note the appearance of `NA's` (indicating missing values) in some columns, and that some variables are summarized by a list of their (categorical) values and some (quantitative/numeric) variables are summarized with a minimum, quartiles and mean.
+
+```{r}
+skimr::skim(nh_adults)
+```
 
 ## Types of Variables
 
@@ -142,4 +160,12 @@ $$
     + Binary variables in the `nh_adults` data include `Sex`, `PhysActive`, `Smoke100`, `SleepTrouble`. Each can be thought of as either ordinal or nominal.
 
 Lots of variables may be treated as either quantitative or qualitative, depending on how we use them. For instance, we usually think of age as a quantitative variable, but if we simply use age to make the distinction between "child" and "adult" then we are using it to describe categorical information. Just because your variable's values are numbers, don't assume that the information provided is quantitative.
+
+## Creating a Data Report Quickly
+
+The `DataExplorer` package has a function called `create_report` that you might like. It is easy to run, but the results can be a bit overwhelming, so I'll just show the code, but not run the report here.
+
+```{r, eval = FALSE}
+DataExplorer::create_report(nh_adults)
+```
 
