@@ -421,6 +421,15 @@ nh_data_2179 %>%
     adorn_pct_formatting()
 ```
 
+When working with an unordered categorical variable, like `MaritalStatus`, the same approach can work.
+
+```{r tabyl_MaritalStatus1}
+nh_data_2179 %>%
+    tabyl(MaritalStatus) %>%
+    adorn_totals() %>%
+    adorn_pct_formatting()
+```
+
 ### Bar Chart for Categorical Data
 
 Usually, a **bar chart** is the best choice for a graphing a variable made up of categories.

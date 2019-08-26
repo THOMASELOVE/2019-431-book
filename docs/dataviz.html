@@ -697,54 +697,67 @@ Excellent     Vgood      Good      Fair      Poor
       Fair  83   13.8%
       Poor  22    3.6%
      Total 603  100.0%</code></pre>
+<p>When working with an unordered categorical variable, like <code>MaritalStatus</code>, the same approach can work.</p>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb48-1" title="1">nh_data_<span class="dv">2179</span> <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb48-2" title="2"><span class="st">    </span><span class="kw">tabyl</span>(MaritalStatus) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb48-3" title="3"><span class="st">    </span><span class="kw">adorn_totals</span>() <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb48-4" title="4"><span class="st">    </span><span class="kw">adorn_pct_formatting</span>()</a></code></pre></div>
+<pre><code> MaritalStatus   n percent
+      Divorced  61   10.1%
+   LivePartner  43    7.1%
+       Married 349   57.9%
+  NeverMarried 104   17.2%
+     Separated   8    1.3%
+       Widowed  38    6.3%
+         Total 603  100.0%</code></pre>
 <div id="bar-chart-for-categorical-data" class="section level3">
 <h3><span class="header-section-number">3.9.1</span> Bar Chart for Categorical Data</h3>
 <p>Usually, a <strong>bar chart</strong> is the best choice for a graphing a variable made up of categories.</p>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb48-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> nh_data_<span class="dv">2179</span>, <span class="kw">aes</span>(<span class="dt">x =</span> HealthGen)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb48-2" title="2"><span class="st">    </span><span class="kw">geom_bar</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb50-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> nh_data_<span class="dv">2179</span>, <span class="kw">aes</span>(<span class="dt">x =</span> HealthGen)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb50-2" title="2"><span class="st">    </span><span class="kw">geom_bar</span>()</a></code></pre></div>
 <p><img src="2019-431-book_files/figure-html/HealthGengraph1-fig-1.png" width="672" /></p>
 <p>There are lots of things we can do to make this plot fancier.</p>
-<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb49-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> nh_data_<span class="dv">2179</span>, <span class="kw">aes</span>(<span class="dt">x =</span> HealthGen, <span class="dt">fill =</span> HealthGen)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb49-2" title="2"><span class="st">    </span><span class="kw">geom_bar</span>() <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb49-3" title="3"><span class="st">    </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb49-4" title="4"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Self-Reported Health Status&quot;</span>,</a>
-<a class="sourceLine" id="cb49-5" title="5">         <span class="dt">y =</span> <span class="st">&quot;Number of NHANES subjects&quot;</span>,</a>
-<a class="sourceLine" id="cb49-6" title="6">         <span class="dt">title =</span> <span class="st">&quot;Self-Reported Health Status in NHANES subjects ages 21-79&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb51-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> nh_data_<span class="dv">2179</span>, <span class="kw">aes</span>(<span class="dt">x =</span> HealthGen, <span class="dt">fill =</span> HealthGen)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb51-2" title="2"><span class="st">    </span><span class="kw">geom_bar</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb51-3" title="3"><span class="st">    </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb51-4" title="4"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Self-Reported Health Status&quot;</span>,</a>
+<a class="sourceLine" id="cb51-5" title="5">         <span class="dt">y =</span> <span class="st">&quot;Number of NHANES subjects&quot;</span>,</a>
+<a class="sourceLine" id="cb51-6" title="6">         <span class="dt">title =</span> <span class="st">&quot;Self-Reported Health Status in NHANES subjects ages 21-79&quot;</span>)</a></code></pre></div>
 <p><img src="2019-431-book_files/figure-html/HealthGengraph2-fig-1.png" width="672" /></p>
 <p>Or, we can really go crazy…</p>
-<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb50-1" title="1">nh_data_<span class="dv">2179</span> <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb50-2" title="2"><span class="st">    </span><span class="kw">count</span>(HealthGen) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb50-3" title="3"><span class="st">    </span><span class="kw">ungroup</span>() <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb50-4" title="4"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">pct =</span> <span class="kw">round</span>(<span class="kw">prop.table</span>(n) <span class="op">*</span><span class="st"> </span><span class="dv">100</span>, <span class="dv">1</span>)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb50-5" title="5"><span class="st">    </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> HealthGen, <span class="dt">y =</span> pct, <span class="dt">fill =</span> HealthGen)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb50-6" title="6"><span class="st">    </span><span class="kw">geom_bar</span>(<span class="dt">stat =</span> <span class="st">&quot;identity&quot;</span>, <span class="dt">position =</span> <span class="st">&quot;dodge&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb50-7" title="7"><span class="st">    </span><span class="kw">scale_fill_viridis_d</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb50-8" title="8"><span class="st">    </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb50-9" title="9"><span class="st">    </span><span class="kw">geom_text</span>(<span class="kw">aes</span>(<span class="dt">y =</span> pct <span class="op">+</span><span class="st"> </span><span class="dv">1</span>,    <span class="co"># nudge above top of bar</span></a>
-<a class="sourceLine" id="cb50-10" title="10">                  <span class="dt">label =</span> <span class="kw">paste0</span>(pct, <span class="st">&#39;%&#39;</span>)),  <span class="co"># prettify</span></a>
-<a class="sourceLine" id="cb50-11" title="11">              <span class="dt">position =</span> <span class="kw">position_dodge</span>(<span class="dt">width =</span> <span class="fl">.9</span>), </a>
-<a class="sourceLine" id="cb50-12" title="12">              <span class="dt">size =</span> <span class="dv">4</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb50-13" title="13"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Self-Reported Health Status&quot;</span>,</a>
-<a class="sourceLine" id="cb50-14" title="14">         <span class="dt">y =</span> <span class="st">&quot;Percentage of NHANES subjects&quot;</span>,</a>
-<a class="sourceLine" id="cb50-15" title="15">         <span class="dt">title =</span> <span class="st">&quot;Self-Reported Health Status in NHANES subjects ages 21-79&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb50-16" title="16"><span class="st">    </span><span class="kw">theme_bw</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb52-1" title="1">nh_data_<span class="dv">2179</span> <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb52-2" title="2"><span class="st">    </span><span class="kw">count</span>(HealthGen) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb52-3" title="3"><span class="st">    </span><span class="kw">ungroup</span>() <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb52-4" title="4"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">pct =</span> <span class="kw">round</span>(<span class="kw">prop.table</span>(n) <span class="op">*</span><span class="st"> </span><span class="dv">100</span>, <span class="dv">1</span>)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb52-5" title="5"><span class="st">    </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> HealthGen, <span class="dt">y =</span> pct, <span class="dt">fill =</span> HealthGen)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb52-6" title="6"><span class="st">    </span><span class="kw">geom_bar</span>(<span class="dt">stat =</span> <span class="st">&quot;identity&quot;</span>, <span class="dt">position =</span> <span class="st">&quot;dodge&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb52-7" title="7"><span class="st">    </span><span class="kw">scale_fill_viridis_d</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb52-8" title="8"><span class="st">    </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb52-9" title="9"><span class="st">    </span><span class="kw">geom_text</span>(<span class="kw">aes</span>(<span class="dt">y =</span> pct <span class="op">+</span><span class="st"> </span><span class="dv">1</span>,    <span class="co"># nudge above top of bar</span></a>
+<a class="sourceLine" id="cb52-10" title="10">                  <span class="dt">label =</span> <span class="kw">paste0</span>(pct, <span class="st">&#39;%&#39;</span>)),  <span class="co"># prettify</span></a>
+<a class="sourceLine" id="cb52-11" title="11">              <span class="dt">position =</span> <span class="kw">position_dodge</span>(<span class="dt">width =</span> <span class="fl">.9</span>), </a>
+<a class="sourceLine" id="cb52-12" title="12">              <span class="dt">size =</span> <span class="dv">4</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb52-13" title="13"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Self-Reported Health Status&quot;</span>,</a>
+<a class="sourceLine" id="cb52-14" title="14">         <span class="dt">y =</span> <span class="st">&quot;Percentage of NHANES subjects&quot;</span>,</a>
+<a class="sourceLine" id="cb52-15" title="15">         <span class="dt">title =</span> <span class="st">&quot;Self-Reported Health Status in NHANES subjects ages 21-79&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb52-16" title="16"><span class="st">    </span><span class="kw">theme_bw</span>()</a></code></pre></div>
 <p><img src="2019-431-book_files/figure-html/HealthGengraph3-fig-1.png" width="672" /></p>
 </div>
 <div id="working-with-tables" class="section level3">
 <h3><span class="header-section-number">3.9.2</span> Working with Tables</h3>
 <p>We can add both row and column marginal totals, and compare subjects by Sex, as follows…</p>
-<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb51-1" title="1">nh_data_<span class="dv">2179</span> <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb51-2" title="2"><span class="st">    </span><span class="kw">tabyl</span>(Sex, HealthGen) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb51-3" title="3"><span class="st">    </span><span class="kw">adorn_totals</span>(<span class="kw">c</span>(<span class="st">&quot;row&quot;</span>, <span class="st">&quot;col&quot;</span>)) </a></code></pre></div>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb53-1" title="1">nh_data_<span class="dv">2179</span> <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb53-2" title="2"><span class="st">    </span><span class="kw">tabyl</span>(Sex, HealthGen) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb53-3" title="3"><span class="st">    </span><span class="kw">adorn_totals</span>(<span class="kw">c</span>(<span class="st">&quot;row&quot;</span>, <span class="st">&quot;col&quot;</span>)) </a></code></pre></div>
 <pre><code>    Sex Excellent Vgood Good Fair Poor Total
  female        27    96  121   41   14   299
    male        37   100  117   42    8   304
   Total        64   196  238   83   22   603</code></pre>
 <p>If we like, we can make this look a little more polished with the <code>knitr::kable</code> function…</p>
-<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb53-1" title="1">nh_data_<span class="dv">2179</span> <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb53-2" title="2"><span class="st">    </span><span class="kw">tabyl</span>(Sex, HealthGen) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb53-3" title="3"><span class="st">    </span><span class="kw">adorn_totals</span>(<span class="kw">c</span>(<span class="st">&quot;row&quot;</span>, <span class="st">&quot;col&quot;</span>)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb53-4" title="4"><span class="st">    </span>knitr<span class="op">::</span><span class="kw">kable</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb55-1" title="1">nh_data_<span class="dv">2179</span> <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb55-2" title="2"><span class="st">    </span><span class="kw">tabyl</span>(Sex, HealthGen) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb55-3" title="3"><span class="st">    </span><span class="kw">adorn_totals</span>(<span class="kw">c</span>(<span class="st">&quot;row&quot;</span>, <span class="st">&quot;col&quot;</span>)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb55-4" title="4"><span class="st">    </span>knitr<span class="op">::</span><span class="kw">kable</span>()</a></code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -788,13 +801,13 @@ Excellent     Vgood      Good      Fair      Poor
 </tbody>
 </table>
 <p>Or, we can get a complete cross-tabulation, including (in this case) the percentages of people within each Sex that fall in each HealthGen category (percentages within each row) like this.</p>
-<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb54-1" title="1">nh_data_<span class="dv">2179</span> <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb54-2" title="2"><span class="st">    </span><span class="kw">tabyl</span>(Sex, HealthGen) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb54-3" title="3"><span class="st">    </span><span class="kw">adorn_totals</span>(<span class="st">&quot;row&quot;</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb54-4" title="4"><span class="st">    </span><span class="kw">adorn_percentages</span>(<span class="st">&quot;row&quot;</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb54-5" title="5"><span class="st">    </span><span class="kw">adorn_pct_formatting</span>() <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb54-6" title="6"><span class="st">    </span><span class="kw">adorn_ns</span>() <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb54-7" title="7"><span class="st">    </span>knitr<span class="op">::</span><span class="kw">kable</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb56-1" title="1">nh_data_<span class="dv">2179</span> <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb56-2" title="2"><span class="st">    </span><span class="kw">tabyl</span>(Sex, HealthGen) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb56-3" title="3"><span class="st">    </span><span class="kw">adorn_totals</span>(<span class="st">&quot;row&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb56-4" title="4"><span class="st">    </span><span class="kw">adorn_percentages</span>(<span class="st">&quot;row&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb56-5" title="5"><span class="st">    </span><span class="kw">adorn_pct_formatting</span>() <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb56-6" title="6"><span class="st">    </span><span class="kw">adorn_ns</span>() <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb56-7" title="7"><span class="st">    </span>knitr<span class="op">::</span><span class="kw">kable</span>()</a></code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -834,13 +847,13 @@ Excellent     Vgood      Good      Fair      Poor
 </tbody>
 </table>
 <p>And, if we wanted the column percentages, to determine which sex had the higher rate of each HealthGen status level, we can get that by changing the adorn_percentages to describe results at the column level:</p>
-<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb55-1" title="1">nh_data_<span class="dv">2179</span> <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb55-2" title="2"><span class="st">    </span><span class="kw">tabyl</span>(Sex, HealthGen) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb55-3" title="3"><span class="st">    </span><span class="kw">adorn_totals</span>(<span class="st">&quot;col&quot;</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb55-4" title="4"><span class="st">    </span><span class="kw">adorn_percentages</span>(<span class="st">&quot;col&quot;</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb55-5" title="5"><span class="st">    </span><span class="kw">adorn_pct_formatting</span>() <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb55-6" title="6"><span class="st">    </span><span class="kw">adorn_ns</span>() <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb55-7" title="7"><span class="st">    </span>knitr<span class="op">::</span><span class="kw">kable</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb57-1" title="1">nh_data_<span class="dv">2179</span> <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb57-2" title="2"><span class="st">    </span><span class="kw">tabyl</span>(Sex, HealthGen) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb57-3" title="3"><span class="st">    </span><span class="kw">adorn_totals</span>(<span class="st">&quot;col&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb57-4" title="4"><span class="st">    </span><span class="kw">adorn_percentages</span>(<span class="st">&quot;col&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb57-5" title="5"><span class="st">    </span><span class="kw">adorn_pct_formatting</span>() <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb57-6" title="6"><span class="st">    </span><span class="kw">adorn_ns</span>() <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb57-7" title="7"><span class="st">    </span>knitr<span class="op">::</span><span class="kw">kable</span>()</a></code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -878,17 +891,17 @@ Excellent     Vgood      Good      Fair      Poor
 <div id="sbp-by-general-health-status" class="section level3">
 <h3><span class="header-section-number">3.9.3</span> SBP by General Health Status</h3>
 <p>Let’s consider now the relationship between self-reported overall health and systolic blood pressure.</p>
-<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb56-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> nh_data_<span class="dv">2179</span>, <span class="kw">aes</span>(<span class="dt">x =</span> HealthGen, <span class="dt">y =</span> SBP, <span class="dt">fill =</span> HealthGen)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb56-2" title="2"><span class="st">    </span><span class="kw">geom_boxplot</span>() <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb56-3" title="3"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;SBP by Health Status, Overall Health for NHANES ages 21-79&quot;</span>,</a>
-<a class="sourceLine" id="cb56-4" title="4">         <span class="dt">y =</span> <span class="st">&quot;Systolic Blood Pressure&quot;</span>, <span class="dt">x =</span> <span class="st">&quot;Self-Reported Overall Health&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb56-5" title="5"><span class="st">    </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>) </a></code></pre></div>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb58-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> nh_data_<span class="dv">2179</span>, <span class="kw">aes</span>(<span class="dt">x =</span> HealthGen, <span class="dt">y =</span> SBP, <span class="dt">fill =</span> HealthGen)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb58-2" title="2"><span class="st">    </span><span class="kw">geom_boxplot</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb58-3" title="3"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;SBP by Health Status, Overall Health for NHANES ages 21-79&quot;</span>,</a>
+<a class="sourceLine" id="cb58-4" title="4">         <span class="dt">y =</span> <span class="st">&quot;Systolic Blood Pressure&quot;</span>, <span class="dt">x =</span> <span class="st">&quot;Self-Reported Overall Health&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb58-5" title="5"><span class="st">    </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>) </a></code></pre></div>
 <p><img src="2019-431-book_files/figure-html/nh_data_2179_sbpbyhealth-fig-1.png" width="672" /></p>
 <p>We can see that not too many people self-identify with the “Poor” health category.</p>
-<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb57-1" title="1">nh_data_<span class="dv">2179</span> <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb57-2" title="2"><span class="st">    </span><span class="kw">group_by</span>(HealthGen) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb57-3" title="3"><span class="st">    </span><span class="kw">summarise</span>(<span class="dt">count =</span> <span class="kw">n</span>(), <span class="kw">mean</span>(SBP), <span class="kw">median</span>(SBP)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb57-4" title="4"><span class="st">    </span>knitr<span class="op">::</span><span class="kw">kable</span>() </a></code></pre></div>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb59-1" title="1">nh_data_<span class="dv">2179</span> <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb59-2" title="2"><span class="st">    </span><span class="kw">group_by</span>(HealthGen) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb59-3" title="3"><span class="st">    </span><span class="kw">summarise</span>(<span class="dt">count =</span> <span class="kw">n</span>(), <span class="kw">mean</span>(SBP), <span class="kw">median</span>(SBP)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb59-4" title="4"><span class="st">    </span>knitr<span class="op">::</span><span class="kw">kable</span>() </a></code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -935,24 +948,24 @@ Excellent     Vgood      Good      Fair      Poor
 <div id="sbp-by-physical-activity-and-general-health-status" class="section level3">
 <h3><span class="header-section-number">3.9.4</span> SBP by Physical Activity and General Health Status</h3>
 <p>We’ll build a panel of boxplots to try to understand the relationships between Systolic Blood Pressure, General Health Status and Physical Activity. Note the use of <code>coord_flip</code> to rotate the graph 90 degrees, and the use of <code>labeller</code> within <code>facet_wrap</code> to include both the name of the (Physical Activity) variable and its value.</p>
-<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb58-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> nh_data_<span class="dv">2179</span>, <span class="kw">aes</span>(<span class="dt">x =</span> HealthGen, <span class="dt">y =</span> SBP, <span class="dt">fill =</span> HealthGen)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb58-2" title="2"><span class="st">    </span><span class="kw">geom_boxplot</span>() <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb58-3" title="3"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;SBP by Health Status, Overall Health for NHANES ages 21-79&quot;</span>,</a>
-<a class="sourceLine" id="cb58-4" title="4">         <span class="dt">y =</span> <span class="st">&quot;Body-mass index&quot;</span>, <span class="dt">x =</span> <span class="st">&quot;Self-Reported Overall Health&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb58-5" title="5"><span class="st">    </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb58-6" title="6"><span class="st">    </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>PhysActive, <span class="dt">labeller =</span> <span class="st">&quot;label_both&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb58-7" title="7"><span class="st">    </span><span class="kw">coord_flip</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb60-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> nh_data_<span class="dv">2179</span>, <span class="kw">aes</span>(<span class="dt">x =</span> HealthGen, <span class="dt">y =</span> SBP, <span class="dt">fill =</span> HealthGen)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb60-2" title="2"><span class="st">    </span><span class="kw">geom_boxplot</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb60-3" title="3"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;SBP by Health Status, Overall Health for NHANES ages 21-79&quot;</span>,</a>
+<a class="sourceLine" id="cb60-4" title="4">         <span class="dt">y =</span> <span class="st">&quot;Body-mass index&quot;</span>, <span class="dt">x =</span> <span class="st">&quot;Self-Reported Overall Health&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb60-5" title="5"><span class="st">    </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb60-6" title="6"><span class="st">    </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>PhysActive, <span class="dt">labeller =</span> <span class="st">&quot;label_both&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb60-7" title="7"><span class="st">    </span><span class="kw">coord_flip</span>()</a></code></pre></div>
 <p><img src="2019-431-book_files/figure-html/nh_data_2179_bmibyhealthbysex1-fig-1.png" width="672" /></p>
 </div>
 <div id="sbp-by-sleep-trouble-and-general-health-status" class="section level3">
 <h3><span class="header-section-number">3.9.5</span> SBP by Sleep Trouble and General Health Status</h3>
 <p>Here’s a plot of faceted histograms, which might be used to address similar questions related to the relationship between Overall Health, Systolic Blood Pressure and Sex.</p>
-<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb59-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> nh_data_<span class="dv">2179</span>, <span class="kw">aes</span>(<span class="dt">x =</span> SBP, <span class="dt">fill =</span> Sex)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb59-2" title="2"><span class="st">    </span><span class="kw">geom_histogram</span>(<span class="dt">color =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">bins =</span> <span class="dv">20</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb59-3" title="3"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;SBP by Sex, Overall Health for NHANES ages 21-79&quot;</span>,</a>
-<a class="sourceLine" id="cb59-4" title="4">         <span class="dt">x =</span> <span class="st">&quot;Body-mass index&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb59-5" title="5"><span class="st">    </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb59-6" title="6"><span class="st">    </span><span class="kw">facet_grid</span>(HealthGen <span class="op">~</span><span class="st"> </span>Sex)</a></code></pre></div>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb61-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> nh_data_<span class="dv">2179</span>, <span class="kw">aes</span>(<span class="dt">x =</span> SBP, <span class="dt">fill =</span> Sex)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb61-2" title="2"><span class="st">    </span><span class="kw">geom_histogram</span>(<span class="dt">color =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">bins =</span> <span class="dv">20</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb61-3" title="3"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;SBP by Sex, Overall Health for NHANES ages 21-79&quot;</span>,</a>
+<a class="sourceLine" id="cb61-4" title="4">         <span class="dt">x =</span> <span class="st">&quot;Body-mass index&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb61-5" title="5"><span class="st">    </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb61-6" title="6"><span class="st">    </span><span class="kw">facet_grid</span>(HealthGen <span class="op">~</span><span class="st"> </span>Sex)</a></code></pre></div>
 <p><img src="2019-431-book_files/figure-html/nh_data_2179_bmibyhealthbysex2-fig-1.png" width="672" /></p>
 </div>
 </div>
