@@ -29,10 +29,9 @@ To start, I'll present a series of commands I run at the beginning of these Note
 ```{r setup, message=FALSE}
 knitr::opts_chunk$set(comment = NA)
 
-# library(boot); library(devtools); library(grid); 
-# library(pander); library(pwr); 
-# library(viridis)
+# library(boot); library(pander); library(pwr)
 
+library(grid); library(devtools)
 library(knitr); library(NHANES); 
 library(janitor); library(tidyverse)
 
