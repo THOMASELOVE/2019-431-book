@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 3 Visualizing Data | Data Science for Biological, Medical and Health Research: Notes for PQHS 431</title>
   <meta name="description" content="Chapter 3 Visualizing Data | Data Science for Biological, Medical and Health Research: Notes for PQHS 431" />
-  <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.13 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 3 Visualizing Data | Data Science for Biological, Medical and Health Research: Notes for PQHS 431" />
   <meta property="og:type" content="book" />
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="Rsetup.html">
-<link rel="next" href="data-structures-and-types-of-variables.html">
+<link rel="prev" href="Rsetup.html"/>
+<link rel="next" href="data-structures-and-types-of-variables.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -282,6 +282,53 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.15" data-path="NYFS-Study.html"><a href="NYFS-Study.html#the-describe-function-in-the-hmisc-library"><i class="fa fa-check"></i><b>7.15</b> The <code>describe</code> function in the <code>Hmisc</code> library</a></li>
 <li class="chapter" data-level="7.16" data-path="NYFS-Study.html"><a href="NYFS-Study.html#xda-from-github-for-numerical-summaries-for-exploratory-data-analysis"><i class="fa fa-check"></i><b>7.16</b> <code>xda</code> from GitHub for numerical summaries for exploratory data analysis</a></li>
 <li class="chapter" data-level="7.17" data-path="NYFS-Study.html"><a href="NYFS-Study.html#what-summaries-to-report"><i class="fa fa-check"></i><b>7.17</b> What Summaries to Report</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="assessing-normality.html"><a href="assessing-normality.html"><i class="fa fa-check"></i><b>8</b> Assessing Normality</a><ul>
+<li class="chapter" data-level="8.1" data-path="assessing-normality.html"><a href="assessing-normality.html#empirical-rule-interpretation-of-the-standard-deviation-1"><i class="fa fa-check"></i><b>8.1</b> Empirical Rule Interpretation of the Standard Deviation</a></li>
+<li class="chapter" data-level="8.2" data-path="assessing-normality.html"><a href="assessing-normality.html#describing-outlying-values-with-z-scores"><i class="fa fa-check"></i><b>8.2</b> Describing Outlying Values with Z Scores</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="assessing-normality.html"><a href="assessing-normality.html#fences-and-z-scores"><i class="fa fa-check"></i><b>8.2.1</b> Fences and Z Scores</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="assessing-normality.html"><a href="assessing-normality.html#comparing-a-histogram-to-a-normal-distribution"><i class="fa fa-check"></i><b>8.3</b> Comparing a Histogram to a Normal Distribution</a><ul>
+<li class="chapter" data-level="8.3.1" data-path="assessing-normality.html"><a href="assessing-normality.html#histogram-of-energy-with-normal-model-with-counts"><i class="fa fa-check"></i><b>8.3.1</b> Histogram of <code>energy</code> with Normal model (with Counts)</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="assessing-normality.html"><a href="assessing-normality.html#does-a-normal-model-work-well-for-the-waist-circumference"><i class="fa fa-check"></i><b>8.4</b> Does a Normal model work well for the <code>waist</code> circumference?</a></li>
+<li class="chapter" data-level="8.5" data-path="assessing-normality.html"><a href="assessing-normality.html#the-normal-q-q-plot"><i class="fa fa-check"></i><b>8.5</b> The Normal Q-Q Plot</a></li>
+<li class="chapter" data-level="8.6" data-path="assessing-normality.html"><a href="assessing-normality.html#interpreting-the-normal-q-q-plot"><i class="fa fa-check"></i><b>8.6</b> Interpreting the Normal Q-Q Plot</a><ul>
+<li class="chapter" data-level="8.6.1" data-path="assessing-normality.html"><a href="assessing-normality.html#data-from-a-normal-distribution-shows-up-as-a-straight-line-in-a-normal-q-q-plot"><i class="fa fa-check"></i><b>8.6.1</b> Data from a Normal distribution shows up as a straight line in a Normal Q-Q plot</a></li>
+<li class="chapter" data-level="8.6.2" data-path="assessing-normality.html"><a href="assessing-normality.html#skew-is-indicated-by-monotonic-curves-in-the-normal-q-q-plot"><i class="fa fa-check"></i><b>8.6.2</b> Skew is indicated by monotonic curves in the Normal Q-Q plot</a></li>
+<li class="chapter" data-level="8.6.3" data-path="assessing-normality.html"><a href="assessing-normality.html#direction-of-skew"><i class="fa fa-check"></i><b>8.6.3</b> Direction of Skew</a></li>
+<li class="chapter" data-level="8.6.4" data-path="assessing-normality.html"><a href="assessing-normality.html#outlier-proneness-is-indicated-by-s-shaped-curves-in-a-normal-q-q-plot"><i class="fa fa-check"></i><b>8.6.4</b> Outlier-proneness is indicated by “s-shaped” curves in a Normal Q-Q plot</a></li>
+</ul></li>
+<li class="chapter" data-level="8.7" data-path="assessing-normality.html"><a href="assessing-normality.html#can-a-normal-distribution-fit-the-nnyfs-energy-data-well"><i class="fa fa-check"></i><b>8.7</b> Can a Normal Distribution Fit the <code>nnyfs</code> <code>energy</code> data Well?</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="using-transformations-to-normalize-distributions.html"><a href="using-transformations-to-normalize-distributions.html"><i class="fa fa-check"></i><b>9</b> Using Transformations to “Normalize” Distributions</a><ul>
+<li class="chapter" data-level="9.1" data-path="using-transformations-to-normalize-distributions.html"><a href="using-transformations-to-normalize-distributions.html#the-ladder-of-power-transformations"><i class="fa fa-check"></i><b>9.1</b> The Ladder of Power Transformations</a></li>
+<li class="chapter" data-level="9.2" data-path="using-transformations-to-normalize-distributions.html"><a href="using-transformations-to-normalize-distributions.html#using-the-ladder"><i class="fa fa-check"></i><b>9.2</b> Using the Ladder</a></li>
+<li class="chapter" data-level="9.3" data-path="using-transformations-to-normalize-distributions.html"><a href="using-transformations-to-normalize-distributions.html#protein-consumption-in-the-nnyfs-data"><i class="fa fa-check"></i><b>9.3</b> Protein Consumption in the NNYFS data</a><ul>
+<li class="chapter" data-level="9.3.1" data-path="using-transformations-to-normalize-distributions.html"><a href="using-transformations-to-normalize-distributions.html#using-cowplotplot_grid-to-compose-plots"><i class="fa fa-check"></i><b>9.3.1</b> Using <code>cowplot::plot_grid()</code> to compose plots</a></li>
+<li class="chapter" data-level="9.3.2" data-path="using-transformations-to-normalize-distributions.html"><a href="using-transformations-to-normalize-distributions.html#using-patchwork-to-compose-plots"><i class="fa fa-check"></i><b>9.3.2</b> Using <code>patchwork</code> to compose plots</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="using-transformations-to-normalize-distributions.html"><a href="using-transformations-to-normalize-distributions.html#can-we-transform-the-protein-data"><i class="fa fa-check"></i><b>9.4</b> Can we transform the <code>protein</code> data?</a><ul>
+<li class="chapter" data-level="9.4.1" data-path="using-transformations-to-normalize-distributions.html"><a href="using-transformations-to-normalize-distributions.html#the-square-root"><i class="fa fa-check"></i><b>9.4.1</b> The Square Root</a></li>
+<li class="chapter" data-level="9.4.2" data-path="using-transformations-to-normalize-distributions.html"><a href="using-transformations-to-normalize-distributions.html#the-logarithm"><i class="fa fa-check"></i><b>9.4.2</b> The Logarithm</a></li>
+</ul></li>
+<li class="chapter" data-level="9.5" data-path="using-transformations-to-normalize-distributions.html"><a href="using-transformations-to-normalize-distributions.html#what-if-we-considered-all-9-available-transformations"><i class="fa fa-check"></i><b>9.5</b> What if we considered all 9 available transformations?</a></li>
+<li class="chapter" data-level="9.6" data-path="using-transformations-to-normalize-distributions.html"><a href="using-transformations-to-normalize-distributions.html#a-simulated-data-set"><i class="fa fa-check"></i><b>9.6</b> A Simulated Data Set</a><ul>
+<li class="chapter" data-level="9.6.1" data-path="using-transformations-to-normalize-distributions.html"><a href="using-transformations-to-normalize-distributions.html#transformation-example-2-ladder-with-normal-q-q-plots"><i class="fa fa-check"></i><b>9.6.1</b> Transformation Example 2 Ladder with Normal Q-Q Plots</a></li>
+</ul></li>
+<li class="chapter" data-level="9.7" data-path="using-transformations-to-normalize-distributions.html"><a href="using-transformations-to-normalize-distributions.html#what-if-we-considered-all-9-available-transformations-1"><i class="fa fa-check"></i><b>9.7</b> What if we considered all 9 available transformations?</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="summarizing-data-within-subgroups.html"><a href="summarizing-data-within-subgroups.html"><i class="fa fa-check"></i><b>10</b> Summarizing data within subgroups</a><ul>
+<li class="chapter" data-level="10.1" data-path="summarizing-data-within-subgroups.html"><a href="summarizing-data-within-subgroups.html#using-dplyr-and-summarise-to-build-a-tibble-of-summary-information"><i class="fa fa-check"></i><b>10.1</b> Using dplyr and summarise to build a tibble of summary information</a></li>
+<li class="chapter" data-level="10.2" data-path="summarizing-data-within-subgroups.html"><a href="summarizing-data-within-subgroups.html#another-example"><i class="fa fa-check"></i><b>10.2</b> Another Example</a></li>
+<li class="chapter" data-level="10.3" data-path="summarizing-data-within-subgroups.html"><a href="summarizing-data-within-subgroups.html#boxplots-to-relate-an-outcome-to-a-categorical-predictor"><i class="fa fa-check"></i><b>10.3</b> Boxplots to Relate an Outcome to a Categorical Predictor</a><ul>
+<li class="chapter" data-level="10.3.1" data-path="summarizing-data-within-subgroups.html"><a href="summarizing-data-within-subgroups.html#augmenting-the-boxplot-with-the-sample-mean"><i class="fa fa-check"></i><b>10.3.1</b> Augmenting the Boxplot with the Sample Mean</a></li>
+<li class="chapter" data-level="10.3.2" data-path="summarizing-data-within-subgroups.html"><a href="summarizing-data-within-subgroups.html#adding-notches-to-a-boxplot"><i class="fa fa-check"></i><b>10.3.2</b> Adding Notches to a Boxplot</a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="summarizing-data-within-subgroups.html"><a href="summarizing-data-within-subgroups.html#using-multiple-histograms-to-make-comparisons"><i class="fa fa-check"></i><b>10.4</b> Using Multiple Histograms to Make Comparisons</a></li>
+<li class="chapter" data-level="10.5" data-path="summarizing-data-within-subgroups.html"><a href="summarizing-data-within-subgroups.html#using-multiple-density-plots-to-make-comparisons"><i class="fa fa-check"></i><b>10.5</b> Using Multiple Density Plots to Make Comparisons</a></li>
+<li class="chapter" data-level="10.6" data-path="summarizing-data-within-subgroups.html"><a href="summarizing-data-within-subgroups.html#building-a-violin-plot"><i class="fa fa-check"></i><b>10.6</b> Building a Violin Plot</a></li>
+<li class="chapter" data-level="10.7" data-path="summarizing-data-within-subgroups.html"><a href="summarizing-data-within-subgroups.html#a-ridgeline-plot"><i class="fa fa-check"></i><b>10.7</b> A Ridgeline Plot</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="this-is-work-in-progress.html"><a href="this-is-work-in-progress.html"><i class="fa fa-check"></i>This is Work in Progress</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
@@ -1151,8 +1198,9 @@ gitbook.start({
     script.type = "text/javascript";
     var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();

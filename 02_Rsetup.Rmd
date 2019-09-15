@@ -66,6 +66,7 @@ We'll also use some packages that get loaded via `devtools` and Github by the co
 
 - `xda` for two functions called `numSummary` and `charSummary`
 - `visdat` for two functions called vis_miss` and `vis_dat`
+- `patchwork`, which is a framework for composing `ggplot2` objects. 
 
 Several other packages are included below, even though they are not used in these Notes, because they will be used in class sessions or in 432.
 
