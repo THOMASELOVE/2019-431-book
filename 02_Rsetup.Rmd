@@ -31,7 +31,7 @@ knitr::opts_chunk$set(comment = NA)
 
 # library(boot); library(pander); library(pwr)
 
-library(grid); library(devtools)
+library(grid); library(devtools); library(magrittr);
 library(knitr); library(NHANES); 
 library(janitor); library(tidyverse)
 
