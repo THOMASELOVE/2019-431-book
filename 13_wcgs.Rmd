@@ -10,7 +10,7 @@ wcgs <- read.csv("data/wcgs.csv") %>% tbl_df
 wcgs
 ```
 
-Here, we have `r dim(wcgs)[1]` rows (subjects) and `r dim(wcgs)[2]` columns (variables). 
+Here, we have `r dim(wcgs)[1]` rows (subjects) and `r dim(wcgs)[2]` columns (variables). Since I used `read.csv` to import the data, and then converted to a tibble, all variables containing character data will appear as factors.
 
 ### Structure of `wcgs`
 
@@ -63,47 +63,63 @@ For a more detailed description, we might consider `Hmisc::describe`, `psych::de
 
 Consider the question of whether the distribution of the systolic blood pressure results is well-approximated by the Normal.
 
-```{r wcgs_sbphistwithnormal-fig}
-ggplot(wcgs, aes(x = sbp)) + 
-    geom_histogram(aes(y = ..density..), 
-                   bins = 30, fill = "aquamarine", col="blue") +
-    stat_function(fun = dnorm, lwd = 1.5, col = "darkblue",
-                  args = list(mean = mean(wcgs$sbp), sd = sd(wcgs$sbp))) +
-    annotate("text", x = 200, y = 0.01, col = "darkblue",
-             label = paste("Mean = ", round(mean(wcgs$sbp),1),
-                           ", SD = ", round(sd(wcgs$sbp),1))) +
+```{r}
+res <- mosaic::favstats(~ sbp, data = wcgs)
+bin_w <- 5 # specify binwidth
+
+ggplot(wcgs, aes(x = sbp)) +
+    geom_histogram(binwidth = bin_w, 
+                   fill = "orchid", 
+                   col = "blue") +
+    theme_bw() +
+    stat_function(
+        fun = function(x) dnorm(x, mean = res$mean, 
+                                sd = res$sd) * 
+            res$n * bin_w,
+        col = "navy") +
     labs(title = "Systolic BP for `wcgs` subjects",
-         caption = "Histogram with Normal Density superimposed")
+     x = "Systolic BP (mm Hg)", y = "",
+     caption = "Superimposed Normal model")
 ```
 
 Since the data contain both `sbp` and `lnsbp` (its natural logarithm), let's compare them. Note that in preparing the graph, we'll need to change the location for the text annotation.
 
-```{r wcgs_lnsbphistwithnormal-fig}
-ggplot(wcgs, aes(x = lnsbp)) + 
-    geom_histogram(aes(y = ..density..), 
-                   bins = 30, fill = "aquamarine", col="blue") +
-    stat_function(fun = dnorm, lwd = 1.5, col = "darkblue",
-                  args = list(mean = mean(wcgs$lnsbp), 
-                              sd = sd(wcgs$lnsbp))) +
-    annotate("text", x = 5.2, y = 2, col = "darkblue",
-             label = paste("Mean = ", round(mean(wcgs$lnsbp),1),
-                           ", SD = ", round(sd(wcgs$lnsbp),1))) +
-    labs(title = "Natural Logarithm of `wcgs` Systolic BP",
-         caption = "Histogram with Normal Density superimposed")
+```{r}
+res <- mosaic::favstats(~ lnsbp, data = wcgs)
+bin_w <- 0.05 # specify binwidth
+
+ggplot(wcgs, aes(x = lnsbp)) +
+    geom_histogram(binwidth = bin_w, 
+                   fill = "orange", 
+                   col = "blue") +
+    theme_bw() +
+    stat_function(
+        fun = function(x) dnorm(x, mean = res$mean, 
+                                sd = res$sd) * 
+            res$n * bin_w,
+        col = "navy") +
+    labs(title = "ln(Systolic BP) for `wcgs` subjects",
+     x = "ln(Systolic BP)", y = "",
+     caption = "Superimposed Normal model")
 ```
 
 We can also look at Normal Q-Q plots, for instance...
 
 ```{r wcgs_qqplotsforsbpandlnsbpfromggplot-fig}
 p1 <- ggplot(wcgs, aes(sample = sbp)) +
-    geom_point(stat="qq", color = "orchid") + 
+    geom_qq(color = "orchid") + 
+    geom_qq_line(color = "red") +
     labs(y = "Ordered SBP", title = "sbp in wcgs")
 
 p2 <- ggplot(wcgs, aes(sample = lnsbp)) +
-    geom_point(stat="qq", color = "orange") + 
-    labs(y = "Ordered ln(sbp)", title = "ln(sbp) in wcgs")
+    geom_qq(color = "orange") + 
+    geom_qq_line(color = "red") +
+    labs(y = "Ordered ln(SBP)", title = "ln(sbp) in wcgs")
 
-gridExtra::grid.arrange(p1, p2, ncol=2, top ="Normal Q-Q plots of SBP and ln(SBP) in wcgs")
+## next step requires library(patchwork)
+
+p1 + p2 + 
+    plot_annotation(title = "Normal Q-Q plots of SBP and ln(SBP) in wcgs")
 ```
 
 There's at best a small improvement from `sbp` to `lnsbp` in terms of approximation by a Normal distribution.
@@ -112,20 +128,21 @@ There's at best a small improvement from `sbp` to `lnsbp` in terms of approximat
 
 It looks like there's an outlier (or a series of them) in the SBP data.
 
-```{r wcgs_boxplotofsbp_alone}
-ggplot(wcgs, aes(x = 1, y = sbp)) +
-    geom_boxplot(fill = "royalblue") +
-    labs(title = "Boxplot of SBP in `wcgs` data",
+```{r, fig.height = 4}
+ggplot(wcgs, aes(x = "", y = sbp)) +
+    geom_violin() +
+    geom_boxplot(width = 0.3, fill = "royalblue", 
+                 outlier.color = "royalblue") +
+    labs(title = "Boxplot with Violin of SBP in `wcgs` data",
          y = "Systolic Blood Pressure (mm Hg)", 
          x = "") +
-    theme(axis.text.y = element_blank(),
-          axis.ticks.y = element_blank()) +
+    theme_light() +
     coord_flip() 
 ```
 
 
 ```{r wcgs_sbp_Hmisc_describe}
-Hmisc::describe(wcgs$sbp)
+wcgs %$% Hmisc::describe(sbp)
 ```
 
 The maximum value here is `r max(wcgs$sbp)`, and is clearly the most extreme value in the data set. One way to gauge this is to describe that observation's **Z score**, the number of standard deviations away from the mean that the observation falls. Here, the maximum value, `r max(wcgs$sbp)` is `r round((max(wcgs$sbp)-mean(wcgs$sbp))/sd(wcgs$sbp), 2)` standard deviations above the mean, and thus has a Z score of `r round((max(wcgs$sbp)-mean(wcgs$sbp))/sd(wcgs$sbp), 1)`.
@@ -139,9 +156,10 @@ Recall that the Empirical Rule suggests that if a variable follows a Normal dist
 The data are collected into four groups based on the subject's weight (in pounds).
 
 ```{r wcgssbpbyweightbox-fig}
-ggplot(wcgs, aes(x = wghtcat, y = sbp, fill = wghtcat)) +
-    geom_boxplot(notch = TRUE) +
-    scale_fill_viridis(discrete=TRUE) +
+ggplot(wcgs, aes(x = wghtcat, y = sbp)) +
+    geom_violin() +
+    geom_boxplot(aes(fill = wghtcat), width = 0.3, notch = TRUE) +
+    scale_fill_viridis_d() +
     guides(fill = FALSE) + 
     labs(title = "Boxplot of Systolic BP by Weight Category in WCGS", 
          x = "Weight Category", y = "Systolic Blood Pressure")
@@ -152,7 +170,7 @@ ggplot(wcgs, aes(x = wghtcat, y = sbp, fill = wghtcat)) +
 Well, that's not so good. We really want those weight categories (the *levels*) to be ordered more sensibly. 
 
 ```{r levels of wghtcat}
-table(wcgs$wghtcat)
+wcgs %>% tabyl(wghtcat)
 ```
 
 Like all *factor* variables in R, the categories are specified as levels.
@@ -163,17 +181,13 @@ levels(wcgs$wghtcat)
 
 We want to change the order of the levels in a new version of this factor variable so they make sense. There are multiple ways to do this, but I prefer the `fct_relevel` function from the `forcats` package. Which order is more appropriate?
 
-```{r revise order of wghtcat in new variable}
-table(fct_relevel(wcgs$wghtcat, "< 140", "140-170", "170-200", "> 200"), wcgs$wghtcat)
-```
-
 I'll add a new variable to the `wcgs` data called `weight_f` that relevels the `wghtcat` data.
 
 ```{r create weight_f}
 wcgs <- wcgs %>%
     mutate(weight_f = fct_relevel(wghtcat, "< 140", "140-170", "170-200", "> 200"))
 
-table(wcgs$weight_f)
+wcgs %>% tabyl(weight_f)
 ```
 
 For more on the `forcats` package, check out @R4DS, especially the Section on Factors.
@@ -183,7 +197,7 @@ For more on the `forcats` package, check out @R4DS, especially the Section on Fa
 ```{r wcgssbpbyweightboxrevised-fig}
 ggplot(wcgs, aes(x = weight_f, y = sbp, fill = weight_f)) +
     geom_boxplot(notch = TRUE) +
-    scale_fill_viridis(discrete=TRUE) +
+    scale_fill_viridis_d() +
     guides(fill = FALSE) +
     labs(title = "Systolic Blood Pressure by Reordered Weight Category in WCGS", 
          x = "Weight Category", y = "Systolic Blood Pressure")
@@ -195,7 +209,7 @@ We might see some details well with a **ridgeline plot**, too.
 wcgs %>%
     ggplot(aes(x = sbp, y = weight_f, fill = weight_f, height = ..density..)) +
     ggridges::geom_density_ridges(scale = 2) +
-    scale_fill_viridis(discrete = TRUE) +
+    scale_fill_viridis_d() +
     guides(fill = FALSE) +
     labs(title = "SBP by Weight Category (wcgs)",
          x = "Systolic Blood Pressure",
@@ -205,16 +219,15 @@ wcgs %>%
 
 As the plots suggest, patients in the heavier groups generally had higher systolic blood pressures.
 
-```{r wcgs_sbp_by_weight_f_summary}
-by(wcgs$sbp, wcgs$weight_f, mosaic::favstats)
+```{r}
+mosaic::favstats(sbp ~ weight_f, data = wcgs)
 ```
-
 
 ## Are Weight and SBP Linked?
 
 Let's build a scatter plot of SBP (Outcome) by Weight (Predictor), rather than breaking down into categories.
 
-```{r wcgs_scatter_sbpbyweight-fig}
+```{r}
 ggplot(wcgs, aes(x = weight, y = sbp)) +
     geom_point(size=3, shape=1, color="forestgreen") + ## default size = 2
     stat_smooth(method=lm, color="red") + ## add se=FALSE to hide conf. interval
@@ -238,13 +251,11 @@ An issue of interest to us will be to assess whether the SBP-Weight relationship
 
 Let's start with a quick look at the `arcus` data.
 
-```{r wcgs_summary_arcus1}
-wcgs %>%
-    select(arcus) %>%
-    summary()
+```{r}
+wcgs %>% tabyl(arcus)
 ```
 
-We have `r sum(is.na(wcgs$arcus))` missing values, so we probably want to do something about that before plotting the data, and we may also want to create a factor variable with more meaningful labels than 1 (which means yes, arcus senilis is present) and 0 (which means no, it isn't.) We'll use the 
+We have `r sum(is.na(wcgs$arcus))` missing values, so we probably want to do something about that before plotting the data, and we may also want to create a factor variable with more meaningful labels than 1 (which means yes, arcus senilis is present) and 0 (which means no, it isn't.)
 
 ```{r wcgs_factor_create_arcus_f}
 wcgs <- wcgs %>%
@@ -253,7 +264,7 @@ wcgs <- wcgs %>%
                                 "No arcus senilis" = "0"),
            arcus_f = fct_relevel(arcus_f, "Arcus senilis"))
 
-table(wcgs$arcus_f, wcgs$arcus, useNA = "ifany")
+wcgs %>% tabyl(arcus_f, arcus)
 ```
 
 Let's build a version of the `wcgs` data that eliminates all missing data in the variables of immediate interest, and then plot the SBP-weight relationship in groups of patients with and without arcus senilis.
@@ -262,7 +273,7 @@ Let's build a version of the `wcgs` data that eliminates all missing data in the
 wcgs %>%
     filter(complete.cases(arcus_f, sbp, weight)) %>%
     ggplot(aes(x = weight, y = sbp, group = arcus_f)) +
-    geom_point(size=3, shape = 1) + 
+    geom_point(shape = 1) + 
     stat_smooth(method=lm, color="red") +
     stat_smooth(method=loess, se=FALSE, color="blue") +
     labs(title = "SBP vs. Weight by Arcus Senilis status",
@@ -383,29 +394,16 @@ wcgs %>%
     signif(., 3) # round them off to three significant figures before printing
 ```
 
-### Augmented Scatterplot Matrix
-
-Dr. Love's favorite way to augment a scatterplot matrix adds LOWESS smoothed lines in the upper panel, and correlations in the lower panel, with histograms down the diagonal. To do this, I revised two functions in the Love-boost script (these modifications come from [Chang's R Graphics Cookbook](https://sites.google.com/a/case.edu/love-431/home/texts-not-written-by-dr-love)), called `panel.hist` and `panel.cor`.
-
-```{r wcgsscattermatrixaugmented-fig}
-# requires Love-boost.R is sourced
-
-pairs (~ sbp + age + weight + height, data=wcgs, 
-       main="Augmented Scatterplot Matrix", 
-       upper.panel = panel.smooth,
-       diag.panel = panel.hist,
-       lower.panel = panel.cor)
-```
-
 ### Using the `GGally` package
 
 The `ggplot2` system doesn't have a built-in scatterplot system. There are some nice add-ins in the world, though. One option I sort of like is in the `GGally` package, which can produce both correlation matrices and scatterplot matrices.
 
 The `ggpairs` function provides a density plot on each diagonal, Pearson correlations on the upper right and scatterplots on the lower left of the matrix.
 
-```{r ggallywcgs-fig}
+```{r ggallywcgs-fig, message = FALSE}
 GGally::ggpairs(wcgs %>% select(sbp, age, weight, height), 
                 title = "Scatterplot Matrix via ggpairs")
 ```
+
 
 

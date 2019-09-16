@@ -15,10 +15,24 @@ This was part of a study of the effects that predatory intertidal crab species h
 - 12 Cancer productus, one of several species of [red rock crabs](https://en.wikipedia.org/wiki/Cancer_productus) (12)
 
 ```{r import crabs data}
-crabs <- read.csv("data/crabs.csv") %>% tbl_df
+crabs <- read_csv("data/crabs.csv") 
 
 crabs
 ```
+
+The `species` information is stored here as a character variable. How many different crabs are we talking about in each `species`?
+
+```{r}
+crabs %>% tabyl(species)
+```
+
+As it turns out, we're going to want to treat the `species` information as a **factor** with three levels, rather than as a character variable.
+
+```{r}
+crabs <- crabs %>%
+    mutate(species = factor(species))
+```
+
 
 Here's a quick summary of the data. Take care to note the useless results for the first two variables. At least the function flags with a `*` those variables it thinks are non-numeric.
 
@@ -70,7 +84,7 @@ ggplot(crabs, aes(x = height, y = force)) +
          x = "Claw's propodus height (mm)", y = "Mean closing force (N)")
 ```
 
-As we have discussed in the previous chapter, a **loess smooth** fits a curve to data by tracking (at point x) the points within a neighborhood of point x, with more emphasis given to points near x. It can be adjusted by tweaking the `span` and `degree` parameters. 
+As we have discussed previously, a **loess smooth** fits a curve to data by tracking (at point x) the points within a neighborhood of point x, with more emphasis given to points near x. It can be adjusted by tweaking the `span` and `degree` parameters. 
 
 In addition to the curve, smoothing procedures can also provide confidence intervals around their main fitted line. Consider the following plot of the `crabs` information, which adjusts the span (from its default of 0.75) and also adds in the confidence intervals.
 
@@ -235,7 +249,7 @@ Suppose we wish to build a plot of force vs height with a straight line for the 
 To put the two sets of predictions on the same scale despite the differing outcomes in the two models, we'll exponentiate the results of the log-log model, and build a little data frame containing the heights and the predicted forces from that model.
 
 ```{r crabs predictions for crabs data}
-loglogdat <- data.frame(height = crabs$height, force = exp(predict(crab_loglog)))
+loglogdat <- tibble(height = crabs$height, force = exp(predict(crab_loglog)))
 ```
 
 Now, we're ready to use the `geom_smooth` approach to plot the linear fit, and `geom_line` (which also fits curves) to display the log-log fit.
@@ -255,6 +269,7 @@ Based on these 38 crabs, we see some modest differences between the predictions 
 ```{r clean up after crabs}
 rm(loglogdat, crab_linear, crab_loglog)
 ```
+
 
 
 
