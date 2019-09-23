@@ -1,4 +1,4 @@
-# Comparing Means/Quantities using Two Indpendent Samples {#CI-Indep-Sample-Means}
+# Comparing Means/Quantities using Two Independent Samples {#CI-Indep-Sample-Means}
 
 Here, we'll consider the problem of estimating a confidence interval to describe the difference in population means (or medians) based on a comparison of two samples of quantitative data, gathered using an independent samples design. Specifically, we'll look at the randomized controlled trial of Ibuprofen in Sepsis patients described in Chapter \@ref(Sepsis_RCT). 
 

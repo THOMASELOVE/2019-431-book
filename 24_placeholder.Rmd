@@ -1,3 +1,0 @@
-# Chapter to come.
-
-This will be about comparing two population proportions (rates/percentages) when working with paired samples.

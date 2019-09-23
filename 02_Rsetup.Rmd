@@ -52,6 +52,7 @@ I may also make use of functions in the following packages/libraries, but when I
 - `cowplot` which is used in Part C to put multiple graphical objects in the same plot, like `gridExtra`: https://cran.r-project.org/web/packages/cowplot/vignettes/introduction.html
 - `DataExplorer` for generating highly detailed profiles of a data frame
 - `Epi` for 2x2 table analyses and materials for classical epidemiology: http://BendixCarstensen.com/Epi/
+- `exact2x2` for calculating McNemar odds ratios and confidence intervals in paired comparisons of proportions
 - `GGally` for scatterplot and correlation matrix visualizations: http://ggobi.github.io/ggally/
 - `ggridges` which is used to make ridgeline plots
 - `gridExtra` which includes a variety of functions for manipulating graphs: https://github.com/baptiste/gridextra
@@ -59,6 +60,7 @@ I may also make use of functions in the following packages/libraries, but when I
 - `mice`, which we'll use (a little) in 431 for multiple imputation to deal with missing data: http://www.stefvanbuuren.nl/mi/
 - `mosaic`, mostly for its `favstats` summary, but Project MOSAIC is a community of educators you might be interested in: http://mosaic-web.org/
 - `naniar`, for wrangling and visualizing missingness, and for checking imputations. See http://naniar.njtierney.com/.
+- `PropCIs` for computing confidence intervals for differences in proportions in paired samples.
 - `psych` for its own version of `describe`, but other features are described at http://personality-project.org/r/psych/
 - `skimr` for its ability to provide a "skimmed" descriptive analysis of a data set
 
@@ -75,11 +77,11 @@ When compiling the Notes from the original code files, these packages will need 
 
 ```
 pkgs <- c("aplpack", "arm", "babynames", "boot", "broom", "car", "cowplot", 
-          "DataExplorer", "devtools", "Epi", "faraway", "fivethirtyeight", 
+          "DataExplorer", "devtools", "Epi", "exact2x2", faraway", "fivethirtyeight", 
           "foreign", "gapminder", "GGally", "ggridges", "gridExtra", "Hmisc", 
           "janitor", "kableExtra", "knitr", "lme4", "magrittr", "markdown", 
           "MASS", "mice", "mosaic", "multcomp", "naniar", "NHANES", "pander", 
-          "psych", "pwr", "qcc", "rmarkdown", "rmdformats", "rms", 
+          "PropCIs", "psych", "pwr", "qcc", "rmarkdown", "rmdformats", "rms", 
           "sandwich", "simputation", "skimr", "survival", "tableone", 
           "tidyverse", "vcd")
 
