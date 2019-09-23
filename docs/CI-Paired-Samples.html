@@ -517,6 +517,10 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="20.2" data-path="CI-Indep-Sample-Means.html"><a href="CI-Indep-Sample-Means.html#bootstrap-ci-for-mu_1---mu_2-from-independent-samples"><i class="fa fa-check"></i><b>20.2</b> Bootstrap CI for <span class="math inline">\(mu_1 - \mu_2\)</span> from Independent Samples</a></li>
 <li class="chapter" data-level="20.3" data-path="CI-Indep-Sample-Means.html"><a href="CI-Indep-Sample-Means.html#wilcoxon-mann-whitney-rank-sum-ci-from-independent-samples"><i class="fa fa-check"></i><b>20.3</b> Wilcoxon-Mann-Whitney “Rank Sum” CI from Independent Samples</a></li>
+<li class="chapter" data-level="20.4" data-path="CI-Indep-Sample-Means.html"><a href="CI-Indep-Sample-Means.html#summary-specifying-a-two-sample-study-design"><i class="fa fa-check"></i><b>20.4</b> Summary: Specifying A Two-Sample Study Design</a><ul>
+<li class="chapter" data-level="20.4.1" data-path="CI-Indep-Sample-Means.html"><a href="CI-Indep-Sample-Means.html#for-the-sepsis-study"><i class="fa fa-check"></i><b>20.4.1</b> For the <code>sepsis</code> study</a></li>
+<li class="chapter" data-level="20.4.2" data-path="CI-Indep-Sample-Means.html"><a href="CI-Indep-Sample-Means.html#sepsis-estimation-results"><i class="fa fa-check"></i><b>20.4.2</b> Sepsis Estimation Results</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="21" data-path="CI-Indep-Sample-Props.html"><a href="CI-Indep-Sample-Props.html"><i class="fa fa-check"></i><b>21</b> Comparing Rates/Proportions with Two Independent Samples</a><ul>
 <li class="chapter" data-level="21.1" data-path="CI-Indep-Sample-Props.html"><a href="CI-Indep-Sample-Props.html#a-first-example-ibuprofen-and-sepsis-trial"><i class="fa fa-check"></i><b>21.1</b> A First Example: Ibuprofen and Sepsis Trial</a></li>
@@ -568,6 +572,13 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="23.4.1" data-path="CI-Paired-Samples.html"><a href="CI-Paired-Samples.html#assumptions-2"><i class="fa fa-check"></i><b>23.4.1</b> Assumptions</a></li>
 </ul></li>
 <li class="chapter" data-level="23.5" data-path="CI-Paired-Samples.html"><a href="CI-Paired-Samples.html#choosing-a-confidence-interval-approach"><i class="fa fa-check"></i><b>23.5</b> Choosing a Confidence Interval Approach</a></li>
+<li class="chapter" data-level="23.6" data-path="CI-Paired-Samples.html"><a href="CI-Paired-Samples.html#conclusions-for-the-bloodlead-study"><i class="fa fa-check"></i><b>23.6</b> Conclusions for the <code>bloodlead</code> study</a></li>
+<li class="chapter" data-level="23.7" data-path="CI-Paired-Samples.html"><a href="CI-Paired-Samples.html#the-sign-test"><i class="fa fa-check"></i><b>23.7</b> The Sign test</a></li>
+<li class="chapter" data-level="23.8" data-path="CI-Paired-Samples.html"><a href="CI-Paired-Samples.html#a-more-complete-decision-support-tool-comparing-means"><i class="fa fa-check"></i><b>23.8</b> A More Complete Decision Support Tool: Comparing Means</a></li>
+<li class="chapter" data-level="23.9" data-path="CI-Paired-Samples.html"><a href="CI-Paired-Samples.html#paired-dependent-vs.-independent-samples"><i class="fa fa-check"></i><b>23.9</b> Paired (Dependent) vs. Independent Samples</a><ul>
+<li class="chapter" data-level="23.9.1" data-path="CI-Paired-Samples.html"><a href="CI-Paired-Samples.html#three-tricky-examples"><i class="fa fa-check"></i><b>23.9.1</b> Three “Tricky” Examples</a></li>
+<li class="chapter" data-level="23.9.2" data-path="CI-Paired-Samples.html"><a href="CI-Paired-Samples.html#answers-for-the-three-tricky-examples"><i class="fa fa-check"></i><b>23.9.2</b> Answers for the Three “Tricky” Examples</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="24" data-path="Paired-Props.html"><a href="Paired-Props.html"><i class="fa fa-check"></i><b>24</b> Comparing Proportions/Rates using Two Paired Samples</a><ul>
 <li class="chapter" data-level="24.1" data-path="Paired-Props.html"><a href="Paired-Props.html#an-example-access-to-specialty-care-and-insurance-in-children"><i class="fa fa-check"></i><b>24.1</b> An Example: Access to Specialty Care and Insurance in Children</a><ul>
@@ -613,7 +624,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">Chapter 23</span> Comparing Means/Quantities using Two Paired Samples</h1>
 <p>Here, we’ll consider the problem of estimating a confidence interval to describe the difference in population means (or medians) based on a comparison of two samples of quantitative data, gathered using a matched pairs design. Specifically, we’ll use as our example the Lead in the Blood of Children study, described in Section <a href="Blood-Lead-Study.html#Blood-Lead-Study">22</a>.</p>
 <p>Recall that in that study, we measured blood lead content, in mg/dl, for 33 matched pairs of children, one of which was exposed (had a parent working in a battery factory) and the other of which was control (no parent in the battery factory, but matched to the exposed child by age, exposure to traffic and neighborhood). We then created a variable called <code>lead_diff</code> which contained the (exposed - control) differences within each pair.</p>
-<div class="sourceCode" id="cb630"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb630-1" title="1">bloodlead</a></code></pre></div>
+<div class="sourceCode" id="cb642"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb642-1" title="1">bloodlead</a></code></pre></div>
 <pre><code># A tibble: 33 x 4
    pair  exposed control lead_diff
    &lt;fct&gt;   &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;
@@ -664,10 +675,10 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="method-1" class="section level3">
 <h3><span class="header-section-number">23.2.1</span> Method 1</h3>
 <p>We can use the single-sample approach, applied to the variable containing the paired differences. Let’s build a <strong>90%</strong> two-sided confidence interval for the population mean of the difference in blood lead content across all possible pairs of an exposed (parent works in a lead-based industry) and a control (parent does not) child, <span class="math inline">\(\mu_d\)</span>.</p>
-<div class="sourceCode" id="cb632"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb632-1" title="1">tt1 &lt;-<span class="st"> </span>bloodlead <span class="op">%$%</span><span class="st"> </span><span class="kw">t.test</span>(lead_diff, <span class="dt">conf.level =</span> <span class="fl">0.90</span>, </a>
-<a class="sourceLine" id="cb632-2" title="2">                            <span class="dt">alt =</span> <span class="st">&quot;two.sided&quot;</span>)</a>
-<a class="sourceLine" id="cb632-3" title="3"></a>
-<a class="sourceLine" id="cb632-4" title="4">tt1</a></code></pre></div>
+<div class="sourceCode" id="cb644"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb644-1" title="1">tt1 &lt;-<span class="st"> </span>bloodlead <span class="op">%$%</span><span class="st"> </span><span class="kw">t.test</span>(lead_diff, <span class="dt">conf.level =</span> <span class="fl">0.90</span>, </a>
+<a class="sourceLine" id="cb644-2" title="2">                            <span class="dt">alt =</span> <span class="st">&quot;two.sided&quot;</span>)</a>
+<a class="sourceLine" id="cb644-3" title="3"></a>
+<a class="sourceLine" id="cb644-4" title="4">tt1</a></code></pre></div>
 <pre><code>
     One Sample t-test
 
@@ -679,7 +690,7 @@ alternative hypothesis: true mean is not equal to 0
 sample estimates:
 mean of x 
        16 </code></pre>
-<div class="sourceCode" id="cb634"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb634-1" title="1"><span class="kw">tidy</span>(tt1) <span class="op">%&gt;%</span><span class="st"> </span>knitr<span class="op">::</span><span class="kw">kable</span>(<span class="dt">digits =</span> <span class="dv">2</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb646"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb646-1" title="1"><span class="kw">tidy</span>(tt1) <span class="op">%&gt;%</span><span class="st"> </span>knitr<span class="op">::</span><span class="kw">kable</span>(<span class="dt">digits =</span> <span class="dv">2</span>)</a></code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -716,10 +727,10 @@ mean of x
 <div id="method-2" class="section level3">
 <h3><span class="header-section-number">23.2.2</span> Method 2</h3>
 <p>Or, we can apply the single-sample approach to a calculated difference in blood lead content between the exposed and control groups. Here, we’ll get a <strong>95%</strong> two-sided confidence interval for <span class="math inline">\(\mu_d\)</span>, instead of the 90% interval we obtained above.</p>
-<div class="sourceCode" id="cb635"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb635-1" title="1">tt2 &lt;-<span class="st"> </span>bloodlead <span class="op">%$%</span><span class="st"> </span><span class="kw">t.test</span>(exposed <span class="op">-</span><span class="st"> </span>control, </a>
-<a class="sourceLine" id="cb635-2" title="2">       <span class="dt">conf.level =</span> <span class="fl">0.95</span>, <span class="dt">alt =</span> <span class="st">&quot;two.sided&quot;</span>)</a>
-<a class="sourceLine" id="cb635-3" title="3"></a>
-<a class="sourceLine" id="cb635-4" title="4">tt2</a></code></pre></div>
+<div class="sourceCode" id="cb647"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb647-1" title="1">tt2 &lt;-<span class="st"> </span>bloodlead <span class="op">%$%</span><span class="st"> </span><span class="kw">t.test</span>(exposed <span class="op">-</span><span class="st"> </span>control, </a>
+<a class="sourceLine" id="cb647-2" title="2">       <span class="dt">conf.level =</span> <span class="fl">0.95</span>, <span class="dt">alt =</span> <span class="st">&quot;two.sided&quot;</span>)</a>
+<a class="sourceLine" id="cb647-3" title="3"></a>
+<a class="sourceLine" id="cb647-4" title="4">tt2</a></code></pre></div>
 <pre><code>
     One Sample t-test
 
@@ -731,7 +742,7 @@ alternative hypothesis: true mean is not equal to 0
 sample estimates:
 mean of x 
        16 </code></pre>
-<div class="sourceCode" id="cb637"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb637-1" title="1"><span class="kw">tidy</span>(tt2) <span class="op">%&gt;%</span><span class="st"> </span>knitr<span class="op">::</span><span class="kw">kable</span>(<span class="dt">digits =</span> <span class="dv">2</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb649"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb649-1" title="1"><span class="kw">tidy</span>(tt2) <span class="op">%&gt;%</span><span class="st"> </span>knitr<span class="op">::</span><span class="kw">kable</span>(<span class="dt">digits =</span> <span class="dv">2</span>)</a></code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -762,10 +773,10 @@ mean of x
 <div id="method-3" class="section level3">
 <h3><span class="header-section-number">23.2.3</span> Method 3</h3>
 <p>Or, we can provide R with two separate samples (unaffected and affected) and specify that the samples are paired. Here, we’ll get a <strong>99%</strong> <strong>one-sided</strong> confidence interval (lower bound) for <span class="math inline">\(\mu_d\)</span>, the population mean difference in blood lead content.</p>
-<div class="sourceCode" id="cb638"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb638-1" title="1">tt3 &lt;-<span class="st"> </span>bloodlead <span class="op">%$%</span><span class="st"> </span><span class="kw">t.test</span>(exposed, control, <span class="dt">conf.level =</span> <span class="fl">0.99</span>,</a>
-<a class="sourceLine" id="cb638-2" title="2">       <span class="dt">paired =</span> <span class="ot">TRUE</span>, <span class="dt">alt =</span> <span class="st">&quot;greater&quot;</span>)</a>
-<a class="sourceLine" id="cb638-3" title="3"></a>
-<a class="sourceLine" id="cb638-4" title="4">tt3</a></code></pre></div>
+<div class="sourceCode" id="cb650"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb650-1" title="1">tt3 &lt;-<span class="st"> </span>bloodlead <span class="op">%$%</span><span class="st"> </span><span class="kw">t.test</span>(exposed, control, <span class="dt">conf.level =</span> <span class="fl">0.99</span>,</a>
+<a class="sourceLine" id="cb650-2" title="2">       <span class="dt">paired =</span> <span class="ot">TRUE</span>, <span class="dt">alt =</span> <span class="st">&quot;greater&quot;</span>)</a>
+<a class="sourceLine" id="cb650-3" title="3"></a>
+<a class="sourceLine" id="cb650-4" title="4">tt3</a></code></pre></div>
 <pre><code>
     Paired t-test
 
@@ -777,7 +788,7 @@ alternative hypothesis: true difference in means is greater than 0
 sample estimates:
 mean of the differences 
                      16 </code></pre>
-<div class="sourceCode" id="cb640"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb640-1" title="1"><span class="kw">tidy</span>(tt3) <span class="op">%&gt;%</span><span class="st"> </span>knitr<span class="op">::</span><span class="kw">kable</span>(<span class="dt">digits =</span> <span class="dv">2</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb652"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb652-1" title="1"><span class="kw">tidy</span>(tt3) <span class="op">%&gt;%</span><span class="st"> </span>knitr<span class="op">::</span><span class="kw">kable</span>(<span class="dt">digits =</span> <span class="dv">2</span>)</a></code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -809,9 +820,9 @@ mean of the differences
 <div id="method-4" class="section level3">
 <h3><span class="header-section-number">23.2.4</span> Method 4</h3>
 <p>As we saw in Chapter @ref(#Blood-Lead-Study), we can also use an intercept-only linear regression model to estimate the population mean of the paired differences with a two-tailed confidence interval, by creating a variable containing those paired differences.</p>
-<div class="sourceCode" id="cb641"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb641-1" title="1">model_lead &lt;-<span class="st"> </span><span class="kw">lm</span>(lead_diff <span class="op">~</span><span class="st"> </span><span class="dv">1</span>, <span class="dt">data =</span> bloodlead)</a>
-<a class="sourceLine" id="cb641-2" title="2"></a>
-<a class="sourceLine" id="cb641-3" title="3"><span class="kw">tidy</span>(model_lead, <span class="dt">conf.int =</span> <span class="ot">TRUE</span>, <span class="dt">conf.level =</span> <span class="fl">0.95</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb653"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb653-1" title="1">model_lead &lt;-<span class="st"> </span><span class="kw">lm</span>(lead_diff <span class="op">~</span><span class="st"> </span><span class="dv">1</span>, <span class="dt">data =</span> bloodlead)</a>
+<a class="sourceLine" id="cb653-2" title="2"></a>
+<a class="sourceLine" id="cb653-3" title="3"><span class="kw">tidy</span>(model_lead, <span class="dt">conf.int =</span> <span class="ot">TRUE</span>, <span class="dt">conf.level =</span> <span class="fl">0.95</span>)</a></code></pre></div>
 <pre><code># A tibble: 1 x 7
   term        estimate std.error statistic    p.value conf.low conf.high
   &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
@@ -820,10 +831,10 @@ mean of the differences
 <div id="method-5" class="section level3">
 <h3><span class="header-section-number">23.2.5</span> Method 5</h3>
 <p>As we also saw in Chapter @ref(#Blood-Lead-Study), if we have the data in a longer format, with a variable identifying the matched pairs, we can use a different specification for a linear model to obtain the same estimate.</p>
-<div class="sourceCode" id="cb643"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb643-1" title="1">model2_lead &lt;-<span class="st"> </span><span class="kw">lm</span>(lead_level <span class="op">~</span><span class="st"> </span>status <span class="op">+</span><span class="st"> </span><span class="kw">factor</span>(pair), <span class="dt">data =</span> bloodlead_longer)</a>
-<a class="sourceLine" id="cb643-2" title="2"></a>
-<a class="sourceLine" id="cb643-3" title="3"><span class="kw">tidy</span>(model2_lead, <span class="dt">conf.int =</span> <span class="ot">TRUE</span>, <span class="dt">conf.level =</span> <span class="fl">0.95</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb643-4" title="4"><span class="st">    </span><span class="kw">filter</span>(term <span class="op">==</span><span class="st"> &quot;statusexposed&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb655"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb655-1" title="1">model2_lead &lt;-<span class="st"> </span><span class="kw">lm</span>(lead_level <span class="op">~</span><span class="st"> </span>status <span class="op">+</span><span class="st"> </span><span class="kw">factor</span>(pair), <span class="dt">data =</span> bloodlead_longer)</a>
+<a class="sourceLine" id="cb655-2" title="2"></a>
+<a class="sourceLine" id="cb655-3" title="3"><span class="kw">tidy</span>(model2_lead, <span class="dt">conf.int =</span> <span class="ot">TRUE</span>, <span class="dt">conf.level =</span> <span class="fl">0.95</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb655-4" title="4"><span class="st">    </span><span class="kw">filter</span>(term <span class="op">==</span><span class="st"> &quot;statusexposed&quot;</span>)</a></code></pre></div>
 <pre><code># A tibble: 1 x 7
   term          estimate std.error statistic    p.value conf.low conf.high
   &lt;chr&gt;            &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
@@ -843,16 +854,16 @@ mean of the differences
 <div id="bootstrap-ci-for-mean-difference-using-paired-samples" class="section level2">
 <h2><span class="header-section-number">23.3</span> Bootstrap CI for mean difference using paired samples</h2>
 <p>The same bootstrap approach is used for paired differences as for a single sample. We again use the <code>smean.cl.boot()</code> function in the <code>Hmisc</code> package to obtain bootstrap confidence intervals for the population mean, <span class="math inline">\(\mu_d\)</span>, of the paired differences in blood lead content.</p>
-<div class="sourceCode" id="cb645"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb645-1" title="1"><span class="kw">set.seed</span>(<span class="dv">431555</span>)</a>
-<a class="sourceLine" id="cb645-2" title="2">bloodlead <span class="op">%$%</span><span class="st"> </span>Hmisc<span class="op">::</span><span class="kw">smean.cl.boot</span>(lead_diff, <span class="dt">B =</span> <span class="dv">1000</span>,</a>
-<a class="sourceLine" id="cb645-3" title="3">                                   <span class="dt">conf.int =</span> <span class="fl">0.95</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb657"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb657-1" title="1"><span class="kw">set.seed</span>(<span class="dv">431555</span>)</a>
+<a class="sourceLine" id="cb657-2" title="2">bloodlead <span class="op">%$%</span><span class="st"> </span>Hmisc<span class="op">::</span><span class="kw">smean.cl.boot</span>(lead_diff, <span class="dt">B =</span> <span class="dv">1000</span>,</a>
+<a class="sourceLine" id="cb657-3" title="3">                                   <span class="dt">conf.int =</span> <span class="fl">0.95</span>)</a></code></pre></div>
 <pre><code> Mean Lower Upper 
  16.0  10.8  21.5 </code></pre>
 <p>Note that in this case, the confidence interval for the difference in means is a bit less wide than the 95% confidence interval generated by the t test, which was (10.34, 21.59). It’s common for the bootstrap to produce a narrower range (i.e. an apparently more precise estimate) for the population mean, but it’s not automatic that the endpoints from the bootstrap will be inside those provided by the t test, either.</p>
 <p>For example, this bootstrap CI doesn’t contain the t-test based interval, since its upper bound exceeds that of the t-based interval:</p>
-<div class="sourceCode" id="cb647"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb647-1" title="1"><span class="kw">set.seed</span>(<span class="dv">431002</span>)</a>
-<a class="sourceLine" id="cb647-2" title="2">bloodlead <span class="op">%$%</span><span class="st"> </span>Hmisc<span class="op">::</span><span class="kw">smean.cl.boot</span>(lead_diff, <span class="dt">B =</span> <span class="dv">1000</span>,</a>
-<a class="sourceLine" id="cb647-3" title="3">                                   <span class="dt">conf.int =</span> <span class="fl">0.95</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb659"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb659-1" title="1"><span class="kw">set.seed</span>(<span class="dv">431002</span>)</a>
+<a class="sourceLine" id="cb659-2" title="2">bloodlead <span class="op">%$%</span><span class="st"> </span>Hmisc<span class="op">::</span><span class="kw">smean.cl.boot</span>(lead_diff, <span class="dt">B =</span> <span class="dv">1000</span>,</a>
+<a class="sourceLine" id="cb659-3" title="3">                                   <span class="dt">conf.int =</span> <span class="fl">0.95</span>)</a></code></pre></div>
 <pre><code> Mean Lower Upper 
  16.0  10.8  21.7 </code></pre>
 <p>This demonstration aside, the appropriate thing to do when applying the bootstrap to specify a confidence interval is select a seed and the number (<code>B</code> = 1,000 or 10,000, usually) of desired bootstrap replications, then run the bootstrap just once and move on, rather than repeating the process multiple times looking for a particular result.</p>
@@ -871,10 +882,10 @@ mean of the differences
 <div id="wilcoxon-signed-rank-based-ci-for-paired-samples" class="section level2">
 <h2><span class="header-section-number">23.4</span> Wilcoxon Signed Rank-based CI for paired samples</h2>
 <p>We could also use the Wilcoxon signed rank procedure to generate a CI for the pseudo-median of the paired differences.</p>
-<div class="sourceCode" id="cb649"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb649-1" title="1">wt &lt;-<span class="st"> </span>bloodlead <span class="op">%$%</span><span class="st"> </span><span class="kw">wilcox.test</span>(lead_diff, <span class="dt">conf.int =</span> <span class="ot">TRUE</span>,</a>
-<a class="sourceLine" id="cb649-2" title="2">                                <span class="dt">conf.level =</span> <span class="fl">0.90</span>, </a>
-<a class="sourceLine" id="cb649-3" title="3">                                <span class="dt">exact =</span> <span class="ot">FALSE</span>)</a>
-<a class="sourceLine" id="cb649-4" title="4">wt</a></code></pre></div>
+<div class="sourceCode" id="cb661"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb661-1" title="1">wt &lt;-<span class="st"> </span>bloodlead <span class="op">%$%</span><span class="st"> </span><span class="kw">wilcox.test</span>(lead_diff, <span class="dt">conf.int =</span> <span class="ot">TRUE</span>,</a>
+<a class="sourceLine" id="cb661-2" title="2">                                <span class="dt">conf.level =</span> <span class="fl">0.90</span>, </a>
+<a class="sourceLine" id="cb661-3" title="3">                                <span class="dt">exact =</span> <span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb661-4" title="4">wt</a></code></pre></div>
 <pre><code>
     Wilcoxon signed rank test with continuity correction
 
@@ -886,7 +897,7 @@ alternative hypothesis: true location is not equal to 0
 sample estimates:
 (pseudo)median 
           15.5 </code></pre>
-<div class="sourceCode" id="cb651"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb651-1" title="1"><span class="kw">tidy</span>(wt)</a></code></pre></div>
+<div class="sourceCode" id="cb663"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb663-1" title="1"><span class="kw">tidy</span>(wt)</a></code></pre></div>
 <pre><code># A tibble: 1 x 7
   estimate statistic  p.value conf.low conf.high method         alternative
      &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;          &lt;chr&gt;      
@@ -918,7 +929,143 @@ sample estimates:
 </ul></li>
 </ol>
 <p>The two methods you’ll use most often are the bootstrap (especially if the data don’t appear to be at least pretty well fit by a Normal model) and the t-based confidence intervals (if the data do appear to fit a Normal model reasonably well.)</p>
+</div>
+<div id="conclusions-for-the-bloodlead-study" class="section level2">
+<h2><span class="header-section-number">23.6</span> Conclusions for the <code>bloodlead</code> study</h2>
+<p>Using any of these procedures, we would conclude that the null hypothesis (that the true mean of the paired differences is 0 mg/dl) is not tenable, and that it should be rejected at the 10% significance level. The smaller the <em>p</em> value, the stronger is the evidence that the null hypothesis is incorrect, and in this case, we have some fairly tiny <em>p</em> values.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="right">Procedure</th>
+<th align="right">Comparing …</th>
+<th align="right">90% CI for <span class="math inline">\(\mu_{Exposed - Control}\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">Paired t</td>
+<td align="right">Means</td>
+<td align="right">11.3, 20.6</td>
+</tr>
+<tr class="even">
+<td align="right">Wilcoxon signed rank</td>
+<td align="right">Pseudo-medians</td>
+<td align="right">11, 20.5</td>
+</tr>
+<tr class="odd">
+<td align="right">Bootstrap CI</td>
+<td align="right">Means</td>
+<td align="right">11.6, 20.6</td>
+</tr>
+</tbody>
+</table>
+<p>Note that <strong>one-sided</strong> or <strong>one-tailed</strong> hypothesis testing procedures work the same way for paired samples as they did for single samples in Section <a href="#Test-One-Mean"><strong>??</strong></a>.</p>
+</div>
+<div id="the-sign-test" class="section level2">
+<h2><span class="header-section-number">23.7</span> The Sign test</h2>
+<p>The <strong>sign test</strong> is something we’ve skipped in our discussion so far. It is a test for consistent differences between pairs of observations, just as the paired t, Wilcoxon signed rank and bootstrap for paired samples can provide. It has the advantage that it is relatively easy to calculate by hand, and that it doesn’t require the paired differences to follow a Normal distribution. In fact, it will even work if the data are substantially skewed.</p>
+<ul>
+<li>Calculate the paired difference for each pair, and drop those with difference = 0.</li>
+<li>Let <span class="math inline">\(N\)</span> be the number of pairs that remain, so there are 2N data points.</li>
+<li>Let <span class="math inline">\(W\)</span>, the test statistic, be the number of pairs (out of N) in which the difference is positive.</li>
+<li>Assuming that <span class="math inline">\(H_0\)</span> is true, then <span class="math inline">\(W\)</span> follows a binomial distribution with probability 0.5 on <span class="math inline">\(N\)</span> trials.</li>
+</ul>
+<p>For example, consider our data on blood lead content:</p>
+<div class="sourceCode" id="cb665"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb665-1" title="1">bloodlead<span class="op">$</span>leaddiff</a></code></pre></div>
+<pre><code>Warning: Unknown or uninitialised column: &#39;leaddiff&#39;.</code></pre>
+<pre><code>NULL</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="right">Difference</th>
+<th align="right"># of Pairs</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">Greater than zero</td>
+<td align="right">28</td>
+</tr>
+<tr class="even">
+<td align="right">Equal to zero</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="right">Less than zero</td>
+<td align="right">4</td>
+</tr>
+</tbody>
+</table>
+<p>So we have <span class="math inline">\(N\)</span> = 32 pairs, with <span class="math inline">\(W\)</span> = 28 that are positive. We then use the <code>binom.test</code> approach in R:</p>
+<div class="sourceCode" id="cb668"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb668-1" title="1"><span class="kw">binom.test</span>(<span class="dt">x =</span> <span class="dv">28</span>, <span class="dt">n =</span> <span class="dv">32</span>, <span class="dt">p =</span> <span class="fl">0.5</span>, </a>
+<a class="sourceLine" id="cb668-2" title="2">           <span class="dt">alternative =</span> <span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
+<pre><code>
+    Exact binomial test
 
+data:  28 and 32
+number of successes = 28, number of trials = 32, p-value = 2e-05
+alternative hypothesis: true probability of success is not equal to 0.5
+95 percent confidence interval:
+ 0.710 0.965
+sample estimates:
+probability of success 
+                 0.875 </code></pre>
+<ul>
+<li>A one-tailed test can be obtained by substituting in “less” or “greater” as the alternative of interest.</li>
+<li>The confidence interval provided doesn’t relate back to our original population means, of course. It’s just showing the confidence interval around the probability of the exposed mean being greater than the control mean for a pair of children.</li>
+</ul>
+</div>
+<div id="a-more-complete-decision-support-tool-comparing-means" class="section level2">
+<h2><span class="header-section-number">23.8</span> A More Complete Decision Support Tool: Comparing Means</h2>
+<ol style="list-style-type: decimal">
+<li><p>Are these paired or independent samples?</p></li>
+<li>If paired samples, then are the paired differences approximately Normally distributed?
+<ol style="list-style-type: lower-alpha">
+<li>If yes, then a paired t test or confidence interval is likely the best choice.</li>
+<li>If no, is the main concern outliers (with generally symmetric data), or skew?
+<ol style="list-style-type: decimal">
+<li>If the paired differences appear to be generally symmetric but with substantial outliers, a Wilcoxon signed rank test is an appropriate choice, as is a bootstrap confidence interval for the population mean of the paired differences.</li>
+<li>If the paired differences appear to be seriously skewed, then we’ll usually build a bootstrap confidence interval, although a sign test is another reasonable possibility, although it doesn’t provide a confidence interval for the population mean of the paired differences.</li>
+</ol></li>
+</ol></li>
+<li>If independent, is each sample Normally distributed?
+<ol style="list-style-type: lower-alpha">
+<li>No –&gt; use Wilcoxon-Mann-Whitney rank sum test or bootstrap via <code>bootdif</code>.</li>
+<li>Yes –&gt; are sample sizes equal?
+<ol style="list-style-type: decimal">
+<li>Balanced Design (equal sample sizes) - use pooled t test</li>
+<li>Unbalanced Design - use Welch test</li>
+</ol></li>
+</ol></li>
+</ol>
+</div>
+<div id="paired-dependent-vs.-independent-samples" class="section level2">
+<h2><span class="header-section-number">23.9</span> Paired (Dependent) vs. Independent Samples</h2>
+<p>One area that consistently trips students up in this course is the thought process involved in distinguishing studies comparing means that should be analyzed using <em>dependent</em> (i.e. paired or matched) samples and those which should be analyzed using <em>independent</em> samples. A dependent samples analysis uses additional information about the sample to pair/match subjects receiving the various exposures. That additional information is not part of an independent samples analysis (unpaired testing situation.) The reasons to do this are to (a) increase statistical power, and/or (b) reduce the effect of confounding. Here are a few thoughts on the subject.</p>
+<p>In the design of experiments, <strong>blocking</strong> is the term often used for the process of arranging subjects into groups (blocks) that are similar to one another. Typically, a blocking factor is a source of variability that is not of primary interest to the researcher An example of a blocking factor might be the sex of a patient; by blocking on sex, this source of variability is controlled for, thus leading to greater accuracy.</p>
+<ol style="list-style-type: decimal">
+<li><p>If the sample sizes are not balanced (not equal), the samples must be treated as independent, since there would be no way to precisely link all subjects. So, if we have 10 subjects receiving exposure A and 12 subjects receiving exposure B, a dependent samples analysis (such as a paired <em>t</em> test) is not correct.</p></li>
+<li><p>The key element is a meaningful link between each observation in one exposure group and a specific observation in the other exposure group. Given a balanced design, the most common strategy indicating dependent samples involves two or more <em>repeated measures</em> on the same subjects. For example, if we are comparing outcomes <em>before</em> and <em>after</em> the application of an exposure, and we have, say, 20 subjects who provide us data both <em>before</em> and <em>after</em> the exposure, then the comparison of results <em>before</em> and <em>after</em> exposure should use a dependent samples analysis. The link between the subjects is the subject itself - each exposed subject serves as its own control.</p></li>
+<li><p>The second most common strategy indicating dependent samples involves deliberate matching of subjects receiving the two exposures. A matched set of observations (often a pair, but it could be a trio or quartet, etc.) is determined using baseline information and then (if a pair is involved) one subject receives exposure A while the other member of the pair receives exposure B, so that by calculating the paired difference, we learn about the effect of the exposure, while controlling for the variables made similar across the two subjects by the matching process.</p></li>
+<li><p>In order for a dependent samples analysis to be used, we need (a) a link between each observation across the exposure groups based on the way the data were collected, <em>and</em> (b) a consistent measure (with the same units of measurement) so that paired differences can be calculated and interpreted sensibly.</p></li>
+<li><p>If the samples are collected to facilitate a dependent samples analysis, the correlation of the outcome measurements across the groups will often be moderately strong and positive. If that’s the case, then the use of a dependent samples analysis will reduce the effect of baseline differences between the exposure groups, and thus provide a more precise estimate. But even if the correlation is quite small, a dependent samples analysis should provide a more powerful estimate of the impact of the exposure on the outcome than would an independent samples analysis with the same number of observations.</p></li>
+</ol>
+<div id="three-tricky-examples" class="section level3">
+<h3><span class="header-section-number">23.9.1</span> Three “Tricky” Examples</h3>
+<ol style="list-style-type: decimal">
+<li><p>Suppose we take a convenient sample of 200 patients from the population of patients who complete a blood test in April 2017 including a check of triglycerides, and who have a triglyceride level in the high category (200 to 499 mg/dl). Next, we select a patient at random from this group of 200 patients, and then identify another patient from the group of 200 who is the same age (to within 2 years) and also the same sex. We then randomly assign our intervention to one of these two patients and usual care without our intervention to the other patient. We then set these two patients aside and return to our original sample, repeating the process until we cannot find any more patients in the same age range and of the same gender. This generates a total of 77 patients who receive the intervention and 77 who do not. If we are trying to assess the effect of our intervention on triglyceride level in October 2017 using this sample of 154 people, should we use dependent (paired) or independent samples?</p></li>
+<li><p>Suppose we take a convenient sample of 77 patients from the population of patients who complete a blood test in April 2017 including a check of triglycerides, and who have a triglyceride level in the high category (200 to 499 mg/dl). Next, we take a convenient sample of 77 patients from the population of patients who complete a blood test in May 2017 including a check of triglycerides, and who have a triglyceride level in the high category (200 to 499 mg/dl). We flip a coin to determine whether the intervention will be given to each of the 77 patients from April 2017 (if the coin comes up “HEADS”) or instead to each of the 77 patients from May 2017 (if the coin comes up “TAILS”). Then, we assign our intervention to the patients seen in the month specified by the coin and assign usual care without our intervention to the patients seen in the other month. If we are trying to assess the effect of our intervention on triglyceride level in October 2017 using this sample of 154 people, should we use dependent (paired) or independent samples?</p></li>
+<li><p>Suppose we take a convenient sample of 200 patients from the population of patients who complete a blood test in April 2017 including a check of triglycerides, and who have a triglyceride level in the high category (200 to 499 mg/dl). For each patient, we re-measure them again in October 2017, again checking their triglyceride level. But in between, we take the first 77 of the patients in a randomly sorted list and assign them to our intervention (which takes place from June through September 2017) and take an additional group of 77 patients from the remaining part of the list and assign them to usual care without our intervention over the same time period. If we are trying to assess the effect of our intervention on each individual’s change in triglyceride level (from April/May to October) using this sample of 154 people, should we use dependent (paired) or independent samples?</p></li>
+</ol>
+</div>
+<div id="answers-for-the-three-tricky-examples" class="section level3">
+<h3><span class="header-section-number">23.9.2</span> Answers for the Three “Tricky” Examples</h3>
+<p><em>Answer for 1.</em> Our first task is to identify the outcome and the exposure groups. Here, we are comparing the distribution of our outcome (triglyceride level in October) across two exposures: (a) receiving the intervention and (b) not receiving the intervention. We have a sample of 77 patients receiving the intervention, and a different sample of 77 patients receiving usual care. Each of the 77 subjects receiving the intervention is matched (on age and sex) to a specific subject not receiving the intervention. So, we can calculate paired differences by taking the triglyceride level for the exposed member of each pair and subtracting the triglyceride level for the usual care member of that same pair. Thus our comparison of the exposure groups should be accomplished using a <em>dependent</em> samples analysis, such as a paired t test.</p>
+<p><em>Answer for 2.</em> Again, we begin by identfying the outcome (triglyceride level in October) and the exposure groups. Here, we compare two exposures: (a) receiving the intervention and (b) receiving usual care. We have a sample of 77 patients receiving the intervention, and a different sample of 77 patients receiving usual care. But there is no pairing or matching involved. There is no connection implied by the way that the data were collected that implies that, for example, patient 1 in the intervention group is linked to any particular subject in the usual care group. So we need to analyze the data using independent samples.</p>
+<p><em>Answer for 3.</em> Once again, we identfy the outcome (now it is the within-subject <em>change</em> in triglyceride level from April to October) and the exposure groups. Here again, we compare two exposures: (a) receiving the intervention and (b) receiving usual care. We have a sample of 77 patients receiving the intervention, and a different sample of 77 patients receiving usual care. But again, there is no pairing or matching between the patients receiving the intervention and the patients receiving usual care. While each outcome value is a difference (or change) in triglyceride levels, there’s no connection implied by the way that the data were collected that implies that, for example, patient 1 in the intervention group is linked to any particular subject in the usual care group. So, again, we need to analyze the data using independent samples.</p>
+<p>For more background and fundamental material, you might consider the Wikipedia pages on <a href="https://en.wikipedia.org/wiki/Paired_difference_test">Paired Difference Test</a> and on <a href="https://en.wikipedia.org/wiki/Blocking_(statistics)">Blocking (statistics)</a>.</p>
+
+</div>
 </div>
 </div>
 <h3>References</h3>

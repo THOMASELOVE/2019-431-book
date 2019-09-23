@@ -76,6 +76,8 @@ tt0 <- sepsis %$% t.test(temp_drop ~ treat,
 tidy(tt0)
 ```
 
+When there is a *balanced design*, that is, when the same number of observations appear in each of the two samples, then the Welch t test and the Pooled t test produce the same confidence interval. Differences appear if the sample sizes in the two groups being compared are different.
+
 ## Bootstrap CI for $mu_1 - \mu_2$ from Independent Samples
 
 The `bootdif` function contained in the `Love-boost.R` script, that we will use in this setting is a slightly edited version of the function at http://biostat.mc.vanderbilt.edu/wiki/Main/BootstrapMeansSoftware. Note that this approach uses a comma to separate the outcome variable (here, `temp_drop`) from the variable identifying the exposure groups (here, `treat`).
@@ -100,4 +102,108 @@ wt
 
 tidy(wt)
 ```
+
+## Summary: Specifying A Two-Sample Study Design
+
+These questions will help specify the details of the study design involved in any comparison of two populations on a quantitative outcome, perhaps with means.
+
+1.	What is the outcome under study?
+2.	What are the (in this case, two) treatment/exposure groups?
+3.	Were the data collected using matched / paired samples or independent samples?
+4.	Are the data a random sample from the population(s) of interest? Or is there at least a reasonable argument for generalizing from the sample to the population(s)?
+5.	What is the significance level (or, the confidence level) we require here?
+6.	Are we doing one-sided or two-sided testing/confidence interval generation?
+7.	If we have paired samples, did pairing help reduce nuisance variation?
+8.	If we have paired samples, what does the distribution of sample paired differences tell us about which inferential procedure to use?
+9.  If we have independent samples, what does the distribution of each individual sample tell us about which inferential procedure to use?
+
+### For the `sepsis` study
+
+1. The outcome is `temp_drop`, the change in body temperature (in $^{\circ}$C) from baseline to 2 hours later, so that positive numbers indicate drops in temperature (a good outcome.)
+2. The groups are **Ibuprofen**  and **Placebo** as contained in the `treat` variable in the `sepsis` tibble.
+3. The data were collected using independent samples. The Ibuprofen subjects are not matched or linked to individual Placebo subjects - they are separate groups.
+4. The subjects of the study aren't drawn from a random sample of the population of interest, but they are randomly assigned to their respective treatments (Ibuprofen and Placebo) which will provide the reasoned basis for our inferences. 
+5. We'll use a 10% significance level (or 90% confidence level) in this setting, as we did in our previous work on these data.
+6. We'll use a two-sided testing and confidence interval approach.
+
+Questions 7 and 8 don't apply, because these are independent samples of data, rather than paired samples.
+
+To address question 9, we'll need to look at the data in each sample. We'll repeat the boxplot and Normal Q-Q plots from Chapter \@ref(Sepsis-RCT), that allow us to assess the Normality of the distributions of (separately) the `temp_drop` results in the Ibuprofen and Placebo groups.
+
+```{r}
+ggplot(sepsis, aes(x = treat, y = temp_drop, fill = treat)) +
+    geom_violin() +
+    geom_boxplot(width = 0.3, fill = "white") +
+    scale_fill_viridis_d() +
+    guides(fill = FALSE) + 
+    labs(title = "Boxplot of Temperature Drop in Sepsis Patients",
+         x = "", y = "Drop in Temperature (degrees C)") + 
+    coord_flip() +
+    theme_bw()
+```
+
+```{r}
+ggplot(sepsis, aes(sample = temp_drop)) +
+    geom_qq() + geom_qq_line(col = "red") +
+    theme_bw() +
+    facet_wrap(~ treat) + 
+    labs(y = "Temperature Drop Values (in degrees C)")
+```
+
+From these plots we conclude that the data in the Ibuprofen sample follow a reasonably Normal distribution, but this isn't quite as true for the Placebo sample. It's hard to know whether the apparent Placebo group outliers will affect whether the Normal distribution assumption is reasonable, so we can see if the confidence intervals change much when we *don't* assume Normality (for instance, comparing the bootstrap to the t-based approaches), as a way of understanding whether a Normal model has a large impact on our conclusions.
+
+### Sepsis Estimation Results
+
+Here's a set of confidence interval estimates (we'll use 90% confidence here) using the methods discussed in this Chapter.
+
+```{r}
+mosaic::favstats(temp_drop ~ treat, data = sepsis)
+```
+
+```{r}
+s_pooled_t_test <- sepsis %$% t.test(temp_drop ~ treat, 
+                           conf.level = 0.90,
+                           alt = "two.sided", 
+                           var.equal = TRUE)
+
+tidy(s_pooled_t_test) %>% 
+    select(conf.low, conf.high)
+```
+
+```{r}
+s_welch_t_test <- sepsis %$% t.test(temp_drop ~ treat, 
+                           conf.level = 0.90,
+                           alt = "two.sided", 
+                           var.equal = FALSE)
+
+tidy(s_welch_t_test) %>% 
+    select(estimate, conf.low, conf.high)
+```
+
+```{r}
+s_wilcoxon_test <- sepsis %$% wilcox.test(temp_drop ~ treat,
+                       conf.int = TRUE, conf.level = 0.90,
+                       alt = "two.sided") 
+
+tidy(s_wilcoxon_test) %>% 
+    select(estimate, conf.low, conf.high)
+```
+
+```{r}
+set.seed(431212)
+s_bootstrap <- sepsis %$% bootdif(temp_drop, treat, 
+                                  conf.level = 0.90)
+
+s_bootstrap
+```
+
+Procedure | Compares... | Point Estimate | 90% CI
+------------: | --------: | ----: | -----------: 
+Pooled t  | Means | 0.311 | (0.191, 0.432)
+Welch t  | Means | 0.311 | (0.191, 0.432)
+Bootstrap | Means | 0.311 | (0.183, 0.431)
+Wilcoxon rank sum | Pseudo-Medians | 0.3 | (0.2, 0.4)
+
+What conclusions can we draw in this setting?
+
 

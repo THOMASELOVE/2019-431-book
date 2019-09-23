@@ -517,6 +517,10 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="20.2" data-path="CI-Indep-Sample-Means.html"><a href="CI-Indep-Sample-Means.html#bootstrap-ci-for-mu_1---mu_2-from-independent-samples"><i class="fa fa-check"></i><b>20.2</b> Bootstrap CI for <span class="math inline">\(mu_1 - \mu_2\)</span> from Independent Samples</a></li>
 <li class="chapter" data-level="20.3" data-path="CI-Indep-Sample-Means.html"><a href="CI-Indep-Sample-Means.html#wilcoxon-mann-whitney-rank-sum-ci-from-independent-samples"><i class="fa fa-check"></i><b>20.3</b> Wilcoxon-Mann-Whitney “Rank Sum” CI from Independent Samples</a></li>
+<li class="chapter" data-level="20.4" data-path="CI-Indep-Sample-Means.html"><a href="CI-Indep-Sample-Means.html#summary-specifying-a-two-sample-study-design"><i class="fa fa-check"></i><b>20.4</b> Summary: Specifying A Two-Sample Study Design</a><ul>
+<li class="chapter" data-level="20.4.1" data-path="CI-Indep-Sample-Means.html"><a href="CI-Indep-Sample-Means.html#for-the-sepsis-study"><i class="fa fa-check"></i><b>20.4.1</b> For the <code>sepsis</code> study</a></li>
+<li class="chapter" data-level="20.4.2" data-path="CI-Indep-Sample-Means.html"><a href="CI-Indep-Sample-Means.html#sepsis-estimation-results"><i class="fa fa-check"></i><b>20.4.2</b> Sepsis Estimation Results</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="21" data-path="CI-Indep-Sample-Props.html"><a href="CI-Indep-Sample-Props.html"><i class="fa fa-check"></i><b>21</b> Comparing Rates/Proportions with Two Independent Samples</a><ul>
 <li class="chapter" data-level="21.1" data-path="CI-Indep-Sample-Props.html"><a href="CI-Indep-Sample-Props.html#a-first-example-ibuprofen-and-sepsis-trial"><i class="fa fa-check"></i><b>21.1</b> A First Example: Ibuprofen and Sepsis Trial</a></li>
@@ -568,6 +572,13 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="23.4.1" data-path="CI-Paired-Samples.html"><a href="CI-Paired-Samples.html#assumptions-2"><i class="fa fa-check"></i><b>23.4.1</b> Assumptions</a></li>
 </ul></li>
 <li class="chapter" data-level="23.5" data-path="CI-Paired-Samples.html"><a href="CI-Paired-Samples.html#choosing-a-confidence-interval-approach"><i class="fa fa-check"></i><b>23.5</b> Choosing a Confidence Interval Approach</a></li>
+<li class="chapter" data-level="23.6" data-path="CI-Paired-Samples.html"><a href="CI-Paired-Samples.html#conclusions-for-the-bloodlead-study"><i class="fa fa-check"></i><b>23.6</b> Conclusions for the <code>bloodlead</code> study</a></li>
+<li class="chapter" data-level="23.7" data-path="CI-Paired-Samples.html"><a href="CI-Paired-Samples.html#the-sign-test"><i class="fa fa-check"></i><b>23.7</b> The Sign test</a></li>
+<li class="chapter" data-level="23.8" data-path="CI-Paired-Samples.html"><a href="CI-Paired-Samples.html#a-more-complete-decision-support-tool-comparing-means"><i class="fa fa-check"></i><b>23.8</b> A More Complete Decision Support Tool: Comparing Means</a></li>
+<li class="chapter" data-level="23.9" data-path="CI-Paired-Samples.html"><a href="CI-Paired-Samples.html#paired-dependent-vs.-independent-samples"><i class="fa fa-check"></i><b>23.9</b> Paired (Dependent) vs. Independent Samples</a><ul>
+<li class="chapter" data-level="23.9.1" data-path="CI-Paired-Samples.html"><a href="CI-Paired-Samples.html#three-tricky-examples"><i class="fa fa-check"></i><b>23.9.1</b> Three “Tricky” Examples</a></li>
+<li class="chapter" data-level="23.9.2" data-path="CI-Paired-Samples.html"><a href="CI-Paired-Samples.html#answers-for-the-three-tricky-examples"><i class="fa fa-check"></i><b>23.9.2</b> Answers for the Three “Tricky” Examples</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="24" data-path="Paired-Props.html"><a href="Paired-Props.html"><i class="fa fa-check"></i><b>24</b> Comparing Proportions/Rates using Two Paired Samples</a><ul>
 <li class="chapter" data-level="24.1" data-path="Paired-Props.html"><a href="Paired-Props.html#an-example-access-to-specialty-care-and-insurance-in-children"><i class="fa fa-check"></i><b>24.1</b> An Example: Access to Specialty Care and Insurance in Children</a><ul>
@@ -716,6 +727,7 @@ mean in group Ibuprofen   mean in group Placebo
 1    0.311     0.464     0.153      4.27 2.71e-5      288.    0.191
 # ... with 3 more variables: conf.high &lt;dbl&gt;, method &lt;chr&gt;,
 #   alternative &lt;chr&gt;</code></pre>
+<p>When there is a <em>balanced design</em>, that is, when the same number of observations appear in each of the two samples, then the Welch t test and the Pooled t test produce the same confidence interval. Differences appear if the sample sizes in the two groups being compared are different.</p>
 </div>
 </div>
 <div id="bootstrap-ci-for-mu_1---mu_2-from-independent-samples" class="section level2">
@@ -751,7 +763,136 @@ difference in location
   estimate statistic  p.value conf.low conf.high method         alternative
      &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;          &lt;chr&gt;      
 1    0.300    14614.  7.28e-6    0.200     0.400 Wilcoxon rank~ two.sided  </code></pre>
+</div>
+<div id="summary-specifying-a-two-sample-study-design" class="section level2">
+<h2><span class="header-section-number">20.4</span> Summary: Specifying A Two-Sample Study Design</h2>
+<p>These questions will help specify the details of the study design involved in any comparison of two populations on a quantitative outcome, perhaps with means.</p>
+<ol style="list-style-type: decimal">
+<li>What is the outcome under study?</li>
+<li>What are the (in this case, two) treatment/exposure groups?</li>
+<li>Were the data collected using matched / paired samples or independent samples?</li>
+<li>Are the data a random sample from the population(s) of interest? Or is there at least a reasonable argument for generalizing from the sample to the population(s)?</li>
+<li>What is the significance level (or, the confidence level) we require here?</li>
+<li>Are we doing one-sided or two-sided testing/confidence interval generation?</li>
+<li>If we have paired samples, did pairing help reduce nuisance variation?</li>
+<li>If we have paired samples, what does the distribution of sample paired differences tell us about which inferential procedure to use?</li>
+<li>If we have independent samples, what does the distribution of each individual sample tell us about which inferential procedure to use?</li>
+</ol>
+<div id="for-the-sepsis-study" class="section level3">
+<h3><span class="header-section-number">20.4.1</span> For the <code>sepsis</code> study</h3>
+<ol style="list-style-type: decimal">
+<li>The outcome is <code>temp_drop</code>, the change in body temperature (in <span class="math inline">\(^{\circ}\)</span>C) from baseline to 2 hours later, so that positive numbers indicate drops in temperature (a good outcome.)</li>
+<li>The groups are <strong>Ibuprofen</strong> and <strong>Placebo</strong> as contained in the <code>treat</code> variable in the <code>sepsis</code> tibble.</li>
+<li>The data were collected using independent samples. The Ibuprofen subjects are not matched or linked to individual Placebo subjects - they are separate groups.</li>
+<li>The subjects of the study aren’t drawn from a random sample of the population of interest, but they are randomly assigned to their respective treatments (Ibuprofen and Placebo) which will provide the reasoned basis for our inferences.</li>
+<li>We’ll use a 10% significance level (or 90% confidence level) in this setting, as we did in our previous work on these data.</li>
+<li>We’ll use a two-sided testing and confidence interval approach.</li>
+</ol>
+<p>Questions 7 and 8 don’t apply, because these are independent samples of data, rather than paired samples.</p>
+<p>To address question 9, we’ll need to look at the data in each sample. We’ll repeat the boxplot and Normal Q-Q plots from Chapter <a href="Sepsis-RCT.html#Sepsis-RCT">19</a>, that allow us to assess the Normality of the distributions of (separately) the <code>temp_drop</code> results in the Ibuprofen and Placebo groups.</p>
+<div class="sourceCode" id="cb595"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb595-1" title="1"><span class="kw">ggplot</span>(sepsis, <span class="kw">aes</span>(<span class="dt">x =</span> treat, <span class="dt">y =</span> temp_drop, <span class="dt">fill =</span> treat)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb595-2" title="2"><span class="st">    </span><span class="kw">geom_violin</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb595-3" title="3"><span class="st">    </span><span class="kw">geom_boxplot</span>(<span class="dt">width =</span> <span class="fl">0.3</span>, <span class="dt">fill =</span> <span class="st">&quot;white&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb595-4" title="4"><span class="st">    </span><span class="kw">scale_fill_viridis_d</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb595-5" title="5"><span class="st">    </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb595-6" title="6"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Boxplot of Temperature Drop in Sepsis Patients&quot;</span>,</a>
+<a class="sourceLine" id="cb595-7" title="7">         <span class="dt">x =</span> <span class="st">&quot;&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Drop in Temperature (degrees C)&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb595-8" title="8"><span class="st">    </span><span class="kw">coord_flip</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb595-9" title="9"><span class="st">    </span><span class="kw">theme_bw</span>()</a></code></pre></div>
+<p><img src="2019-431-book_files/figure-html/unnamed-chunk-156-1.png" width="672" /></p>
+<div class="sourceCode" id="cb596"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb596-1" title="1"><span class="kw">ggplot</span>(sepsis, <span class="kw">aes</span>(<span class="dt">sample =</span> temp_drop)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb596-2" title="2"><span class="st">    </span><span class="kw">geom_qq</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_qq_line</span>(<span class="dt">col =</span> <span class="st">&quot;red&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb596-3" title="3"><span class="st">    </span><span class="kw">theme_bw</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb596-4" title="4"><span class="st">    </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>treat) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb596-5" title="5"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">y =</span> <span class="st">&quot;Temperature Drop Values (in degrees C)&quot;</span>)</a></code></pre></div>
+<p><img src="2019-431-book_files/figure-html/unnamed-chunk-157-1.png" width="672" /></p>
+<p>From these plots we conclude that the data in the Ibuprofen sample follow a reasonably Normal distribution, but this isn’t quite as true for the Placebo sample. It’s hard to know whether the apparent Placebo group outliers will affect whether the Normal distribution assumption is reasonable, so we can see if the confidence intervals change much when we <em>don’t</em> assume Normality (for instance, comparing the bootstrap to the t-based approaches), as a way of understanding whether a Normal model has a large impact on our conclusions.</p>
+</div>
+<div id="sepsis-estimation-results" class="section level3">
+<h3><span class="header-section-number">20.4.2</span> Sepsis Estimation Results</h3>
+<p>Here’s a set of confidence interval estimates (we’ll use 90% confidence here) using the methods discussed in this Chapter.</p>
+<div class="sourceCode" id="cb597"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb597-1" title="1">mosaic<span class="op">::</span><span class="kw">favstats</span>(temp_drop <span class="op">~</span><span class="st"> </span>treat, <span class="dt">data =</span> sepsis)</a></code></pre></div>
+<pre><code>      treat  min     Q1 median  Q3 max  mean    sd   n missing
+1 Ibuprofen -1.5  0.000    0.5 0.9 3.1 0.464 0.688 150       0
+2   Placebo -2.7 -0.175    0.1 0.4 1.9 0.153 0.571 150       0</code></pre>
+<div class="sourceCode" id="cb599"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb599-1" title="1">s_pooled_t_test &lt;-<span class="st"> </span>sepsis <span class="op">%$%</span><span class="st"> </span><span class="kw">t.test</span>(temp_drop <span class="op">~</span><span class="st"> </span>treat, </a>
+<a class="sourceLine" id="cb599-2" title="2">                           <span class="dt">conf.level =</span> <span class="fl">0.90</span>,</a>
+<a class="sourceLine" id="cb599-3" title="3">                           <span class="dt">alt =</span> <span class="st">&quot;two.sided&quot;</span>, </a>
+<a class="sourceLine" id="cb599-4" title="4">                           <span class="dt">var.equal =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb599-5" title="5"></a>
+<a class="sourceLine" id="cb599-6" title="6"><span class="kw">tidy</span>(s_pooled_t_test) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb599-7" title="7"><span class="st">    </span><span class="kw">select</span>(conf.low, conf.high)</a></code></pre></div>
+<pre><code># A tibble: 1 x 2
+  conf.low conf.high
+     &lt;dbl&gt;     &lt;dbl&gt;
+1    0.191     0.432</code></pre>
+<div class="sourceCode" id="cb601"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb601-1" title="1">s_welch_t_test &lt;-<span class="st"> </span>sepsis <span class="op">%$%</span><span class="st"> </span><span class="kw">t.test</span>(temp_drop <span class="op">~</span><span class="st"> </span>treat, </a>
+<a class="sourceLine" id="cb601-2" title="2">                           <span class="dt">conf.level =</span> <span class="fl">0.90</span>,</a>
+<a class="sourceLine" id="cb601-3" title="3">                           <span class="dt">alt =</span> <span class="st">&quot;two.sided&quot;</span>, </a>
+<a class="sourceLine" id="cb601-4" title="4">                           <span class="dt">var.equal =</span> <span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb601-5" title="5"></a>
+<a class="sourceLine" id="cb601-6" title="6"><span class="kw">tidy</span>(s_welch_t_test) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb601-7" title="7"><span class="st">    </span><span class="kw">select</span>(estimate, conf.low, conf.high)</a></code></pre></div>
+<pre><code># A tibble: 1 x 3
+  estimate conf.low conf.high
+     &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
+1    0.311    0.191     0.432</code></pre>
+<div class="sourceCode" id="cb603"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb603-1" title="1">s_wilcoxon_test &lt;-<span class="st"> </span>sepsis <span class="op">%$%</span><span class="st"> </span><span class="kw">wilcox.test</span>(temp_drop <span class="op">~</span><span class="st"> </span>treat,</a>
+<a class="sourceLine" id="cb603-2" title="2">                       <span class="dt">conf.int =</span> <span class="ot">TRUE</span>, <span class="dt">conf.level =</span> <span class="fl">0.90</span>,</a>
+<a class="sourceLine" id="cb603-3" title="3">                       <span class="dt">alt =</span> <span class="st">&quot;two.sided&quot;</span>) </a>
+<a class="sourceLine" id="cb603-4" title="4"></a>
+<a class="sourceLine" id="cb603-5" title="5"><span class="kw">tidy</span>(s_wilcoxon_test) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb603-6" title="6"><span class="st">    </span><span class="kw">select</span>(estimate, conf.low, conf.high)</a></code></pre></div>
+<pre><code># A tibble: 1 x 3
+  estimate conf.low conf.high
+     &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
+1    0.300    0.200     0.400</code></pre>
+<div class="sourceCode" id="cb605"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb605-1" title="1"><span class="kw">set.seed</span>(<span class="dv">431212</span>)</a>
+<a class="sourceLine" id="cb605-2" title="2">s_bootstrap &lt;-<span class="st"> </span>sepsis <span class="op">%$%</span><span class="st"> </span><span class="kw">bootdif</span>(temp_drop, treat, </a>
+<a class="sourceLine" id="cb605-3" title="3">                                  <span class="dt">conf.level =</span> <span class="fl">0.90</span>)</a>
+<a class="sourceLine" id="cb605-4" title="4"></a>
+<a class="sourceLine" id="cb605-5" title="5">s_bootstrap</a></code></pre></div>
+<pre><code>Mean Difference            0.05            0.95 
+         -0.311          -0.431          -0.183 </code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="right">Procedure</th>
+<th align="right">Compares…</th>
+<th align="right">Point Estimate</th>
+<th align="right">90% CI</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">Pooled t</td>
+<td align="right">Means</td>
+<td align="right">0.311</td>
+<td align="right">(0.191, 0.432)</td>
+</tr>
+<tr class="even">
+<td align="right">Welch t</td>
+<td align="right">Means</td>
+<td align="right">0.311</td>
+<td align="right">(0.191, 0.432)</td>
+</tr>
+<tr class="odd">
+<td align="right">Bootstrap</td>
+<td align="right">Means</td>
+<td align="right">0.311</td>
+<td align="right">(0.183, 0.431)</td>
+</tr>
+<tr class="even">
+<td align="right">Wilcoxon rank sum</td>
+<td align="right">Pseudo-Medians</td>
+<td align="right">0.3</td>
+<td align="right">(0.2, 0.4)</td>
+</tr>
+</tbody>
+</table>
+<p>What conclusions can we draw in this setting?</p>
 
+</div>
 </div>
 </div>
             </section>
