@@ -41,11 +41,11 @@ We will also turn briefly to some methods for dealing with qualitative, categori
 
 ## Our First Three Studies
 
-We'll focus, for a while, on three studies, and the next three Sections of these Notes summarize each of them, graphically and numerically.
+We'll focus, for a while, on three studies, and the next few Chapters in these Notes summarize each of them, graphically and numerically, and then use them to demonstrate various approaches to making inferences.
 
 - The Serum Zinc study, which uses a single sample of quantitative data.
-- The Lead in the Blood of Children study, which uses a *paired samples* design to compare two samples of quantitative data.
 - A randomized controlled trial comparing ibuprofen vs. placebo in patients with sepsis, which uses an *independent samples* design to compare two samples of quantitative data.
+- The Lead in the Blood of Children study, which uses a *paired samples* design to compare two samples of quantitative data.
 
 ## Data Sets used in Part B
 

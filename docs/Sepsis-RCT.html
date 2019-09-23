@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 18 A Study Comparing Two Independent Samples: Ibuprofen in Sepsis Trial | Data Science for Biological, Medical and Health Research: Notes for PQHS 431</title>
-  <meta name="description" content="Chapter 18 A Study Comparing Two Independent Samples: Ibuprofen in Sepsis Trial | Data Science for Biological, Medical and Health Research: Notes for PQHS 431" />
+  <title>Chapter 19 The Ibuprofen in Sepsis Trial | Data Science for Biological, Medical and Health Research: Notes for PQHS 431</title>
+  <meta name="description" content="Chapter 19 The Ibuprofen in Sepsis Trial | Data Science for Biological, Medical and Health Research: Notes for PQHS 431" />
   <meta name="generator" content="bookdown 0.13 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 18 A Study Comparing Two Independent Samples: Ibuprofen in Sepsis Trial | Data Science for Biological, Medical and Health Research: Notes for PQHS 431" />
+  <meta property="og:title" content="Chapter 19 The Ibuprofen in Sepsis Trial | Data Science for Biological, Medical and Health Research: Notes for PQHS 431" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 18 A Study Comparing Two Independent Samples: Ibuprofen in Sepsis Trial | Data Science for Biological, Medical and Health Research: Notes for PQHS 431" />
+  <meta name="twitter:title" content="Chapter 19 The Ibuprofen in Sepsis Trial | Data Science for Biological, Medical and Health Research: Notes for PQHS 431" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="Blood-Lead-Study.html"/>
-<link rel="next" href="this-is-work-in-progress.html"/>
+<link rel="prev" href="One-Proportion.html"/>
+<link rel="next" href="CI-Indep-Sample-Means.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -419,31 +419,135 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="16.1" data-path="Serum-Zinc-Study.html"><a href="Serum-Zinc-Study.html#serum-zinc-levels-in-462-teenage-males-serzinc"><i class="fa fa-check"></i><b>16.1</b> Serum Zinc Levels in 462 Teenage Males (<code>serzinc</code>)</a></li>
 <li class="chapter" data-level="16.2" data-path="Serum-Zinc-Study.html"><a href="Serum-Zinc-Study.html#our-goal-a-confidence-interval-for-the-population-mean"><i class="fa fa-check"></i><b>16.2</b> Our Goal: A Confidence Interval for the Population Mean</a></li>
 <li class="chapter" data-level="16.3" data-path="Serum-Zinc-Study.html"><a href="Serum-Zinc-Study.html#exploratory-data-analysis-for-serum-zinc"><i class="fa fa-check"></i><b>16.3</b> Exploratory Data Analysis for Serum Zinc</a><ul>
-<li class="chapter" data-level="16.3.1" data-path="Serum-Zinc-Study.html"><a href="Serum-Zinc-Study.html#comparison-to-normal-zinc-levels"><i class="fa fa-check"></i><b>16.3.1</b> Comparison to “Normal” Zinc Levels</a></li>
-<li class="chapter" data-level="16.3.2" data-path="Serum-Zinc-Study.html"><a href="Serum-Zinc-Study.html#graphical-summaries"><i class="fa fa-check"></i><b>16.3.2</b> Graphical Summaries</a></li>
-<li class="chapter" data-level="16.3.3" data-path="Serum-Zinc-Study.html"><a href="Serum-Zinc-Study.html#numerical-summaries"><i class="fa fa-check"></i><b>16.3.3</b> Numerical Summaries</a></li>
+<li class="chapter" data-level="16.3.1" data-path="Serum-Zinc-Study.html"><a href="Serum-Zinc-Study.html#graphical-summaries"><i class="fa fa-check"></i><b>16.3.1</b> Graphical Summaries</a></li>
+<li class="chapter" data-level="16.3.2" data-path="Serum-Zinc-Study.html"><a href="Serum-Zinc-Study.html#numerical-summaries"><i class="fa fa-check"></i><b>16.3.2</b> Numerical Summaries</a></li>
+</ul></li>
+<li class="chapter" data-level="16.4" data-path="Serum-Zinc-Study.html"><a href="Serum-Zinc-Study.html#inference-about-a-population-mean-from-this-sample"><i class="fa fa-check"></i><b>16.4</b> Inference about a Population Mean from this Sample</a></li>
+<li class="chapter" data-level="16.5" data-path="Serum-Zinc-Study.html"><a href="Serum-Zinc-Study.html#comparison-to-normal-zinc-levels"><i class="fa fa-check"></i><b>16.5</b> Comparison to “Normal” Zinc Levels</a></li>
+<li class="chapter" data-level="16.6" data-path="Serum-Zinc-Study.html"><a href="Serum-Zinc-Study.html#inference-about-a-population-proportion-from-this-sample"><i class="fa fa-check"></i><b>16.6</b> Inference about a Population Proportion from this Sample</a><ul>
+<li class="chapter" data-level="16.6.1" data-path="Serum-Zinc-Study.html"><a href="Serum-Zinc-Study.html#using-an-intercept-only-regression-again"><i class="fa fa-check"></i><b>16.6.1</b> Using an Intercept-Only Regression Again?</a></li>
+<li class="chapter" data-level="16.6.2" data-path="Serum-Zinc-Study.html"><a href="Serum-Zinc-Study.html#better-approaches-binom.test-and-prop.test"><i class="fa fa-check"></i><b>16.6.2</b> Better Approaches: <code>binom.test</code> and <code>prop.test</code></a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="17" data-path="Blood-Lead-Study.html"><a href="Blood-Lead-Study.html"><i class="fa fa-check"></i><b>17</b> A Paired Sample Study: Lead in the Blood of Children</a><ul>
-<li class="chapter" data-level="17.1" data-path="Blood-Lead-Study.html"><a href="Blood-Lead-Study.html#the-lead-in-the-blood-of-children-study"><i class="fa fa-check"></i><b>17.1</b> The Lead in the Blood of Children Study</a><ul>
-<li class="chapter" data-level="17.1.1" data-path="Blood-Lead-Study.html"><a href="Blood-Lead-Study.html#our-key-questions-for-a-paired-samples-comparison"><i class="fa fa-check"></i><b>17.1.1</b> Our Key Questions for a Paired Samples Comparison</a></li>
-<li class="chapter" data-level="17.1.2" data-path="Blood-Lead-Study.html"><a href="Blood-Lead-Study.html#lead-study-caveats"><i class="fa fa-check"></i><b>17.1.2</b> Lead Study Caveats</a></li>
+<li class="chapter" data-level="17" data-path="One-Mean.html"><a href="One-Mean.html"><i class="fa fa-check"></i><b>17</b> Estimating a Population Mean</a><ul>
+<li class="chapter" data-level="17.1" data-path="One-Mean.html"><a href="One-Mean.html#defining-a-confidence-interval"><i class="fa fa-check"></i><b>17.1</b> Defining a Confidence Interval</a></li>
+<li class="chapter" data-level="17.2" data-path="One-Mean.html"><a href="One-Mean.html#estimating-the-population-mean-from-the-serum-zinc-data"><i class="fa fa-check"></i><b>17.2</b> Estimating the Population Mean from the Serum Zinc data</a></li>
+<li class="chapter" data-level="17.3" data-path="One-Mean.html"><a href="One-Mean.html#confidence-vs.-significance-level"><i class="fa fa-check"></i><b>17.3</b> Confidence vs. Significance Level</a></li>
+<li class="chapter" data-level="17.4" data-path="One-Mean.html"><a href="One-Mean.html#the-standard-error-of-a-sample-mean"><i class="fa fa-check"></i><b>17.4</b> The Standard Error of a Sample Mean</a></li>
+<li class="chapter" data-level="17.5" data-path="One-Mean.html"><a href="One-Mean.html#the-t-distribution-and-confidence-intervals-for-mu"><i class="fa fa-check"></i><b>17.5</b> The t distribution and Confidence Intervals for <span class="math inline">\(\mu\)</span></a><ul>
+<li class="chapter" data-level="17.5.1" data-path="One-Mean.html"><a href="One-Mean.html#the-formula"><i class="fa fa-check"></i><b>17.5.1</b> The Formula</a></li>
+<li class="chapter" data-level="17.5.2" data-path="One-Mean.html"><a href="One-Mean.html#students-t-distribution"><i class="fa fa-check"></i><b>17.5.2</b> Student’s t distribution</a></li>
+<li class="chapter" data-level="17.5.3" data-path="One-Mean.html"><a href="One-Mean.html#building-the-ci-by-hand-for-the-serum-zinc-data"><i class="fa fa-check"></i><b>17.5.3</b> Building the CI “by hand” for the Serum Zinc data</a></li>
+<li class="chapter" data-level="17.5.4" data-path="One-Mean.html"><a href="One-Mean.html#getting-r-to-build-a-ci-for-the-serum-zinc-data"><i class="fa fa-check"></i><b>17.5.4</b> Getting R to build a CI for the Serum Zinc data</a></li>
+<li class="chapter" data-level="17.5.5" data-path="One-Mean.html"><a href="One-Mean.html#interpreting-the-result"><i class="fa fa-check"></i><b>17.5.5</b> Interpreting the Result</a></li>
+<li class="chapter" data-level="17.5.6" data-path="One-Mean.html"><a href="One-Mean.html#what-if-we-want-a-95-or-99-confidence-interval-instead"><i class="fa fa-check"></i><b>17.5.6</b> What if we want a 95% or 99% confidence interval instead?</a></li>
+<li class="chapter" data-level="17.5.7" data-path="One-Mean.html"><a href="One-Mean.html#using-the-broom-package-with-the-t-test"><i class="fa fa-check"></i><b>17.5.7</b> Using the <code>broom</code> package with the t test</a></li>
+<li class="chapter" data-level="17.5.8" data-path="One-Mean.html"><a href="One-Mean.html#effect-of-changing-the-confidence-level"><i class="fa fa-check"></i><b>17.5.8</b> Effect of Changing the Confidence Level</a></li>
+<li class="chapter" data-level="17.5.9" data-path="One-Mean.html"><a href="One-Mean.html#one-sided-vs.-two-sided-confidence-intervals"><i class="fa fa-check"></i><b>17.5.9</b> One-sided vs. Two-sided Confidence Intervals</a></li>
+<li class="chapter" data-level="17.5.10" data-path="One-Mean.html"><a href="One-Mean.html#calculating-a-one-sided-confidence-interval-for-the-population-mean"><i class="fa fa-check"></i><b>17.5.10</b> Calculating a one-sided confidence interval for the population mean</a></li>
+<li class="chapter" data-level="17.5.11" data-path="One-Mean.html"><a href="One-Mean.html#relationship-between-one-sided-and-two-sided-cis"><i class="fa fa-check"></i><b>17.5.11</b> Relationship between One-Sided and Two-Sided CIs</a></li>
 </ul></li>
-<li class="chapter" data-level="17.2" data-path="Blood-Lead-Study.html"><a href="Blood-Lead-Study.html#exploratory-data-analysis-for-paired-samples"><i class="fa fa-check"></i><b>17.2</b> Exploratory Data Analysis for Paired Samples</a><ul>
-<li class="chapter" data-level="17.2.1" data-path="Blood-Lead-Study.html"><a href="Blood-Lead-Study.html#the-paired-differences"><i class="fa fa-check"></i><b>17.2.1</b> The Paired Differences</a></li>
-<li class="chapter" data-level="17.2.2" data-path="Blood-Lead-Study.html"><a href="Blood-Lead-Study.html#numerical-summaries-1"><i class="fa fa-check"></i><b>17.2.2</b> Numerical Summaries</a></li>
-<li class="chapter" data-level="17.2.3" data-path="Blood-Lead-Study.html"><a href="Blood-Lead-Study.html#impact-of-matching---scatterplot-and-correlation"><i class="fa fa-check"></i><b>17.2.3</b> Impact of Matching - Scatterplot and Correlation</a></li>
+<li class="chapter" data-level="17.6" data-path="One-Mean.html"><a href="One-Mean.html#bootstrap-confidence-intervals-for-mu"><i class="fa fa-check"></i><b>17.6</b> Bootstrap Confidence Intervals for <span class="math inline">\(\mu\)</span></a><ul>
+<li class="chapter" data-level="17.6.1" data-path="One-Mean.html"><a href="One-Mean.html#what-is-a-bootstrap-and-why-should-i-care"><i class="fa fa-check"></i><b>17.6.1</b> What is a Bootstrap and Why Should I Care?</a></li>
+<li class="chapter" data-level="17.6.2" data-path="One-Mean.html"><a href="One-Mean.html#resampling-is-a-big-idea"><i class="fa fa-check"></i><b>17.6.2</b> Resampling is A Big Idea</a></li>
+<li class="chapter" data-level="17.6.3" data-path="One-Mean.html"><a href="One-Mean.html#when-is-a-bootstrap-confidence-interval-for-mu-reasonable"><i class="fa fa-check"></i><b>17.6.3</b> When is a Bootstrap Confidence Interval for <span class="math inline">\(\mu\)</span> Reasonable?</a></li>
+<li class="chapter" data-level="17.6.4" data-path="One-Mean.html"><a href="One-Mean.html#bootstrap-steps-to-estimate-a-confidence-interval-for-mu"><i class="fa fa-check"></i><b>17.6.4</b> Bootstrap: Steps to estimate a confidence interval for <span class="math inline">\(\mu\)</span></a></li>
+<li class="chapter" data-level="17.6.5" data-path="One-Mean.html"><a href="One-Mean.html#using-r-to-estimate-a-90-ci-for-mu-with-the-bootstrap"><i class="fa fa-check"></i><b>17.6.5</b> Using R to estimate a 90% CI for <span class="math inline">\(\mu\)</span> with the bootstrap</a></li>
+<li class="chapter" data-level="17.6.6" data-path="One-Mean.html"><a href="One-Mean.html#comparing-bootstrap-and-t-based-confidence-intervals"><i class="fa fa-check"></i><b>17.6.6</b> Comparing Bootstrap and T-Based Confidence Intervals</a></li>
+<li class="chapter" data-level="17.6.7" data-path="One-Mean.html"><a href="One-Mean.html#ci-for-mu-via-bootstrap-changing-minor-details"><i class="fa fa-check"></i><b>17.6.7</b> 90% CI for <span class="math inline">\(\mu\)</span> via bootstrap, changing minor details</a></li>
+<li class="chapter" data-level="17.6.8" data-path="One-Mean.html"><a href="One-Mean.html#bootstrap-changing-the-confidence-level"><i class="fa fa-check"></i><b>17.6.8</b> Bootstrap: Changing the Confidence Level</a></li>
+<li class="chapter" data-level="17.6.9" data-path="One-Mean.html"><a href="One-Mean.html#bootstrap-obtaining-a-one-sided-confidence-interval"><i class="fa fa-check"></i><b>17.6.9</b> Bootstrap: Obtaining a One-sided Confidence Interval</a></li>
+<li class="chapter" data-level="17.6.10" data-path="One-Mean.html"><a href="One-Mean.html#bootstrap-ci-for-the-population-median"><i class="fa fa-check"></i><b>17.6.10</b> Bootstrap CI for the Population Median</a></li>
+<li class="chapter" data-level="17.6.11" data-path="One-Mean.html"><a href="One-Mean.html#bootstrap-ci-for-the-iqr"><i class="fa fa-check"></i><b>17.6.11</b> Bootstrap CI for the IQR</a></li>
+<li class="chapter" data-level="17.6.12" data-path="One-Mean.html"><a href="One-Mean.html#bootstrap-resampling-advantages-and-caveats"><i class="fa fa-check"></i><b>17.6.12</b> Bootstrap Resampling: Advantages and Caveats</a></li>
 </ul></li>
-<li class="chapter" data-level="17.3" data-path="Blood-Lead-Study.html"><a href="Blood-Lead-Study.html#looking-at-the-individual-samples-tidying-the-data-with-gather"><i class="fa fa-check"></i><b>17.3</b> Looking at the Individual Samples: Tidying the Data with <code>gather</code></a></li>
+<li class="chapter" data-level="17.7" data-path="One-Mean.html"><a href="One-Mean.html#large-sample-normal-approximation-cis-for-mu"><i class="fa fa-check"></i><b>17.7</b> Large-Sample Normal Approximation CIs for <span class="math inline">\(\mu\)</span></a><ul>
+<li class="chapter" data-level="17.7.1" data-path="One-Mean.html"><a href="One-Mean.html#the-large-sample-formula-for-the-ci-around-mu"><i class="fa fa-check"></i><b>17.7.1</b> The Large Sample Formula for the CI around <span class="math inline">\(\mu\)</span></a></li>
+<li class="chapter" data-level="17.7.2" data-path="One-Mean.html"><a href="One-Mean.html#obtaining-the-z_alpha2-value-using-qnorm"><i class="fa fa-check"></i><b>17.7.2</b> Obtaining the <span class="math inline">\(Z_{\alpha/2}\)</span> value using <code>qnorm</code></a></li>
+<li class="chapter" data-level="17.7.3" data-path="One-Mean.html"><a href="One-Mean.html#commonly-used-cutoffs-based-on-the-normal-distribution"><i class="fa fa-check"></i><b>17.7.3</b> Commonly Used Cutoffs based on the Normal Distribution</a></li>
+<li class="chapter" data-level="17.7.4" data-path="One-Mean.html"><a href="One-Mean.html#lots-of-cis-use-the-normal-distribution"><i class="fa fa-check"></i><b>17.7.4</b> Lots of CIs use the Normal distribution</a></li>
+<li class="chapter" data-level="17.7.5" data-path="One-Mean.html"><a href="One-Mean.html#large-sample-confidence-interval-for-zinc-levels"><i class="fa fa-check"></i><b>17.7.5</b> Large-Sample Confidence Interval for Zinc Levels</a></li>
+<li class="chapter" data-level="17.7.6" data-path="One-Mean.html"><a href="One-Mean.html#comparing-z-and-t-based-intervals-for-serum-zinc"><i class="fa fa-check"></i><b>17.7.6</b> Comparing Z and t-based Intervals for Serum Zinc</a></li>
+<li class="chapter" data-level="17.7.7" data-path="One-Mean.html"><a href="One-Mean.html#one-sided-confidence-intervals-in-large-samples"><i class="fa fa-check"></i><b>17.7.7</b> One-Sided Confidence Intervals in Large Samples</a></li>
 </ul></li>
-<li class="chapter" data-level="18" data-path="Sepsis-RCT.html"><a href="Sepsis-RCT.html"><i class="fa fa-check"></i><b>18</b> A Study Comparing Two Independent Samples: Ibuprofen in Sepsis Trial</a><ul>
-<li class="chapter" data-level="18.1" data-path="Sepsis-RCT.html"><a href="Sepsis-RCT.html#the-ibuprofen-in-sepsis-randomized-clinical-trial"><i class="fa fa-check"></i><b>18.1</b> The Ibuprofen in Sepsis Randomized Clinical Trial</a><ul>
-<li class="chapter" data-level="18.1.1" data-path="Sepsis-RCT.html"><a href="Sepsis-RCT.html#matched-pairs-vs.-two-independent-samples"><i class="fa fa-check"></i><b>18.1.1</b> Matched Pairs vs. Two Independent Samples</a></li>
-<li class="chapter" data-level="18.1.2" data-path="Sepsis-RCT.html"><a href="Sepsis-RCT.html#our-key-questions-for-an-independent-samples-comparison"><i class="fa fa-check"></i><b>18.1.2</b> Our Key Questions for an Independent Samples Comparison</a></li>
-<li class="chapter" data-level="18.1.3" data-path="Sepsis-RCT.html"><a href="Sepsis-RCT.html#rct-caveats"><i class="fa fa-check"></i><b>18.1.3</b> RCT Caveats</a></li>
+<li class="chapter" data-level="17.8" data-path="One-Mean.html"><a href="One-Mean.html#wilcoxon-signed-rank-procedure-for-cis"><i class="fa fa-check"></i><b>17.8</b> Wilcoxon Signed Rank Procedure for CIs</a><ul>
+<li class="chapter" data-level="17.8.1" data-path="One-Mean.html"><a href="One-Mean.html#confidence-intervals-for-the-median-of-a-population"><i class="fa fa-check"></i><b>17.8.1</b> Confidence Intervals for the Median of a Population</a></li>
+<li class="chapter" data-level="17.8.2" data-path="One-Mean.html"><a href="One-Mean.html#what-is-a-pseudo-median"><i class="fa fa-check"></i><b>17.8.2</b> What is a Pseudo-Median?</a></li>
+<li class="chapter" data-level="17.8.3" data-path="One-Mean.html"><a href="One-Mean.html#getting-the-wilcoxon-signed-rank-based-ci-in-r"><i class="fa fa-check"></i><b>17.8.3</b> Getting the Wilcoxon Signed Rank-based CI in R</a></li>
+<li class="chapter" data-level="17.8.4" data-path="One-Mean.html"><a href="One-Mean.html#interpreting-the-wilcoxon-ci-for-the-population-median"><i class="fa fa-check"></i><b>17.8.4</b> Interpreting the Wilcoxon CI for the Population Median</a></li>
+<li class="chapter" data-level="17.8.5" data-path="One-Mean.html"><a href="One-Mean.html#using-the-broom-package-with-the-wilcoxon-test"><i class="fa fa-check"></i><b>17.8.5</b> Using the <code>broom</code> package with the Wilcoxon test</a></li>
 </ul></li>
-<li class="chapter" data-level="18.2" data-path="Sepsis-RCT.html"><a href="Sepsis-RCT.html#exploratory-data-analysis"><i class="fa fa-check"></i><b>18.2</b> Exploratory Data Analysis</a></li>
+<li class="chapter" data-level="17.9" data-path="One-Mean.html"><a href="One-Mean.html#general-advice"><i class="fa fa-check"></i><b>17.9</b> General Advice</a></li>
 </ul></li>
+<li class="chapter" data-level="18" data-path="One-Proportion.html"><a href="One-Proportion.html"><i class="fa fa-check"></i><b>18</b> Estimating a Population Proportion</a><ul>
+<li class="chapter" data-level="18.1" data-path="One-Proportion.html"><a href="One-Proportion.html#a-first-example-serum-zinc-in-the-normal-range"><i class="fa fa-check"></i><b>18.1</b> A First Example: Serum Zinc in the “Normal” Range?</a><ul>
+<li class="chapter" data-level="18.1.1" data-path="One-Proportion.html"><a href="One-Proportion.html#a-1001-alpha-confidence-interval-for-a-population-proportion"><i class="fa fa-check"></i><b>18.1.1</b> A 100(1-<span class="math inline">\(\alpha\)</span>)% Confidence Interval for a Population Proportion</a></li>
+<li class="chapter" data-level="18.1.2" data-path="One-Proportion.html"><a href="One-Proportion.html#the-prop.test-approach-wald-test"><i class="fa fa-check"></i><b>18.1.2</b> The <code>prop.test</code> approach (Wald test)</a></li>
+<li class="chapter" data-level="18.1.3" data-path="One-Proportion.html"><a href="One-Proportion.html#the-binom.test-approach-clopper-and-pearson-exact-test"><i class="fa fa-check"></i><b>18.1.3</b> The <code>binom.test</code> approach (Clopper and Pearson “exact” test)</a></li>
+<li class="chapter" data-level="18.1.4" data-path="One-Proportion.html"><a href="One-Proportion.html#saifs-single-augmentation-with-an-imaginary-failure-or-success"><i class="fa fa-check"></i><b>18.1.4</b> SAIFS: single augmentation with an imaginary failure or success</a></li>
+<li class="chapter" data-level="18.1.5" data-path="One-Proportion.html"><a href="One-Proportion.html#a-function-in-r-to-calculate-the-saifs-confidence-interval"><i class="fa fa-check"></i><b>18.1.5</b> A Function in R to Calculate the SAIFS Confidence Interval</a></li>
+<li class="chapter" data-level="18.1.6" data-path="One-Proportion.html"><a href="One-Proportion.html#the-saifs.ci-function-in-r"><i class="fa fa-check"></i><b>18.1.6</b> The <code>saifs.ci</code> function in R</a></li>
+</ul></li>
+<li class="chapter" data-level="18.2" data-path="One-Proportion.html"><a href="One-Proportion.html#a-second-example-ebola-mortality-rates-through-9-months-of-the-epidemic"><i class="fa fa-check"></i><b>18.2</b> A Second Example: Ebola Mortality Rates through 9 Months of the Epidemic</a><ul>
+<li class="chapter" data-level="18.2.1" data-path="One-Proportion.html"><a href="One-Proportion.html#working-through-the-ebola-virus-disease-example"><i class="fa fa-check"></i><b>18.2.1</b> Working through the Ebola Virus Disease Example</a></li>
+<li class="chapter" data-level="18.2.2" data-path="One-Proportion.html"><a href="One-Proportion.html#using-r-to-estimate-the-ci-for-our-ebola-example"><i class="fa fa-check"></i><b>18.2.2</b> Using R to estimate the CI for our Ebola example</a></li>
+<li class="chapter" data-level="18.2.3" data-path="One-Proportion.html"><a href="One-Proportion.html#comparing-the-confidence-intervals-for-the-ebola-virus-disease-example"><i class="fa fa-check"></i><b>18.2.3</b> Comparing the Confidence Intervals for the Ebola Virus Disease Example</a></li>
+</ul></li>
+<li class="chapter" data-level="18.3" data-path="One-Proportion.html"><a href="One-Proportion.html#can-the-choice-of-confidence-interval-method-matter"><i class="fa fa-check"></i><b>18.3</b> Can the Choice of Confidence Interval Method Matter?</a></li>
+</ul></li>
+<li class="chapter" data-level="19" data-path="Sepsis-RCT.html"><a href="Sepsis-RCT.html"><i class="fa fa-check"></i><b>19</b> The Ibuprofen in Sepsis Trial</a><ul>
+<li class="chapter" data-level="19.1" data-path="Sepsis-RCT.html"><a href="Sepsis-RCT.html#the-ibuprofen-in-sepsis-randomized-clinical-trial"><i class="fa fa-check"></i><b>19.1</b> The Ibuprofen in Sepsis Randomized Clinical Trial</a></li>
+<li class="chapter" data-level="19.2" data-path="Sepsis-RCT.html"><a href="Sepsis-RCT.html#our-key-questions-for-an-independent-samples-comparison"><i class="fa fa-check"></i><b>19.2</b> Our Key Questions for an Independent Samples Comparison</a><ul>
+<li class="chapter" data-level="19.2.1" data-path="Sepsis-RCT.html"><a href="Sepsis-RCT.html#what-is-the-population-under-study"><i class="fa fa-check"></i><b>19.2.1</b> What is the <strong>population</strong> under study?</a></li>
+<li class="chapter" data-level="19.2.2" data-path="Sepsis-RCT.html"><a href="Sepsis-RCT.html#what-is-the-sample-is-it-representative-of-the-population"><i class="fa fa-check"></i><b>19.2.2</b> What is the <strong>sample</strong>? Is it representative of the population?</a></li>
+<li class="chapter" data-level="19.2.3" data-path="Sepsis-RCT.html"><a href="Sepsis-RCT.html#who-are-the-subjects-individuals-within-the-sample"><i class="fa fa-check"></i><b>19.2.3</b> Who are the subjects / <strong>individuals</strong> within the sample?</a></li>
+<li class="chapter" data-level="19.2.4" data-path="Sepsis-RCT.html"><a href="Sepsis-RCT.html#what-data-are-available-on-each-individual"><i class="fa fa-check"></i><b>19.2.4</b> What <strong>data</strong> are available on each individual?</a></li>
+<li class="chapter" data-level="19.2.5" data-path="Sepsis-RCT.html"><a href="Sepsis-RCT.html#rct-caveats"><i class="fa fa-check"></i><b>19.2.5</b> RCT Caveats</a></li>
+</ul></li>
+<li class="chapter" data-level="19.3" data-path="Sepsis-RCT.html"><a href="Sepsis-RCT.html#exploratory-data-analysis"><i class="fa fa-check"></i><b>19.3</b> Exploratory Data Analysis</a></li>
+<li class="chapter" data-level="19.4" data-path="Sepsis-RCT.html"><a href="Sepsis-RCT.html#estimating-the-difference-in-population-means"><i class="fa fa-check"></i><b>19.4</b> Estimating the Difference in Population Means</a></li>
+<li class="chapter" data-level="19.5" data-path="Sepsis-RCT.html"><a href="Sepsis-RCT.html#categorizing-the-outcome"><i class="fa fa-check"></i><b>19.5</b> Categorizing the Outcome</a></li>
+<li class="chapter" data-level="19.6" data-path="Sepsis-RCT.html"><a href="Sepsis-RCT.html#estimating-the-difference-in-proportions"><i class="fa fa-check"></i><b>19.6</b> Estimating the Difference in Proportions</a></li>
+</ul></li>
+<li class="chapter" data-level="20" data-path="CI-Indep-Sample-Means.html"><a href="CI-Indep-Sample-Means.html"><i class="fa fa-check"></i><b>20</b> Comparing Means/Quantities using Two Indpendent Samples</a><ul>
+<li class="chapter" data-level="20.1" data-path="CI-Indep-Sample-Means.html"><a href="CI-Indep-Sample-Means.html#t-based-ci-for-population-mean-difference-mu_1---mu_2-from-independent-samples"><i class="fa fa-check"></i><b>20.1</b> t-based CI for population mean difference <span class="math inline">\(\mu_1 - \mu_2\)</span> from Independent Samples</a><ul>
+<li class="chapter" data-level="20.1.1" data-path="CI-Indep-Sample-Means.html"><a href="CI-Indep-Sample-Means.html#the-pooled-t-procedure"><i class="fa fa-check"></i><b>20.1.1</b> The Pooled t procedure</a></li>
+<li class="chapter" data-level="20.1.2" data-path="CI-Indep-Sample-Means.html"><a href="CI-Indep-Sample-Means.html#using-linear-regression-to-obtain-a-pooled-t-confidence-interval"><i class="fa fa-check"></i><b>20.1.2</b> Using linear regression to obtain a pooled t confidence interval</a></li>
+<li class="chapter" data-level="20.1.3" data-path="CI-Indep-Sample-Means.html"><a href="CI-Indep-Sample-Means.html#the-welch-t-procedure"><i class="fa fa-check"></i><b>20.1.3</b> The Welch t procedure</a></li>
+</ul></li>
+<li class="chapter" data-level="20.2" data-path="CI-Indep-Sample-Means.html"><a href="CI-Indep-Sample-Means.html#bootstrap-ci-for-mu_1---mu_2-from-independent-samples"><i class="fa fa-check"></i><b>20.2</b> Bootstrap CI for <span class="math inline">\(mu_1 - \mu_2\)</span> from Independent Samples</a></li>
+<li class="chapter" data-level="20.3" data-path="CI-Indep-Sample-Means.html"><a href="CI-Indep-Sample-Means.html#wilcoxon-mann-whitney-rank-sum-ci-from-independent-samples"><i class="fa fa-check"></i><b>20.3</b> Wilcoxon-Mann-Whitney “Rank Sum” CI from Independent Samples</a></li>
+</ul></li>
+<li class="chapter" data-level="21" data-path="CI-Indep-Sample-Props.html"><a href="CI-Indep-Sample-Props.html"><i class="fa fa-check"></i><b>21</b> Comparing Rates/Proportions with Two Independent Samples</a><ul>
+<li class="chapter" data-level="21.1" data-path="CI-Indep-Sample-Props.html"><a href="CI-Indep-Sample-Props.html#a-first-example-ibuprofen-and-sepsis-trial"><i class="fa fa-check"></i><b>21.1</b> A First Example: Ibuprofen and Sepsis Trial</a></li>
+<li class="chapter" data-level="21.2" data-path="CI-Indep-Sample-Props.html"><a href="CI-Indep-Sample-Props.html#relating-a-treatment-to-an-outcome"><i class="fa fa-check"></i><b>21.2</b> Relating a Treatment to an Outcome</a></li>
+<li class="chapter" data-level="21.3" data-path="CI-Indep-Sample-Props.html"><a href="CI-Indep-Sample-Props.html#definitions-of-probability-and-odds"><i class="fa fa-check"></i><b>21.3</b> Definitions of Probability and Odds</a></li>
+<li class="chapter" data-level="21.4" data-path="CI-Indep-Sample-Props.html"><a href="CI-Indep-Sample-Props.html#defining-the-relative-risk"><i class="fa fa-check"></i><b>21.4</b> Defining the Relative Risk</a></li>
+<li class="chapter" data-level="21.5" data-path="CI-Indep-Sample-Props.html"><a href="CI-Indep-Sample-Props.html#defining-the-risk-difference"><i class="fa fa-check"></i><b>21.5</b> Defining the Risk Difference</a></li>
+<li class="chapter" data-level="21.6" data-path="CI-Indep-Sample-Props.html"><a href="CI-Indep-Sample-Props.html#defining-the-odds-ratio-or-the-cross-product-ratio"><i class="fa fa-check"></i><b>21.6</b> Defining the Odds Ratio, or the Cross-Product Ratio</a></li>
+<li class="chapter" data-level="21.7" data-path="CI-Indep-Sample-Props.html"><a href="CI-Indep-Sample-Props.html#comparing-rates-in-a-2x2-table"><i class="fa fa-check"></i><b>21.7</b> Comparing Rates in a 2x2 Table</a></li>
+<li class="chapter" data-level="21.8" data-path="CI-Indep-Sample-Props.html"><a href="CI-Indep-Sample-Props.html#the-twobytwo-function-in-r"><i class="fa fa-check"></i><b>21.8</b> The <code>twobytwo</code> function in R</a><ul>
+<li class="chapter" data-level="21.8.1" data-path="CI-Indep-Sample-Props.html"><a href="CI-Indep-Sample-Props.html#standard-epidemiological-format"><i class="fa fa-check"></i><b>21.8.1</b> Standard Epidemiological Format</a></li>
+<li class="chapter" data-level="21.8.2" data-path="CI-Indep-Sample-Props.html"><a href="CI-Indep-Sample-Props.html#outcome-probabilities-and-confidence-intervals-within-the-treatment-groups"><i class="fa fa-check"></i><b>21.8.2</b> Outcome Probabilities and Confidence Intervals Within the Treatment Groups</a></li>
+<li class="chapter" data-level="21.8.3" data-path="CI-Indep-Sample-Props.html"><a href="CI-Indep-Sample-Props.html#relative-risk-odds-ratio-and-risk-difference-with-confidence-intervals"><i class="fa fa-check"></i><b>21.8.3</b> Relative Risk, Odds Ratio and Risk Difference, with Confidence Intervals</a></li>
+</ul></li>
+<li class="chapter" data-level="21.9" data-path="CI-Indep-Sample-Props.html"><a href="CI-Indep-Sample-Props.html#estimating-a-rate-more-accurately-use-x-1n-2-rather-than-xn"><i class="fa fa-check"></i><b>21.9</b> Estimating a Rate More Accurately: Use (x + 1)/(n + 2) rather than x/n</a></li>
+<li class="chapter" data-level="21.10" data-path="CI-Indep-Sample-Props.html"><a href="CI-Indep-Sample-Props.html#a-second-example-ebola-virus-disease-study-again"><i class="fa fa-check"></i><b>21.10</b> A Second Example: Ebola Virus Disease Study, again</a></li>
+</ul></li>
+<li class="chapter" data-level="22" data-path="Blood-Lead-Study.html"><a href="Blood-Lead-Study.html"><i class="fa fa-check"></i><b>22</b> A Paired Sample Study: Lead in the Blood of Children</a><ul>
+<li class="chapter" data-level="22.1" data-path="Blood-Lead-Study.html"><a href="Blood-Lead-Study.html#the-lead-in-the-blood-of-children-study"><i class="fa fa-check"></i><b>22.1</b> The Lead in the Blood of Children Study</a><ul>
+<li class="chapter" data-level="22.1.1" data-path="Blood-Lead-Study.html"><a href="Blood-Lead-Study.html#our-key-questions-for-a-paired-samples-comparison"><i class="fa fa-check"></i><b>22.1.1</b> Our Key Questions for a Paired Samples Comparison</a></li>
+<li class="chapter" data-level="22.1.2" data-path="Blood-Lead-Study.html"><a href="Blood-Lead-Study.html#lead-study-caveats"><i class="fa fa-check"></i><b>22.1.2</b> Lead Study Caveats</a></li>
+</ul></li>
+<li class="chapter" data-level="22.2" data-path="Blood-Lead-Study.html"><a href="Blood-Lead-Study.html#exploratory-data-analysis-for-paired-samples"><i class="fa fa-check"></i><b>22.2</b> Exploratory Data Analysis for Paired Samples</a><ul>
+<li class="chapter" data-level="22.2.1" data-path="Blood-Lead-Study.html"><a href="Blood-Lead-Study.html#the-paired-differences"><i class="fa fa-check"></i><b>22.2.1</b> The Paired Differences</a></li>
+<li class="chapter" data-level="22.2.2" data-path="Blood-Lead-Study.html"><a href="Blood-Lead-Study.html#numerical-summaries-1"><i class="fa fa-check"></i><b>22.2.2</b> Numerical Summaries</a></li>
+<li class="chapter" data-level="22.2.3" data-path="Blood-Lead-Study.html"><a href="Blood-Lead-Study.html#impact-of-matching---scatterplot-and-correlation"><i class="fa fa-check"></i><b>22.2.3</b> Impact of Matching - Scatterplot and Correlation</a></li>
+</ul></li>
+<li class="chapter" data-level="22.3" data-path="Blood-Lead-Study.html"><a href="Blood-Lead-Study.html#looking-at-the-individual-samples-tidying-the-data-with-gather"><i class="fa fa-check"></i><b>22.3</b> Looking at the Individual Samples: Tidying the Data with <code>gather</code></a></li>
+</ul></li>
+<li class="chapter" data-level="23" data-path="chapter-to-come-.html"><a href="chapter-to-come-.html"><i class="fa fa-check"></i><b>23</b> Chapter to come.</a></li>
+<li class="chapter" data-level="24" data-path="chapter-to-come-1.html"><a href="chapter-to-come-1.html"><i class="fa fa-check"></i><b>24</b> Chapter to come.</a></li>
 <li class="chapter" data-level="" data-path="this-is-work-in-progress.html"><a href="this-is-work-in-progress.html"><i class="fa fa-check"></i>This is Work in Progress</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -467,175 +571,245 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="Sepsis-RCT" class="section level1">
-<h1><span class="header-section-number">Chapter 18</span> A Study Comparing Two Independent Samples: Ibuprofen in Sepsis Trial</h1>
+<h1><span class="header-section-number">Chapter 19</span> The Ibuprofen in Sepsis Trial</h1>
 <div id="the-ibuprofen-in-sepsis-randomized-clinical-trial" class="section level2">
-<h2><span class="header-section-number">18.1</span> The Ibuprofen in Sepsis Randomized Clinical Trial</h2>
-<p>We will be working with a sample from the Ibuprofen in Sepsis study, as reported in <span class="citation">Bernard et al. (<a href="#ref-Bernard1997">1997</a>)</span>. My source for these data is <span class="citation">Dupont (<a href="#ref-Dupont">2002</a>)</span>.</p>
+<h2><span class="header-section-number">19.1</span> The Ibuprofen in Sepsis Randomized Clinical Trial</h2>
+<p>We will be working with a sample from the Ibuprofen in Sepsis study, which is also studied in <span class="citation">Dupont (<a href="#ref-Dupont">2002</a>)</span>. Quoting the abstract from <span class="citation">Bernard et al. (<a href="#ref-Bernard1997">1997</a>)</span>:</p>
 <blockquote>
 <p>Ibuprofen has been shown to have effects on sepsis in humans, but because of their small samples (fewer than 30 patients), previous studies have been inadequate to assess effects on mortality. We sought to determine whether ibuprofen can alter rates of organ failure and mortality in patients with the sepsis syndrome, how the drug affects the increased metabolic demand in sepsis (e.g., fever, tachypnea, tachycardia, hypoxemia, and lactic acidosis), and what potential adverse effects the drug has in the sepsis syndrome.</p>
 </blockquote>
+<p>In this study, patients meeting specific criteria (including elevated temperature) for a diagnosis of sepsis were recruited if they fulfilled an additional set of study criteria in the intensive care unit at one of seven participating centers.</p>
+<p>The full trial involved 455 patients, of which our sample includes 300. 150 of our patients were randomly assigned to the Ibuprofen group and 150 to the Placebo group<a href="#fn15" class="footnote-ref" id="fnref15"><sup>15</sup></a>. I picked the <code>sepsis</code> sample we will work with excluding patients with missing values for our outcome of interest, and then selected a random sample of 150 Ibuprofen and 150 Placebo patients from the rest of the group, and converted the temperatures and changes from Fahrenheit to Celsius.</p>
+<p>For the moment, we focus on two variables:</p>
 <ul>
-<li><span class="citation">Bernard et al. (<a href="#ref-Bernard1997">1997</a>)</span>, Abstract.</li>
-</ul>
-<p>In this study, patients meeting specific criteria (including elevated temperature) for a diagnosis of sepsis were recruited if they fulfilled an additional set of study criteria (see <span class="citation">Bernard et al. (<a href="#ref-Bernard1997">1997</a>)</span>) in the intensive care unit at one of seven participating centers. The full trial involved 455 patients, of which our sample includes 300. 150 of our patients were randomly assigned to the Ibuprofen group and 150 to the Placebo group. In either case, the patient received intravenous treatment (ibuprofen or placebo.) This was also a <em>double-blind</em> study, where neither the patients nor their care providers know, during the execution of the trial, what intervention group was assigned to each patient.</p>
-<p>For the moment, we will focus on two variables:</p>
-<ul>
-<li><strong>treat</strong>, which specifies the treatment group (Ibuprofen or Placebo), which was assigned via randomization to each patient, and</li>
+<li><strong>treat</strong>, which specifies the treatment group (intravenous Ibuprofen or intravenous Placebo), which was assigned via randomization to each patient, and</li>
 <li><strong>temp_drop</strong>, the outcome of interest, measured as the change from baseline to 2 hours later in degrees Celsius. Positive values indicate improvement, that is, a <em>drop</em> in temperature over the 2 hours following the baseline measurement.</li>
 </ul>
-<p>The data in the <code>sepsis.csv</code> file also contains the subject’s</p>
+<p>The <code>sepsis.csv</code> file also contains each subject’s</p>
 <ul>
 <li><em>id</em>, which is just a code</li>
 <li><em>race</em> (three levels: White, AfricanA or Other)</li>
 <li><em>apache</em> = baseline APACHE II score, a severity of disease score ranging from 0 to 71 with higher scores indicating more severe disease and a higher mortality risk</li>
 <li><em>temp_0</em> = baseline temperature, degrees Celsius.</li>
 </ul>
-<p>but we’ll ignore those for now.</p>
-<div class="sourceCode" id="cb466"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb466-1" title="1">sepsis </a></code></pre></div>
-<pre><code># A tibble: 300 x 6
-   id    treat     race     apache temp_0 temp_drop
-   &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt;     &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;
- 1 S002  Ibuprofen AfricanA     14   38.7       1.4
- 2 S004  Ibuprofen White         3   38.3       0.4
- 3 S005  Placebo   White         5   38.6       0  
- 4 S006  Ibuprofen White        13   38.2      -0.2
- 5 S009  Ibuprofen White        25   38.2       0.6
- 6 S011  Ibuprofen White        21   38.1      -0.4
- 7 S012  Placebo   White        14   38.6      -0.1
- 8 S014  Placebo   White        23   37.9       0.3
- 9 S016  Placebo   White        16   38.1       0.1
-10 S020  Ibuprofen Other        20   39.2       1.5
-# ... with 290 more rows</code></pre>
-<div class="sourceCode" id="cb468"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb468-1" title="1">sepsis &lt;-<span class="st"> </span>sepsis <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb468-2" title="2"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">treat =</span> <span class="kw">factor</span>(treat),</a>
-<a class="sourceLine" id="cb468-3" title="3">           <span class="dt">race =</span> <span class="kw">factor</span>(race))</a>
-<a class="sourceLine" id="cb468-4" title="4"></a>
-<a class="sourceLine" id="cb468-5" title="5">sepsis <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb468-6" title="6"><span class="st">    </span><span class="kw">select</span>(treat, temp_drop) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb468-7" title="7"><span class="st">    </span><span class="kw">summary</span>()</a></code></pre></div>
-<pre><code>       treat       temp_drop     
- Ibuprofen:150   Min.   :-2.700  
- Placebo  :150   1st Qu.:-0.100  
-                 Median : 0.300  
-                 Mean   : 0.308  
-                 3rd Qu.: 0.700  
-                 Max.   : 3.100  </code></pre>
-<p>Again, the complete study included 455 patients, but our sample includes 300. We have exactly 150 in the Ibuprofen group and 150 in the Placebo group, as it turns out. I picked the sample so as to exclude patients with missing values for our outcome of interest, and then selected a random sample of 150 Ibuprofen and 150 Placebo patients from the rest of the group, and converted the temperatures and changes from Fahrenheit to Celsius.</p>
-<div id="matched-pairs-vs.-two-independent-samples" class="section level3">
-<h3><span class="header-section-number">18.1.1</span> Matched Pairs vs. Two Independent Samples</h3>
-<p>These data were obtained from two independent samples, rather than as matched pairs.</p>
-<ul>
-<li>Remember that if the sample sizes were different, we’d know we have independent samples, because matched pairs requires that each subject in the “treated” group be matched to a single, unique member of the “control” group, and thus that we have exactly as many “treated” as “control” subjects.</li>
-<li>But having as many subjects in one treatment group as the other (which is called a <em>balanced design</em>) is only necessary, and not sufficient, for us to conclude that matched pairs are used.</li>
-<li>We only have matched pairs if each individual observation in the “treatment” group is matched to one and only one observation in the “control” group by the way in which the data were gathered.
-<ul>
-<li>Paired data can arise in several ways. The most common is a “pre-post” study where subjects are measured both before and after an exposure happens. In observational studies, we often match up subjects who did and did not receive an exposure so as to account for differences on things like age, sex, race and other covariates. This, of course, is what happens in the Lead in the Blood of Children study from Section <a href="Blood-Lead-Study.html#Blood-Lead-Study">17</a>.</li>
-<li>If the data are from paired samples, we should (and in fact) must form paired differences, with no subject left unpaired.</li>
-<li>If we cannot line up the data comparing two samples of quantitative data so that the links between the individual “treated” and “control” observations to form matched pairs are evident, then the data are not paired.</li>
-</ul></li>
-</ul>
-<p>As <span class="citation">Bock, Velleman, and De Veaux (<a href="#ref-BockVD">2004</a>)</span> suggest,</p>
-<blockquote>
-<p>… if you know the data are paired, you can take advantage of that fact - in fact, you <em>must</em> take advantage of it. … You must decide whether the data are paired from understanding how they were collected and what they mean. … There is no test to determine whether the data are paired.</p>
-</blockquote>
+<p>but for the moment, we won’t worry about those.</p>
+<div class="sourceCode" id="cb556"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb556-1" title="1">sepsis &lt;-<span class="st"> </span>sepsis <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb556-2" title="2"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">treat =</span> <span class="kw">factor</span>(treat),</a>
+<a class="sourceLine" id="cb556-3" title="3">           <span class="dt">race =</span> <span class="kw">factor</span>(race))</a>
+<a class="sourceLine" id="cb556-4" title="4"></a>
+<a class="sourceLine" id="cb556-5" title="5">mosaic<span class="op">::</span><span class="kw">favstats</span>(temp_drop <span class="op">~</span><span class="st"> </span>treat, <span class="dt">data =</span> sepsis)</a></code></pre></div>
+<pre><code>      treat  min     Q1 median  Q3 max  mean    sd   n missing
+1 Ibuprofen -1.5  0.000    0.5 0.9 3.1 0.464 0.688 150       0
+2   Placebo -2.7 -0.175    0.1 0.4 1.9 0.153 0.571 150       0</code></pre>
 </div>
-<div id="our-key-questions-for-an-independent-samples-comparison" class="section level3">
-<h3><span class="header-section-number">18.1.2</span> Our Key Questions for an Independent Samples Comparison</h3>
-<ol style="list-style-type: decimal">
-<li>What is the <strong>population</strong> under study?</li>
-</ol>
+<div id="our-key-questions-for-an-independent-samples-comparison" class="section level2">
+<h2><span class="header-section-number">19.2</span> Our Key Questions for an Independent Samples Comparison</h2>
+<div id="what-is-the-population-under-study" class="section level3">
+<h3><span class="header-section-number">19.2.1</span> What is the <strong>population</strong> under study?</h3>
 <ul>
 <li>All patients in the intensive care unit with sepsis who meet the inclusion and exclusion criteria of the study, at the entire population of health centers like the ones included in the trial.</li>
 </ul>
-<ol start="2" style="list-style-type: decimal">
-<li>What is the <strong>sample</strong>? Is it representative of the population?</li>
-</ol>
+</div>
+<div id="what-is-the-sample-is-it-representative-of-the-population" class="section level3">
+<h3><span class="header-section-number">19.2.2</span> What is the <strong>sample</strong>? Is it representative of the population?</h3>
 <ul>
 <li>The sample consists of 300 patients. It is a convenient sample from the population under study.</li>
 <li>This is a randomized clinical trial. 150 of the patients were assigned to Ibuprofen, and the rest to Placebo. It is this treatment assignment that is randomized, not the selection of the sample as a whole.</li>
 <li>In expectation, randomization of individuals to treatments, as in this study, should be expected to eliminate treatment selection bias.</li>
 </ul>
-<ol start="3" style="list-style-type: decimal">
-<li>Who are the subjects / <strong>individuals</strong> within the sample?</li>
-</ol>
+</div>
+<div id="who-are-the-subjects-individuals-within-the-sample" class="section level3">
+<h3><span class="header-section-number">19.2.3</span> Who are the subjects / <strong>individuals</strong> within the sample?</h3>
 <ul>
 <li>150 patients who received Ibuprofen and a completely different set of 150 patients who received Placebo.</li>
 <li>There is no match or link between the patients. They are best thought of as independent samples.</li>
 </ul>
-<ol start="4" style="list-style-type: decimal">
-<li>What <strong>data</strong> are available on each individual?</li>
-</ol>
+</div>
+<div id="what-data-are-available-on-each-individual" class="section level3">
+<h3><span class="header-section-number">19.2.4</span> What <strong>data</strong> are available on each individual?</h3>
 <ul>
 <li>The key variables are the treatment indicator (Ibuprofen or Placebo) and the outcome (drop in temperature in the 2 hours following administration of the randomly assigned treatment.)</li>
 </ul>
 </div>
 <div id="rct-caveats" class="section level3">
-<h3><span class="header-section-number">18.1.3</span> RCT Caveats</h3>
+<h3><span class="header-section-number">19.2.5</span> RCT Caveats</h3>
 <p>The placebo-controlled, double-blind randomized clinical trial, especially if pre-registered, is often considered the best feasible study for assessing the effectiveness of a treatment. While that’s not always true, it is a very solid design. The primary caveat is that the patients who are included in such trials are rarely excellent representations of the population of potentially affected patients as a whole.</p>
 </div>
 </div>
 <div id="exploratory-data-analysis" class="section level2">
-<h2><span class="header-section-number">18.2</span> Exploratory Data Analysis</h2>
-<p>First, we’ll look at a boxplot, showing all of the individual data as added-on dots.</p>
-<div class="sourceCode" id="cb470"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb470-1" title="1"><span class="kw">ggplot</span>(sepsis, <span class="kw">aes</span>(<span class="dt">x =</span> treat, <span class="dt">y =</span> temp_drop, <span class="dt">fill =</span> treat)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb470-2" title="2"><span class="st">    </span><span class="kw">geom_violin</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb470-3" title="3"><span class="st">    </span><span class="kw">geom_boxplot</span>(<span class="dt">width =</span> <span class="fl">0.3</span>, <span class="dt">fill =</span> <span class="st">&quot;white&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb470-4" title="4"><span class="st">    </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb470-5" title="5"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Boxplot of Temperature Drop in Sepsis Patients&quot;</span>,</a>
-<a class="sourceLine" id="cb470-6" title="6">         <span class="dt">x =</span> <span class="st">&quot;&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Drop in Temperature (degrees C)&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb470-7" title="7"><span class="st">    </span><span class="kw">coord_flip</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb470-8" title="8"><span class="st">    </span><span class="kw">theme_bw</span>()</a></code></pre></div>
-<p><img src="2019-431-book_files/figure-html/sepsis_temp_drop_by_treat_boxplot-1.png" width="672" /></p>
+<h2><span class="header-section-number">19.3</span> Exploratory Data Analysis</h2>
+<p>Consider the following boxplot with violin of the <code>temp_drop</code> data within each <code>treat</code> group.</p>
+<div class="sourceCode" id="cb558"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb558-1" title="1"><span class="kw">ggplot</span>(sepsis, <span class="kw">aes</span>(<span class="dt">x =</span> treat, <span class="dt">y =</span> temp_drop, <span class="dt">fill =</span> treat)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb558-2" title="2"><span class="st">    </span><span class="kw">geom_violin</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb558-3" title="3"><span class="st">    </span><span class="kw">geom_boxplot</span>(<span class="dt">width =</span> <span class="fl">0.3</span>, <span class="dt">fill =</span> <span class="st">&quot;white&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb558-4" title="4"><span class="st">    </span><span class="kw">scale_fill_viridis_d</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb558-5" title="5"><span class="st">    </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb558-6" title="6"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Boxplot of Temperature Drop in Sepsis Patients&quot;</span>,</a>
+<a class="sourceLine" id="cb558-7" title="7">         <span class="dt">x =</span> <span class="st">&quot;&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Drop in Temperature (degrees C)&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb558-8" title="8"><span class="st">    </span><span class="kw">coord_flip</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb558-9" title="9"><span class="st">    </span><span class="kw">theme_bw</span>()</a></code></pre></div>
+<p><img src="2019-431-book_files/figure-html/unnamed-chunk-137-1.png" width="672" /></p>
 <p>Next, we’ll consider faceted histograms of the data.</p>
-<div class="sourceCode" id="cb471"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb471-1" title="1"><span class="kw">ggplot</span>(sepsis, <span class="kw">aes</span>(<span class="dt">x =</span> temp_drop, <span class="dt">fill =</span> treat)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb471-2" title="2"><span class="st">    </span><span class="kw">geom_histogram</span>(<span class="dt">color =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">bins =</span> <span class="dv">20</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb471-3" title="3"><span class="st">    </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb471-4" title="4"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Histograms of Temperature Drop in Sepsis Patients&quot;</span>,</a>
-<a class="sourceLine" id="cb471-5" title="5">         <span class="dt">x =</span> <span class="st">&quot;Drop in Temperature (degrees Celsius&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb471-6" title="6"><span class="st">    </span><span class="kw">theme_bw</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb471-7" title="7"><span class="st">    </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>treat)</a></code></pre></div>
+<div class="sourceCode" id="cb559"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb559-1" title="1"><span class="kw">ggplot</span>(sepsis, <span class="kw">aes</span>(<span class="dt">x =</span> temp_drop, <span class="dt">fill =</span> treat, <span class="dt">color =</span> treat)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb559-2" title="2"><span class="st">    </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">20</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb559-3" title="3"><span class="st">    </span><span class="kw">scale_fill_viridis_d</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb559-4" title="4"><span class="st">    </span><span class="kw">scale_color_viridis_d</span>(<span class="dt">direction =</span> <span class="dv">-1</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb559-5" title="5"><span class="st">    </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>, <span class="dt">color =</span> <span class="ot">FALSE</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb559-6" title="6"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Histograms of Temperature Drop in Sepsis Patients&quot;</span>,</a>
+<a class="sourceLine" id="cb559-7" title="7">         <span class="dt">x =</span> <span class="st">&quot;Drop in Temperature (degrees Celsius&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb559-8" title="8"><span class="st">    </span><span class="kw">theme_bw</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb559-9" title="9"><span class="st">    </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>treat)</a></code></pre></div>
 <p><img src="2019-431-book_files/figure-html/sepsis_temp_drop_by_treat_histograms-1.png" width="672" /></p>
 <p>Here’s a pair of Normal Q-Q plots. It’s not hard to use a Normal model to approximate the Ibuprofen data, but such a model is probably not a good choice for the Placebo results.</p>
-<div class="sourceCode" id="cb472"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb472-1" title="1">p1 &lt;-<span class="st"> </span>sepsis <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb472-2" title="2"><span class="st">    </span><span class="kw">filter</span>(treat <span class="op">==</span><span class="st"> &quot;Ibuprofen&quot;</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb472-3" title="3"><span class="st">    </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">sample =</span> temp_drop)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb472-4" title="4"><span class="st">    </span><span class="kw">geom_qq</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb472-5" title="5"><span class="st">    </span><span class="kw">geom_qq_line</span>(<span class="dt">col =</span> <span class="st">&quot;red&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb472-6" title="6"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Ibuprofen Sample&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Ibuprofen Group temp_drop values&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb472-7" title="7"><span class="st">    </span><span class="kw">theme_bw</span>()</a>
-<a class="sourceLine" id="cb472-8" title="8"></a>
-<a class="sourceLine" id="cb472-9" title="9">p2 &lt;-<span class="st"> </span>sepsis <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb472-10" title="10"><span class="st">    </span><span class="kw">filter</span>(treat <span class="op">==</span><span class="st"> &quot;Placebo&quot;</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb472-11" title="11"><span class="st">    </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">sample =</span> temp_drop)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb472-12" title="12"><span class="st">    </span><span class="kw">geom_qq</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb472-13" title="13"><span class="st">    </span><span class="kw">geom_qq_line</span>(<span class="dt">col =</span> <span class="st">&quot;red&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb472-14" title="14"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Placebo Sample&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Placebo Group temp_drop values&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb472-15" title="15"><span class="st">    </span><span class="kw">theme_bw</span>()</a>
-<a class="sourceLine" id="cb472-16" title="16"></a>
-<a class="sourceLine" id="cb472-17" title="17">p1 <span class="op">+</span><span class="st"> </span>p2 <span class="op">+</span><span class="st"> </span><span class="kw">plot_annotation</span>(<span class="dt">title =</span> <span class="st">&quot;Normal Q-Q Plots for Sepsis data&quot;</span>)</a></code></pre></div>
-<p><img src="2019-431-book_files/figure-html/unnamed-chunk-102-1.png" width="672" /></p>
-<p>We’ll also look at a ridgeline plot.</p>
-<div class="sourceCode" id="cb473"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb473-1" title="1"><span class="kw">ggplot</span>(sepsis, <span class="kw">aes</span>(<span class="dt">x =</span> temp_drop, <span class="dt">y =</span> treat, <span class="dt">fill =</span> treat)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb473-2" title="2"><span class="st">    </span>ggridges<span class="op">::</span><span class="kw">geom_density_ridges</span>(<span class="dt">scale =</span> <span class="fl">0.9</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb473-3" title="3"><span class="st">    </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb473-4" title="4"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Temperature Drop in Sepsis Patients&quot;</span>,</a>
-<a class="sourceLine" id="cb473-5" title="5">         <span class="dt">x =</span> <span class="st">&quot;Drop in Temperature (degrees Celsius)&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb473-6" title="6"><span class="st">    </span>ggridges<span class="op">::</span><span class="kw">theme_ridges</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb560"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb560-1" title="1"><span class="kw">ggplot</span>(sepsis, <span class="kw">aes</span>(<span class="dt">sample =</span> temp_drop)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb560-2" title="2"><span class="st">    </span><span class="kw">geom_qq</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_qq_line</span>(<span class="dt">col =</span> <span class="st">&quot;red&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb560-3" title="3"><span class="st">    </span><span class="kw">theme_bw</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb560-4" title="4"><span class="st">    </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>treat) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb560-5" title="5"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">y =</span> <span class="st">&quot;Temperature Drop Values (in degrees C)&quot;</span>)</a></code></pre></div>
+<p><img src="2019-431-book_files/figure-html/unnamed-chunk-138-1.png" width="672" /></p>
+<p>We’ll could perhaps also look at a ridgeline plot.</p>
+<div class="sourceCode" id="cb561"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb561-1" title="1"><span class="kw">ggplot</span>(sepsis, <span class="kw">aes</span>(<span class="dt">x =</span> temp_drop, <span class="dt">y =</span> treat, <span class="dt">fill =</span> treat)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb561-2" title="2"><span class="st">    </span>ggridges<span class="op">::</span><span class="kw">geom_density_ridges</span>(<span class="dt">scale =</span> <span class="fl">0.9</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb561-3" title="3"><span class="st">    </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb561-4" title="4"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Temperature Drop in Sepsis Patients&quot;</span>,</a>
+<a class="sourceLine" id="cb561-5" title="5">         <span class="dt">x =</span> <span class="st">&quot;Drop in Temperature (degrees Celsius)&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb561-6" title="6"><span class="st">    </span>ggridges<span class="op">::</span><span class="kw">theme_ridges</span>()</a></code></pre></div>
 <pre><code>Picking joint bandwidth of 0.182</code></pre>
-<p><img src="2019-431-book_files/figure-html/sepsis_temp_drop_by_treat_ridgelineplot-1.png" width="672" /></p>
-<p>The center of the ibuprofen distribution is shifted a bit towards the more positive (greater improvement) direction, it seems, than is the distribution for the placebo patients. Here are some key numerical summaries, within the treatment groups, which buoy this conclusion.</p>
-<div class="sourceCode" id="cb475"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb475-1" title="1">sepsis <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(treat) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb475-2" title="2"><span class="st">    </span><span class="kw">summarise</span>(<span class="dt">n =</span> <span class="kw">n</span>(), </a>
-<a class="sourceLine" id="cb475-3" title="3">              <span class="dt">median =</span> <span class="kw">median</span>(temp_drop), </a>
-<a class="sourceLine" id="cb475-4" title="4">              <span class="dt">Q1 =</span> <span class="kw">quantile</span>(temp_drop, <span class="fl">0.25</span>), </a>
-<a class="sourceLine" id="cb475-5" title="5">              <span class="dt">Q3 =</span> <span class="kw">quantile</span>(temp_drop, <span class="fl">0.75</span>),</a>
-<a class="sourceLine" id="cb475-6" title="6">              <span class="dt">mean =</span> <span class="kw">mean</span>(temp_drop),</a>
-<a class="sourceLine" id="cb475-7" title="7">              <span class="dt">sd =</span> <span class="kw">sd</span>(temp_drop)) </a></code></pre></div>
-<pre><code># A tibble: 2 x 7
-  treat         n median     Q1    Q3  mean    sd
-  &lt;fct&gt;     &lt;int&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-1 Ibuprofen   150    0.5  0       0.9 0.464 0.688
-2 Placebo     150    0.1 -0.175   0.4 0.153 0.571</code></pre>
+<p><img src="2019-431-book_files/figure-html/unnamed-chunk-139-1.png" width="672" /></p>
+<p>The center of the ibuprofen distribution is shifted a bit towards the more positive (greater improvement) direction, it seems, than is the distribution for the placebo patients. This conclusion matches what we see in some key numerical summaries, within the treatment groups.</p>
+<div class="sourceCode" id="cb563"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb563-1" title="1">mosaic<span class="op">::</span><span class="kw">favstats</span>(temp_drop <span class="op">~</span><span class="st"> </span>treat, <span class="dt">data =</span> sepsis)</a></code></pre></div>
+<pre><code>      treat  min     Q1 median  Q3 max  mean    sd   n missing
+1 Ibuprofen -1.5  0.000    0.5 0.9 3.1 0.464 0.688 150       0
+2   Placebo -2.7 -0.175    0.1 0.4 1.9 0.153 0.571 150       0</code></pre>
+</div>
+<div id="estimating-the-difference-in-population-means" class="section level2">
+<h2><span class="header-section-number">19.4</span> Estimating the Difference in Population Means</h2>
+<p>Next, we will build a point estimate and 90% confidence interval for the difference between the mean <code>temp_drop</code> if treated with Ibuprofen and the mean <code>temp_drop</code> if treated with Placebo. We’ll use a regression model with a single predictor (the <code>treat</code> group) to do this.</p>
+<div class="sourceCode" id="cb565"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb565-1" title="1">model_sep &lt;-<span class="st"> </span><span class="kw">lm</span>(temp_drop <span class="op">~</span><span class="st"> </span>treat <span class="op">==</span><span class="st"> &quot;Ibuprofen&quot;</span>, <span class="dt">data =</span> sepsis)</a>
+<a class="sourceLine" id="cb565-2" title="2"></a>
+<a class="sourceLine" id="cb565-3" title="3"><span class="kw">tidy</span>(model_sep, <span class="dt">conf.int =</span> <span class="ot">TRUE</span>, <span class="dt">conf.level =</span> <span class="fl">0.90</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb565-4" title="4"><span class="st">    </span>knitr<span class="op">::</span><span class="kw">kable</span>(<span class="dt">digits =</span> <span class="dv">3</span>)</a></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">term</th>
+<th align="right">estimate</th>
+<th align="right">std.error</th>
+<th align="right">statistic</th>
+<th align="right">p.value</th>
+<th align="right">conf.low</th>
+<th align="right">conf.high</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">(Intercept)</td>
+<td align="right">0.153</td>
+<td align="right">0.052</td>
+<td align="right">2.96</td>
+<td align="right">0.003</td>
+<td align="right">0.068</td>
+<td align="right">0.238</td>
+</tr>
+<tr class="even">
+<td align="left">treat == “Ibuprofen”TRUE</td>
+<td align="right">0.311</td>
+<td align="right">0.073</td>
+<td align="right">4.27</td>
+<td align="right">0.000</td>
+<td align="right">0.191</td>
+<td align="right">0.432</td>
+</tr>
+</tbody>
+</table>
+<p>The point estimate for the “Ibuprofen - Placebo” difference in population means is 0.311 degrees C, and the 90% confidence interval is (0.191, 0.432) degrees C.</p>
+<p>We could also have run the model like this:</p>
+<div class="sourceCode" id="cb566"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb566-1" title="1">model_sep2 &lt;-<span class="st"> </span><span class="kw">lm</span>(temp_drop <span class="op">~</span><span class="st"> </span>treat, <span class="dt">data =</span> sepsis)</a>
+<a class="sourceLine" id="cb566-2" title="2"></a>
+<a class="sourceLine" id="cb566-3" title="3"><span class="kw">tidy</span>(model_sep2, <span class="dt">conf.int =</span> <span class="ot">TRUE</span>, <span class="dt">conf.level =</span> <span class="fl">0.90</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb566-4" title="4"><span class="st">    </span>knitr<span class="op">::</span><span class="kw">kable</span>(<span class="dt">digits =</span> <span class="dv">3</span>)</a></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">term</th>
+<th align="right">estimate</th>
+<th align="right">std.error</th>
+<th align="right">statistic</th>
+<th align="right">p.value</th>
+<th align="right">conf.low</th>
+<th align="right">conf.high</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">(Intercept)</td>
+<td align="right">0.464</td>
+<td align="right">0.052</td>
+<td align="right">8.99</td>
+<td align="right">0</td>
+<td align="right">0.379</td>
+<td align="right">0.549</td>
+</tr>
+<tr class="even">
+<td align="left">treatPlacebo</td>
+<td align="right">-0.311</td>
+<td align="right">0.073</td>
+<td align="right">-4.27</td>
+<td align="right">0</td>
+<td align="right">-0.432</td>
+<td align="right">-0.191</td>
+</tr>
+</tbody>
+</table>
+<p>and would therefore conclude that the <em>Placebo - Ibuprofen</em> difference was estimated as -0.311, with 90% confidence interval (-0.432, -0.191), which is of course equivalent to our previous estimate.</p>
+<p>This is just one possible way for us to estimate the difference between population means. We’ll see more in Chapter @ref(#CI-Indep-Sample-Means).</p>
+</div>
+<div id="categorizing-the-outcome" class="section level2">
+<h2><span class="header-section-number">19.5</span> Categorizing the Outcome</h2>
+<p>Suppose we were interested in comparing the percentage of patients in each arm of the trial (Ibuprofen vs. Placebo) that showed an improvement in their temperature (<code>temp_drop</code> &gt; 0). To build the cross-tabulation of interest, we could create a new variable, called <code>dropped</code> which indicates whether the subject’s temperature dropped, and then use <code>tabyl</code>.</p>
+<div class="sourceCode" id="cb567"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb567-1" title="1">sepsis &lt;-<span class="st"> </span>sepsis <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb567-2" title="2"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">dropped =</span> <span class="kw">ifelse</span>(temp_drop <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>, <span class="st">&quot;Drop&quot;</span>, <span class="st">&quot;No Drop&quot;</span>))</a>
+<a class="sourceLine" id="cb567-3" title="3"></a>
+<a class="sourceLine" id="cb567-4" title="4">sepsis <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">tabyl</span>(treat, dropped)</a></code></pre></div>
+<pre><code>     treat Drop No Drop
+ Ibuprofen  107      43
+   Placebo   80      70</code></pre>
+<p>Our primary interest is in comparing the percentage of Ibuprofen patients whose temperature dropped to the percentage of Placebo patients whose temperature dropped.</p>
+<div class="sourceCode" id="cb569"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb569-1" title="1">sepsis <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">tabyl</span>(treat, dropped) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb569-2" title="2"><span class="st">    </span><span class="kw">adorn_totals</span>() <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb569-3" title="3"><span class="st">    </span><span class="kw">adorn_percentages</span>(<span class="dt">denom =</span> <span class="st">&quot;row&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb569-4" title="4"><span class="st">    </span><span class="kw">adorn_pct_formatting</span>(<span class="dt">digits =</span> <span class="dv">1</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb569-5" title="5"><span class="st">    </span><span class="kw">adorn_ns</span>(<span class="dt">position =</span> <span class="st">&quot;front&quot;</span>)</a></code></pre></div>
+<pre><code>     treat        Drop     No Drop
+ Ibuprofen 107 (71.3%)  43 (28.7%)
+   Placebo  80 (53.3%)  70 (46.7%)
+     Total 187 (62.3%) 113 (37.7%)</code></pre>
+</div>
+<div id="estimating-the-difference-in-proportions" class="section level2">
+<h2><span class="header-section-number">19.6</span> Estimating the Difference in Proportions</h2>
+<p>In our sample, 71.3% of the Ibuprofen subjects, and 53.3% of the Placebo subjects, experienced a drop in temperature. So our <em>point estimate</em> of the difference in percentages would be 18.0 percentage points, but we will usually set this instead in terms of proportions, so that the difference is 0.180.</p>
+<p>Now, we’ll find a confidence interval for that difference, which we can do in several ways, including the <code>twoby2</code> function in the <code>Epi</code> package.</p>
+<div class="sourceCode" id="cb571"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb571-1" title="1">sepsis <span class="op">%$%</span><span class="st"> </span><span class="kw">table</span>(treat, dropped) <span class="op">%&gt;%</span><span class="st"> </span>Epi<span class="op">::</span><span class="kw">twoby2</span>(<span class="dt">alpha =</span> <span class="fl">0.10</span>)</a></code></pre></div>
+<pre><code>2 by 2 table analysis: 
+------------------------------------------------------ 
+Outcome   : Drop 
+Comparing : Ibuprofen vs. Placebo 
+
+          Drop No Drop    P(Drop) 90% conf. interval
+Ibuprofen  107      43      0.713     0.649    0.770
+Placebo     80      70      0.533     0.466    0.599
+
+                                  90% conf. interval
+             Relative Risk:  1.34    1.1492    1.557
+         Sample Odds Ratio:  2.18    1.4583    3.251
+Conditional MLE Odds Ratio:  2.17    1.4177    3.344
+    Probability difference:  0.18    0.0881    0.268
+
+             Exact P-value: 0.0019 
+        Asymptotic P-value: 0.0014 
+------------------------------------------------------</code></pre>
+<p>While there is a lot of additional output here, we’ll look for now just at the Probability difference row, where we see the point estimate (0.180) and the 90% confidence interval estimate for the difference in proportions (0.088, 0.268) comparing Ibuprofen vs. Placebo for the outcome of Dropping in Temperature.</p>
+<p>More on estimation of the difference in population proportions will be found in Chapter @ref(#CI-Indep-Sample-Props).</p>
 
 </div>
 </div>
@@ -644,20 +818,23 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="ref-Bernard1997">
 <p>Bernard, Gordon R., Arthur P. Wheeler, James A. Russell, Roland Schein, Warren R. Summer, Kenneth P. Steinberg, William J. Fulkerson, et al. 1997. “The Effects of Ibuprofen on the Physiology and Survival of Patients with Sepsis.” <em>New England Journal of Medicine</em> 336: 912–18. <a href="http://www.nejm.org/doi/full/10.1056/NEJM199703273361303#t=article">http://www.nejm.org/doi/full/10.1056/NEJM199703273361303#t=article</a>.</p>
 </div>
-<div id="ref-BockVD">
-<p>Bock, David E., Paul F. Velleman, and Richard D. De Veaux. 2004. <em>Stats: Modelling the World</em>. Boston MA: Pearson Addison-Wesley.</p>
-</div>
 <div id="ref-Dupont">
 <p>Dupont, William D. 2002. <em>Statistical Modeling for Biomedical Researchers</em>. New York: Cambridge University Press.</p>
 </div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="15">
+<li id="fn15"><p>This was a <em>double-blind</em> study, where neither the patients nor their care providers know, during the execution of the trial, what intervention group was assigned to each patient.<a href="Sepsis-RCT.html#fnref15" class="footnote-back">↩</a></p></li>
+</ol>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="Blood-Lead-Study.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="this-is-work-in-progress.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="One-Proportion.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="CI-Indep-Sample-Means.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -687,7 +864,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/18_SepsisRCT.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/19_SepsisRCT.Rmd",
 "text": "Edit"
 },
 "history": {

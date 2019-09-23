@@ -58,7 +58,7 @@ We'll begin by adjusting the data in two ways.
 - We'd like that first variable (`pair`) to be a `factor` rather than a `character` type in R, because we want to be able to summarize it more effectively. So we'll make that change. 
 - Also, we'd like to calculate the difference in lead content between the exposed and the control children in each pair, and we'll save that within-pair difference in a variable called `leaddiff`. We'll take `leaddiff` = `exposed` - `control` so that positive values indicate increased lead in the exposed child.
 
-```{r bloodlead-add-new-variables}
+```{r}
 bloodlead <- bloodlead %>%
     mutate(pair = factor(pair),
            leaddiff = exposed - control)
@@ -179,13 +179,9 @@ ggplot(blead_tidied, aes(x = leadcontent, y = status, fill = status)) +
 
 Both the center and the spread of the distribution are substantially larger in the exposed group than in the matched controls. Of course, numerical summaries show these patterns, too.
 
-```{r blead_tidied_numerical_summary}
-blead_tidied %>% group_by(status) %>% 
-    summarise(n = n(), 
-              median = median(leadcontent), 
-              Q1 = quantile(leadcontent, 0.25), 
-              Q3 = quantile(leadcontent, 0.75),
-              mean = mean(leadcontent),
-              sd = sd(leadcontent)) 
+```{r}
+mosaic::favstats(leadcontent ~ status, data = blead_tidied)
 ```
+
+
 

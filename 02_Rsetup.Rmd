@@ -29,11 +29,12 @@ To start, I'll present a series of commands I run at the beginning of these Note
 ```{r setup, message=FALSE}
 knitr::opts_chunk$set(comment = NA)
 
-# library(boot); library(pander); library(pwr)
+# library(pander); library(pwr)
 
-library(grid); library(devtools); library(magrittr);
-library(knitr); library(NHANES); 
-library(janitor); library(tidyverse)
+library(grid); library(devtools); 
+library(magrittr); library(patchwork);
+library(knitr); library(NHANES); library(boot);
+library(broom); library(janitor); library(tidyverse)
 
 # source("data/Love-boost.R")
 ```
@@ -66,7 +67,7 @@ We'll also use some packages that get loaded via `devtools` and Github by the co
 
 - `xda` for two functions called `numSummary` and `charSummary`
 - `visdat` for two functions called vis_miss` and `vis_dat`
-- `patchwork`, which is a framework for composing `ggplot2` objects. 
+- `patchwork`, which is a framework for composing `ggplot2` objects (actually this is now loaded above). 
 
 Several other packages are included below, even though they are not used in these Notes, because they will be used in class sessions or in 432.
 

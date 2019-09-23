@@ -1,10 +1,10 @@
-# Confidence Intervals for a Single Sample of Quantitative Data {#CI-1-Sample}
+# Estimating a Population Mean {#One-Mean}
 
 Suppose that we are interested in learning something about a population or process, from which we can obtain a sample that consists of a subset of potential results from that population or process. The main goal for many of the parametric models that are a large part of statistics is to estimate population parameters, like a population mean, or regression coefficient, on the basis of a sample. When we do this, we want to describe not only our best guess at the parameter -- referred to as a *point estimate*, but also say something useful about the uncertainty in our estimate, to let us more completely assess what the data have to tell us. A key tool for doing this is a **confidence interval**, described here in some detail. 
 
 Essentially every textbook on introductory statistics describes the development of a confidence interval, at least for a mean. Good supplemental resources include @OpenStats, @BockVD and @PaganoGauvreau, for instance. 
 
-We'll develop confidence intervals to compare parameters about two populations (either through matched pairs or independent samples) with confidence intervals soon. Here, we'll consider the problem of estimating a confidence interval to describe the mean (or median) of the population represented by a single sample of quantitative data. Our main example uses data from the Serum Zinc study, as described in Section \@ref(Serum-Zinc-Study). 
+We'll develop confidence intervals to compare parameters about two populations (either through matched pairs or independent samples) with confidence intervals soon. Here, we'll consider the problem of estimating a confidence interval to describe the mean (or median) of the population represented by a single sample of quantitative data. Our main example uses data from the Serum Zinc study, as described in Chapter \@ref(Serum-Zinc-Study). 
 
 ## Defining a Confidence Interval
 
@@ -17,7 +17,7 @@ A confidence interval for a population or process mean uses data from a sample (
 
 As an example, suppose that we are willing to assume that the mean serum zinc level across the entire population of teenage males, $\mu$, follows a Normal distribution (and so, summarizing it with a mean is a rational thing to do.) Suppose that we are also willing to assume that the 462 teenage males contained in the `serzinc` tibble are a random sample from that complete population. While we know the mean of the sample of 462 boys, we don't know $\mu$, the mean across all teenage males. So we need to estimate it.
 
-Later, we will find that, with these assumptions in place, we can find a 90% confidence interval for the mean serum zinc level across the entire population of teenage males. This 90% confidence interval for $\mu$ turns out to be (86.71, 89.16) micrograms per deciliter. How would you interpret this result?
+Earlier we estimated that a 90% confidence interval for the mean serum zinc level ($\mu$) across the entire population of teenage males was (86.71, 89.16) micrograms per deciliter. How should we interpret this result?
 
 - Some people think this means that there is a 90% chance that the true mean of the population, $\mu$, falls between 86.71 and 89.16 micrograms per deciliter. That's not correct.
 - The population mean is a constant **parameter** of the population of interest. That constant is not a random variable, and does not change. So the actual probability of the population mean falling inside that range is either 0 or 1.
@@ -154,45 +154,102 @@ So, our 90% confidence interval for the true population mean serum zinc level, b
 
 ### Getting R to build a CI for the Serum Zinc data
 
-Happily, R does all of this work, and with less inappropriate rounding.
+Happily, R does all of this work, and with less inappropriate rounding, in the context of fitting an intercept-only linear regression model. An intercept-only model is fitted by putting the number 1 on the right hand side of our linear model. The resulting model simply fits the overall mean of the data as a prediction for all subjects.
 
-```{r get two sided CI for serzinc data directly}
-t.test(serzinc$zinc, conf.level = 0.90, alternative = "two.sided")
+```{r}
+model_zinc <- lm(zinc ~ 1, data = serzinc)
+
+summary(model_zinc)
+
+confint(model_zinc, level = 0.90)
 ```
 
-And again, our 90% confidence interval for the true population mean serum zinc level, based on our sample of 462 patients, is (86.7, 89.2) micrograms per deciliter^[Since the measured zinc levels appear as integers, we should certainly not include any more than one additional significant figure in our confidence interval.].
+Generally, though, I'll use the `tidy()` function in `broom` to obtain the key information from a model like this:
+
+```{r}
+# requires library(broom)
+tidy(model_zinc, conf.int = TRUE, conf = 0.90) 
+```
+
+As an alternative, we could also use the `t.test` function, which can build (in this case) a two-sided confidence interval for the zinc levels like this:
+
+```{r}
+tt <- t.test(serzinc$zinc, conf.level = 0.90, alternative = "two.sided")
+
+tt
+```
+
+and the `tidy()` function from the `broom` package works here, too.
+
+```{r}
+# requires library(broom)
+tidy(tt, conf.int = TRUE, conf = 0.90) %>% 
+  knitr::kable(digits = 2)
+```
+
+And again, our 90% confidence interval for the true population mean serum zinc level, based on our sample of 462 patients, is (86.71, 89.16) micrograms per deciliter^[Since the measured zinc levels appear as integers, we should probably be rounding even further in our confidence interval, down to perhaps one decimal place.].
 
 ### Interpreting the Result
 
 An appropriate interpretation of the 90% two-sided confidence interval above follows:
 
 - (86.71, 89.16) micrograms per deciliter is a 90% two-sided confidence interval for the population mean serum zinc level among teenage males. 
-- Our point estimate for the true population mean serum zinc level is 87.9. The values in the interval (86.71, 89.16) represent a reasonable range of estimates for the true population mean serum zinc level, and we are 90% confident that this method of creating a confidence interval will produce a result containing the true population mean serum zinc level.
+- Our point estimate for the true population mean serum zinc level is 87.94. The values in the interval (86.71, 89.16) represent a reasonable range of estimates for the true population mean serum zinc level, and we are 90% confident that this method of creating a confidence interval will produce a result containing the true population mean serum zinc level.
 - Were we to draw 100 samples of size 462 from the population described by this sample, and use each such sample to produce a confidence interval in this manner, approximately 90 of those confidence intervals would cover the true population mean serum zinc level.
 
 ### What if we want a 95% or 99% confidence interval instead?
 
-The `t.test` function in R has an argument to specify the desired confidence level. 
+We can obtain them using `tidy` and the same modeling approach.
 
-```{r t test with other confidence levels for zinc}
-t.test(serzinc$zinc, conf.level = 0.95, alternative = "two.sided")
-t.test(serzinc$zinc, conf.level = 0.99, alternative = "two.sided")
+```{r}
+tidy(model_zinc, conf.int = TRUE, conf.level = 0.95)
 ```
+
+```{r}
+tidy(model_zinc, conf.int = TRUE, conf.level = 0.99)
+```
+
+### Using the `broom` package with the t test
+
+The `broom` package takes the messy output of built-in functions in R, such as `lm`, `t.test` or `wilcox.test`, and turns them into tidy data frames. A detailed description of the package and three of its key functions is found at https://github.com/tidyverse/broom.
+
+For example, we can use the `tidy` function within `broom` to create a single-row tibble of the key results from a t test.
+
+```{r}
+tt <- t.test(serzinc$zinc, conf.level = 0.95, alternative = "two.sided")
+tidy(tt)
+```
+
+We can thus pull the endpoints of a 99% confidence interval directly from this output. `broom` also has a `glance` function, which returns the same information as `tidy` in the case of a t-test.
+
+```{r}
+tt2 <- t.test(serzinc$zinc, conf.level = 0.90, alternative = "less")
+glance(tt2)
+```
+
+
+The `t.test` function in R also has an argument to specify the desired confidence level, for example: 
+
+```{r}
+t.test(serzinc$zinc, conf.level = 0.95, alternative = "two.sided")
+```
+
+### Effect of Changing the Confidence Level
 
 Below, we see two-sided confidence intervals for various levels of $\alpha$. 
 
-Confidence Level | $\alpha$ | Two-Sided Interval Estimate for Zinc Level Population Mean, $\mu$ | Point Estimate for Zinc Level Population Mean, $\mu$
+Confidence Level | $\alpha$ | Two-Sided Interval Estimate for Zinc Level Population Mean, $\mu$ | Point Estimate of $\mu$
 :---------------: | :-----: | :-------------------------: | :---------------------------:
-80% or 0.80 | 0.20 | (`r round(t.test(serzinc$zinc, conf.level = 0.80)$conf[c(1,2)],1)`) | `r round(mean(serzinc$zinc),1)`
-90% or 0.90 | 0.10 | (`r round(t.test(serzinc$zinc, conf.level = 0.90)$conf[c(1,2)],1)`) | `r round(mean(serzinc$zinc),1)`
-95% or 0.95 | 0.05 | (`r round(t.test(serzinc$zinc, conf.level = 0.95)$conf[c(1,2)],1)`) | `r round(mean(serzinc$zinc),1)`
-99% or 0.99 | 0.01| (`r round(t.test(serzinc$zinc, conf.level = 0.99)$conf[c(1,2)],1)`) | `r round(mean(serzinc$zinc),1)`
+80% or 0.80 | 0.20 | (`r round(tidy(model_zinc, conf.int = TRUE, conf.level = 0.80) %>% select(conf.low, conf.high), 1)`) | `r round(mean(serzinc$zinc),1)`
+90% or 0.90 | 0.10 | (`r round(tidy(model_zinc, conf.int = TRUE, conf.level = 0.90) %>% select(conf.low, conf.high), 1)`) | `r round(mean(serzinc$zinc),1)`
+95% or 0.95 | 0.05 | (`r round(tidy(model_zinc, conf.int = TRUE, conf.level = 0.95) %>% select(conf.low, conf.high), 1)`) | `r round(mean(serzinc$zinc),1)`
+99% or 0.99 | 0.01| (`r round(tidy(model_zinc, conf.int = TRUE, conf.level = 0.99) %>% select(conf.low, conf.high), 1)`) | `r round(mean(serzinc$zinc),1)`
 
 What happens to the width of the confidence interval in this table as the confidence level changes?
 
 ### One-sided vs. Two-sided Confidence Intervals
 
-In some situations, we are concerned with either an upper limit for the population mean $\mu$ or a lower limit for $\mu$, but not both.
+Occasionally, we want to estimate either an upper limit for the population mean $\mu$, or a lower limit for $\mu$, but not both.
 
 If we, as before, have a sample of size *n*, with sample mean $\bar{x}$ and sample standard deviation *s*, then:
 
@@ -202,7 +259,7 @@ If we, as before, have a sample of size *n*, with sample mean $\bar{x}$ and samp
 
 ### Calculating a one-sided confidence interval for the population mean
 
-```{r one sided t based confidence intervals for zinc}
+```{r}
 t.test(serzinc$zinc, conf.level = 0.90, alternative = "greater")
 t.test(serzinc$zinc, conf.level = 0.90, alternative = "less")
 ```
@@ -230,24 +287,6 @@ Confidence  | $\alpha$ | Type of Interval | Interval Estimate for Zinc Level Pop
 95% (.95) | 0.05 | One-Sided (Greater Than) | $\mu$ > `r round(t.test(serzinc$zinc, conf.level = 0.95, alternative = "greater")$conf[1],2)`. 
 
 Again, the 90% two-sided interval cuts off the top 5% and bottom 5% of the distribution with its bounds. The 95% "less than" one-sided interval also has its lower bound cut off the top 5% of the distribution.
-
-### Using the `broom` package with the t test
-
-The `broom` package takes the messy output of built-in functions in R, such as `lm`, `t.test` or `wilcox.test`, and turns them into tidy data frames. A detailed description of the package and three of its key functions is found at https://github.com/tidyverse/broom.
-
-For example, we can use the `tidy` function within `broom` to create a single-row tibble of the key results from a t test.
-
-```{r}
-tt <- t.test(serzinc$zinc, conf.level = 0.95, alternative = "two.sided")
-broom::tidy(tt)
-```
-
-We can thus pull the endpoints of a 95% confidence interval directly from this output. `broom` also has a `glance` function, which returns the same information as `tidy` in the case of a t-test.
-
-```{r}
-tt2 <- t.test(serzinc$zinc, conf.level = 0.90, alternative = "less")
-broom::glance(tt2)
-```
 
 ## Bootstrap Confidence Intervals for $\mu$
 
@@ -295,23 +334,25 @@ What the computer does:
 
 The command that we use to obtain a CI for $\mu$ using the basic nonparametric bootstrap and without assuming a Normally distributed population, is `smean.cl.boot`, a part of the `Hmisc` package in R.
 
-```{r boot for diffs, message=FALSE}
-set.seed(431); Hmisc::smean.cl.boot(serzinc$zinc, B = 1000, conf.int = 0.90)
+```{r, message=FALSE}
+set.seed(431)
+serzinc %$% Hmisc::smean.cl.boot(zinc, B = 1000, conf.int = 0.90)
 ```
 
 - Remember that the t-based 90% CI for $\mu$ was (`r round(t.test(serzinc$zinc, conf.level = 0.90)$conf[c(1,2)],2)`), according to the following output...
 
-```{r t based confidence interval for serum zinc again}
-t.test(serzinc$zinc, conf.level = 0.90, alternative = "two.sided")
+```{r}
+tidy(lm(zinc ~ 1, data = serzinc), conf.int = TRUE, conf.level = 0.90)
 ```
 
 ### Comparing Bootstrap and T-Based Confidence Intervals
 
-- The `smean.cl.boot` function (unlike most R functions) deletes missing data automatically, as does the `smean.cl.normal` function, which produces the t-based confidence interval.
+- The `smean.cl.boot` function (unlike most R functions) deletes missing data automatically, as does the `smean.cl.normal` function, which can also be used to produce the t-based confidence interval.
 
-```{r bootstrap ci for zinc 1}
-set.seed(431); Hmisc::smean.cl.boot(serzinc$zinc, B = 1000, conf.int = 0.90)
-Hmisc::smean.cl.normal(serzinc$zinc, conf.int = 0.90)
+```{r}
+set.seed(431)
+serzinc %$% Hmisc::smean.cl.boot(zinc, B = 1000, conf.int = 0.90)
+serzinc %$% Hmisc::smean.cl.normal(zinc, conf.int = 0.90)
 ```
 
 Bootstrap resampling confidence intervals do not follow the general confidence interval strategy using a point estimate $\pm$ a margin for error. 
@@ -324,16 +365,24 @@ Bootstrap resampling confidence intervals do not follow the general confidence i
 Suppose we change the random seed that we set, or change the number (`B`) of desired bootstrap replications.
 
 ```{r bootstrap ci for zinc 2}
-set.seed(431); Hmisc::smean.cl.boot(serzinc$zinc, B = 1000, conf.int = 0.90)
-set.seed(431212); Hmisc::smean.cl.boot(serzinc$zinc, B = 1000, conf.int = 0.90)
-set.seed(431212); Hmisc::smean.cl.boot(serzinc$zinc, B = 2000, conf.int = 0.90)
+set.seed(431) 
+serzinc %$% Hmisc::smean.cl.boot(zinc, B = 1000, conf.int = 0.90)
+
+set.seed(431212)
+serzinc %$% Hmisc::smean.cl.boot(zinc, B = 1000, conf.int = 0.90)
+
+set.seed(431212)
+serzinc %$% Hmisc::smean.cl.boot(zinc, B = 1000, conf.int = 0.90)
 ```
 
 ### Bootstrap: Changing the Confidence Level
 
 ```{r bootstrap ci for zinc 3}
-set.seed(431654); Hmisc::smean.cl.boot(serzinc$zinc, conf.int = 0.95, B = 1000)
-set.seed(431321); Hmisc::smean.cl.boot(serzinc$zinc, conf.int = 0.99, B = 1000)
+set.seed(431654)
+serzinc %$% Hmisc::smean.cl.boot(zinc, B = 1000, conf.int = 0.95)
+
+set.seed(431321)
+serzinc %$% Hmisc::smean.cl.boot(zinc, B = 1000, conf.int = 0.99)
 ```
 
 
@@ -351,11 +400,12 @@ Suppose that we want to find a 95% one-sided upper bound for the population mean
 
 Since we want a 95% confidence interval, we have $\alpha$ = 0.05. We double that to get $\alpha$ = 0.10, which implies we need to instead fit a two-sided 90% confidence interval.
 
-```{r 90 percent ci using bootstrap for mean serum zinc}
-set.seed(43101); Hmisc::smean.cl.boot(serzinc$zinc, conf.int = 0.90, B = 1000)
+```{r}
+set.seed(43101)
+serzinc %$% Hmisc::smean.cl.boot(zinc, B = 1000, conf.int = 0.90)
 ```
 
-Since the upper bound of this two-sided 90% CI is `r set.seed(43101); round(Hmisc::smean.cl.boot(serzinc$zinc, conf.int = 0.90, B = 1000)[3],2)`, that will also be the upper bound for a 95% one-sided CI.
+The upper bound of this two-sided 90% CI will also be the upper bound for a 95% one-sided CI.
 
 ### Bootstrap CI for the Population Median
 
@@ -363,13 +413,13 @@ If we are willing to do a small amount of programming work in R, we can obtain b
 
 In step 1, we specify a new function to capture the medians from our sample. 
 
-```{r step1 for boot median}
+```{r}
 f.median <- function(y, id) 
 {    median ( y[id])  }
 ```
 
 In step 2, we summon the `boot` package and call the `boot.ci` function:
-```{r step2 for boot median, message=FALSE}
+```{r, message=FALSE}
 set.seed(431787)
 boot.ci(boot (serzinc$zinc, f.median, 1000), conf=0.90, type="basic")
 ```
@@ -377,6 +427,11 @@ boot.ci(boot (serzinc$zinc, f.median, 1000), conf=0.90, type="basic")
 This yields a 90% confidence interval^[Actually, the boot.ci function can provide up to five different types of confidence interval (see the help file) if we change to type="all", and some of those other versions have attractive properties. However, we'll stick with the basic approach in 431.] for the population median serum zinc level. 
 
 Recall that the sample median for the serum zinc levels in our sample of 462 teenage males was `r median(serzinc$zinc)` micrograms per deciliter.
+
+```{r}
+mosaic::favstats(~ zinc, data = serzinc)
+```
+
 
 ### Bootstrap CI for the IQR
 
@@ -388,8 +443,9 @@ IQR(serzinc$zinc)
 f.IQR <- function(y, id) 
 {    IQR (y[id]) }
 
-set.seed(431207); boot.ci(boot (serzinc$zinc, f.IQR, 1000), 
-                          conf=0.95, type="basic")
+set.seed(431207)
+boot.ci(boot (serzinc$zinc, f.IQR, 1000), 
+        conf=0.95, type="basic")
 ```
 
 ### Bootstrap Resampling: Advantages and Caveats
@@ -409,7 +465,7 @@ The bootstrap produces clean and robust inferences (such as confidence intervals
 
 If we were in the position of knowing the standard deviation of the population of interest precisely^[Practical applications usually demand a subtler approach, but this normal distribution-based approach can help us fix some key ideas], we could use that information to build a 100(1-$\alpha$)% confidence interval using the Normal distribution, based on the sample mean $\bar{x}$, the sample size $n$, and the (known) population standard deviation $\sigma$. 
 
-When we have a large sample size (often as little as 60 observations), we can use this approach to get a very close approximation to the result we would get using the t distribution, and there are many settings where obtaining the Z test result is more appropriate in estimating more complicated parameters than the population mean.
+When we have a large sample size (often as little as 60 observations), we can use this approach to get a very close approximation to the result we would get using the t distribution, and there are many settings where obtaining the Z test result is more appropriate in estimating more complicated parameters than the population mean. When estimating a population mean in practice, though, I do not use this approach.
 
 ### The Large Sample Formula for the CI around $\mu$
 
@@ -507,8 +563,8 @@ The pseudo-median of a particular distribution G is the median of the distributi
 
 ### Getting the Wilcoxon Signed Rank-based CI in R
 
-```{r wilcoxon for zinc}
-wilcox.test(serzinc$zinc, conf.int=TRUE, conf.level=0.95)
+```{r}
+serzinc %$% wilcox.test(zinc, conf.int = TRUE, conf.level = 0.95)
 ```
 
 ### Interpreting the Wilcoxon CI for the Population Median
@@ -521,21 +577,21 @@ Note that the pseudo-median (87.5) is actually closer here to the sample mean (8
 
 ### Using the `broom` package with the Wilcoxon test
 
-We can also use the `tidy` function within `broom` to create a single-row tibble of the key results from a Wilcoxon test.
+We can also use the `tidy` function within `broom` to create a single-row tibble of the key results from a Wilcoxon test, so long as we run `wilcox.test` specifying that we want a confidence interval.
 
 ```{r}
-wt <- wilcox.test(serzinc$zinc, conf.int=TRUE, conf.level=0.95)
-broom::tidy(wt)
+wt <- serzinc %$% wilcox.test(zinc, conf.int = TRUE, conf.level = 0.95)
+tidy(wt)
 ```
 
 ## General Advice
 
 We have described four different approaches to estimating a confidence interval for the center of a distribution of quantitative data.
 
-1. The most commonly used approach uses the *t* distribution to estimate a confidence interval for a population/process mean. This requires some extra assumptions, most particularly that the underlying distribution of the population values is at least approximately Normally distributed.
+1. The most commonly used approach uses the *t* distribution to estimate a confidence interval for a population/process mean. This requires some extra assumptions, most particularly that the underlying distribution of the population values is at least approximately Normally distributed. This is identical to the result we get from an intercept-only linear regression model.
 2. A more modern and very general approach uses the idea of the bootstrap to estimate a confidence for a population/process parameter, which could be a mean, median or other summary statistic. The bootstrap, and the underlying notion of *resampling* is an important idea that lets us avoid some of the assumptions (in particular Normality) that are required by other methods. Bootstrap confidence intervals involve random sampling, so that the actual values obtained will differ a bit across replications.
-3. A third approach makes more substantial assumptions - it uses the Normal distribution rather than a *t*, and assumes (among other things) very large samples. For estimating a single mean, we'll rarely use this, but for estimating more complex parameters, particularly in Part C when discussing modeling, we will occasionally use this approach.
+3. A third approach makes more substantial assumptions - it uses the Normal distribution rather than a *t*, and assumes (among other things) very large samples. For estimating a single mean, we'll never do this, but for estimating more complex parameters, particularly in Part C when discussing modeling, we will occasionally use this approach.
 4. Finally, the Wilcoxon signed-rank method is one of a number of inferential tools which transform the data to their *ranks* before estimating a confidence interval. This avoids some assumptions, but yields inferences about a less-familiar parameter - the pseudo-median.
 
-Most of the time, the **bootstrap** provides an adequate solution when estimating a confidence interval to describe the population value of a parameter (mean or median, most commonly) from a distribution, when our data consists of a single sample of quantitative information.
+Most of the time, the **bootstrap** provides a reasonably adequate confidence interval estimate of the population value of a parameter (mean or median, most commonly) from a distribution when our data consists of a single sample of quantitative information.
  

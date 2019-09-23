@@ -4,9 +4,25 @@ Here, we'll consider the problem of estimating a confidence interval to describe
 
 Recall that in that study, we measured blood lead content, in mg/dl, for 33 matched pairs of children, one of which was exposed (had a parent working in a battery factory) and the other of which was control (no parent in the battery factory, but matched to the exposed child by age, exposure to traffic and neighborhood). We then created a variable called `leaddiff` which contained the (exposed - control) differences within each pair.
 
-```{r bloodlead-tibble-listing-for-ci-section}
+```{r}
 bloodlead
 ```
+
+### Matched Pairs vs. Two Independent Samples
+
+These data were obtained from two independent samples, rather than as matched pairs.
+
+- Remember that if the sample sizes were different, we'd know we have independent samples, because matched pairs requires that each subject in the "treated" group be matched to a single, unique member of the "control" group, and thus that we have exactly as many "treated" as "control" subjects.
+- But having as many subjects in one treatment group as the other (which is called a *balanced design*) is only necessary, and not sufficient, for us to conclude that matched pairs are used.
+- We only have matched pairs if each individual observation in the "treatment" group is matched to one and only one observation in the "control" group by the way in which the data were gathered.
+    + Paired data can arise in several ways. The most common is a "pre-post" study where subjects are measured both before and after an exposure happens. In observational studies, we often match up subjects who did and did not receive an exposure so as to account for differences on things like age, sex, race and other covariates. This, of course, is what happens in the Lead in the Blood of Children study from Section \@ref(Blood-Lead-Study).
+    + If the data are from paired samples, we should (and in fact) must form paired differences, with no subject left unpaired.
+    + If we cannot line up the data comparing two samples of quantitative data so that the links between the individual "treated" and "control" observations to form matched pairs are evident, then the data are not paired.
+
+As @BockVD suggest, 
+
+> ... if you know the data are paired, you can take advantage of that fact - in fact, you *must* take advantage of it. ... You must decide whether the data are paired from understanding how they were collected and what they mean. ... There is no test to determine whether the data are paired.
+
 
 ## t-based CI for Population Mean of Paired Differences, $\mu_d$.
 
