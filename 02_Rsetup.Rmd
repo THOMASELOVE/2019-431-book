@@ -62,6 +62,7 @@ I may also make use of functions in the following packages/libraries, but when I
 - `naniar`, for wrangling and visualizing missingness, and for checking imputations. See http://naniar.njtierney.com/.
 - `PropCIs` for computing confidence intervals for differences in proportions in paired samples.
 - `psych` for its own version of `describe`, but other features are described at http://personality-project.org/r/psych/
+- `simputation` for some imputation work
 - `skimr` for its ability to provide a "skimmed" descriptive analysis of a data set
 
 
