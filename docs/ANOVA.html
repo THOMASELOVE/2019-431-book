@@ -311,6 +311,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.4" data-path="using-transformations-to-normalize-distributions.html"><a href="using-transformations-to-normalize-distributions.html#can-we-transform-the-protein-data"><i class="fa fa-check"></i><b>9.4</b> Can we transform the <code>protein</code> data?</a><ul>
 <li class="chapter" data-level="9.4.1" data-path="using-transformations-to-normalize-distributions.html"><a href="using-transformations-to-normalize-distributions.html#the-square-root"><i class="fa fa-check"></i><b>9.4.1</b> The Square Root</a></li>
 <li class="chapter" data-level="9.4.2" data-path="using-transformations-to-normalize-distributions.html"><a href="using-transformations-to-normalize-distributions.html#the-logarithm"><i class="fa fa-check"></i><b>9.4.2</b> The Logarithm</a></li>
+<li class="chapter" data-level="9.4.3" data-path="using-transformations-to-normalize-distributions.html"><a href="using-transformations-to-normalize-distributions.html#this-course-uses-natural-logarithms-unless-otherwise-specified"><i class="fa fa-check"></i><b>9.4.3</b> This course uses Natural Logarithms, unless otherwise specified</a></li>
 </ul></li>
 <li class="chapter" data-level="9.5" data-path="using-transformations-to-normalize-distributions.html"><a href="using-transformations-to-normalize-distributions.html#what-if-we-considered-all-9-available-transformations"><i class="fa fa-check"></i><b>9.5</b> What if we considered all 9 available transformations?</a></li>
 <li class="chapter" data-level="9.6" data-path="using-transformations-to-normalize-distributions.html"><a href="using-transformations-to-normalize-distributions.html#a-simulated-data-set"><i class="fa fa-check"></i><b>9.6</b> A Simulated Data Set</a></li>
@@ -1022,7 +1023,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="ANOVA" class="section level1">
 <h1><span class="header-section-number">Chapter 28</span> Comparing 3 or more Population Means: Analysis of Variance</h1>
 <p>Recall the National Youth Fitness Survey, which we explored a small piece of in some detail back in Section <a href="NYFS-Study.html#NYFS-Study">7</a>. We’ll look at a different part of the same survey here - specifically the 280 children whose data are captured in the <code>nyfs2</code> file.</p>
-<div class="sourceCode" id="cb784"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb784-1" title="1">nyfs2</a></code></pre></div>
+<div class="sourceCode" id="cb783"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb783-1" title="1">nyfs2</a></code></pre></div>
 <pre><code># A tibble: 280 x 21
    subject.id sex   age.exam race.eth english income.cat3 income.detail
         &lt;int&gt; &lt;fct&gt;    &lt;int&gt; &lt;fct&gt;      &lt;int&gt; &lt;fct&gt;       &lt;fct&gt;        
@@ -1043,13 +1044,13 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 #   subscap.skinfold &lt;dbl&gt;, GMQ &lt;int&gt;</code></pre>
 <div id="comparing-gross-motor-quotient-scores-by-income-level-3-categories" class="section level2">
 <h2><span class="header-section-number">28.1</span> Comparing Gross Motor Quotient Scores by Income Level (3 Categories)</h2>
-<div class="sourceCode" id="cb786"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb786-1" title="1">nyfs2a &lt;-<span class="st"> </span>nyfs2 <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb786-2" title="2"><span class="st">    </span><span class="kw">select</span>(subject.id, income.cat3, GMQ) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb786-3" title="3"><span class="st">    </span><span class="kw">arrange</span>(subject.id)</a></code></pre></div>
+<div class="sourceCode" id="cb785"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb785-1" title="1">nyfs2a &lt;-<span class="st"> </span>nyfs2 <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb785-2" title="2"><span class="st">    </span><span class="kw">select</span>(subject.id, income.cat3, GMQ) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb785-3" title="3"><span class="st">    </span><span class="kw">arrange</span>(subject.id)</a></code></pre></div>
 <p>In this first analysis, we’ll compare the population mean on the Gross Motor Quotient evaluation of these kids across three groups defined by income level. Higher values of this GMQ measure indicate improved levels of gross motor development, both in terms of locomotor and object control. See <a href="https://wwwn.cdc.gov/Nchs/Nnyfs/Y_GMX.htm" class="uri">https://wwwn.cdc.gov/Nchs/Nnyfs/Y_GMX.htm</a> for more details.</p>
-<div class="sourceCode" id="cb787"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb787-1" title="1">nyfs2a <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb787-2" title="2"><span class="st">    </span><span class="kw">group_by</span>(income.cat3) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb787-3" title="3"><span class="st">    </span><span class="kw">summarise</span>(<span class="dt">n =</span> <span class="kw">n</span>(), <span class="kw">mean</span>(GMQ), <span class="kw">median</span>(GMQ))</a></code></pre></div>
+<div class="sourceCode" id="cb786"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb786-1" title="1">nyfs2a <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb786-2" title="2"><span class="st">    </span><span class="kw">group_by</span>(income.cat3) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb786-3" title="3"><span class="st">    </span><span class="kw">summarise</span>(<span class="dt">n =</span> <span class="kw">n</span>(), <span class="kw">mean</span>(GMQ), <span class="kw">median</span>(GMQ))</a></code></pre></div>
 <pre><code># A tibble: 3 x 4
   income.cat3            n `mean(GMQ)` `median(GMQ)`
   &lt;fct&gt;              &lt;int&gt;       &lt;dbl&gt;         &lt;dbl&gt;
@@ -1057,41 +1058,41 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 2 Low (below 25K)       98        97.0            97
 3 Middle (25 - 64K)     90        95.4            94</code></pre>
 <p>Uh, oh. We should rearrange those income categories to match a natural order from low to high.</p>
-<div class="sourceCode" id="cb789"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb789-1" title="1">nyfs2a<span class="op">$</span>income.cat3 &lt;-<span class="st"> </span></a>
-<a class="sourceLine" id="cb789-2" title="2"><span class="st">    </span>forcats<span class="op">::</span><span class="kw">fct_relevel</span>(nyfs2a<span class="op">$</span>income.cat3,</a>
-<a class="sourceLine" id="cb789-3" title="3">                         <span class="st">&quot;Low (below 25K)&quot;</span>,</a>
-<a class="sourceLine" id="cb789-4" title="4">                         <span class="st">&quot;Middle (25 - 64K)&quot;</span>,</a>
-<a class="sourceLine" id="cb789-5" title="5">                         <span class="st">&quot;High (65K or more)&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb788"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb788-1" title="1">nyfs2a<span class="op">$</span>income.cat3 &lt;-<span class="st"> </span></a>
+<a class="sourceLine" id="cb788-2" title="2"><span class="st">    </span>forcats<span class="op">::</span><span class="kw">fct_relevel</span>(nyfs2a<span class="op">$</span>income.cat3,</a>
+<a class="sourceLine" id="cb788-3" title="3">                         <span class="st">&quot;Low (below 25K)&quot;</span>,</a>
+<a class="sourceLine" id="cb788-4" title="4">                         <span class="st">&quot;Middle (25 - 64K)&quot;</span>,</a>
+<a class="sourceLine" id="cb788-5" title="5">                         <span class="st">&quot;High (65K or more)&quot;</span>)</a></code></pre></div>
 <div id="graphical-summaries-1" class="section level3">
 <h3><span class="header-section-number">28.1.1</span> Graphical Summaries</h3>
 <p>When working with three independent samples, I use graphs analogous to those we built for two independent samples.</p>
-<div class="sourceCode" id="cb790"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb790-1" title="1"><span class="kw">ggplot</span>(nyfs2a, <span class="kw">aes</span>(<span class="dt">x =</span> income.cat3, <span class="dt">y =</span> GMQ, <span class="dt">fill =</span> income.cat3)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb790-2" title="2"><span class="st">  </span><span class="kw">geom_jitter</span>(<span class="kw">aes</span>(<span class="dt">color =</span> income.cat3), <span class="dt">alpha =</span> <span class="fl">0.5</span>, <span class="dt">width =</span> <span class="fl">0.25</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb790-3" title="3"><span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">notch =</span> <span class="ot">TRUE</span>, <span class="dt">alpha =</span> <span class="fl">0.75</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb790-4" title="4"><span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb790-5" title="5"><span class="st">  </span><span class="kw">coord_flip</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb790-6" title="6"><span class="st">  </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>, <span class="dt">col =</span> <span class="ot">FALSE</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb790-7" title="7"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;GMQ Scores for 280 Children in NNYFS&quot;</span>,</a>
-<a class="sourceLine" id="cb790-8" title="8">       <span class="dt">y =</span> <span class="st">&quot;GMQ Score, in points&quot;</span>, <span class="dt">x =</span> <span class="st">&quot;Income Category&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb789"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb789-1" title="1"><span class="kw">ggplot</span>(nyfs2a, <span class="kw">aes</span>(<span class="dt">x =</span> income.cat3, <span class="dt">y =</span> GMQ, <span class="dt">fill =</span> income.cat3)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb789-2" title="2"><span class="st">  </span><span class="kw">geom_jitter</span>(<span class="kw">aes</span>(<span class="dt">color =</span> income.cat3), <span class="dt">alpha =</span> <span class="fl">0.5</span>, <span class="dt">width =</span> <span class="fl">0.25</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb789-3" title="3"><span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">notch =</span> <span class="ot">TRUE</span>, <span class="dt">alpha =</span> <span class="fl">0.75</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb789-4" title="4"><span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb789-5" title="5"><span class="st">  </span><span class="kw">coord_flip</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb789-6" title="6"><span class="st">  </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>, <span class="dt">col =</span> <span class="ot">FALSE</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb789-7" title="7"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;GMQ Scores for 280 Children in NNYFS&quot;</span>,</a>
+<a class="sourceLine" id="cb789-8" title="8">       <span class="dt">y =</span> <span class="st">&quot;GMQ Score, in points&quot;</span>, <span class="dt">x =</span> <span class="st">&quot;Income Category&quot;</span>)</a></code></pre></div>
 <p><img src="2019-431-book_files/figure-html/boxplot_nyfs2a-1.png" width="672" /></p>
 <p>In addition to this comparison boxplot, we might consider faceted plots, like these histograms.</p>
-<div class="sourceCode" id="cb791"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb791-1" title="1"><span class="kw">ggplot</span>(nyfs2a, <span class="kw">aes</span>(<span class="dt">x =</span> GMQ, <span class="dt">fill =</span> income.cat3)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb791-2" title="2"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">15</span>, <span class="dt">col =</span> <span class="st">&quot;white&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb791-3" title="3"><span class="st">  </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb791-4" title="4"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>income.cat3)</a></code></pre></div>
+<div class="sourceCode" id="cb790"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb790-1" title="1"><span class="kw">ggplot</span>(nyfs2a, <span class="kw">aes</span>(<span class="dt">x =</span> GMQ, <span class="dt">fill =</span> income.cat3)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb790-2" title="2"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">15</span>, <span class="dt">col =</span> <span class="st">&quot;white&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb790-3" title="3"><span class="st">  </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb790-4" title="4"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>income.cat3)</a></code></pre></div>
 <p><img src="2019-431-book_files/figure-html/histograms_nyfs2a-1.png" width="672" /></p>
 <p>Or, if we want to ignore the (modest) sample size differences, we might consider density functions, perhaps through a ridgeline plot.</p>
-<div class="sourceCode" id="cb792"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb792-1" title="1"><span class="kw">ggplot</span>(nyfs2a, <span class="kw">aes</span>(<span class="dt">x =</span> GMQ, <span class="dt">y =</span> income.cat3, <span class="dt">fill =</span> income.cat3)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb792-2" title="2"><span class="st">    </span>ggridges<span class="op">::</span><span class="kw">geom_density_ridges</span>(<span class="dt">scale =</span> <span class="fl">0.9</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb792-3" title="3"><span class="st">    </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb792-4" title="4"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;GMQ Score (in points) by Income Group&quot;</span>,</a>
-<a class="sourceLine" id="cb792-5" title="5">         <span class="dt">x =</span> <span class="st">&quot;GMQ Score&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb792-6" title="6"><span class="st">    </span>ggridges<span class="op">::</span><span class="kw">theme_ridges</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb791"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb791-1" title="1"><span class="kw">ggplot</span>(nyfs2a, <span class="kw">aes</span>(<span class="dt">x =</span> GMQ, <span class="dt">y =</span> income.cat3, <span class="dt">fill =</span> income.cat3)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb791-2" title="2"><span class="st">    </span>ggridges<span class="op">::</span><span class="kw">geom_density_ridges</span>(<span class="dt">scale =</span> <span class="fl">0.9</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb791-3" title="3"><span class="st">    </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb791-4" title="4"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;GMQ Score (in points) by Income Group&quot;</span>,</a>
+<a class="sourceLine" id="cb791-5" title="5">         <span class="dt">x =</span> <span class="st">&quot;GMQ Score&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb791-6" title="6"><span class="st">    </span>ggridges<span class="op">::</span><span class="kw">theme_ridges</span>()</a></code></pre></div>
 <p><img src="2019-431-book_files/figure-html/nyfs2a_ridgelineplot-1.png" width="672" /></p>
 </div>
 <div id="numerical-summaries-2" class="section level3">
 <h3><span class="header-section-number">28.1.2</span> Numerical Summaries</h3>
-<div class="sourceCode" id="cb793"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb793-1" title="1"><span class="kw">by</span>(nyfs2a<span class="op">$</span>GMQ, nyfs2a<span class="op">$</span>income.cat3, mosaic<span class="op">::</span>favstats)</a></code></pre></div>
+<div class="sourceCode" id="cb792"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb792-1" title="1"><span class="kw">by</span>(nyfs2a<span class="op">$</span>GMQ, nyfs2a<span class="op">$</span>income.cat3, mosaic<span class="op">::</span>favstats)</a></code></pre></div>
 <pre><code>nyfs2a$income.cat3: Low (below 25K)
  min Q1 median  Q3 max mean   sd  n missing
   55 91     97 106 130   97 14.8 98       0
@@ -1117,7 +1118,7 @@ nyfs2a$income.cat3: High (65K or more)
 <li>H<sub>0</sub>: <span class="math inline">\(\mu_{Low} = \mu_{Middle} = \mu_{High}\)</span> vs.</li>
 <li>H<sub>A</sub>: At least one of the population means is different than the others.</li>
 </ul>
-<div class="sourceCode" id="cb795"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb795-1" title="1"><span class="kw">oneway.test</span>(GMQ <span class="op">~</span><span class="st"> </span>income.cat3, <span class="dt">data =</span> nyfs2a)</a></code></pre></div>
+<div class="sourceCode" id="cb794"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb794-1" title="1"><span class="kw">oneway.test</span>(GMQ <span class="op">~</span><span class="st"> </span>income.cat3, <span class="dt">data =</span> nyfs2a)</a></code></pre></div>
 <pre><code>
     One-way analysis of means (not assuming equal variances)
 
@@ -1136,7 +1137,7 @@ F = 0.3, num df = 2, denom df = 184, p-value = 0.7</code></pre>
 <li>H<sub>0</sub>: <span class="math inline">\(\mu_{Low} = \mu_{Middle} = \mu_{High}\)</span> vs.</li>
 <li>H<sub>A</sub>: At least one of the population means is different than the others.</li>
 </ul>
-<div class="sourceCode" id="cb797"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb797-1" title="1"><span class="kw">kruskal.test</span>(GMQ <span class="op">~</span><span class="st"> </span>income.cat3, <span class="dt">data =</span> nyfs2a)</a></code></pre></div>
+<div class="sourceCode" id="cb796"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb796-1" title="1"><span class="kw">kruskal.test</span>(GMQ <span class="op">~</span><span class="st"> </span>income.cat3, <span class="dt">data =</span> nyfs2a)</a></code></pre></div>
 <pre><code>
     Kruskal-Wallis rank sum test
 
@@ -1158,7 +1159,7 @@ Kruskal-Wallis chi-squared = 2, df = 2, p-value = 0.3</code></pre>
 <div id="the-oneway.test-approach" class="section level3">
 <h3><span class="header-section-number">28.3.1</span> The <code>oneway.test</code> approach</h3>
 <p>R will produce some elements of a one-factor ANOVA using the <code>oneway.test</code> command:</p>
-<div class="sourceCode" id="cb799"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb799-1" title="1"><span class="kw">oneway.test</span>(GMQ <span class="op">~</span><span class="st"> </span>income.cat3, <span class="dt">data =</span> nyfs2a, <span class="dt">var.equal=</span><span class="ot">TRUE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb798"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb798-1" title="1"><span class="kw">oneway.test</span>(GMQ <span class="op">~</span><span class="st"> </span>income.cat3, <span class="dt">data =</span> nyfs2a, <span class="dt">var.equal=</span><span class="ot">TRUE</span>)</a></code></pre></div>
 <pre><code>
     One-way analysis of means
 
@@ -1169,7 +1170,7 @@ F = 0.3, num df = 2, denom df = 277, p-value = 0.7</code></pre>
 <div id="using-the-aov-approach-and-the-summary-function" class="section level3">
 <h3><span class="header-section-number">28.3.2</span> Using the <code>aov</code> approach and the <code>summary</code> function</h3>
 <p>Here’s one possible ANOVA table, which doesn’t require directly fitting a linear model.</p>
-<div class="sourceCode" id="cb801"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb801-1" title="1"><span class="kw">summary</span>(<span class="kw">aov</span>(GMQ <span class="op">~</span><span class="st"> </span>income.cat3, <span class="dt">data =</span> nyfs2a))</a></code></pre></div>
+<div class="sourceCode" id="cb800"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb800-1" title="1"><span class="kw">summary</span>(<span class="kw">aov</span>(GMQ <span class="op">~</span><span class="st"> </span>income.cat3, <span class="dt">data =</span> nyfs2a))</a></code></pre></div>
 <pre><code>             Df Sum Sq Mean Sq F value Pr(&gt;F)
 income.cat3   2    146    72.8    0.35   0.71
 Residuals   277  58174   210.0               </code></pre>
@@ -1177,7 +1178,7 @@ Residuals   277  58174   210.0               </code></pre>
 <div id="using-the-anova-function-after-fitting-a-linear-model" class="section level3">
 <h3><span class="header-section-number">28.3.3</span> Using the <code>anova</code> function after fitting a linear model</h3>
 <p>An equivalent way to get identical results in a slightly different format runs the linear model behind the ANOVA approach directly.</p>
-<div class="sourceCode" id="cb803"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb803-1" title="1"><span class="kw">anova</span>(<span class="kw">lm</span>(GMQ <span class="op">~</span><span class="st"> </span>income.cat3, <span class="dt">data =</span> nyfs2a))</a></code></pre></div>
+<div class="sourceCode" id="cb802"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb802-1" title="1"><span class="kw">anova</span>(<span class="kw">lm</span>(GMQ <span class="op">~</span><span class="st"> </span>income.cat3, <span class="dt">data =</span> nyfs2a))</a></code></pre></div>
 <pre><code>Analysis of Variance Table
 
 Response: GMQ
@@ -1211,7 +1212,7 @@ Residuals   277  58174   210.0               </code></pre>
 </div>
 <div id="the-degrees-of-freedom" class="section level3">
 <h3><span class="header-section-number">28.4.3</span> The Degrees of Freedom</h3>
-<div class="sourceCode" id="cb805"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb805-1" title="1"><span class="kw">anova</span>(<span class="kw">lm</span>(GMQ <span class="op">~</span><span class="st"> </span>income.cat3, <span class="dt">data =</span> nyfs2a))</a></code></pre></div>
+<div class="sourceCode" id="cb804"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb804-1" title="1"><span class="kw">anova</span>(<span class="kw">lm</span>(GMQ <span class="op">~</span><span class="st"> </span>income.cat3, <span class="dt">data =</span> nyfs2a))</a></code></pre></div>
 <pre><code>Analysis of Variance Table
 
 Response: GMQ
@@ -1226,7 +1227,7 @@ Residuals   277  58174   210.0               </code></pre>
 </div>
 <div id="the-sums-of-squares" class="section level3">
 <h3><span class="header-section-number">28.4.4</span> The Sums of Squares</h3>
-<div class="sourceCode" id="cb807"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb807-1" title="1"><span class="kw">anova</span>(<span class="kw">lm</span>(GMQ <span class="op">~</span><span class="st"> </span>income.cat3, <span class="dt">data =</span> nyfs2a))</a></code></pre></div>
+<div class="sourceCode" id="cb806"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb806-1" title="1"><span class="kw">anova</span>(<span class="kw">lm</span>(GMQ <span class="op">~</span><span class="st"> </span>income.cat3, <span class="dt">data =</span> nyfs2a))</a></code></pre></div>
 <pre><code>Analysis of Variance Table
 
 Response: GMQ
@@ -1248,7 +1249,7 @@ Residuals   277  58174   210.0               </code></pre>
 </div>
 <div id="the-mean-square" class="section level3">
 <h3><span class="header-section-number">28.4.5</span> The Mean Square</h3>
-<div class="sourceCode" id="cb809"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb809-1" title="1"><span class="kw">anova</span>(<span class="kw">lm</span>(GMQ <span class="op">~</span><span class="st"> </span>income.cat3, <span class="dt">data =</span> nyfs2a))</a></code></pre></div>
+<div class="sourceCode" id="cb808"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb808-1" title="1"><span class="kw">anova</span>(<span class="kw">lm</span>(GMQ <span class="op">~</span><span class="st"> </span>income.cat3, <span class="dt">data =</span> nyfs2a))</a></code></pre></div>
 <pre><code>Analysis of Variance Table
 
 Response: GMQ
@@ -1266,7 +1267,7 @@ Residuals   277  58174   210.0               </code></pre>
 </div>
 <div id="the-f-test-statistic-and-p-value" class="section level3">
 <h3><span class="header-section-number">28.4.6</span> The F Test Statistic and <em>p</em> Value</h3>
-<div class="sourceCode" id="cb811"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb811-1" title="1"><span class="kw">anova</span>(<span class="kw">lm</span>(GMQ <span class="op">~</span><span class="st"> </span>income.cat3, <span class="dt">data =</span> nyfs2a))</a></code></pre></div>
+<div class="sourceCode" id="cb810"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb810-1" title="1"><span class="kw">anova</span>(<span class="kw">lm</span>(GMQ <span class="op">~</span><span class="st"> </span>income.cat3, <span class="dt">data =</span> nyfs2a))</a></code></pre></div>
 <pre><code>Analysis of Variance Table
 
 Response: GMQ
@@ -1301,7 +1302,7 @@ Residuals   277  58174   210.0               </code></pre>
 <div id="the-regression-approach-to-compare-population-means-based-on-independent-samples" class="section level2">
 <h2><span class="header-section-number">28.7</span> The Regression Approach to Compare Population Means based on Independent Samples</h2>
 <p>This approach is equivalent to the ANOVA approach, and thus also (when there are just two samples to compare) to the pooled-variance t test. We run a linear regression model to predict the outcome (here, <code>GMQ</code>) on the basis of the categorical factor with three levels (here, <code>income.cat3</code>)</p>
-<div class="sourceCode" id="cb813"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb813-1" title="1"><span class="kw">summary</span>(<span class="kw">lm</span>(GMQ <span class="op">~</span><span class="st"> </span>income.cat3, <span class="dt">data=</span>nyfs2a))</a></code></pre></div>
+<div class="sourceCode" id="cb812"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb812-1" title="1"><span class="kw">summary</span>(<span class="kw">lm</span>(GMQ <span class="op">~</span><span class="st"> </span>income.cat3, <span class="dt">data=</span>nyfs2a))</a></code></pre></div>
 <pre><code>
 Call:
 lm(formula = GMQ ~ income.cat3, data = nyfs2a)
@@ -1330,9 +1331,9 @@ F-statistic: 0.347 on 2 and 277 DF,  p-value: 0.707</code></pre>
 <li>the point estimate (sample mean difference) for the difference in population mean GMQ level between the “High” and “Low” income subjects is -1.30 (in words, the High income kids have lower GMQ scores than the Low income kids by 1.30 points on average.)</li>
 </ul>
 <p>Of course, we knew all of this already from a summary of the sample means.</p>
-<div class="sourceCode" id="cb815"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb815-1" title="1">nyfs2a <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb815-2" title="2"><span class="st">    </span><span class="kw">group_by</span>(income.cat3) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb815-3" title="3"><span class="st">    </span><span class="kw">summarise</span>(<span class="dt">n =</span> <span class="kw">n</span>(), <span class="kw">mean</span>(GMQ))</a></code></pre></div>
+<div class="sourceCode" id="cb814"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb814-1" title="1">nyfs2a <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb814-2" title="2"><span class="st">    </span><span class="kw">group_by</span>(income.cat3) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb814-3" title="3"><span class="st">    </span><span class="kw">summarise</span>(<span class="dt">n =</span> <span class="kw">n</span>(), <span class="kw">mean</span>(GMQ))</a></code></pre></div>
 <pre><code># A tibble: 3 x 3
   income.cat3            n `mean(GMQ)`
   &lt;fct&gt;              &lt;int&gt;       &lt;dbl&gt;
@@ -1348,7 +1349,7 @@ F-statistic: 0.347 on 2 and 277 DF,  p-value: 0.707</code></pre>
 <div id="the-full-anova-table" class="section level3">
 <h3><span class="header-section-number">28.7.2</span> The Full ANOVA Table</h3>
 <p>To see the full ANOVA table corresponding to any linear regression model, we run…</p>
-<div class="sourceCode" id="cb817"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb817-1" title="1"><span class="kw">anova</span>(<span class="kw">lm</span>(GMQ <span class="op">~</span><span class="st"> </span>income.cat3, <span class="dt">data=</span>nyfs2a))</a></code></pre></div>
+<div class="sourceCode" id="cb816"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb816-1" title="1"><span class="kw">anova</span>(<span class="kw">lm</span>(GMQ <span class="op">~</span><span class="st"> </span>income.cat3, <span class="dt">data=</span>nyfs2a))</a></code></pre></div>
 <pre><code>Analysis of Variance Table
 
 Response: GMQ
@@ -1371,7 +1372,7 @@ Residuals   277  58174   210.0               </code></pre>
 <div id="equivalent-approach-to-get-anova-results" class="section level2">
 <h2><span class="header-section-number">28.8</span> Equivalent approach to get ANOVA Results</h2>
 <p>H<sub>0</sub>: <span class="math inline">\(\mu_{Low} = \mu_{Middle} = \mu_{High}\)</span> vs. H<sub>A</sub>: H<sub>0</sub> not true.</p>
-<div class="sourceCode" id="cb819"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb819-1" title="1"><span class="kw">summary</span>(<span class="kw">aov</span>(GMQ <span class="op">~</span><span class="st"> </span>income.cat3, <span class="dt">data =</span> nyfs2a))</a></code></pre></div>
+<div class="sourceCode" id="cb818"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb818-1" title="1"><span class="kw">summary</span>(<span class="kw">aov</span>(GMQ <span class="op">~</span><span class="st"> </span>income.cat3, <span class="dt">data =</span> nyfs2a))</a></code></pre></div>
 <pre><code>             Df Sum Sq Mean Sq F value Pr(&gt;F)
 income.cat3   2    146    72.8    0.35   0.71
 Residuals   277  58174   210.0               </code></pre>
@@ -1403,7 +1404,7 @@ Residuals   277  58174   210.0               </code></pre>
 <li>This is a conservative (worst case) approach.</li>
 </ul>
 <p>Goal: Simultaneous <em>p</em> values comparing White vs AA, AA vs Other and White vs Other</p>
-<div class="sourceCode" id="cb821"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb821-1" title="1"><span class="kw">pairwise.t.test</span>(nyfs2a<span class="op">$</span>GMQ, nyfs2a<span class="op">$</span>income.cat3, <span class="dt">p.adjust=</span><span class="st">&quot;bonferroni&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb820"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb820-1" title="1"><span class="kw">pairwise.t.test</span>(nyfs2a<span class="op">$</span>GMQ, nyfs2a<span class="op">$</span>income.cat3, <span class="dt">p.adjust=</span><span class="st">&quot;bonferroni&quot;</span>)</a></code></pre></div>
 <pre><code>
     Pairwise comparisons using t tests with pooled SD 
 
@@ -1419,7 +1420,7 @@ P value adjustment method: bonferroni </code></pre>
 <div id="pairwise-comparisons-of-group-means-using-tukeys-honestly-significant-differences" class="section level3">
 <h3><span class="header-section-number">28.9.2</span> Pairwise Comparisons of Group Means using Tukey’s Honestly Significant Differences</h3>
 <p>Goal: Simultaneous (less conservative) confidence intervals and <em>p</em> values for our three pairwise comparisons (High vs. Low, High vs. Middle, Middle vs. Low)</p>
-<div class="sourceCode" id="cb823"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb823-1" title="1"><span class="kw">TukeyHSD</span>(<span class="kw">aov</span>(GMQ <span class="op">~</span><span class="st"> </span>income.cat3, <span class="dt">data =</span> nyfs2a))</a></code></pre></div>
+<div class="sourceCode" id="cb822"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb822-1" title="1"><span class="kw">TukeyHSD</span>(<span class="kw">aov</span>(GMQ <span class="op">~</span><span class="st"> </span>income.cat3, <span class="dt">data =</span> nyfs2a))</a></code></pre></div>
 <pre><code>  Tukey multiple comparisons of means
     95% family-wise confidence level
 
@@ -1433,44 +1434,44 @@ High (65K or more)-Middle (25 - 64K)  0.362 -4.70 5.42 0.985</code></pre>
 </div>
 <div id="plotting-the-tukey-hsd-results" class="section level3">
 <h3><span class="header-section-number">28.9.3</span> Plotting the Tukey HSD results</h3>
-<div class="sourceCode" id="cb825"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb825-1" title="1"><span class="kw">plot</span>(<span class="kw">TukeyHSD</span>(<span class="kw">aov</span>(GMQ <span class="op">~</span><span class="st"> </span>income.cat3, <span class="dt">data =</span> nyfs2a)))</a></code></pre></div>
+<div class="sourceCode" id="cb824"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb824-1" title="1"><span class="kw">plot</span>(<span class="kw">TukeyHSD</span>(<span class="kw">aov</span>(GMQ <span class="op">~</span><span class="st"> </span>income.cat3, <span class="dt">data =</span> nyfs2a)))</a></code></pre></div>
 <p><img src="2019-431-book_files/figure-html/hsd_plot_nyfs2a-1.png" width="672" /></p>
 <p>Note that the default positioning of the y axis in the plot of Tukey HSD results can be problematic. If we have longer names, in particular, for the levels of our factor, R will leave out some of the labels. We can alleviate that problem either by using the <code>fct_recode</code> function in the <code>forcats</code> package to rename the factor levels, or we can use the following code to reconfigure the margins of the plot.</p>
-<div class="sourceCode" id="cb826"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb826-1" title="1">mar.default &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">4</span>,<span class="dv">2</span>) <span class="op">+</span><span class="st"> </span><span class="fl">0.1</span> <span class="co"># save default plotting margins</span></a>
-<a class="sourceLine" id="cb826-2" title="2"></a>
-<a class="sourceLine" id="cb826-3" title="3"><span class="kw">par</span>(<span class="dt">mar =</span> mar.default <span class="op">+</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">12</span>, <span class="dv">0</span>, <span class="dv">0</span>)) </a>
-<a class="sourceLine" id="cb826-4" title="4"><span class="kw">plot</span>(<span class="kw">TukeyHSD</span>(<span class="kw">aov</span>(GMQ <span class="op">~</span><span class="st"> </span>income.cat3, <span class="dt">data =</span> nyfs2a)), <span class="dt">las =</span> <span class="dv">2</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb825"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb825-1" title="1">mar.default &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">4</span>,<span class="dv">2</span>) <span class="op">+</span><span class="st"> </span><span class="fl">0.1</span> <span class="co"># save default plotting margins</span></a>
+<a class="sourceLine" id="cb825-2" title="2"></a>
+<a class="sourceLine" id="cb825-3" title="3"><span class="kw">par</span>(<span class="dt">mar =</span> mar.default <span class="op">+</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">12</span>, <span class="dv">0</span>, <span class="dv">0</span>)) </a>
+<a class="sourceLine" id="cb825-4" title="4"><span class="kw">plot</span>(<span class="kw">TukeyHSD</span>(<span class="kw">aov</span>(GMQ <span class="op">~</span><span class="st"> </span>income.cat3, <span class="dt">data =</span> nyfs2a)), <span class="dt">las =</span> <span class="dv">2</span>)</a></code></pre></div>
 <p><img src="2019-431-book_files/figure-html/revised%20plot%20hsd%20for%20glucose-1.png" width="672" /></p>
-<div class="sourceCode" id="cb827"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb827-1" title="1"><span class="kw">par</span>(<span class="dt">mar =</span> mar.default) <span class="co"># return to normal plotting margins</span></a></code></pre></div>
+<div class="sourceCode" id="cb826"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb826-1" title="1"><span class="kw">par</span>(<span class="dt">mar =</span> mar.default) <span class="co"># return to normal plotting margins</span></a></code></pre></div>
 </div>
 </div>
 <div id="what-if-we-consider-another-outcome-bmi" class="section level2">
 <h2><span class="header-section-number">28.10</span> What if we consider another outcome, BMI?</h2>
 <p>We’ll look at the full data set in <code>nyfs2</code> now, so we can look at BMI as a function of income.</p>
-<div class="sourceCode" id="cb828"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb828-1" title="1">nyfs2<span class="op">$</span>income.cat3 &lt;-<span class="st"> </span></a>
-<a class="sourceLine" id="cb828-2" title="2"><span class="st">    </span>forcats<span class="op">::</span><span class="kw">fct_relevel</span>(nyfs2<span class="op">$</span>income.cat3,</a>
-<a class="sourceLine" id="cb828-3" title="3">                         <span class="st">&quot;Low (below 25K)&quot;</span>,</a>
-<a class="sourceLine" id="cb828-4" title="4">                         <span class="st">&quot;Middle (25 - 64K)&quot;</span>,</a>
-<a class="sourceLine" id="cb828-5" title="5">                         <span class="st">&quot;High (65K or more)&quot;</span>)</a>
-<a class="sourceLine" id="cb828-6" title="6"></a>
-<a class="sourceLine" id="cb828-7" title="7"><span class="kw">ggplot</span>(nyfs2, <span class="kw">aes</span>(<span class="dt">x =</span> bmi, <span class="dt">y =</span> income.cat3, <span class="dt">fill =</span> income.cat3)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb828-8" title="8"><span class="st">    </span>ggridges<span class="op">::</span><span class="kw">geom_density_ridges</span>(<span class="dt">scale =</span> <span class="fl">0.9</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb828-9" title="9"><span class="st">    </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb828-10" title="10"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Body-Mass Index by Income Group&quot;</span>,</a>
-<a class="sourceLine" id="cb828-11" title="11">         <span class="dt">x =</span> <span class="st">&quot;Body-Mass Index&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb828-12" title="12"><span class="st">    </span>ggridges<span class="op">::</span><span class="kw">theme_ridges</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb827"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb827-1" title="1">nyfs2<span class="op">$</span>income.cat3 &lt;-<span class="st"> </span></a>
+<a class="sourceLine" id="cb827-2" title="2"><span class="st">    </span>forcats<span class="op">::</span><span class="kw">fct_relevel</span>(nyfs2<span class="op">$</span>income.cat3,</a>
+<a class="sourceLine" id="cb827-3" title="3">                         <span class="st">&quot;Low (below 25K)&quot;</span>,</a>
+<a class="sourceLine" id="cb827-4" title="4">                         <span class="st">&quot;Middle (25 - 64K)&quot;</span>,</a>
+<a class="sourceLine" id="cb827-5" title="5">                         <span class="st">&quot;High (65K or more)&quot;</span>)</a>
+<a class="sourceLine" id="cb827-6" title="6"></a>
+<a class="sourceLine" id="cb827-7" title="7"><span class="kw">ggplot</span>(nyfs2, <span class="kw">aes</span>(<span class="dt">x =</span> bmi, <span class="dt">y =</span> income.cat3, <span class="dt">fill =</span> income.cat3)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb827-8" title="8"><span class="st">    </span>ggridges<span class="op">::</span><span class="kw">geom_density_ridges</span>(<span class="dt">scale =</span> <span class="fl">0.9</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb827-9" title="9"><span class="st">    </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb827-10" title="10"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Body-Mass Index by Income Group&quot;</span>,</a>
+<a class="sourceLine" id="cb827-11" title="11">         <span class="dt">x =</span> <span class="st">&quot;Body-Mass Index&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb827-12" title="12"><span class="st">    </span>ggridges<span class="op">::</span><span class="kw">theme_ridges</span>()</a></code></pre></div>
 <p><img src="2019-431-book_files/figure-html/unnamed-chunk-217-1.png" width="672" /></p>
-<div class="sourceCode" id="cb829"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb829-1" title="1"><span class="kw">ggplot</span>(nyfs2, <span class="kw">aes</span>(<span class="dt">x =</span> income.cat3, <span class="dt">y =</span> bmi, <span class="dt">fill =</span> income.cat3)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb829-2" title="2"><span class="st">  </span><span class="kw">geom_jitter</span>(<span class="kw">aes</span>(<span class="dt">color =</span> income.cat3), <span class="dt">alpha =</span> <span class="fl">0.5</span>, <span class="dt">width =</span> <span class="fl">0.25</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb829-3" title="3"><span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">notch =</span> <span class="ot">TRUE</span>, <span class="dt">alpha =</span> <span class="fl">0.75</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb829-4" title="4"><span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb829-5" title="5"><span class="st">  </span><span class="kw">coord_flip</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb829-6" title="6"><span class="st">  </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>, <span class="dt">col =</span> <span class="ot">FALSE</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb829-7" title="7"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;BMI for 280 Children in NNYFS&quot;</span>,</a>
-<a class="sourceLine" id="cb829-8" title="8">       <span class="dt">y =</span> <span class="st">&quot;Body-Mass Index&quot;</span>, <span class="dt">x =</span> <span class="st">&quot;Income Category&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb828"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb828-1" title="1"><span class="kw">ggplot</span>(nyfs2, <span class="kw">aes</span>(<span class="dt">x =</span> income.cat3, <span class="dt">y =</span> bmi, <span class="dt">fill =</span> income.cat3)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb828-2" title="2"><span class="st">  </span><span class="kw">geom_jitter</span>(<span class="kw">aes</span>(<span class="dt">color =</span> income.cat3), <span class="dt">alpha =</span> <span class="fl">0.5</span>, <span class="dt">width =</span> <span class="fl">0.25</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb828-3" title="3"><span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">notch =</span> <span class="ot">TRUE</span>, <span class="dt">alpha =</span> <span class="fl">0.75</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb828-4" title="4"><span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb828-5" title="5"><span class="st">  </span><span class="kw">coord_flip</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb828-6" title="6"><span class="st">  </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>, <span class="dt">col =</span> <span class="ot">FALSE</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb828-7" title="7"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;BMI for 280 Children in NNYFS&quot;</span>,</a>
+<a class="sourceLine" id="cb828-8" title="8">       <span class="dt">y =</span> <span class="st">&quot;Body-Mass Index&quot;</span>, <span class="dt">x =</span> <span class="st">&quot;Income Category&quot;</span>)</a></code></pre></div>
 <p><img src="2019-431-book_files/figure-html/unnamed-chunk-218-1.png" width="672" /></p>
 <p>Here are the descriptive numerical summaries:</p>
-<div class="sourceCode" id="cb830"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb830-1" title="1"><span class="kw">by</span>(nyfs2<span class="op">$</span>bmi, nyfs2<span class="op">$</span>income.cat3, mosaic<span class="op">::</span>favstats)</a></code></pre></div>
+<div class="sourceCode" id="cb829"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb829-1" title="1"><span class="kw">by</span>(nyfs2<span class="op">$</span>bmi, nyfs2<span class="op">$</span>income.cat3, mosaic<span class="op">::</span>favstats)</a></code></pre></div>
 <pre><code>nyfs2$income.cat3: Low (below 25K)
   min   Q1 median   Q3  max mean   sd  n missing
  13.8 15.5   16.5 17.9 25.2   17 2.19 98       0
@@ -1483,7 +1484,7 @@ nyfs2$income.cat3: High (65K or more)
   min   Q1 median   Q3  max mean   sd  n missing
  13.8 15.3   15.9 17.2 21.8 16.3 1.61 92       0</code></pre>
 <p>Here is the ANOVA table.</p>
-<div class="sourceCode" id="cb832"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb832-1" title="1"><span class="kw">anova</span>(<span class="kw">lm</span>(bmi <span class="op">~</span><span class="st"> </span>income.cat3, <span class="dt">data =</span> nyfs2))</a></code></pre></div>
+<div class="sourceCode" id="cb831"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb831-1" title="1"><span class="kw">anova</span>(<span class="kw">lm</span>(bmi <span class="op">~</span><span class="st"> </span>income.cat3, <span class="dt">data =</span> nyfs2))</a></code></pre></div>
 <pre><code>Analysis of Variance Table
 
 Response: bmi
@@ -1493,18 +1494,18 @@ Residuals   277   1025     3.7
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
 <p>And we see a statistically significant result at usual <span class="math inline">\(\alpha\)</span> levels. Let’s consider the Tukey HSD results. First, we’ll create a factor with shorter labels.</p>
-<div class="sourceCode" id="cb834"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb834-1" title="1">nyfs2<span class="op">$</span>inc.new &lt;-<span class="st"> </span></a>
-<a class="sourceLine" id="cb834-2" title="2"><span class="st">    </span>forcats<span class="op">::</span><span class="kw">fct_recode</span>(nyfs2<span class="op">$</span>income.cat3,</a>
-<a class="sourceLine" id="cb834-3" title="3">                        <span class="st">&quot;Low&quot;</span> =<span class="st"> &quot;Low (below 25K)&quot;</span>,</a>
-<a class="sourceLine" id="cb834-4" title="4">                        <span class="st">&quot;Middle&quot;</span> =<span class="st"> &quot;Middle (25 - 64K)&quot;</span>,</a>
-<a class="sourceLine" id="cb834-5" title="5">                        <span class="st">&quot;High&quot;</span> =<span class="st"> &quot;High (65K or more)&quot;</span>)</a>
-<a class="sourceLine" id="cb834-6" title="6"></a>
-<a class="sourceLine" id="cb834-7" title="7"><span class="kw">plot</span>(<span class="kw">TukeyHSD</span>(<span class="kw">aov</span>(bmi <span class="op">~</span><span class="st"> </span>inc.new, <span class="dt">data =</span> nyfs2),</a>
-<a class="sourceLine" id="cb834-8" title="8">                  <span class="dt">conf.level =</span> <span class="fl">0.90</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb833"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb833-1" title="1">nyfs2<span class="op">$</span>inc.new &lt;-<span class="st"> </span></a>
+<a class="sourceLine" id="cb833-2" title="2"><span class="st">    </span>forcats<span class="op">::</span><span class="kw">fct_recode</span>(nyfs2<span class="op">$</span>income.cat3,</a>
+<a class="sourceLine" id="cb833-3" title="3">                        <span class="st">&quot;Low&quot;</span> =<span class="st"> &quot;Low (below 25K)&quot;</span>,</a>
+<a class="sourceLine" id="cb833-4" title="4">                        <span class="st">&quot;Middle&quot;</span> =<span class="st"> &quot;Middle (25 - 64K)&quot;</span>,</a>
+<a class="sourceLine" id="cb833-5" title="5">                        <span class="st">&quot;High&quot;</span> =<span class="st"> &quot;High (65K or more)&quot;</span>)</a>
+<a class="sourceLine" id="cb833-6" title="6"></a>
+<a class="sourceLine" id="cb833-7" title="7"><span class="kw">plot</span>(<span class="kw">TukeyHSD</span>(<span class="kw">aov</span>(bmi <span class="op">~</span><span class="st"> </span>inc.new, <span class="dt">data =</span> nyfs2),</a>
+<a class="sourceLine" id="cb833-8" title="8">                  <span class="dt">conf.level =</span> <span class="fl">0.90</span>))</a></code></pre></div>
 <p><img src="2019-431-book_files/figure-html/unnamed-chunk-221-1.png" width="672" /></p>
 <p>It appears that there is a statistically significant difference between the <code>bmi</code> means of the “Low” group and both the “High” and “Middle” group at the 10% significance level, but no significant difference between “Middle” and “High.” Details of those <em>p</em> values and confidence intervals for those pairwise comparisons follow.</p>
-<div class="sourceCode" id="cb835"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb835-1" title="1"><span class="kw">TukeyHSD</span>(<span class="kw">aov</span>(bmi <span class="op">~</span><span class="st"> </span>inc.new, <span class="dt">data =</span> nyfs2),</a>
-<a class="sourceLine" id="cb835-2" title="2">                  <span class="dt">conf.level =</span> <span class="fl">0.90</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb834"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb834-1" title="1"><span class="kw">TukeyHSD</span>(<span class="kw">aov</span>(bmi <span class="op">~</span><span class="st"> </span>inc.new, <span class="dt">data =</span> nyfs2),</a>
+<a class="sourceLine" id="cb834-2" title="2">                  <span class="dt">conf.level =</span> <span class="fl">0.90</span>)</a></code></pre></div>
 <pre><code>  Tukey multiple comparisons of means
     90% family-wise confidence level
 

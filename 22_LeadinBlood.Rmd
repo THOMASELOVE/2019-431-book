@@ -235,8 +235,8 @@ tidy(model2_lead, conf.int = TRUE, conf.level = 0.90) %>%
 
 and again, we have our 90% confidence interval estimate of the population mean difference between exposed and control children.
 
-More approaches to making inferences about paired sample means as well as other summaries of quantitative outcomes will be found in Chapter \@ref(#CI-Paired-Samples).
+More approaches to making inferences about paired sample means as well as other summaries of quantitative outcomes will be found in Chapter \@ref(CI-Paired-Samples).
 
 ## Comparing Proportions in Paired Samples
 
-We discuss some ideas relevant to the comparison of proportions in paired samples in Chapter \@ref(#Paired-Props), in the context of a different example.
+We discuss some ideas relevant to the comparison of proportions in paired samples in Chapter \@ref(Paired-Props), in the context of a different example.

@@ -107,7 +107,7 @@ Rounded to two decimal places, the standard deviation of the serum zinc data tur
 
 ## Inference about a Population Mean from this Sample
 
-The notion of a confidence interval will be important to us, and is explained in further detail in Chapter \@ref(#One-Mean). For now, we'll focus on building a confidence interval for the mean of a population or process.
+The notion of a confidence interval will be important to us, and is explained in further detail in Chapter \@ref(One-Mean). For now, we'll focus on building a confidence interval for the mean of a population or process.
 
 A confidence interval for a population or process mean uses data from a sample (and perhaps some additional information) to identify a range of potential values for the population mean, which, if certain assumptions hold, can be assumed to provide a reasonable estimate for the true population mean. A confidence interval consists of:
 
@@ -136,7 +136,7 @@ This method is identical to estimating a confidence interval for the population 
 tidy(t.test(serzinc$zinc, conf.level = 0.90))
 ```
 
-In Chapter \@ref(#One-Mean), we will discuss the development of this confidence interval, and compare this approach to several alternatives.
+In Chapter \@ref(One-Mean), we will discuss the development of this confidence interval, and compare this approach to several alternatives.
 
 ## Comparison to "Normal" Zinc Levels
 
@@ -160,7 +160,7 @@ serzinc %$% tabyl(zinc > 65 & zinc < 111) %>%
 
 ## Inference about a Population Proportion from this Sample
 
-Previously, we estimated a confidence interval for the *mean* of the population zinc levels. Now, we want to estimate a confidence interval for the *proportion* of the population whose serum zinc levels are in the range of 66 to 110. We'll discuss this further in Chapter \@ref(#One-Proportion), but for now, we'll just provide a little insight.
+Previously, we estimated a confidence interval for the *mean* of the population zinc levels. Now, we want to estimate a confidence interval for the *proportion* of the population whose serum zinc levels are in the range of 66 to 110. We'll discuss this further in Chapter \@ref(One-Proportion), but for now, we'll just provide a little insight.
 
 As before, we want to build both a point estimate for the population proportion, and a confidence interval for the population proportion.
 
@@ -208,6 +208,6 @@ tidy(binom.test(x = 395, n = 462), conf.level = 0.90)
 tidy(prop.test(x = 395, n = 462), conf.level = 0.90)
 ```
 
-In Chapter \@ref(#One-Proportion), we will discuss the development of confidence intervals for population proportions, and develop additional alternatives for building inference about proportions, percentages and rates.
+In Chapter \@ref(One-Proportion), we will discuss the development of confidence intervals for population proportions, and develop additional alternatives for building inference about proportions, percentages and rates.
 
 

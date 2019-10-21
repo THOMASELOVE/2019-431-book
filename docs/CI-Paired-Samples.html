@@ -311,6 +311,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.4" data-path="using-transformations-to-normalize-distributions.html"><a href="using-transformations-to-normalize-distributions.html#can-we-transform-the-protein-data"><i class="fa fa-check"></i><b>9.4</b> Can we transform the <code>protein</code> data?</a><ul>
 <li class="chapter" data-level="9.4.1" data-path="using-transformations-to-normalize-distributions.html"><a href="using-transformations-to-normalize-distributions.html#the-square-root"><i class="fa fa-check"></i><b>9.4.1</b> The Square Root</a></li>
 <li class="chapter" data-level="9.4.2" data-path="using-transformations-to-normalize-distributions.html"><a href="using-transformations-to-normalize-distributions.html#the-logarithm"><i class="fa fa-check"></i><b>9.4.2</b> The Logarithm</a></li>
+<li class="chapter" data-level="9.4.3" data-path="using-transformations-to-normalize-distributions.html"><a href="using-transformations-to-normalize-distributions.html#this-course-uses-natural-logarithms-unless-otherwise-specified"><i class="fa fa-check"></i><b>9.4.3</b> This course uses Natural Logarithms, unless otherwise specified</a></li>
 </ul></li>
 <li class="chapter" data-level="9.5" data-path="using-transformations-to-normalize-distributions.html"><a href="using-transformations-to-normalize-distributions.html#what-if-we-considered-all-9-available-transformations"><i class="fa fa-check"></i><b>9.5</b> What if we considered all 9 available transformations?</a></li>
 <li class="chapter" data-level="9.6" data-path="using-transformations-to-normalize-distributions.html"><a href="using-transformations-to-normalize-distributions.html#a-simulated-data-set"><i class="fa fa-check"></i><b>9.6</b> A Simulated Data Set</a></li>
@@ -1066,7 +1067,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li>Estimation using the t distribution (and assuming at least an approximately Normal distribution for the paired differences)</li>
 <li>Estimation using the bootstrap (which doesn’t require the Normal assumption)</li>
 </ul>
-<p>In addition, we might consider estimating an alternate statistic when the data don’t follow a symmetric distribution, like the median, with the bootstrap. In other settings, a rank-based alternative called the Wilcoxon signed rank test is available to estimate a psuedo-median. All of these approaches mirror what we did with a single sample, back in Chapter @ref(#One-Mean)</p>
+<p>In addition, we might consider estimating an alternate statistic when the data don’t follow a symmetric distribution, like the median, with the bootstrap. In other settings, a rank-based alternative called the Wilcoxon signed rank test is available to estimate a psuedo-median. All of these approaches mirror what we did with a single sample, back in Chapter <a href="One-Mean.html#One-Mean">17</a></p>
 </div>
 <div id="t-based-ci-for-population-mean-of-paired-differences-mu_d." class="section level2">
 <h2><span class="header-section-number">23.2</span> t-based CI for Population Mean of Paired Differences, <span class="math inline">\(\mu_d\)</span>.</h2>
@@ -1218,7 +1219,7 @@ mean of the differences
 </div>
 <div id="method-4" class="section level3">
 <h3><span class="header-section-number">23.2.4</span> Method 4</h3>
-<p>As we saw in Chapter @ref(#Blood-Lead-Study), we can also use an intercept-only linear regression model to estimate the population mean of the paired differences with a two-tailed confidence interval, by creating a variable containing those paired differences.</p>
+<p>As we saw in Chapter <a href="Blood-Lead-Study.html#Blood-Lead-Study">22</a>, we can also use an intercept-only linear regression model to estimate the population mean of the paired differences with a two-tailed confidence interval, by creating a variable containing those paired differences.</p>
 <div class="sourceCode" id="cb654"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb654-1" title="1">model_lead &lt;-<span class="st"> </span><span class="kw">lm</span>(lead_diff <span class="op">~</span><span class="st"> </span><span class="dv">1</span>, <span class="dt">data =</span> bloodlead)</a>
 <a class="sourceLine" id="cb654-2" title="2"></a>
 <a class="sourceLine" id="cb654-3" title="3"><span class="kw">tidy</span>(model_lead, <span class="dt">conf.int =</span> <span class="ot">TRUE</span>, <span class="dt">conf.level =</span> <span class="fl">0.95</span>)</a></code></pre></div>
@@ -1229,7 +1230,7 @@ mean of the differences
 </div>
 <div id="method-5" class="section level3">
 <h3><span class="header-section-number">23.2.5</span> Method 5</h3>
-<p>As we also saw in Chapter @ref(#Blood-Lead-Study), if we have the data in a longer format, with a variable identifying the matched pairs, we can use a different specification for a linear model to obtain the same estimate.</p>
+<p>As we also saw in Chapter <a href="Blood-Lead-Study.html#Blood-Lead-Study">22</a>, if we have the data in a longer format, with a variable identifying the matched pairs, we can use a different specification for a linear model to obtain the same estimate.</p>
 <div class="sourceCode" id="cb656"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb656-1" title="1">model2_lead &lt;-<span class="st"> </span><span class="kw">lm</span>(lead_level <span class="op">~</span><span class="st"> </span>status <span class="op">+</span><span class="st"> </span><span class="kw">factor</span>(pair), <span class="dt">data =</span> bloodlead_longer)</a>
 <a class="sourceLine" id="cb656-2" title="2"></a>
 <a class="sourceLine" id="cb656-3" title="3"><span class="kw">tidy</span>(model2_lead, <span class="dt">conf.int =</span> <span class="ot">TRUE</span>, <span class="dt">conf.level =</span> <span class="fl">0.95</span>) <span class="op">%&gt;%</span></a>
@@ -1370,9 +1371,9 @@ sample estimates:
 <li>Assuming that <span class="math inline">\(H_0\)</span> is true, then <span class="math inline">\(W\)</span> follows a binomial distribution with probability 0.5 on <span class="math inline">\(N\)</span> trials.</li>
 </ul>
 <p>For example, consider our data on blood lead content:</p>
-<div class="sourceCode" id="cb666"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb666-1" title="1">bloodlead<span class="op">$</span>leaddiff</a></code></pre></div>
-<pre><code>Warning: Unknown or uninitialised column: &#39;leaddiff&#39;.</code></pre>
-<pre><code>NULL</code></pre>
+<div class="sourceCode" id="cb666"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb666-1" title="1">bloodlead<span class="op">$</span>lead_diff</a></code></pre></div>
+<pre><code> [1] 22  5 23 -6 18 25 13 47 15 16  6  1  2  7  0  4 -9 -3 36 25  1 16 42
+[24] 30 25 23 32 17  9 -3 60 14 14</code></pre>
 <table>
 <thead>
 <tr class="header">
@@ -1396,8 +1397,8 @@ sample estimates:
 </tbody>
 </table>
 <p>So we have <span class="math inline">\(N\)</span> = 32 pairs, with <span class="math inline">\(W\)</span> = 28 that are positive. We then use the <code>binom.test</code> approach in R:</p>
-<div class="sourceCode" id="cb669"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb669-1" title="1"><span class="kw">binom.test</span>(<span class="dt">x =</span> <span class="dv">28</span>, <span class="dt">n =</span> <span class="dv">32</span>, <span class="dt">p =</span> <span class="fl">0.5</span>, </a>
-<a class="sourceLine" id="cb669-2" title="2">           <span class="dt">alternative =</span> <span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb668"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb668-1" title="1"><span class="kw">binom.test</span>(<span class="dt">x =</span> <span class="dv">28</span>, <span class="dt">n =</span> <span class="dv">32</span>, <span class="dt">p =</span> <span class="fl">0.5</span>, </a>
+<a class="sourceLine" id="cb668-2" title="2">           <span class="dt">alternative =</span> <span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
 <pre><code>
     Exact binomial test
 

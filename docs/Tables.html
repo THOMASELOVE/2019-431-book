@@ -311,6 +311,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.4" data-path="using-transformations-to-normalize-distributions.html"><a href="using-transformations-to-normalize-distributions.html#can-we-transform-the-protein-data"><i class="fa fa-check"></i><b>9.4</b> Can we transform the <code>protein</code> data?</a><ul>
 <li class="chapter" data-level="9.4.1" data-path="using-transformations-to-normalize-distributions.html"><a href="using-transformations-to-normalize-distributions.html#the-square-root"><i class="fa fa-check"></i><b>9.4.1</b> The Square Root</a></li>
 <li class="chapter" data-level="9.4.2" data-path="using-transformations-to-normalize-distributions.html"><a href="using-transformations-to-normalize-distributions.html#the-logarithm"><i class="fa fa-check"></i><b>9.4.2</b> The Logarithm</a></li>
+<li class="chapter" data-level="9.4.3" data-path="using-transformations-to-normalize-distributions.html"><a href="using-transformations-to-normalize-distributions.html#this-course-uses-natural-logarithms-unless-otherwise-specified"><i class="fa fa-check"></i><b>9.4.3</b> This course uses Natural Logarithms, unless otherwise specified</a></li>
 </ul></li>
 <li class="chapter" data-level="9.5" data-path="using-transformations-to-normalize-distributions.html"><a href="using-transformations-to-normalize-distributions.html#what-if-we-considered-all-9-available-transformations"><i class="fa fa-check"></i><b>9.5</b> What if we considered all 9 available transformations?</a></li>
 <li class="chapter" data-level="9.6" data-path="using-transformations-to-normalize-distributions.html"><a href="using-transformations-to-normalize-distributions.html#a-simulated-data-set"><i class="fa fa-check"></i><b>9.6</b> A Simulated Data Set</a></li>
@@ -1056,11 +1057,11 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="getting-the-table-into-r" class="section level3">
 <h3><span class="header-section-number">29.2.1</span> Getting the Table into R</h3>
 <p>To answer this, we’ll have to get the data from this contingency table into a matrix in R. Here’s one approach…</p>
-<div class="sourceCode" id="cb837"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb837-1" title="1">T1 &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">16</span>,<span class="dv">26</span>,<span class="dv">29</span>,<span class="dv">24</span>,<span class="dv">26</span>,<span class="dv">18</span>), <span class="dt">ncol=</span><span class="dv">3</span>, <span class="dt">nrow=</span><span class="dv">2</span>, <span class="dt">byrow=</span><span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb837-2" title="2"><span class="kw">rownames</span>(T1) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Active&quot;</span>, <span class="st">&quot;Placebo&quot;</span>)</a>
-<a class="sourceLine" id="cb837-3" title="3"><span class="kw">colnames</span>(T1) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;None&quot;</span>, <span class="st">&quot;Partial&quot;</span>, <span class="st">&quot;Complete&quot;</span>)</a>
-<a class="sourceLine" id="cb837-4" title="4"></a>
-<a class="sourceLine" id="cb837-5" title="5">T1</a></code></pre></div>
+<div class="sourceCode" id="cb836"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb836-1" title="1">T1 &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">16</span>,<span class="dv">26</span>,<span class="dv">29</span>,<span class="dv">24</span>,<span class="dv">26</span>,<span class="dv">18</span>), <span class="dt">ncol=</span><span class="dv">3</span>, <span class="dt">nrow=</span><span class="dv">2</span>, <span class="dt">byrow=</span><span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb836-2" title="2"><span class="kw">rownames</span>(T1) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Active&quot;</span>, <span class="st">&quot;Placebo&quot;</span>)</a>
+<a class="sourceLine" id="cb836-3" title="3"><span class="kw">colnames</span>(T1) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;None&quot;</span>, <span class="st">&quot;Partial&quot;</span>, <span class="st">&quot;Complete&quot;</span>)</a>
+<a class="sourceLine" id="cb836-4" title="4"></a>
+<a class="sourceLine" id="cb836-5" title="5">T1</a></code></pre></div>
 <pre><code>        None Partial Complete
 Active    16      26       29
 Placebo   24      26       18</code></pre>
@@ -1068,34 +1069,34 @@ Placebo   24      26       18</code></pre>
 <div id="manipulating-the-tables-presentation" class="section level3">
 <h3><span class="header-section-number">29.2.2</span> Manipulating the Table’s presentation</h3>
 <p>We can add margins to the matrix to get a table including row and column totals.</p>
-<div class="sourceCode" id="cb839"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb839-1" title="1"><span class="kw">addmargins</span>(T1)</a></code></pre></div>
+<div class="sourceCode" id="cb838"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb838-1" title="1"><span class="kw">addmargins</span>(T1)</a></code></pre></div>
 <pre><code>        None Partial Complete Sum
 Active    16      26       29  71
 Placebo   24      26       18  68
 Sum       40      52       47 139</code></pre>
 <p>Instead of the counts, we can tabulate the proportion of all patients within each cell.</p>
-<div class="sourceCode" id="cb841"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb841-1" title="1"><span class="kw">prop.table</span>(T1)</a></code></pre></div>
+<div class="sourceCode" id="cb840"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb840-1" title="1"><span class="kw">prop.table</span>(T1)</a></code></pre></div>
 <pre><code>         None Partial Complete
 Active  0.115   0.187    0.209
 Placebo 0.173   0.187    0.129</code></pre>
 <p>Or, we can tabulate the probabilities, rather than the proportions, after some rounding.</p>
-<div class="sourceCode" id="cb843"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb843-1" title="1"><span class="kw">round</span>(<span class="dv">100</span><span class="op">*</span><span class="kw">prop.table</span>(T1),<span class="dv">1</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb842"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb842-1" title="1"><span class="kw">round</span>(<span class="dv">100</span><span class="op">*</span><span class="kw">prop.table</span>(T1),<span class="dv">1</span>)</a></code></pre></div>
 <pre><code>        None Partial Complete
 Active  11.5    18.7     20.9
 Placebo 17.3    18.7     12.9</code></pre>
 <p>R can also plot the percentages conditional on the rows…</p>
-<div class="sourceCode" id="cb845"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb845-1" title="1"><span class="kw">round</span>(<span class="dv">100</span><span class="op">*</span><span class="kw">prop.table</span>(T1,<span class="dv">1</span>),<span class="dv">1</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb844"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb844-1" title="1"><span class="kw">round</span>(<span class="dv">100</span><span class="op">*</span><span class="kw">prop.table</span>(T1,<span class="dv">1</span>),<span class="dv">1</span>)</a></code></pre></div>
 <pre><code>        None Partial Complete
 Active  22.5    36.6     40.8
 Placebo 35.3    38.2     26.5</code></pre>
 <p>The 40.8 in Active/Complete means that of the Active medication patients, 40.8% had a complete response.</p>
 <p>R can also plot the percentages conditional on the columns…</p>
-<div class="sourceCode" id="cb847"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb847-1" title="1"><span class="kw">round</span>(<span class="dv">100</span><span class="op">*</span><span class="kw">prop.table</span>(T1,<span class="dv">2</span>),<span class="dv">1</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb846"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb846-1" title="1"><span class="kw">round</span>(<span class="dv">100</span><span class="op">*</span><span class="kw">prop.table</span>(T1,<span class="dv">2</span>),<span class="dv">1</span>)</a></code></pre></div>
 <pre><code>        None Partial Complete
 Active    40      50     61.7
 Placebo   60      50     38.3</code></pre>
 <p>If we add the row of column totals for these percentages as shown below, it clarifies that the 61.7 in Active/Complete here means that of the patients with a Complete response, 61.7% were on the active medication.</p>
-<div class="sourceCode" id="cb849"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb849-1" title="1"><span class="kw">addmargins</span>(<span class="kw">round</span>(<span class="dv">100</span><span class="op">*</span><span class="kw">prop.table</span>(T1,<span class="dv">2</span>),<span class="dv">1</span>),<span class="dv">1</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb848"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb848-1" title="1"><span class="kw">addmargins</span>(<span class="kw">round</span>(<span class="dv">100</span><span class="op">*</span><span class="kw">prop.table</span>(T1,<span class="dv">2</span>),<span class="dv">1</span>),<span class="dv">1</span>)</a></code></pre></div>
 <pre><code>        None Partial Complete
 Active    40      50     61.7
 Placebo   60      50     38.3
@@ -1105,7 +1106,7 @@ Sum      100     100    100.0</code></pre>
 <div id="getting-the-chi-square-test-results" class="section level2">
 <h2><span class="header-section-number">29.3</span> Getting the Chi-Square Test Results</h2>
 <p>Now, to actually obtain a <em>p</em> value and perform the significance test with H<sub>0</sub>: rows and columns are independent vs. H<sub>A</sub>: rows and columns are associated, we simply run a Pearson chi-square test on T1 …</p>
-<div class="sourceCode" id="cb851"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb851-1" title="1"><span class="kw">chisq.test</span>(T1)</a></code></pre></div>
+<div class="sourceCode" id="cb850"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb850-1" title="1"><span class="kw">chisq.test</span>(T1)</a></code></pre></div>
 <pre><code>
     Pearson&#39;s Chi-squared test
 
@@ -1113,14 +1114,14 @@ data:  T1
 X-squared = 4, df = 2, p-value = 0.1</code></pre>
 <p>Thanks to a p-value of about 0.13 (using the Pearson <span class="math inline">\(\chi^2\)</span> test) our conclusion would be to retain the null hypothesis of independence in this setting.</p>
 <p>We could have run a Fisher’s exact test, too, if we needed it.</p>
-<div class="sourceCode" id="cb853"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb853-1" title="1"><span class="kw">fisher.test</span>(T1)</a></code></pre></div>
+<div class="sourceCode" id="cb852"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb852-1" title="1"><span class="kw">fisher.test</span>(T1)</a></code></pre></div>
 <pre><code>
     Fisher&#39;s Exact Test for Count Data
 
 data:  T1
 p-value = 0.1
 alternative hypothesis: two.sided</code></pre>
-<div class="sourceCode" id="cb855"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb855-1" title="1"><span class="kw">rm</span>(T1)</a></code></pre></div>
+<div class="sourceCode" id="cb854"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb854-1" title="1"><span class="kw">rm</span>(T1)</a></code></pre></div>
 <p>The Fisher exact test <em>p</em> value is also 0.13. Either way, there is insufficient evidence to conclude that there is a (true) difference in the distributions of responses.</p>
 </div>
 <div id="getting-a-2x3-table-into-r-using-a-.csv-file" class="section level2">
@@ -1155,7 +1156,7 @@ alternative hypothesis: two.sided</code></pre>
 Active    16         26       29
 Placebo   24         26       18</code></pre>
 <p>When we pull this .csv file into R, it emerges as a data frame and deliberately NOT as a tibble.</p>
-<div class="sourceCode" id="cb857"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb857-1" title="1">active2x3</a></code></pre></div>
+<div class="sourceCode" id="cb856"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb856-1" title="1">active2x3</a></code></pre></div>
 <pre><code>    Group None Partial Complete
 1  Active   16      26       29
 2 Placebo   24      26       18</code></pre>
@@ -1169,15 +1170,15 @@ Placebo   24         26       18</code></pre>
 <li>Convert the data frame into a matrix.</li>
 </ol>
 <p>Specifically in this case, the steps are:</p>
-<div class="sourceCode" id="cb859"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb859-1" title="1"><span class="kw">rownames</span>(active2x3) &lt;-<span class="st"> </span>active2x3<span class="op">$</span>Group</a>
-<a class="sourceLine" id="cb859-2" title="2">active2x3<span class="op">$</span>Group &lt;-<span class="st"> </span><span class="ot">NULL</span></a>
-<a class="sourceLine" id="cb859-3" title="3">tab2x3 &lt;-<span class="st"> </span><span class="kw">as.matrix</span>(active2x3)</a>
-<a class="sourceLine" id="cb859-4" title="4">tab2x3</a></code></pre></div>
+<div class="sourceCode" id="cb858"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb858-1" title="1"><span class="kw">rownames</span>(active2x3) &lt;-<span class="st"> </span>active2x3<span class="op">$</span>Group</a>
+<a class="sourceLine" id="cb858-2" title="2">active2x3<span class="op">$</span>Group &lt;-<span class="st"> </span><span class="ot">NULL</span></a>
+<a class="sourceLine" id="cb858-3" title="3">tab2x3 &lt;-<span class="st"> </span><span class="kw">as.matrix</span>(active2x3)</a>
+<a class="sourceLine" id="cb858-4" title="4">tab2x3</a></code></pre></div>
 <pre><code>        None Partial Complete
 Active    16      26       29
 Placebo   24      26       18</code></pre>
 <p>And this resulting <code>tab2x3</code> object can be treated as the matrix was previously, using <code>addmargins</code> or <code>chisq.test</code> or <code>prop.table</code> or whatever. For instance,</p>
-<div class="sourceCode" id="cb861"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb861-1" title="1"><span class="kw">fisher.test</span>(tab2x3)</a></code></pre></div>
+<div class="sourceCode" id="cb860"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb860-1" title="1"><span class="kw">fisher.test</span>(tab2x3)</a></code></pre></div>
 <pre><code>
     Fisher&#39;s Exact Test for Count Data
 
@@ -1188,7 +1189,7 @@ alternative hypothesis: two.sided</code></pre>
 <div id="collapsing-levels-categories-in-a-factor" class="section level2">
 <h2><span class="header-section-number">29.6</span> Collapsing Levels / Categories in a Factor</h2>
 <p>Returning to the <code>survey1</code> data, let’s build a table of the relationship between response to the <code>sex</code> and favorite <code>color</code> questions.</p>
-<div class="sourceCode" id="cb863"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb863-1" title="1"><span class="kw">table</span>(survey1<span class="op">$</span>sex, survey1<span class="op">$</span>color)</a></code></pre></div>
+<div class="sourceCode" id="cb862"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb862-1" title="1"><span class="kw">table</span>(survey1<span class="op">$</span>sex, survey1<span class="op">$</span>color)</a></code></pre></div>
 <pre><code>   
     aqua aquamarine black blue brown chartreuse dark blue depends gray
   f    2          0     1   21     0          0         2       0    0
@@ -1201,7 +1202,7 @@ alternative hypothesis: two.sided</code></pre>
     sapphire silver teal violet white yellow
   f        1      1    1      1     3      3
   m        0      0    0      0     2      1</code></pre>
-<div class="sourceCode" id="cb865"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb865-1" title="1"><span class="kw">chisq.test</span>(<span class="kw">table</span>(survey1<span class="op">$</span>sex, survey1<span class="op">$</span>color))</a></code></pre></div>
+<div class="sourceCode" id="cb864"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb864-1" title="1"><span class="kw">chisq.test</span>(<span class="kw">table</span>(survey1<span class="op">$</span>sex, survey1<span class="op">$</span>color))</a></code></pre></div>
 <pre><code>Warning in stats::chisq.test(x, y, ...): Chi-squared approximation may be
 incorrect</code></pre>
 <pre><code>
@@ -1218,24 +1219,24 @@ X-squared = 41, df = 24, p-value = 0.02</code></pre>
 <li>Other - which will include all other colors, including purple and violet</li>
 </ul>
 <p>One way to do this sort of work uses the <code>plyr</code> library in R, and the <code>revalue</code> function in particular. I learned about this in Chapter 15 of Chung’s R Graphics Cookbook, which is invaluable.</p>
-<div class="sourceCode" id="cb868"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb868-1" title="1">survey1<span class="op">$</span>color.new &lt;-<span class="st"> </span><span class="kw">factor</span>(survey1<span class="op">$</span>color)</a>
-<a class="sourceLine" id="cb868-2" title="2"><span class="kw">levels</span>(survey1<span class="op">$</span>color.new)</a></code></pre></div>
+<div class="sourceCode" id="cb867"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb867-1" title="1">survey1<span class="op">$</span>color.new &lt;-<span class="st"> </span><span class="kw">factor</span>(survey1<span class="op">$</span>color)</a>
+<a class="sourceLine" id="cb867-2" title="2"><span class="kw">levels</span>(survey1<span class="op">$</span>color.new)</a></code></pre></div>
 <pre><code> [1] &quot;aqua&quot;       &quot;aquamarine&quot; &quot;black&quot;      &quot;blue&quot;       &quot;brown&quot;     
  [6] &quot;chartreuse&quot; &quot;dark blue&quot;  &quot;depends&quot;    &quot;gray&quot;       &quot;green&quot;     
 [11] &quot;grey&quot;       &quot;light blue&quot; &quot;navy&quot;       &quot;none&quot;       &quot;orange&quot;    
 [16] &quot;pink&quot;       &quot;purple&quot;     &quot;red&quot;        &quot;royal blue&quot; &quot;sapphire&quot;  
 [21] &quot;silver&quot;     &quot;teal&quot;       &quot;violet&quot;     &quot;white&quot;      &quot;yellow&quot;    </code></pre>
-<div class="sourceCode" id="cb870"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb870-1" title="1">survey1<span class="op">$</span>color.new &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">recode</span>(survey1<span class="op">$</span>color.new, </a>
-<a class="sourceLine" id="cb870-2" title="2">    <span class="dt">aqua =</span> <span class="st">&quot;Blue&quot;</span>, <span class="dt">aquamarine=</span><span class="st">&quot;Blue&quot;</span>, <span class="dt">black =</span> <span class="st">&quot;Other&quot;</span>,</a>
-<a class="sourceLine" id="cb870-3" title="3">    <span class="dt">blue =</span> <span class="st">&quot;Blue&quot;</span>, <span class="dt">brown =</span> <span class="st">&quot;Other&quot;</span>, <span class="dt">chartreuse =</span> <span class="st">&quot;Green&quot;</span>, </a>
-<a class="sourceLine" id="cb870-4" title="4">    <span class="st">&#39;dark blue&#39;</span> =<span class="st"> &quot;Blue&quot;</span>, <span class="dt">depends =</span> <span class="st">&quot;Other&quot;</span>, <span class="dt">gray =</span> <span class="st">&quot;Other&quot;</span>,</a>
-<a class="sourceLine" id="cb870-5" title="5">    <span class="dt">green =</span> <span class="st">&quot;Green&quot;</span>, <span class="dt">grey =</span><span class="st">&quot;Other&quot;</span>, <span class="st">&#39;light blue&#39;</span> =<span class="st"> &quot;Blue&quot;</span>,</a>
-<a class="sourceLine" id="cb870-6" title="6">    <span class="dt">navy =</span> <span class="st">&quot;Blue&quot;</span>, <span class="dt">none =</span> <span class="st">&quot;Other&quot;</span>, <span class="dt">orange =</span> <span class="st">&quot;Red&quot;</span>, </a>
-<a class="sourceLine" id="cb870-7" title="7">    <span class="dt">pink =</span> <span class="st">&quot;Red&quot;</span>, <span class="dt">purple =</span> <span class="st">&quot;Other&quot;</span>, <span class="dt">red =</span> <span class="st">&quot;Red&quot;</span>, </a>
-<a class="sourceLine" id="cb870-8" title="8">    <span class="st">&#39;royal blue&#39;</span> =<span class="st"> &quot;Blue&quot;</span>, <span class="dt">sapphire =</span> <span class="st">&quot;Blue&quot;</span>, <span class="dt">silver =</span> <span class="st">&quot;Other&quot;</span>,</a>
-<a class="sourceLine" id="cb870-9" title="9">    <span class="dt">teal =</span> <span class="st">&quot;Blue&quot;</span>, <span class="dt">violet =</span> <span class="st">&quot;Other&quot;</span>, <span class="dt">white =</span> <span class="st">&quot;Other&quot;</span>, <span class="dt">yellow =</span> <span class="st">&quot;Other&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb869"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb869-1" title="1">survey1<span class="op">$</span>color.new &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">recode</span>(survey1<span class="op">$</span>color.new, </a>
+<a class="sourceLine" id="cb869-2" title="2">    <span class="dt">aqua =</span> <span class="st">&quot;Blue&quot;</span>, <span class="dt">aquamarine=</span><span class="st">&quot;Blue&quot;</span>, <span class="dt">black =</span> <span class="st">&quot;Other&quot;</span>,</a>
+<a class="sourceLine" id="cb869-3" title="3">    <span class="dt">blue =</span> <span class="st">&quot;Blue&quot;</span>, <span class="dt">brown =</span> <span class="st">&quot;Other&quot;</span>, <span class="dt">chartreuse =</span> <span class="st">&quot;Green&quot;</span>, </a>
+<a class="sourceLine" id="cb869-4" title="4">    <span class="st">&#39;dark blue&#39;</span> =<span class="st"> &quot;Blue&quot;</span>, <span class="dt">depends =</span> <span class="st">&quot;Other&quot;</span>, <span class="dt">gray =</span> <span class="st">&quot;Other&quot;</span>,</a>
+<a class="sourceLine" id="cb869-5" title="5">    <span class="dt">green =</span> <span class="st">&quot;Green&quot;</span>, <span class="dt">grey =</span><span class="st">&quot;Other&quot;</span>, <span class="st">&#39;light blue&#39;</span> =<span class="st"> &quot;Blue&quot;</span>,</a>
+<a class="sourceLine" id="cb869-6" title="6">    <span class="dt">navy =</span> <span class="st">&quot;Blue&quot;</span>, <span class="dt">none =</span> <span class="st">&quot;Other&quot;</span>, <span class="dt">orange =</span> <span class="st">&quot;Red&quot;</span>, </a>
+<a class="sourceLine" id="cb869-7" title="7">    <span class="dt">pink =</span> <span class="st">&quot;Red&quot;</span>, <span class="dt">purple =</span> <span class="st">&quot;Other&quot;</span>, <span class="dt">red =</span> <span class="st">&quot;Red&quot;</span>, </a>
+<a class="sourceLine" id="cb869-8" title="8">    <span class="st">&#39;royal blue&#39;</span> =<span class="st"> &quot;Blue&quot;</span>, <span class="dt">sapphire =</span> <span class="st">&quot;Blue&quot;</span>, <span class="dt">silver =</span> <span class="st">&quot;Other&quot;</span>,</a>
+<a class="sourceLine" id="cb869-9" title="9">    <span class="dt">teal =</span> <span class="st">&quot;Blue&quot;</span>, <span class="dt">violet =</span> <span class="st">&quot;Other&quot;</span>, <span class="dt">white =</span> <span class="st">&quot;Other&quot;</span>, <span class="dt">yellow =</span> <span class="st">&quot;Other&quot;</span>)</a></code></pre></div>
 <p>So, what I’ve done here is create a new color variable that assigns the original colors into the four categories: Blue, Green, Red and Other that I defined above. Let’s run a sanity check on our recoding, then look at the relationship between sex and this new four-category variable, in a 2x4 table…</p>
-<div class="sourceCode" id="cb871"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb871-1" title="1"><span class="kw">table</span>(survey1<span class="op">$</span>color, survey1<span class="op">$</span>color.new)  <span class="co">## sanity check</span></a></code></pre></div>
+<div class="sourceCode" id="cb870"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb870-1" title="1"><span class="kw">table</span>(survey1<span class="op">$</span>color, survey1<span class="op">$</span>color.new)  <span class="co">## sanity check</span></a></code></pre></div>
 <pre><code>            
              Blue Other Green Red
   aqua          2     0     0   0
@@ -1263,21 +1264,21 @@ X-squared = 41, df = 24, p-value = 0.02</code></pre>
   violet        0     1     0   0
   white         0     5     0   0
   yellow        0     4     0   0</code></pre>
-<div class="sourceCode" id="cb873"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb873-1" title="1"><span class="kw">table</span>(survey1<span class="op">$</span>sex, survey1<span class="op">$</span>color.new)</a></code></pre></div>
+<div class="sourceCode" id="cb872"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb872-1" title="1"><span class="kw">table</span>(survey1<span class="op">$</span>sex, survey1<span class="op">$</span>color.new)</a></code></pre></div>
 <pre><code>   
     Blue Other Green Red
   f   29    21    11   9
   m   44    13    13  12</code></pre>
 <p>To neaten this output up, we might want to have Other show up last in the <code>color.new</code> group.</p>
-<div class="sourceCode" id="cb875"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb875-1" title="1">survey1<span class="op">$</span>color.new2 &lt;-<span class="st"> </span><span class="kw">factor</span>(survey1<span class="op">$</span>color.new, </a>
-<a class="sourceLine" id="cb875-2" title="2">       <span class="dt">levels=</span><span class="kw">c</span>(<span class="st">&quot;Blue&quot;</span>, <span class="st">&quot;Green&quot;</span>, <span class="st">&quot;Red&quot;</span>, <span class="st">&quot;Other&quot;</span>))</a>
-<a class="sourceLine" id="cb875-3" title="3"><span class="kw">table</span>(survey1<span class="op">$</span>sex, survey1<span class="op">$</span>color.new2)</a></code></pre></div>
+<div class="sourceCode" id="cb874"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb874-1" title="1">survey1<span class="op">$</span>color.new2 &lt;-<span class="st"> </span><span class="kw">factor</span>(survey1<span class="op">$</span>color.new, </a>
+<a class="sourceLine" id="cb874-2" title="2">       <span class="dt">levels=</span><span class="kw">c</span>(<span class="st">&quot;Blue&quot;</span>, <span class="st">&quot;Green&quot;</span>, <span class="st">&quot;Red&quot;</span>, <span class="st">&quot;Other&quot;</span>))</a>
+<a class="sourceLine" id="cb874-3" title="3"><span class="kw">table</span>(survey1<span class="op">$</span>sex, survey1<span class="op">$</span>color.new2)</a></code></pre></div>
 <pre><code>   
     Blue Green Red Other
   f   29    11   9    21
   m   44    13  12    13</code></pre>
 <p>Now, we run the new Pearson <span class="math inline">\(\chi^2\)</span> test, and conclude that there is no evidence of statistically significant association (at the 5% significance level) between sex and these collapsed favorite color categories.</p>
-<div class="sourceCode" id="cb877"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb877-1" title="1"><span class="kw">chisq.test</span>(<span class="kw">table</span>(survey1<span class="op">$</span>sex, survey1<span class="op">$</span>color.new2))</a></code></pre></div>
+<div class="sourceCode" id="cb876"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb876-1" title="1"><span class="kw">chisq.test</span>(<span class="kw">table</span>(survey1<span class="op">$</span>sex, survey1<span class="op">$</span>color.new2))</a></code></pre></div>
 <pre><code>
     Pearson&#39;s Chi-squared test
 
@@ -1364,13 +1365,13 @@ X-squared = 5, df = 3, p-value = 0.2</code></pre>
 <li>The null hypothesis is that the rows and columns are independent.</li>
 <li>The alternative hypothesis is that there is an association between the rows and the columns.</li>
 </ul>
-<div class="sourceCode" id="cb879"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb879-1" title="1">z &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">2040</span>,<span class="dv">367</span>,<span class="dv">327</span>,<span class="dv">149</span>,<span class="dv">60</span>,<span class="dv">48</span>,<span class="dv">288</span>,<span class="dv">25</span>,<span class="dv">70</span>,<span class="dv">703</span>,    </a>
-<a class="sourceLine" id="cb879-2" title="2">              <span class="dv">197</span>,<span class="dv">252</span>,<span class="dv">425</span>,<span class="dv">62</span>,<span class="dv">88</span>,<span class="dv">121</span>,<span class="dv">72</span>,<span class="dv">79</span>), <span class="dt">byrow=</span><span class="ot">TRUE</span>, <span class="dt">nrow=</span><span class="dv">6</span>)</a>
-<a class="sourceLine" id="cb879-3" title="3"><span class="kw">rownames</span>(z) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;1955-65&quot;</span>, <span class="st">&quot;1970&quot;</span>, <span class="st">&quot;1970-71&quot;</span>, <span class="st">&quot;1975-77&quot;</span>, <span class="st">&quot;1977-78&quot;</span>,</a>
-<a class="sourceLine" id="cb879-4" title="4">                 <span class="st">&quot;1980&quot;</span>)</a>
-<a class="sourceLine" id="cb879-5" title="5"><span class="kw">colnames</span>(z) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Confirmed&quot;</span>, <span class="st">&quot;Inaccurate&quot;</span>, <span class="st">&quot;Incorrect&quot;</span>)</a>
-<a class="sourceLine" id="cb879-6" title="6"> </a>
-<a class="sourceLine" id="cb879-7" title="7"><span class="kw">addmargins</span>(z)</a></code></pre></div>
+<div class="sourceCode" id="cb878"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb878-1" title="1">z &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">2040</span>,<span class="dv">367</span>,<span class="dv">327</span>,<span class="dv">149</span>,<span class="dv">60</span>,<span class="dv">48</span>,<span class="dv">288</span>,<span class="dv">25</span>,<span class="dv">70</span>,<span class="dv">703</span>,    </a>
+<a class="sourceLine" id="cb878-2" title="2">              <span class="dv">197</span>,<span class="dv">252</span>,<span class="dv">425</span>,<span class="dv">62</span>,<span class="dv">88</span>,<span class="dv">121</span>,<span class="dv">72</span>,<span class="dv">79</span>), <span class="dt">byrow=</span><span class="ot">TRUE</span>, <span class="dt">nrow=</span><span class="dv">6</span>)</a>
+<a class="sourceLine" id="cb878-3" title="3"><span class="kw">rownames</span>(z) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;1955-65&quot;</span>, <span class="st">&quot;1970&quot;</span>, <span class="st">&quot;1970-71&quot;</span>, <span class="st">&quot;1975-77&quot;</span>, <span class="st">&quot;1977-78&quot;</span>,</a>
+<a class="sourceLine" id="cb878-4" title="4">                 <span class="st">&quot;1980&quot;</span>)</a>
+<a class="sourceLine" id="cb878-5" title="5"><span class="kw">colnames</span>(z) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Confirmed&quot;</span>, <span class="st">&quot;Inaccurate&quot;</span>, <span class="st">&quot;Incorrect&quot;</span>)</a>
+<a class="sourceLine" id="cb878-6" title="6"> </a>
+<a class="sourceLine" id="cb878-7" title="7"><span class="kw">addmargins</span>(z)</a></code></pre></div>
 <pre><code>        Confirmed Inaccurate Incorrect  Sum
 1955-65      2040        367       327 2734
 1970          149         60        48  257
@@ -1380,7 +1381,7 @@ X-squared = 5, df = 3, p-value = 0.2</code></pre>
 1980          121         72        79  272
 Sum          3726        783       864 5373</code></pre>
 <p>To see the potential heterogeneity across rows in these data, we should perhaps also look at the proportions of autopsies in each of the three accuracy categories for each study.</p>
-<div class="sourceCode" id="cb881"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb881-1" title="1"><span class="kw">addmargins</span>(<span class="kw">round</span>(<span class="dv">100</span><span class="op">*</span><span class="kw">prop.table</span>(z,<span class="dv">1</span>),<span class="dv">1</span>),<span class="dv">2</span>) </a></code></pre></div>
+<div class="sourceCode" id="cb880"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb880-1" title="1"><span class="kw">addmargins</span>(<span class="kw">round</span>(<span class="dv">100</span><span class="op">*</span><span class="kw">prop.table</span>(z,<span class="dv">1</span>),<span class="dv">1</span>),<span class="dv">2</span>) </a></code></pre></div>
 <pre><code>        Confirmed Inaccurate Incorrect Sum
 1955-65      74.6       13.4      12.0 100
 1970         58.0       23.3      18.7 100
@@ -1389,7 +1390,7 @@ Sum          3726        783       864 5373</code></pre>
 1977-78      73.9       10.8      15.3 100
 1980         44.5       26.5      29.0 100</code></pre>
 <p>In three of the studies, approximately 3/4 of the results were confirmed. In the other three, 45%, 58% and 61% were confirmed. It looks like there’s a fair amount of variation in results across studies. To see if this is true, formally, we run Pearson’s chi-square test of independence, where the null hypothesis is that the rows and columns are independent, and the alternative hypothesis is that there is an association between the rows and the columns.</p>
-<div class="sourceCode" id="cb883"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb883-1" title="1"><span class="kw">chisq.test</span>(z)</a></code></pre></div>
+<div class="sourceCode" id="cb882"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb882-1" title="1"><span class="kw">chisq.test</span>(z)</a></code></pre></div>
 <pre><code>
     Pearson&#39;s Chi-squared test
 

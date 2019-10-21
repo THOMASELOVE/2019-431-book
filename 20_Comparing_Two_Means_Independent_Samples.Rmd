@@ -128,7 +128,7 @@ These questions will help specify the details of the study design involved in an
 
 Questions 7 and 8 don't apply, because these are independent samples of data, rather than paired samples.
 
-To address question 9, we'll need to look at the data in each sample. We'll repeat the boxplot and Normal Q-Q plots from Chapter \@ref(Sepsis-RCT), that allow us to assess the Normality of the distributions of (separately) the `temp_drop` results in the Ibuprofen and Placebo groups.
+To address question 9, we'll need to look at the data in each sample. We'll repeat the boxplot and Normal Q-Q plots from Chapter \@ref(Sepsis_RCT), that allow us to assess the Normality of the distributions of (separately) the `temp_drop` results in the Ibuprofen and Placebo groups.
 
 ```{r}
 ggplot(sepsis, aes(x = treat, y = temp_drop, fill = treat)) +

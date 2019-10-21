@@ -1,4 +1,4 @@
-# The Ibuprofen in Sepsis Trial {#Sepsis-RCT}
+# The Ibuprofen in Sepsis Trial {#Sepsis_RCT}
 
 ## The Ibuprofen in Sepsis Randomized Clinical Trial
 
@@ -138,7 +138,7 @@ tidy(model_sep2, conf.int = TRUE, conf.level = 0.90) %>%
 
 and would therefore conclude that the *Placebo - Ibuprofen* difference was estimated as -0.311, with 90% confidence interval (-0.432, -0.191), which is of course equivalent to our previous estimate.
 
-This is just one possible way for us to estimate the difference between population means. We'll see more in Chapter \@ref(#CI-Indep-Sample-Means).
+This is just one possible way for us to estimate the difference between population means. We'll see more in Chapter \@ref(CI-Indep-Sample-Means).
 
 ## Categorizing the Outcome
 
@@ -173,6 +173,6 @@ sepsis %$% table(treat, dropped) %>% Epi::twoby2(alpha = 0.10)
 
 While there is a lot of additional output here, we'll look for now just at the Probability difference row, where we see the point estimate (0.180) and the 90% confidence interval estimate for the difference in proportions (0.088, 0.268) comparing Ibuprofen vs. Placebo for the outcome of Dropping in Temperature.
 
-More on estimation of the difference in population proportions will be found in Chapter \@ref(#CI-Indep-Sample-Props).
+More on estimation of the difference in population proportions will be found in Chapter \@ref(CI-Indep-Sample-Props).
 
 

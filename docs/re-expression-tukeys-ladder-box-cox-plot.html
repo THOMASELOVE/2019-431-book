@@ -311,6 +311,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.4" data-path="using-transformations-to-normalize-distributions.html"><a href="using-transformations-to-normalize-distributions.html#can-we-transform-the-protein-data"><i class="fa fa-check"></i><b>9.4</b> Can we transform the <code>protein</code> data?</a><ul>
 <li class="chapter" data-level="9.4.1" data-path="using-transformations-to-normalize-distributions.html"><a href="using-transformations-to-normalize-distributions.html#the-square-root"><i class="fa fa-check"></i><b>9.4.1</b> The Square Root</a></li>
 <li class="chapter" data-level="9.4.2" data-path="using-transformations-to-normalize-distributions.html"><a href="using-transformations-to-normalize-distributions.html#the-logarithm"><i class="fa fa-check"></i><b>9.4.2</b> The Logarithm</a></li>
+<li class="chapter" data-level="9.4.3" data-path="using-transformations-to-normalize-distributions.html"><a href="using-transformations-to-normalize-distributions.html#this-course-uses-natural-logarithms-unless-otherwise-specified"><i class="fa fa-check"></i><b>9.4.3</b> This course uses Natural Logarithms, unless otherwise specified</a></li>
 </ul></li>
 <li class="chapter" data-level="9.5" data-path="using-transformations-to-normalize-distributions.html"><a href="using-transformations-to-normalize-distributions.html#what-if-we-considered-all-9-available-transformations"><i class="fa fa-check"></i><b>9.5</b> What if we considered all 9 available transformations?</a></li>
 <li class="chapter" data-level="9.6" data-path="using-transformations-to-normalize-distributions.html"><a href="using-transformations-to-normalize-distributions.html#a-simulated-data-set"><i class="fa fa-check"></i><b>9.6</b> A Simulated Data Set</a></li>
@@ -1072,25 +1073,25 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="a-simulated-example-1" class="section level2">
 <h2><span class="header-section-number">32.3</span> A Simulated Example</h2>
-<div class="sourceCode" id="cb901"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb901-1" title="1"><span class="kw">set.seed</span>(<span class="dv">999</span>); x.rand &lt;-<span class="st"> </span><span class="kw">rbeta</span>(<span class="dv">80</span>, <span class="dv">2</span>, <span class="dv">5</span>) <span class="op">*</span><span class="st"> </span><span class="dv">20</span> <span class="op">+</span><span class="st"> </span><span class="dv">3</span></a>
-<a class="sourceLine" id="cb901-2" title="2"><span class="kw">set.seed</span>(<span class="dv">1000</span>); y.rand &lt;-<span class="st"> </span><span class="kw">abs</span>(<span class="dv">50</span> <span class="op">+</span><span class="st"> </span><span class="fl">0.75</span><span class="op">*</span>x.rand<span class="op">^</span>(<span class="dv">3</span>) <span class="op">-</span><span class="st"> </span><span class="fl">0.65</span><span class="op">*</span>x.rand <span class="op">+</span><span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">80</span>, <span class="dv">0</span>, <span class="dv">200</span>))</a>
-<a class="sourceLine" id="cb901-3" title="3">scatter1 &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">x =</span> x.rand, <span class="dt">y =</span> y.rand) <span class="op">%&gt;%</span><span class="st"> </span>tbl_df</a>
-<a class="sourceLine" id="cb901-4" title="4"><span class="kw">rm</span>(x.rand, y.rand)</a>
-<a class="sourceLine" id="cb901-5" title="5"></a>
-<a class="sourceLine" id="cb901-6" title="6"><span class="kw">ggplot</span>(scatter1, <span class="kw">aes</span>(<span class="dt">x =</span> x, <span class="dt">y =</span> y)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb901-7" title="7"><span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">shape =</span> <span class="dv">1</span>, <span class="dt">size =</span> <span class="dv">3</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb901-8" title="8"><span class="st">    </span><span class="co">## add loess smooth</span></a>
-<a class="sourceLine" id="cb901-9" title="9"><span class="st">    </span><span class="kw">geom_smooth</span>(<span class="dt">se =</span> <span class="ot">FALSE</span>, <span class="dt">col =</span> <span class="st">&quot;dodgerblue&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb901-10" title="10"><span class="st">    </span><span class="co">## then add linear fit</span></a>
-<a class="sourceLine" id="cb901-11" title="11"><span class="st">    </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">se =</span> <span class="ot">FALSE</span>, <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">linetype =</span> <span class="st">&quot;dashed&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb901-12" title="12"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Simulated scatter1 example: Y vs. X&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb900"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb900-1" title="1"><span class="kw">set.seed</span>(<span class="dv">999</span>); x.rand &lt;-<span class="st"> </span><span class="kw">rbeta</span>(<span class="dv">80</span>, <span class="dv">2</span>, <span class="dv">5</span>) <span class="op">*</span><span class="st"> </span><span class="dv">20</span> <span class="op">+</span><span class="st"> </span><span class="dv">3</span></a>
+<a class="sourceLine" id="cb900-2" title="2"><span class="kw">set.seed</span>(<span class="dv">1000</span>); y.rand &lt;-<span class="st"> </span><span class="kw">abs</span>(<span class="dv">50</span> <span class="op">+</span><span class="st"> </span><span class="fl">0.75</span><span class="op">*</span>x.rand<span class="op">^</span>(<span class="dv">3</span>) <span class="op">-</span><span class="st"> </span><span class="fl">0.65</span><span class="op">*</span>x.rand <span class="op">+</span><span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">80</span>, <span class="dv">0</span>, <span class="dv">200</span>))</a>
+<a class="sourceLine" id="cb900-3" title="3">scatter1 &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">x =</span> x.rand, <span class="dt">y =</span> y.rand) <span class="op">%&gt;%</span><span class="st"> </span>tbl_df</a>
+<a class="sourceLine" id="cb900-4" title="4"><span class="kw">rm</span>(x.rand, y.rand)</a>
+<a class="sourceLine" id="cb900-5" title="5"></a>
+<a class="sourceLine" id="cb900-6" title="6"><span class="kw">ggplot</span>(scatter1, <span class="kw">aes</span>(<span class="dt">x =</span> x, <span class="dt">y =</span> y)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb900-7" title="7"><span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">shape =</span> <span class="dv">1</span>, <span class="dt">size =</span> <span class="dv">3</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb900-8" title="8"><span class="st">    </span><span class="co">## add loess smooth</span></a>
+<a class="sourceLine" id="cb900-9" title="9"><span class="st">    </span><span class="kw">geom_smooth</span>(<span class="dt">se =</span> <span class="ot">FALSE</span>, <span class="dt">col =</span> <span class="st">&quot;dodgerblue&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb900-10" title="10"><span class="st">    </span><span class="co">## then add linear fit</span></a>
+<a class="sourceLine" id="cb900-11" title="11"><span class="st">    </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">se =</span> <span class="ot">FALSE</span>, <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">linetype =</span> <span class="st">&quot;dashed&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb900-12" title="12"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Simulated scatter1 example: Y vs. X&quot;</span>)</a></code></pre></div>
 <pre><code>`geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
 <p><img src="2019-431-book_files/figure-html/simul1a-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>Having simulated data that produces a curved scatterplot, I will now use the Box-Cox plot to lead my choice of an appropriate power transformation for Y in order to “linearize” the association of Y and X.</p>
-<div class="sourceCode" id="cb903"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb903-1" title="1"><span class="kw">library</span>(car)</a>
-<a class="sourceLine" id="cb903-2" title="2"><span class="kw">boxCox</span>(scatter1<span class="op">$</span>y <span class="op">~</span><span class="st"> </span>scatter1<span class="op">$</span>x) </a></code></pre></div>
+<div class="sourceCode" id="cb902"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb902-1" title="1"><span class="kw">library</span>(car)</a>
+<a class="sourceLine" id="cb902-2" title="2"><span class="kw">boxCox</span>(scatter1<span class="op">$</span>y <span class="op">~</span><span class="st"> </span>scatter1<span class="op">$</span>x) </a></code></pre></div>
 <p><img src="2019-431-book_files/figure-html/simul1b-1.png" width="672" /></p>
-<div class="sourceCode" id="cb904"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb904-1" title="1"><span class="kw">powerTransform</span>(scatter1<span class="op">$</span>y <span class="op">~</span><span class="st"> </span>scatter1<span class="op">$</span>x)</a></code></pre></div>
+<div class="sourceCode" id="cb903"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb903-1" title="1"><span class="kw">powerTransform</span>(scatter1<span class="op">$</span>y <span class="op">~</span><span class="st"> </span>scatter1<span class="op">$</span>x)</a></code></pre></div>
 <pre><code>Estimated transformation parameter 
    Y1 
 0.437 </code></pre>
@@ -1122,19 +1123,19 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </tbody>
 </table>
 <p>If we use <span class="math inline">\(\lambda\)</span> = 0.5, on Tukey’s ladder of power transformations, it suggests we look at the relationship between the square root of Y and X, as shown next.</p>
-<div class="sourceCode" id="cb906"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb906-1" title="1">p1 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(scatter1, <span class="kw">aes</span>(<span class="dt">x =</span> x, <span class="dt">y =</span> y)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb906-2" title="2"><span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">2</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb906-3" title="3"><span class="st">    </span><span class="kw">geom_smooth</span>(<span class="dt">se =</span> <span class="ot">FALSE</span>, <span class="dt">col =</span> <span class="st">&quot;dodgerblue&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb906-4" title="4"><span class="st">    </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">se =</span> <span class="ot">FALSE</span>, <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">linetype =</span> <span class="st">&quot;dashed&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb906-5" title="5"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;scatter1: Y vs. X&quot;</span>)</a>
-<a class="sourceLine" id="cb906-6" title="6"></a>
-<a class="sourceLine" id="cb906-7" title="7">p2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(scatter1, <span class="kw">aes</span>(<span class="dt">x =</span> x, <span class="dt">y =</span> <span class="kw">sqrt</span>(y))) <span class="op">+</span></a>
-<a class="sourceLine" id="cb906-8" title="8"><span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">2</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb906-9" title="9"><span class="st">    </span><span class="kw">geom_smooth</span>(<span class="dt">se =</span> <span class="ot">FALSE</span>, <span class="dt">col =</span> <span class="st">&quot;dodgerblue&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb906-10" title="10"><span class="st">    </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">se =</span> <span class="ot">FALSE</span>, <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">linetype =</span> <span class="st">&quot;dashed&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb906-11" title="11"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;scatter1: Square Root of Y vs. X&quot;</span>)</a>
-<a class="sourceLine" id="cb906-12" title="12"></a>
-<a class="sourceLine" id="cb906-13" title="13">gridExtra<span class="op">::</span><span class="kw">grid.arrange</span>(p1, p2, <span class="dt">nrow =</span> <span class="dv">1</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb905"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb905-1" title="1">p1 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(scatter1, <span class="kw">aes</span>(<span class="dt">x =</span> x, <span class="dt">y =</span> y)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb905-2" title="2"><span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">2</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb905-3" title="3"><span class="st">    </span><span class="kw">geom_smooth</span>(<span class="dt">se =</span> <span class="ot">FALSE</span>, <span class="dt">col =</span> <span class="st">&quot;dodgerblue&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb905-4" title="4"><span class="st">    </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">se =</span> <span class="ot">FALSE</span>, <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">linetype =</span> <span class="st">&quot;dashed&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb905-5" title="5"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;scatter1: Y vs. X&quot;</span>)</a>
+<a class="sourceLine" id="cb905-6" title="6"></a>
+<a class="sourceLine" id="cb905-7" title="7">p2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(scatter1, <span class="kw">aes</span>(<span class="dt">x =</span> x, <span class="dt">y =</span> <span class="kw">sqrt</span>(y))) <span class="op">+</span></a>
+<a class="sourceLine" id="cb905-8" title="8"><span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">2</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb905-9" title="9"><span class="st">    </span><span class="kw">geom_smooth</span>(<span class="dt">se =</span> <span class="ot">FALSE</span>, <span class="dt">col =</span> <span class="st">&quot;dodgerblue&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb905-10" title="10"><span class="st">    </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">se =</span> <span class="ot">FALSE</span>, <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">linetype =</span> <span class="st">&quot;dashed&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb905-11" title="11"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;scatter1: Square Root of Y vs. X&quot;</span>)</a>
+<a class="sourceLine" id="cb905-12" title="12"></a>
+<a class="sourceLine" id="cb905-13" title="13">gridExtra<span class="op">::</span><span class="kw">grid.arrange</span>(p1, p2, <span class="dt">nrow =</span> <span class="dv">1</span>)</a></code></pre></div>
 <pre><code>`geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;
 `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
 <p><img src="2019-431-book_files/figure-html/simul1c-1.png" width="672" /></p>
@@ -1152,22 +1153,22 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="checking-the-correlation-coefficients" class="section level3">
 <h3><span class="header-section-number">32.4.1</span> Checking the Correlation Coefficients</h3>
 <p>Here, we calculate the correlation of original and re-expressed associations.</p>
-<div class="sourceCode" id="cb908"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb908-1" title="1"><span class="kw">cor</span>(scatter1<span class="op">$</span>y, scatter1<span class="op">$</span>x)</a></code></pre></div>
+<div class="sourceCode" id="cb907"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb907-1" title="1"><span class="kw">cor</span>(scatter1<span class="op">$</span>y, scatter1<span class="op">$</span>x)</a></code></pre></div>
 <pre><code>[1] 0.891</code></pre>
-<div class="sourceCode" id="cb910"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb910-1" title="1"><span class="kw">cor</span>(<span class="kw">sqrt</span>(scatter1<span class="op">$</span>y), scatter1<span class="op">$</span>x)</a></code></pre></div>
+<div class="sourceCode" id="cb909"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb909-1" title="1"><span class="kw">cor</span>(<span class="kw">sqrt</span>(scatter1<span class="op">$</span>y), scatter1<span class="op">$</span>x)</a></code></pre></div>
 <pre><code>[1] 0.914</code></pre>
 <p>The Pearson correlation is a little stronger after the transformation. as we’d expect.</p>
 </div>
 <div id="using-the-testtransform-function" class="section level3">
 <h3><span class="header-section-number">32.4.2</span> Using the <code>testTransform</code> function</h3>
 <p>Here, we use the <code>testTransform</code> function (also from the <code>car</code> package) to compare the optimal choice determined by the powerTransform function (here <span class="math inline">\(\lambda\)</span> = 0.44) to <span class="math inline">\(\lambda\)</span> = 0 (logarithm), 0.5 (square root) and 1 (no transformation).</p>
-<div class="sourceCode" id="cb912"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb912-1" title="1"><span class="kw">testTransform</span>(<span class="kw">powerTransform</span>(scatter1<span class="op">$</span>y <span class="op">~</span><span class="st"> </span>scatter1<span class="op">$</span>x), <span class="dv">0</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb911"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb911-1" title="1"><span class="kw">testTransform</span>(<span class="kw">powerTransform</span>(scatter1<span class="op">$</span>y <span class="op">~</span><span class="st"> </span>scatter1<span class="op">$</span>x), <span class="dv">0</span>)</a></code></pre></div>
 <pre><code>                       LRT df  pval
 LR test, lambda = (0) 46.2  1 1e-11</code></pre>
-<div class="sourceCode" id="cb914"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb914-1" title="1"><span class="kw">testTransform</span>(<span class="kw">powerTransform</span>(scatter1<span class="op">$</span>y <span class="op">~</span><span class="st"> </span>scatter1<span class="op">$</span>x), <span class="fl">0.5</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb913"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb913-1" title="1"><span class="kw">testTransform</span>(<span class="kw">powerTransform</span>(scatter1<span class="op">$</span>y <span class="op">~</span><span class="st"> </span>scatter1<span class="op">$</span>x), <span class="fl">0.5</span>)</a></code></pre></div>
 <pre><code>                         LRT df pval
 LR test, lambda = (0.5) 1.02  1  0.3</code></pre>
-<div class="sourceCode" id="cb916"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb916-1" title="1"><span class="kw">testTransform</span>(<span class="kw">powerTransform</span>(scatter1<span class="op">$</span>y <span class="op">~</span><span class="st"> </span>scatter1<span class="op">$</span>x), <span class="dv">1</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb915"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb915-1" title="1"><span class="kw">testTransform</span>(<span class="kw">powerTransform</span>(scatter1<span class="op">$</span>y <span class="op">~</span><span class="st"> </span>scatter1<span class="op">$</span>x), <span class="dv">1</span>)</a></code></pre></div>
 <pre><code>                       LRT df  pval
 LR test, lambda = (1) 63.8  1 1e-15</code></pre>
 <ul>
@@ -1178,14 +1179,14 @@ LR test, lambda = (1) 63.8  1 1e-15</code></pre>
 <div id="comparing-the-residual-plots" class="section level3">
 <h3><span class="header-section-number">32.4.3</span> Comparing the Residual Plots</h3>
 <p>We can fit the regression models, obtain plots of residuals against fitted values, and compare them to see which one has less indication of a curve in the residuals.</p>
-<div class="sourceCode" id="cb918"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb918-1" title="1">model.orig &lt;-<span class="st"> </span><span class="kw">lm</span>(scatter1<span class="op">$</span>y <span class="op">~</span><span class="st"> </span>scatter1<span class="op">$</span>x)</a>
-<a class="sourceLine" id="cb918-2" title="2">model.sqrt &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="kw">sqrt</span>(scatter1<span class="op">$</span>y) <span class="op">~</span><span class="st"> </span>scatter1<span class="op">$</span>x)</a>
-<a class="sourceLine" id="cb918-3" title="3"></a>
-<a class="sourceLine" id="cb918-4" title="4"><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</a>
-<a class="sourceLine" id="cb918-5" title="5"><span class="kw">plot</span>(model.orig, <span class="dt">which =</span> <span class="dv">1</span>, <span class="dt">caption =</span> <span class="st">&quot;Y vs. X Residual Plot&quot;</span>)</a>
-<a class="sourceLine" id="cb918-6" title="6"><span class="kw">plot</span>(model.sqrt, <span class="dt">which =</span> <span class="dv">1</span>, <span class="dt">caption =</span> <span class="st">&quot;Square Root Y vs. X Residual Plot&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb917"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb917-1" title="1">model.orig &lt;-<span class="st"> </span><span class="kw">lm</span>(scatter1<span class="op">$</span>y <span class="op">~</span><span class="st"> </span>scatter1<span class="op">$</span>x)</a>
+<a class="sourceLine" id="cb917-2" title="2">model.sqrt &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="kw">sqrt</span>(scatter1<span class="op">$</span>y) <span class="op">~</span><span class="st"> </span>scatter1<span class="op">$</span>x)</a>
+<a class="sourceLine" id="cb917-3" title="3"></a>
+<a class="sourceLine" id="cb917-4" title="4"><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</a>
+<a class="sourceLine" id="cb917-5" title="5"><span class="kw">plot</span>(model.orig, <span class="dt">which =</span> <span class="dv">1</span>, <span class="dt">caption =</span> <span class="st">&quot;Y vs. X Residual Plot&quot;</span>)</a>
+<a class="sourceLine" id="cb917-6" title="6"><span class="kw">plot</span>(model.sqrt, <span class="dt">which =</span> <span class="dv">1</span>, <span class="dt">caption =</span> <span class="st">&quot;Square Root Y vs. X Residual Plot&quot;</span>)</a></code></pre></div>
 <p><img src="2019-431-book_files/figure-html/check1c-1.png" width="672" /></p>
-<div class="sourceCode" id="cb919"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb919-1" title="1"><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb918"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb918-1" title="1"><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</a></code></pre></div>
 <p>What we’re looking for in such a plot is the absence of a curve, among other things, we want to see “fuzzy football” shapes. The square root version, on the right, is a modest improvement in this regard over the original plot. It does look a bit less curved, and a bit more like a random cluster of points, so that’s nice.</p>
 
 </div>
