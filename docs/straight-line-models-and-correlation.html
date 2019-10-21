@@ -179,7 +179,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="4" data-path="data-structures-and-types-of-variables.html"><a href="data-structures-and-types-of-variables.html"><i class="fa fa-check"></i><b>4</b> Data Structures and Types of Variables</a><ul>
 <li class="chapter" data-level="4.1" data-path="data-structures-and-types-of-variables.html"><a href="data-structures-and-types-of-variables.html#data-require-structure-and-context"><i class="fa fa-check"></i><b>4.1</b> Data require structure and context</a></li>
-<li class="chapter" data-level="4.2" data-path="data-structures-and-types-of-variables.html"><a href="data-structures-and-types-of-variables.html#createnh_adults"><i class="fa fa-check"></i><b>4.2</b> A New NHANES Adult Sample</a><ul>
+<li class="chapter" data-level="4.2" data-path="data-structures-and-types-of-variables.html"><a href="data-structures-and-types-of-variables.html#newNHANES"><i class="fa fa-check"></i><b>4.2</b> A New NHANES Adult Sample</a><ul>
 <li class="chapter" data-level="4.2.1" data-path="data-structures-and-types-of-variables.html"><a href="data-structures-and-types-of-variables.html#summarizing-the-datas-structure"><i class="fa fa-check"></i><b>4.2.1</b> Summarizing the Data’s Structure</a></li>
 <li class="chapter" data-level="4.2.2" data-path="data-structures-and-types-of-variables.html"><a href="data-structures-and-types-of-variables.html#what-are-the-variables"><i class="fa fa-check"></i><b>4.2.2</b> What are the variables?</a></li>
 </ul></li>
@@ -313,9 +313,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.4.2" data-path="using-transformations-to-normalize-distributions.html"><a href="using-transformations-to-normalize-distributions.html#the-logarithm"><i class="fa fa-check"></i><b>9.4.2</b> The Logarithm</a></li>
 </ul></li>
 <li class="chapter" data-level="9.5" data-path="using-transformations-to-normalize-distributions.html"><a href="using-transformations-to-normalize-distributions.html#what-if-we-considered-all-9-available-transformations"><i class="fa fa-check"></i><b>9.5</b> What if we considered all 9 available transformations?</a></li>
-<li class="chapter" data-level="9.6" data-path="using-transformations-to-normalize-distributions.html"><a href="using-transformations-to-normalize-distributions.html#a-simulated-data-set"><i class="fa fa-check"></i><b>9.6</b> A Simulated Data Set</a><ul>
-<li class="chapter" data-level="9.6.1" data-path="using-transformations-to-normalize-distributions.html"><a href="using-transformations-to-normalize-distributions.html#transformation-example-2-ladder-with-normal-q-q-plots"><i class="fa fa-check"></i><b>9.6.1</b> Transformation Example 2 Ladder with Normal Q-Q Plots</a></li>
-</ul></li>
+<li class="chapter" data-level="9.6" data-path="using-transformations-to-normalize-distributions.html"><a href="using-transformations-to-normalize-distributions.html#a-simulated-data-set"><i class="fa fa-check"></i><b>9.6</b> A Simulated Data Set</a></li>
 <li class="chapter" data-level="9.7" data-path="using-transformations-to-normalize-distributions.html"><a href="using-transformations-to-normalize-distributions.html#what-if-we-considered-all-9-available-transformations-1"><i class="fa fa-check"></i><b>9.7</b> What if we considered all 9 available transformations?</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="summarizing-data-within-subgroups.html"><a href="summarizing-data-within-subgroups.html"><i class="fa fa-check"></i><b>10</b> Summarizing data within subgroups</a><ul>
@@ -1033,7 +1031,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb318-5" title="5"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Protein vs. Fat consumption&quot;</span>,</a>
 <a class="sourceLine" id="cb318-6" title="6">         <span class="dt">subtitle =</span> <span class="st">&quot;Children in the NNYFS data, with fitted straight line regression model&quot;</span>,</a>
 <a class="sourceLine" id="cb318-7" title="7">         <span class="dt">x =</span> <span class="st">&quot;Protein (in g)&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Fat (in g)&quot;</span>)</a></code></pre></div>
-<p><img src="2019-431-book_files/figure-html/unnamed-chunk-74-1.png" width="672" /></p>
+<p><img src="2019-431-book_files/figure-html/unnamed-chunk-75-1.png" width="672" /></p>
 <p>Here, I’ve arbitrarily decided to place <code>fat</code> on the vertical axis, and <code>protein</code> on the horizontal. Fitting a prediction model to this scatterplot will then require that we predict <code>fat</code> on the basis of <code>protein</code>.</p>
 <p>In this case, the pattern appears to be:</p>
 <ol style="list-style-type: decimal">
@@ -1058,7 +1056,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb319-11" title="11"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Protein vs. Fat consumption in NNYFS&quot;</span>,</a>
 <a class="sourceLine" id="cb319-12" title="12">         <span class="dt">subtitle =</span> <span class="st">&quot;with regression line, and an outlier labeled by SEQN&quot;</span>,</a>
 <a class="sourceLine" id="cb319-13" title="13">         <span class="dt">x =</span> <span class="st">&quot;Protein (in g)&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Fat (in g)&quot;</span>)</a></code></pre></div>
-<p><img src="2019-431-book_files/figure-html/unnamed-chunk-75-1.png" width="672" /></p>
+<p><img src="2019-431-book_files/figure-html/unnamed-chunk-76-1.png" width="672" /></p>
 <p>While this subject is hardly the only unusual point in the data set, it is one of the more unusual ones, in terms of its vertical distance from the regression line. We can identify the subject by printing (part of) the tibble we created.</p>
 <div class="sourceCode" id="cb320"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb320-1" title="1">s1 <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(SEQN, sex, race_eth, age_child, protein, fat) <span class="op">%&gt;%</span><span class="st"> </span>knitr<span class="op">::</span><span class="kw">kable</span>()</a></code></pre></div>
 <table>
@@ -1096,7 +1094,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb321-6" title="6"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Protein vs. Fat consumption in NNYFS&quot;</span>,</a>
 <a class="sourceLine" id="cb321-7" title="7">         <span class="dt">subtitle =</span> <span class="st">&quot;with loess smooth (red) and linear fit (blue)&quot;</span>,</a>
 <a class="sourceLine" id="cb321-8" title="8">         <span class="dt">x =</span> <span class="st">&quot;Protein (in g)&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Fat (in g)&quot;</span>)</a></code></pre></div>
-<p><img src="2019-431-book_files/figure-html/unnamed-chunk-77-1.png" width="672" /></p>
+<p><img src="2019-431-book_files/figure-html/unnamed-chunk-78-1.png" width="672" /></p>
 <p>This “loess” smooth curve is fairly close to the straight line fit, indicating that perhaps a linear regression model might fit the data well.</p>
 <p>A <strong>loess smooth</strong> is a method of fitting a local polynomial regression model that R uses as its default smooth for scatterplots with fewer than 1000 observations. Think of the loess as a way of fitting a curve to data by tracking (at point x) the points within a neighborhood of point x, with more emphasis given to points near x. It can be adjusted by tweaking two specific parameters, in particular:</p>
 <ul>
@@ -1124,7 +1122,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb322-18" title="18"></a>
 <a class="sourceLine" id="cb322-19" title="19">p1 <span class="op">+</span><span class="st"> </span>p2 <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb322-20" title="20"><span class="st">    </span><span class="kw">plot_annotation</span>(<span class="dt">title =</span> <span class="st">&quot;Impact of adjusting loess smooth span, in NNYFS data&quot;</span>)</a></code></pre></div>
-<p><img src="2019-431-book_files/figure-html/unnamed-chunk-78-1.png" width="672" /></p>
+<p><img src="2019-431-book_files/figure-html/unnamed-chunk-79-1.png" width="672" /></p>
 <p>By reducing the size of the span, the plot on the right shows a somewhat less “smooth” function than the plot on the left.</p>
 </div>
 <div id="what-line-does-r-fit" class="section level3">
@@ -1217,7 +1215,7 @@ F-statistic: 1.22e+03 on 1 and 1516 DF,  p-value: &lt;2e-16</code></pre>
 <p>Two different correlation measures are worth our immediate attention.</p>
 <ul>
 <li>The one most often used is called the <em>Pearson</em> correlation coefficient, and is symbolized with the letter r or sometimes the Greek letter rho (<span class="math inline">\(\rho\)</span>).</li>
-<li>Another tool is the Spearman rank correlation coefficient, also occasionally symbolized by <span class="math inline">\(\rho\)</span>).</li>
+<li>Another tool is the Spearman rank correlation coefficient, also occasionally symbolized by <span class="math inline">\(\rho\)</span>.</li>
 </ul>
 <p>For the <code>nnyfs</code> data, the Pearson correlation of <code>fat</code> and <code>protein</code> can be found using the <code>cor()</code> function.</p>
 <div class="sourceCode" id="cb328"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb328-1" title="1">nnyfs <span class="op">%$%</span><span class="st"> </span><span class="kw">cor</span>(fat, protein)</a></code></pre></div>
@@ -1365,7 +1363,7 @@ r_{XY} = \frac{1}{n-1} \sum\limits_{i=1}^n (\frac{x_i - \bar{x}}{s_x}) (\frac{y_
 <li>But what if our data looked like Earl? In the Earl data set, x is incredibly helpful in predicting y, but we can’t use a straight line model - instead, we need a non-linear modeling approach.</li>
 <li>You’ll recall that the Fiona data set also had a Pearson correlation of zero. But here, the picture is rather more interesting.</li>
 </ul>
-<p>So, remember, draw the d%$# picture whenever you make use of a summary statistic, like a correlation coefficient, or linear model.</p>
+<p>So, remember, draw the appropriate scatterplot whenever you make use of a correlation coefficient.</p>
 <div class="sourceCode" id="cb341"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb341-1" title="1"><span class="kw">rm</span>(setA, setB, setBC, tab1)</a></code></pre></div>
 </div>
 </div>
@@ -1450,7 +1448,7 @@ r_{XY} = \frac{1}{n-1} \sum\limits_{i=1}^n (\frac{x_i - \bar{x}}{s_x}) (\frac{y_
 <a class="sourceLine" id="cb353-4" title="4">spear4 &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data/spear4.csv&quot;</span>)</a>
 <a class="sourceLine" id="cb353-5" title="5"><span class="co"># used read.csv above because these are just toy examples with</span></a>
 <a class="sourceLine" id="cb353-6" title="6"><span class="co"># two columns per data set and no row numbering</span></a></code></pre></div>
-<p>Example 1 shows a function where the Pearson correlation is 0.925 (a strong but not perfect linear relation), but the Spearman correlation is <code>signif(cor(spear1$x, spear1$y, method = "spearman"),2)</code> because the relationship is monotone, even though it is not perfectly linear.</p>
+<p>Example 1 shows a function where the Pearson correlation is 0.925 (a strong but not perfect linear relation), but the Spearman correlation is 1 because the relationship is monotone, even though it is not perfectly linear.</p>
 <div class="sourceCode" id="cb354"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb354-1" title="1"><span class="kw">ggplot</span>(spear1, <span class="kw">aes</span>(<span class="dt">x =</span> x, <span class="dt">y =</span> y)) <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb354-2" title="2"><span class="st">    </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
 <a class="sourceLine" id="cb354-3" title="3"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Spearman vs. Pearson, Example 1&quot;</span>) <span class="op">+</span></a>

@@ -71,7 +71,7 @@ ggplot(nnyfs, aes(x=energy)) +
                   lwd = 1.5, col = "blue") +
     geom_text(aes(label = paste("Mean", round(res$mean,1), 
                                 ", SD", round(res$sd,1))),
-              x = 35, y = 0.02, 
+              x = 4000, y = 0.0006, 
               color="blue", fontface = "italic") + 
     labs(title = "nnyfs energy values with Normal Density Superimposed", 
          x = "Energy (kcal)", y = "Probability Density Function")
@@ -139,11 +139,18 @@ nnyfs %>% filter(complete.cases(waist)) %>%
 ```{r nnyfs_waist_favstats}
 mosaic::favstats(~ waist, data = nnyfs)
 ```
+
+```{r, echo = FALSE}
+nnyfs_noNA <- nnyfs %>% filter(complete.cases(waist))
+```
                                           
-The mean is `r round(mean(nnyfs$waist),2)` and the standard deviation is `r round(sd(nnyfs$waist),2)` so if the `waist` data really were Normally distributed, we'd expect to see:
-- About 68\% of the data in the range (`r round(mean(nnyfs$waist) - sd(nnyfs$waist),2)`, `r round(mean(nnyfs$waist) + sd(nnyfs$waist),2)`). In fact, `r length(nnyfs$waist[nnyfs$waist > mean(nnyfs$waist) - sd(nnyfs$waist) & nnyfs$waist < mean (nnyfs$waist) + sd(nnyfs$waist)])` of the `r length(nnyfs$waist)` Age values are in this range, or `r round(100*length(nnyfs$waist[nnyfs$waist > mean(nnyfs$waist) - sd(nnyfs$waist) & nnyfs$waist < mean (nnyfs$waist) + sd(nnyfs$waist)])/length(nnyfs$waist),1)`\%.
-- About 95\% of the data in the range (`r round(mean(nnyfs$waist) - 2*sd(nnyfs$waist),2)`, `r round(mean(nnyfs$waist) + 2*sd(nnyfs$waist),2)`). In fact, `r length(nnyfs$waist[nnyfs$waist > mean(nnyfs$waist) - 2*sd(nnyfs$waist) & nnyfs$waist < mean (nnyfs$waist) + 2*sd(nnyfs$waist)])` of the `r length(nnyfs$waist)` Age values are in this range, or `r round(100*length(nnyfs$waist[nnyfs$waist > mean(nnyfs$waist) - 2*sd(nnyfs$waist) & nnyfs$waist < mean (nnyfs$waist) + 2*sd(nnyfs$waist)]) / length(nnyfs$waist),1)`\%.
-- About 99.7\% of the data in the range (`r round(mean(nnyfs$waist) - 3*sd(nnyfs$waist),2)`, `r round(mean(nnyfs$waist) + 3*sd(nnyfs$waist),2)`). In fact, `r length(nnyfs$waist[nnyfs$waist > mean(nnyfs$waist) - 3*sd(nnyfs$waist) & nnyfs$waist < mean (nnyfs$waist) + 3*sd(nnyfs$waist)])` of the `r length(nnyfs$waist)` Age values are in this range, or `r round(100*length(nnyfs$waist[nnyfs$waist > mean(nnyfs$waist) - 3*sd(nnyfs$waist) & nnyfs$waist < mean (nnyfs$waist) + 3*sd(nnyfs$waist)]) / length(nnyfs$waist),1)`\%.
+The mean is `r round(mean(nnyfs_noNA$waist),2)` and the standard deviation is `r round(sd(nnyfs_noNA$waist),2)` so if the `waist` data really were Normally distributed, we'd expect to see:
+
+- About 68\% of the data in the range (`r round(mean(nnyfs_noNA$waist) - sd(nnyfs_noNA$waist),2)`, `r round(mean(nnyfs_noNA$waist) + sd(nnyfs_noNA$waist),2)`). In fact, `r length(nnyfs_noNA$waist[nnyfs_noNA$waist > mean(nnyfs_noNA$waist) - sd(nnyfs_noNA$waist) & nnyfs_noNA$waist < mean (nnyfs_noNA$waist) + sd(nnyfs_noNA$waist)])` of the `r length(nnyfs_noNA$waist)` Age values are in this range, or `r round(100*length(nnyfs_noNA$waist[nnyfs_noNA$waist > mean(nnyfs_noNA$waist) - sd(nnyfs_noNA$waist) & nnyfs_noNA$waist < mean (nnyfs_noNA$waist) + sd(nnyfs_noNA$waist)])/length(nnyfs_noNA$waist),1)`\%.
+
+- About 95\% of the data in the range (`r round(mean(nnyfs_noNA$waist) - 2*sd(nnyfs_noNA$waist),2)`, `r round(mean(nnyfs_noNA$waist) + 2*sd(nnyfs_noNA$waist),2)`). In fact, `r length(nnyfs_noNA$waist[nnyfs_noNA$waist > mean(nnyfs_noNA$waist) - 2*sd(nnyfs_noNA$waist) & nnyfs_noNA$waist < mean (nnyfs_noNA$waist) + 2*sd(nnyfs_noNA$waist)])` of the `r length(nnyfs_noNA$waist)` Age values are in this range, or `r round(100*length(nnyfs_noNA$waist[nnyfs_noNA$waist > mean(nnyfs_noNA$waist) - 2*sd(nnyfs_noNA$waist) & nnyfs_noNA$waist < mean (nnyfs_noNA$waist) + 2*sd(nnyfs_noNA$waist)]) / length(nnyfs_noNA$waist),1)`\%.
+
+- About 99.7\% of the data in the range (`r round(mean(nnyfs_noNA$waist) - 3*sd(nnyfs_noNA$waist),2)`, `r round(mean(nnyfs_noNA$waist) + 3*sd(nnyfs_noNA$waist),2)`). In fact, `r length(nnyfs_noNA$waist[nnyfs_noNA$waist > mean(nnyfs_noNA$waist) - 3*sd(nnyfs_noNA$waist) & nnyfs_noNA$waist < mean (nnyfs_noNA$waist) + 3*sd(nnyfs_noNA$waist)])` of the `r length(nnyfs_noNA$waist)` Age values are in this range, or `r round(100*length(nnyfs_noNA$waist[nnyfs_noNA$waist > mean(nnyfs_noNA$waist) - 3*sd(nnyfs_noNA$waist) & nnyfs_noNA$waist < mean (nnyfs_noNA$waist) + 3*sd(nnyfs_noNA$waist)]) / length(nnyfs_noNA$waist),1)`\%.
                                           
 How does the Normal approximation work for waist circumference, according to the Empirical Rule?
 
@@ -200,8 +207,8 @@ p2 <- ggplot(temp.1, aes(x = d)) +
         col = "blue", size = 1.5) +
     geom_text(aes(label = paste("Mean", round(res$mean,1), 
                                 ", SD", round(res$sd,1))),
-              x = 100, y = 200, 
-              color="darkred", fontface = "italic") + 
+              x = 25, y = 35, 
+              color="blue", fontface = "italic") + 
     labs(x = "Simulated Sample Data", y = "")
 
 gridExtra::grid.arrange(p1, p2, ncol=2, 

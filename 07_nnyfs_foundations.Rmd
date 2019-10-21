@@ -445,7 +445,7 @@ sampleA <- sample_n(nnyfs, 150, replace = FALSE) # draw a sample of 150 unique r
 stem(sampleA$bmi) # build a stem-and-leaf for those 150 sampled BMI values
 ```
 
-We can see that the minimum BMI value in this small sample is `r min(sampleA$bmi)` and the maximum BMI value is `r max(sampleA$bmi)`. 
+We can see that the minimum BMI value in this small sample is `r min(sampleA$bmi, na.rm = TRUE)` and the maximum BMI value is `r max(sampleA$bmi, na.rm = TRUE)`. 
 
 ```{r}
 summary(sampleA$bmi)

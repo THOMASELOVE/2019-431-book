@@ -179,7 +179,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="4" data-path="data-structures-and-types-of-variables.html"><a href="data-structures-and-types-of-variables.html"><i class="fa fa-check"></i><b>4</b> Data Structures and Types of Variables</a><ul>
 <li class="chapter" data-level="4.1" data-path="data-structures-and-types-of-variables.html"><a href="data-structures-and-types-of-variables.html#data-require-structure-and-context"><i class="fa fa-check"></i><b>4.1</b> Data require structure and context</a></li>
-<li class="chapter" data-level="4.2" data-path="data-structures-and-types-of-variables.html"><a href="data-structures-and-types-of-variables.html#createnh_adults"><i class="fa fa-check"></i><b>4.2</b> A New NHANES Adult Sample</a><ul>
+<li class="chapter" data-level="4.2" data-path="data-structures-and-types-of-variables.html"><a href="data-structures-and-types-of-variables.html#newNHANES"><i class="fa fa-check"></i><b>4.2</b> A New NHANES Adult Sample</a><ul>
 <li class="chapter" data-level="4.2.1" data-path="data-structures-and-types-of-variables.html"><a href="data-structures-and-types-of-variables.html#summarizing-the-datas-structure"><i class="fa fa-check"></i><b>4.2.1</b> Summarizing the Data’s Structure</a></li>
 <li class="chapter" data-level="4.2.2" data-path="data-structures-and-types-of-variables.html"><a href="data-structures-and-types-of-variables.html#what-are-the-variables"><i class="fa fa-check"></i><b>4.2.2</b> What are the variables?</a></li>
 </ul></li>
@@ -313,9 +313,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.4.2" data-path="using-transformations-to-normalize-distributions.html"><a href="using-transformations-to-normalize-distributions.html#the-logarithm"><i class="fa fa-check"></i><b>9.4.2</b> The Logarithm</a></li>
 </ul></li>
 <li class="chapter" data-level="9.5" data-path="using-transformations-to-normalize-distributions.html"><a href="using-transformations-to-normalize-distributions.html#what-if-we-considered-all-9-available-transformations"><i class="fa fa-check"></i><b>9.5</b> What if we considered all 9 available transformations?</a></li>
-<li class="chapter" data-level="9.6" data-path="using-transformations-to-normalize-distributions.html"><a href="using-transformations-to-normalize-distributions.html#a-simulated-data-set"><i class="fa fa-check"></i><b>9.6</b> A Simulated Data Set</a><ul>
-<li class="chapter" data-level="9.6.1" data-path="using-transformations-to-normalize-distributions.html"><a href="using-transformations-to-normalize-distributions.html#transformation-example-2-ladder-with-normal-q-q-plots"><i class="fa fa-check"></i><b>9.6.1</b> Transformation Example 2 Ladder with Normal Q-Q Plots</a></li>
-</ul></li>
+<li class="chapter" data-level="9.6" data-path="using-transformations-to-normalize-distributions.html"><a href="using-transformations-to-normalize-distributions.html#a-simulated-data-set"><i class="fa fa-check"></i><b>9.6</b> A Simulated Data Set</a></li>
 <li class="chapter" data-level="9.7" data-path="using-transformations-to-normalize-distributions.html"><a href="using-transformations-to-normalize-distributions.html#what-if-we-considered-all-9-available-transformations-1"><i class="fa fa-check"></i><b>9.7</b> What if we considered all 9 available transformations?</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="summarizing-data-within-subgroups.html"><a href="summarizing-data-within-subgroups.html"><i class="fa fa-check"></i><b>10</b> Summarizing data within subgroups</a><ul>
@@ -1111,7 +1109,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb274-14" title="14">         <span class="dt">y =</span> <span class="st">&quot;Protein Consumption (g)&quot;</span>)</a>
 <a class="sourceLine" id="cb274-15" title="15"></a>
 <a class="sourceLine" id="cb274-16" title="16">gridExtra<span class="op">::</span><span class="kw">grid.arrange</span>(p1, p2, <span class="dt">nrow =</span> <span class="dv">1</span>)</a></code></pre></div>
-<p><img src="2019-431-book_files/figure-html/unnamed-chunk-40-1.png" width="672" /></p>
+<p><img src="2019-431-book_files/figure-html/unnamed-chunk-41-1.png" width="672" /></p>
 <p>The key point here is that we see several signs of meaningful right skew, and we’ll want to consider a transformation that might make a Normal model more plausible.</p>
 <div id="using-cowplotplot_grid-to-compose-plots" class="section level3">
 <h3><span class="header-section-number">9.3.1</span> Using <code>cowplot::plot_grid()</code> to compose plots</h3>
@@ -1132,7 +1130,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb275-14" title="14">         <span class="dt">y =</span> <span class="st">&quot;Protein Consumption (g)&quot;</span>)</a>
 <a class="sourceLine" id="cb275-15" title="15"></a>
 <a class="sourceLine" id="cb275-16" title="16">cowplot<span class="op">::</span><span class="kw">plot_grid</span>(p1, p2, <span class="dt">nrow =</span> <span class="dv">1</span>)</a></code></pre></div>
-<p><img src="2019-431-book_files/figure-html/unnamed-chunk-41-1.png" width="672" /></p>
+<p><img src="2019-431-book_files/figure-html/unnamed-chunk-42-1.png" width="672" /></p>
 <p><code>plot_grid()</code> has some functionality that’s easier to work with than <code>grid.arrange</code> for some people, so you might want to learn more about it. Check out its web site at <a href="https://wilkelab.org/cowplot/" class="uri">https://wilkelab.org/cowplot/</a>.</p>
 </div>
 <div id="using-patchwork-to-compose-plots" class="section level3">
@@ -1178,7 +1176,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb276-38" title="38"></a>
 <a class="sourceLine" id="cb276-39" title="39">p1 <span class="op">+</span><span class="st"> </span>p2 <span class="op">-</span><span class="st"> </span>p3 <span class="op">+</span><span class="st"> </span><span class="kw">plot_layout</span>(<span class="dt">ncol =</span> <span class="dv">1</span>, <span class="dt">height =</span> <span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">1</span>)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb276-40" title="40"><span class="st">    </span><span class="kw">plot_annotation</span>(<span class="dt">title =</span> <span class="st">&quot;NNYFS Protein Consumption&quot;</span>)</a></code></pre></div>
-<p><img src="2019-431-book_files/figure-html/unnamed-chunk-42-1.png" width="672" /></p>
+<p><img src="2019-431-book_files/figure-html/unnamed-chunk-43-1.png" width="672" /></p>
 <p>For more on the <code>patchwork</code> package, check out its repository at <a href="https://github.com/thomasp85/patchwork" class="uri">https://github.com/thomasp85/patchwork</a>.</p>
 </div>
 </div>
@@ -1227,7 +1225,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb277-37" title="37"></a>
 <a class="sourceLine" id="cb277-38" title="38">p1 <span class="op">+</span><span class="st"> </span>p2 <span class="op">-</span><span class="st"> </span>p3 <span class="op">+</span><span class="st"> </span><span class="kw">plot_layout</span>(<span class="dt">ncol =</span> <span class="dv">1</span>, <span class="dt">height =</span> <span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">1</span>)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb277-39" title="39"><span class="st">    </span><span class="kw">plot_annotation</span>(<span class="dt">title =</span> <span class="st">&quot;Square Root of NNYFS Protein Consumption&quot;</span>)</a></code></pre></div>
-<p><img src="2019-431-book_files/figure-html/unnamed-chunk-43-1.png" width="672" /></p>
+<p><img src="2019-431-book_files/figure-html/unnamed-chunk-44-1.png" width="672" /></p>
 <p>That looks like a more symmetric distribution, certainly, although we still have some outliers on the right side of the distribution. Should we take another step down the ladder?</p>
 </div>
 <div id="the-logarithm" class="section level3">
@@ -1272,7 +1270,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb278-37" title="37"></a>
 <a class="sourceLine" id="cb278-38" title="38">p1 <span class="op">+</span><span class="st"> </span>p2 <span class="op">-</span><span class="st"> </span>p3 <span class="op">+</span><span class="st"> </span><span class="kw">plot_layout</span>(<span class="dt">ncol =</span> <span class="dv">1</span>, <span class="dt">height =</span> <span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">1</span>)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb278-39" title="39"><span class="st">    </span><span class="kw">plot_annotation</span>(<span class="dt">title =</span> <span class="st">&quot;Logarithm of NNYFS Protein Consumption&quot;</span>)</a></code></pre></div>
-<p><img src="2019-431-book_files/figure-html/unnamed-chunk-44-1.png" width="672" /></p>
+<p><img src="2019-431-book_files/figure-html/unnamed-chunk-45-1.png" width="672" /></p>
 <p>Now, it looks like we may have gone too far in the other direction. It looks like the square root is a sensible choice to try to improve the fit of a Normal model to the protein consumption data.</p>
 </div>
 </div>
@@ -1351,7 +1349,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb279-71" title="71">p1 <span class="op">+</span><span class="st"> </span>p2 <span class="op">+</span><span class="st"> </span>p3 <span class="op">+</span><span class="st"> </span>p4 <span class="op">+</span><span class="st"> </span>p5 <span class="op">+</span><span class="st"> </span>p6 <span class="op">+</span><span class="st"> </span>p7 <span class="op">+</span><span class="st"> </span>p8 <span class="op">+</span><span class="st"> </span>p9 <span class="op">+</span></a>
 <a class="sourceLine" id="cb279-72" title="72"><span class="st">    </span><span class="kw">plot_layout</span>(<span class="dt">nrow =</span> <span class="dv">3</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb279-73" title="73"><span class="st">    </span><span class="kw">plot_annotation</span>(<span class="dt">title =</span> <span class="st">&quot;Transformations of NNYFS Protein Consumption&quot;</span>)</a></code></pre></div>
-<p><img src="2019-431-book_files/figure-html/unnamed-chunk-45-1.png" width="672" /></p>
+<p><img src="2019-431-book_files/figure-html/unnamed-chunk-46-1.png" width="672" /></p>
 <p>The square root still appears to be the best choice of transformation here, even after we consider all 8 transformation of the raw data.</p>
 </div>
 <div id="a-simulated-data-set" class="section level2">
@@ -1398,7 +1396,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb281-37" title="37"></a>
 <a class="sourceLine" id="cb281-38" title="38">p1 <span class="op">+</span><span class="st"> </span>p2 <span class="op">-</span><span class="st"> </span>p3 <span class="op">+</span><span class="st"> </span><span class="kw">plot_layout</span>(<span class="dt">ncol =</span> <span class="dv">1</span>, <span class="dt">height =</span> <span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">1</span>)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb281-39" title="39"><span class="st">    </span><span class="kw">plot_annotation</span>(<span class="dt">title =</span> <span class="st">&quot;Simulated Data&quot;</span>)</a></code></pre></div>
-<p><img src="2019-431-book_files/figure-html/unnamed-chunk-47-1.png" width="672" /></p>
+<p><img src="2019-431-book_files/figure-html/unnamed-chunk-48-1.png" width="672" /></p>
 <p>Given the left skew in the data, it looks like a step up in the ladder is warranted, perhaps by looking at the square of the data?</p>
 <div class="sourceCode" id="cb282"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb282-1" title="1"><span class="co">## must install patchwork from Github using devtools</span></a>
 <a class="sourceLine" id="cb282-2" title="2"><span class="co">## with devtools::install_github(&quot;thomasp85/patchwork&quot;)</span></a>
@@ -1439,7 +1437,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb282-37" title="37"></a>
 <a class="sourceLine" id="cb282-38" title="38">p1 <span class="op">+</span><span class="st"> </span>p2 <span class="op">-</span><span class="st"> </span>p3 <span class="op">+</span><span class="st"> </span><span class="kw">plot_layout</span>(<span class="dt">ncol =</span> <span class="dv">1</span>, <span class="dt">height =</span> <span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">1</span>)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb282-39" title="39"><span class="st">    </span><span class="kw">plot_annotation</span>(<span class="dt">title =</span> <span class="st">&quot;Squared Simulated Data&quot;</span>)</a></code></pre></div>
-<p><img src="2019-431-book_files/figure-html/unnamed-chunk-48-1.png" width="672" /></p>
+<p><img src="2019-431-book_files/figure-html/unnamed-chunk-49-1.png" width="672" /></p>
 <p>Looks like at best a modest improvement. How about cubing the data, instead?</p>
 <div class="sourceCode" id="cb283"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb283-1" title="1"><span class="co">## must install patchwork from Github using devtools</span></a>
 <a class="sourceLine" id="cb283-2" title="2"><span class="co">## with devtools::install_github(&quot;thomasp85/patchwork&quot;)</span></a>
@@ -1480,11 +1478,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb283-37" title="37"></a>
 <a class="sourceLine" id="cb283-38" title="38">p1 <span class="op">+</span><span class="st"> </span>p2 <span class="op">-</span><span class="st"> </span>p3 <span class="op">+</span><span class="st"> </span><span class="kw">plot_layout</span>(<span class="dt">ncol =</span> <span class="dv">1</span>, <span class="dt">height =</span> <span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">1</span>)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb283-39" title="39"><span class="st">    </span><span class="kw">plot_annotation</span>(<span class="dt">title =</span> <span class="st">&quot;Cubed Simulated Data&quot;</span>)</a></code></pre></div>
-<p><img src="2019-431-book_files/figure-html/unnamed-chunk-49-1.png" width="672" /></p>
+<p><img src="2019-431-book_files/figure-html/unnamed-chunk-50-1.png" width="672" /></p>
 <p>The newly transformed (cube of the) data appears more symmetric, although somewhat light-tailed. Perhaps a Normal model would be more appropriate now, although the standard deviation is likely to overstate the variation we see in the data due to the light tails. Again, I wouldn’t be thrilled using a cube in practical work, as it is so hard to interpret, but it does look like a reasonable choice here.</p>
-<div id="transformation-example-2-ladder-with-normal-q-q-plots" class="section level3">
-<h3><span class="header-section-number">9.6.1</span> Transformation Example 2 Ladder with Normal Q-Q Plots</h3>
-</div>
 </div>
 <div id="what-if-we-considered-all-9-available-transformations-1" class="section level2">
 <h2><span class="header-section-number">9.7</span> What if we considered all 9 available transformations?</h2>
@@ -1550,7 +1545,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb284-60" title="60">p1 <span class="op">+</span><span class="st"> </span>p2 <span class="op">+</span><span class="st"> </span>p3 <span class="op">+</span><span class="st"> </span>p4 <span class="op">+</span><span class="st"> </span>p5 <span class="op">+</span><span class="st"> </span>p6 <span class="op">+</span><span class="st"> </span>p7 <span class="op">+</span><span class="st"> </span>p8 <span class="op">+</span><span class="st"> </span>p9 <span class="op">+</span></a>
 <a class="sourceLine" id="cb284-61" title="61"><span class="st">    </span><span class="kw">plot_layout</span>(<span class="dt">nrow =</span> <span class="dv">3</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb284-62" title="62"><span class="st">    </span><span class="kw">plot_annotation</span>(<span class="dt">title =</span> <span class="st">&quot;Transformations of Simulated Sample&quot;</span>)</a></code></pre></div>
-<p><img src="2019-431-book_files/figure-html/unnamed-chunk-50-1.png" width="672" /></p>
+<p><img src="2019-431-book_files/figure-html/unnamed-chunk-51-1.png" width="672" /></p>
 <p>Again, either the cube or the square looks like best choice here, in terms of creating a more symmetric (albeit light-tailed) distribution.</p>
 <div class="sourceCode" id="cb285"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb285-1" title="1"><span class="kw">rm</span>(p1, p2, p3, p4, p5, p6, p7, p8, p9, res, bin_w, data2)</a></code></pre></div>
 

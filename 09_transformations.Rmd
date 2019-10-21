@@ -460,8 +460,6 @@ p1 + p2 - p3 + plot_layout(ncol = 1, height = c(3, 1)) +
 
 The newly transformed (cube of the) data appears more symmetric, although somewhat light-tailed. Perhaps a Normal model would be more appropriate now, although the standard deviation is likely to overstate the variation we see in the data due to the light tails. Again, I wouldn't be thrilled using a cube in practical work, as it is so hard to interpret, but it does look like a reasonable choice here.
 
-### Transformation Example 2 Ladder with Normal Q-Q Plots
-
 ## What if we considered all 9 available transformations?
 
 ```{r, fig.height = 7}

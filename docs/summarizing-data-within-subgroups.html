@@ -179,7 +179,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="4" data-path="data-structures-and-types-of-variables.html"><a href="data-structures-and-types-of-variables.html"><i class="fa fa-check"></i><b>4</b> Data Structures and Types of Variables</a><ul>
 <li class="chapter" data-level="4.1" data-path="data-structures-and-types-of-variables.html"><a href="data-structures-and-types-of-variables.html#data-require-structure-and-context"><i class="fa fa-check"></i><b>4.1</b> Data require structure and context</a></li>
-<li class="chapter" data-level="4.2" data-path="data-structures-and-types-of-variables.html"><a href="data-structures-and-types-of-variables.html#createnh_adults"><i class="fa fa-check"></i><b>4.2</b> A New NHANES Adult Sample</a><ul>
+<li class="chapter" data-level="4.2" data-path="data-structures-and-types-of-variables.html"><a href="data-structures-and-types-of-variables.html#newNHANES"><i class="fa fa-check"></i><b>4.2</b> A New NHANES Adult Sample</a><ul>
 <li class="chapter" data-level="4.2.1" data-path="data-structures-and-types-of-variables.html"><a href="data-structures-and-types-of-variables.html#summarizing-the-datas-structure"><i class="fa fa-check"></i><b>4.2.1</b> Summarizing the Data’s Structure</a></li>
 <li class="chapter" data-level="4.2.2" data-path="data-structures-and-types-of-variables.html"><a href="data-structures-and-types-of-variables.html#what-are-the-variables"><i class="fa fa-check"></i><b>4.2.2</b> What are the variables?</a></li>
 </ul></li>
@@ -313,9 +313,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.4.2" data-path="using-transformations-to-normalize-distributions.html"><a href="using-transformations-to-normalize-distributions.html#the-logarithm"><i class="fa fa-check"></i><b>9.4.2</b> The Logarithm</a></li>
 </ul></li>
 <li class="chapter" data-level="9.5" data-path="using-transformations-to-normalize-distributions.html"><a href="using-transformations-to-normalize-distributions.html#what-if-we-considered-all-9-available-transformations"><i class="fa fa-check"></i><b>9.5</b> What if we considered all 9 available transformations?</a></li>
-<li class="chapter" data-level="9.6" data-path="using-transformations-to-normalize-distributions.html"><a href="using-transformations-to-normalize-distributions.html#a-simulated-data-set"><i class="fa fa-check"></i><b>9.6</b> A Simulated Data Set</a><ul>
-<li class="chapter" data-level="9.6.1" data-path="using-transformations-to-normalize-distributions.html"><a href="using-transformations-to-normalize-distributions.html#transformation-example-2-ladder-with-normal-q-q-plots"><i class="fa fa-check"></i><b>9.6.1</b> Transformation Example 2 Ladder with Normal Q-Q Plots</a></li>
-</ul></li>
+<li class="chapter" data-level="9.6" data-path="using-transformations-to-normalize-distributions.html"><a href="using-transformations-to-normalize-distributions.html#a-simulated-data-set"><i class="fa fa-check"></i><b>9.6</b> A Simulated Data Set</a></li>
 <li class="chapter" data-level="9.7" data-path="using-transformations-to-normalize-distributions.html"><a href="using-transformations-to-normalize-distributions.html#what-if-we-considered-all-9-available-transformations-1"><i class="fa fa-check"></i><b>9.7</b> What if we considered all 9 available transformations?</a></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="summarizing-data-within-subgroups.html"><a href="summarizing-data-within-subgroups.html"><i class="fa fa-check"></i><b>10</b> Summarizing data within subgroups</a><ul>
@@ -1104,7 +1102,7 @@ This warning is displayed once per session.</code></pre>
 <a class="sourceLine" id="cb291-40" title="40"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Water Comparison&quot;</span>)</a>
 <a class="sourceLine" id="cb291-41" title="41"></a>
 <a class="sourceLine" id="cb291-42" title="42">p1 <span class="op">+</span><span class="st"> </span>p2 <span class="op">+</span><span class="st"> </span>p3 <span class="op">+</span><span class="st"> </span>p4</a></code></pre></div>
-<p><img src="2019-431-book_files/figure-html/unnamed-chunk-54-1.png" width="672" /></p>
+<p><img src="2019-431-book_files/figure-html/unnamed-chunk-55-1.png" width="672" /></p>
 <p>We can see that there is considerable overlap in these distributions, regardless of what we’re measuring.</p>
 </div>
 <div id="another-example" class="section level2">
@@ -1156,7 +1154,7 @@ This warning is displayed once per session.</code></pre>
 <a class="sourceLine" id="cb298-7" title="7"><span class="st">    </span><span class="kw">scale_fill_viridis_d</span>() <span class="op">+</span></a>
 <a class="sourceLine" id="cb298-8" title="8"><span class="st">    </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb298-9" title="9"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Waist Circumference by BMI Category&quot;</span>)</a></code></pre></div>
-<p><img src="2019-431-book_files/figure-html/unnamed-chunk-58-1.png" width="672" /></p>
+<p><img src="2019-431-book_files/figure-html/unnamed-chunk-59-1.png" width="672" /></p>
 <p>The data transformation with dplyr cheat sheet found under the Help menu in RStudio is a great resource. And, of course, for more details, visit <span class="citation">Grolemund and Wickham (<a href="#ref-R4DS">2019</a>)</span>.</p>
 </div>
 <div id="boxplots-to-relate-an-outcome-to-a-categorical-predictor" class="section level2">
@@ -1168,7 +1166,7 @@ This warning is displayed once per session.</code></pre>
 <a class="sourceLine" id="cb299-4" title="4"><span class="st">    </span><span class="kw">scale_fill_viridis_d</span>() <span class="op">+</span></a>
 <a class="sourceLine" id="cb299-5" title="5"><span class="st">    </span><span class="kw">theme_light</span>()</a></code></pre></div>
 <pre><code>Warning: Removed 21 rows containing non-finite values (stat_boxplot).</code></pre>
-<p><img src="2019-431-book_files/figure-html/unnamed-chunk-59-1.png" width="672" /></p>
+<p><img src="2019-431-book_files/figure-html/unnamed-chunk-60-1.png" width="672" /></p>
 <p>Again, we probably want to omit those missing values (both in <code>bmi_cat</code> and <code>triceps_skinfold</code>) and also eliminate the repetitive legend (guides) on the right.</p>
 <div class="sourceCode" id="cb301"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb301-1" title="1">nnyfs <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb301-2" title="2"><span class="st">    </span><span class="kw">filter</span>(<span class="kw">complete.cases</span>(bmi_cat, triceps_skinfold)) <span class="op">%&gt;%</span></a>
@@ -1181,7 +1179,7 @@ This warning is displayed once per session.</code></pre>
 <a class="sourceLine" id="cb301-9" title="9"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;BMI Category&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Triceps Skinfold in mm&quot;</span>,</a>
 <a class="sourceLine" id="cb301-10" title="10">         <span class="dt">title =</span> <span class="st">&quot;Triceps Skinfold increases with BMI category&quot;</span>,</a>
 <a class="sourceLine" id="cb301-11" title="11">         <span class="dt">subtitle =</span> <span class="st">&quot;NNYFS children&quot;</span>)</a></code></pre></div>
-<p><img src="2019-431-book_files/figure-html/unnamed-chunk-60-1.png" width="672" /></p>
+<p><img src="2019-431-book_files/figure-html/unnamed-chunk-61-1.png" width="672" /></p>
 <p>As always, the boxplot shows the five-number summary (minimum, 25th percentile, median, 75th percentile and maximum) in addition to highlighting candidate outliers.</p>
 <div id="augmenting-the-boxplot-with-the-sample-mean" class="section level3">
 <h3><span class="header-section-number">10.3.1</span> Augmenting the Boxplot with the Sample Mean</h3>
@@ -1199,11 +1197,11 @@ This warning is displayed once per session.</code></pre>
 <a class="sourceLine" id="cb302-11" title="11"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;BMI Category&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Triceps Skinfold in mm&quot;</span>,</a>
 <a class="sourceLine" id="cb302-12" title="12">         <span class="dt">title =</span> <span class="st">&quot;Triceps Skinfold increases with BMI category&quot;</span>,</a>
 <a class="sourceLine" id="cb302-13" title="13">         <span class="dt">subtitle =</span> <span class="st">&quot;NNYFS children&quot;</span>)</a></code></pre></div>
-<p><img src="2019-431-book_files/figure-html/unnamed-chunk-61-1.png" width="672" /></p>
+<p><img src="2019-431-book_files/figure-html/unnamed-chunk-62-1.png" width="672" /></p>
 </div>
 <div id="adding-notches-to-a-boxplot" class="section level3">
 <h3><span class="header-section-number">10.3.2</span> Adding Notches to a Boxplot</h3>
-<p><strong>Notches</strong> are used in boxplots to help visually assess whether the medians of the distributions across the various groups actually differ to a statistically detectable extent Think of them as confidence regions around the medians. If the notches do not overlap, as in this situation, this provides some evidence that the medians in the populations represented by these samples may be different.</p>
+<p><strong>Notches</strong> are used in boxplots to help visually assess whether the medians of the distributions across the various groups actually differ to a statistically detectable extent. Think of them as confidence regions around the medians. If the notches do not overlap, as in this situation, this provides some evidence that the medians in the populations represented by these samples may be different.</p>
 <div class="sourceCode" id="cb303"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb303-1" title="1">nnyfs <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb303-2" title="2"><span class="st">    </span><span class="kw">filter</span>(<span class="kw">complete.cases</span>(bmi_cat, triceps_skinfold)) <span class="op">%&gt;%</span></a>
 <a class="sourceLine" id="cb303-3" title="3"><span class="st">    </span><span class="kw">ggplot</span>(., <span class="kw">aes</span>(<span class="dt">x =</span> bmi_cat, <span class="dt">y =</span> triceps_skinfold,</a>
@@ -1215,7 +1213,7 @@ This warning is displayed once per session.</code></pre>
 <a class="sourceLine" id="cb303-9" title="9"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;BMI Category&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Triceps Skinfold in mm&quot;</span>,</a>
 <a class="sourceLine" id="cb303-10" title="10">         <span class="dt">title =</span> <span class="st">&quot;Triceps Skinfold increases with BMI category&quot;</span>,</a>
 <a class="sourceLine" id="cb303-11" title="11">         <span class="dt">subtitle =</span> <span class="st">&quot;NNYFS children&quot;</span>)</a></code></pre></div>
-<p><img src="2019-431-book_files/figure-html/unnamed-chunk-62-1.png" width="672" /></p>
+<p><img src="2019-431-book_files/figure-html/unnamed-chunk-63-1.png" width="672" /></p>
 <p>There is no overlap between the notches for each of the four categories, so we might reasonably conclude that the true median triceps skinfold values across the four categories are statistically significantly different.</p>
 <p>For an example where the notches do overlap, consider the comparison of plank times by BMI category.</p>
 <div class="sourceCode" id="cb304"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb304-1" title="1">nnyfs <span class="op">%&gt;%</span><span class="st"> </span></a>
@@ -1227,7 +1225,7 @@ This warning is displayed once per session.</code></pre>
 <a class="sourceLine" id="cb304-7" title="7"><span class="st">    </span><span class="kw">theme_light</span>() <span class="op">+</span></a>
 <a class="sourceLine" id="cb304-8" title="8"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Plank Times by BMI category&quot;</span>, </a>
 <a class="sourceLine" id="cb304-9" title="9">         <span class="dt">x =</span> <span class="st">&quot;&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Plank Time (in seconds)&quot;</span>)</a></code></pre></div>
-<p><img src="2019-431-book_files/figure-html/unnamed-chunk-63-1.png" width="672" /></p>
+<p><img src="2019-431-book_files/figure-html/unnamed-chunk-64-1.png" width="672" /></p>
 <p>The overlap in the notches (for instance between Underweight and Normal) suggests that the median plank times in the population of interest don’t necessarily differ in a meaningful way by BMI category, other than perhaps the Obese group which may have a shorter time.</p>
 <p>These data are somewhat right skewed. Would a logarithmic transformation in the plot help us see the patterns more clearly?</p>
 <div class="sourceCode" id="cb305"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb305-1" title="1">nnyfs <span class="op">%&gt;%</span><span class="st"> </span></a>
@@ -1239,7 +1237,7 @@ This warning is displayed once per session.</code></pre>
 <a class="sourceLine" id="cb305-7" title="7"><span class="st">    </span><span class="kw">theme_light</span>() <span class="op">+</span></a>
 <a class="sourceLine" id="cb305-8" title="8"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;log(Plank Times) by BMI category&quot;</span>, </a>
 <a class="sourceLine" id="cb305-9" title="9">         <span class="dt">x =</span> <span class="st">&quot;&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Natural Log of Plank Time&quot;</span>)</a></code></pre></div>
-<p><img src="2019-431-book_files/figure-html/unnamed-chunk-64-1.png" width="672" /></p>
+<p><img src="2019-431-book_files/figure-html/unnamed-chunk-65-1.png" width="672" /></p>
 </div>
 </div>
 <div id="using-multiple-histograms-to-make-comparisons" class="section level2">
@@ -1253,7 +1251,7 @@ This warning is displayed once per session.</code></pre>
 <a class="sourceLine" id="cb306-6" title="6"><span class="st">    </span><span class="kw">scale_fill_viridis_d</span>() <span class="op">+</span></a>
 <a class="sourceLine" id="cb306-7" title="7"><span class="st">    </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="st">&quot;none&quot;</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb306-8" title="8"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Triceps Skinfold by BMI Category&quot;</span>)</a></code></pre></div>
-<p><img src="2019-431-book_files/figure-html/unnamed-chunk-65-1.png" width="672" /></p>
+<p><img src="2019-431-book_files/figure-html/unnamed-chunk-66-1.png" width="672" /></p>
 </div>
 <div id="using-multiple-density-plots-to-make-comparisons" class="section level2">
 <h2><span class="header-section-number">10.5</span> Using Multiple Density Plots to Make Comparisons</h2>
@@ -1266,7 +1264,7 @@ This warning is displayed once per session.</code></pre>
 <a class="sourceLine" id="cb307-6" title="6"><span class="st">    </span><span class="kw">scale_fill_viridis_d</span>() <span class="op">+</span></a>
 <a class="sourceLine" id="cb307-7" title="7"><span class="st">    </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="st">&quot;none&quot;</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb307-8" title="8"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Triceps Skinfold by BMI Category&quot;</span>)</a></code></pre></div>
-<p><img src="2019-431-book_files/figure-html/unnamed-chunk-66-1.png" width="672" /></p>
+<p><img src="2019-431-book_files/figure-html/unnamed-chunk-67-1.png" width="672" /></p>
 <p>Or, we can plot all of the densities on top of each other with semi-transparent fills.</p>
 <div class="sourceCode" id="cb308"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb308-1" title="1">nnyfs <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb308-2" title="2"><span class="st">    </span><span class="kw">filter</span>(<span class="kw">complete.cases</span>(triceps_skinfold, bmi_cat)) <span class="op">%&gt;%</span></a>
@@ -1274,14 +1272,14 @@ This warning is displayed once per session.</code></pre>
 <a class="sourceLine" id="cb308-4" title="4"><span class="st">    </span><span class="kw">geom_density</span>(<span class="dt">alpha=</span><span class="fl">0.3</span>) <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb308-5" title="5"><span class="st">    </span><span class="kw">scale_fill_viridis_d</span>() <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb308-6" title="6"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Triceps Skinfold by BMI Category&quot;</span>)</a></code></pre></div>
-<p><img src="2019-431-book_files/figure-html/unnamed-chunk-67-1.png" width="672" /></p>
+<p><img src="2019-431-book_files/figure-html/unnamed-chunk-68-1.png" width="672" /></p>
 <p>This really works better when we are comparing only two groups, like females to males.</p>
 <div class="sourceCode" id="cb309"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb309-1" title="1">nnyfs <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb309-2" title="2"><span class="st">    </span><span class="kw">filter</span>(<span class="kw">complete.cases</span>(triceps_skinfold, sex)) <span class="op">%&gt;%</span></a>
 <a class="sourceLine" id="cb309-3" title="3"><span class="st">    </span><span class="kw">ggplot</span>(., <span class="kw">aes</span>(<span class="dt">x=</span>triceps_skinfold, <span class="dt">fill =</span> sex)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb309-4" title="4"><span class="st">    </span><span class="kw">geom_density</span>(<span class="dt">alpha=</span><span class="fl">0.5</span>) <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb309-5" title="5"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Triceps Skinfold by Sex&quot;</span>)</a></code></pre></div>
-<p><img src="2019-431-book_files/figure-html/unnamed-chunk-68-1.png" width="672" /></p>
+<p><img src="2019-431-book_files/figure-html/unnamed-chunk-69-1.png" width="672" /></p>
 </div>
 <div id="building-a-violin-plot" class="section level2">
 <h2><span class="header-section-number">10.6</span> Building a Violin Plot</h2>
@@ -1294,7 +1292,7 @@ This warning is displayed once per session.</code></pre>
 <a class="sourceLine" id="cb310-6" title="6"><span class="st">    </span><span class="kw">scale_fill_viridis_d</span>() <span class="op">+</span></a>
 <a class="sourceLine" id="cb310-7" title="7"><span class="st">    </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="st">&quot;none&quot;</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb310-8" title="8"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Triceps Skinfold by BMI Category&quot;</span>)</a></code></pre></div>
-<p><img src="2019-431-book_files/figure-html/unnamed-chunk-69-1.png" width="672" /></p>
+<p><img src="2019-431-book_files/figure-html/unnamed-chunk-70-1.png" width="672" /></p>
 <p>Traditionally, these plots are shown with overlaid boxplots and a white dot at the median, like this example, now looking at waist circumference again.</p>
 <div class="sourceCode" id="cb311"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb311-1" title="1">nnyfs <span class="op">%&gt;%</span></a>
 <a class="sourceLine" id="cb311-2" title="2"><span class="st">    </span><span class="kw">filter</span>(<span class="kw">complete.cases</span>(waist, bmi_cat)) <span class="op">%&gt;%</span></a>
@@ -1308,7 +1306,7 @@ This warning is displayed once per session.</code></pre>
 <a class="sourceLine" id="cb311-10" title="10"><span class="st">    </span><span class="kw">scale_fill_viridis_d</span>() <span class="op">+</span></a>
 <a class="sourceLine" id="cb311-11" title="11"><span class="st">    </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="st">&quot;none&quot;</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb311-12" title="12"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Waist Circumference by BMI Category&quot;</span>)</a></code></pre></div>
-<p><img src="2019-431-book_files/figure-html/unnamed-chunk-70-1.png" width="672" /></p>
+<p><img src="2019-431-book_files/figure-html/unnamed-chunk-71-1.png" width="672" /></p>
 </div>
 <div id="a-ridgeline-plot" class="section level2">
 <h2><span class="header-section-number">10.7</span> A Ridgeline Plot</h2>
@@ -1321,7 +1319,7 @@ This warning is displayed once per session.</code></pre>
 <a class="sourceLine" id="cb312-6" title="6"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Ridgeline Plot of Waist Circumference by BMI category (nnyfs)&quot;</span>,</a>
 <a class="sourceLine" id="cb312-7" title="7">         <span class="dt">x =</span> <span class="st">&quot;Waist Circumference&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;BMI Category&quot;</span>)</a></code></pre></div>
 <pre><code>Picking joint bandwidth of 3.47</code></pre>
-<p><img src="2019-431-book_files/figure-html/unnamed-chunk-71-1.png" width="672" /></p>
+<p><img src="2019-431-book_files/figure-html/unnamed-chunk-72-1.png" width="672" /></p>
 <p>And here’s a ridgeline plot for the triceps skinfolds. We’ll start by sorting the subgroups by the median value of our outcome (triceps skinfold) in this case, though it turns out not to matter. We’ll also add some color.</p>
 <div class="sourceCode" id="cb314"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb314-1" title="1">nnyfs <span class="op">%&gt;%</span></a>
 <a class="sourceLine" id="cb314-2" title="2"><span class="st">    </span><span class="kw">filter</span>(<span class="kw">complete.cases</span>(bmi_cat, triceps_skinfold)) <span class="op">%&gt;%</span></a>
@@ -1337,7 +1335,7 @@ This warning is displayed once per session.</code></pre>
 <a class="sourceLine" id="cb314-12" title="12">         <span class="dt">x =</span> <span class="st">&quot;Triceps Skinfold&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;BMI Category&quot;</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb314-13" title="13"><span class="st">    </span><span class="kw">theme_light</span>()</a></code></pre></div>
 <pre><code>Picking joint bandwidth of 1.37</code></pre>
-<p><img src="2019-431-book_files/figure-html/unnamed-chunk-72-1.png" width="672" /></p>
+<p><img src="2019-431-book_files/figure-html/unnamed-chunk-73-1.png" width="672" /></p>
 <p>For one last example, we’ll look at age by BMI category, so that sorting the BMI subgroups by the median matters, and we’ll try an alternate color scheme, and a theme specially designed for the ridgeline plot.</p>
 <div class="sourceCode" id="cb316"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb316-1" title="1">nnyfs <span class="op">%&gt;%</span></a>
 <a class="sourceLine" id="cb316-2" title="2"><span class="st">    </span><span class="kw">filter</span>(<span class="kw">complete.cases</span>(bmi_cat, age_child)) <span class="op">%&gt;%</span></a>
@@ -1350,7 +1348,7 @@ This warning is displayed once per session.</code></pre>
 <a class="sourceLine" id="cb316-9" title="9">         <span class="dt">x =</span> <span class="st">&quot;Age of Child at Exam&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;BMI Category&quot;</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb316-10" title="10"><span class="st">    </span>ggridges<span class="op">::</span><span class="kw">theme_ridges</span>()</a></code></pre></div>
 <pre><code>Picking joint bandwidth of 1.15</code></pre>
-<p><img src="2019-431-book_files/figure-html/unnamed-chunk-73-1.png" width="672" /></p>
+<p><img src="2019-431-book_files/figure-html/unnamed-chunk-74-1.png" width="672" /></p>
 
 </div>
 </div>

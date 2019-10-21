@@ -147,7 +147,7 @@ So, if we plan to use a simple (least squares) linear regression model to descri
 Two different correlation measures are worth our immediate attention. 
 
 - The one most often used is called the *Pearson* correlation coefficient, and is symbolized with the letter r or sometimes the Greek letter rho ($\rho$).
-- Another tool is the Spearman rank correlation coefficient, also occasionally symbolized by $\rho$).
+- Another tool is the Spearman rank correlation coefficient, also occasionally symbolized by $\rho$.
 
 For the `nnyfs` data, the Pearson correlation of `fat` and `protein` can be found using the `cor()` function. 
 
@@ -289,7 +289,7 @@ When we learn that the correlation is zero, we tend to assume we have a picture 
 - But what if our data looked like Earl? In the Earl data set, x is incredibly helpful in predicting y, but we can't use a straight line model - instead, we need a non-linear modeling approach.
 - You'll recall that the Fiona data set also had a Pearson correlation of zero. But here, the picture is rather more interesting.
 
-So, remember, draw the d%$# picture whenever you make use of a summary statistic, like a correlation coefficient, or linear model.
+So, remember, draw the appropriate scatterplot whenever you make use of a correlation coefficient.
     
 ```{r clean up after correx1}
 rm(setA, setB, setBC, tab1)
@@ -393,7 +393,7 @@ spear4 <- read.csv("data/spear4.csv")
 # two columns per data set and no row numbering
 ```
 
-Example 1 shows a function where the Pearson correlation is `r signif(cor(spear1$x, spear1$y),3)` (a strong but not perfect linear relation), but the Spearman correlation is `signif(cor(spear1$x, spear1$y, method = "spearman"),2)` because the relationship is  monotone, even though it is not perfectly linear. 
+Example 1 shows a function where the Pearson correlation is `r signif(cor(spear1$x, spear1$y),3)` (a strong but not perfect linear relation), but the Spearman correlation is `r signif(cor(spear1$x, spear1$y, method = "spearman"),2)` because the relationship is monotone, even though it is not perfectly linear. 
 
 ```{r spearex1-fig}
 ggplot(spear1, aes(x = x, y = y)) + 

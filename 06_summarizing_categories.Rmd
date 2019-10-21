@@ -1,6 +1,6 @@
 # Summarizing Categorical Variables
 
-Summarizing categorical variables numerically is mostly about building tables, and calculating percentages or proportions. We'll save our discussion of modeling categorical data for later. Recall that in the `nh_adults` data set we built in Section (\@ref(createnh_adults)), we had the following categorical variables. The number of levels indicates the number of possible categories for each categorical variable.
+Summarizing categorical variables numerically is mostly about building tables, and calculating percentages or proportions. We'll save our discussion of modeling categorical data for later. Recall that in the `nh_adults` data set we built in Section \@ref(newNHANES) we had the following categorical variables. The number of levels indicates the number of possible categories for each categorical variable.
 
 Variable     | Description                  | Levels | Type
 ----------:  | ---------------------------- | - | ---------
