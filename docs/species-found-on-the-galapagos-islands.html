@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 41 Species Found on the Galapagos Islands | Data Science for Biological, Medical and Health Research: Notes for PQHS 431</title>
   <meta name="description" content="Chapter 41 Species Found on the Galapagos Islands | Data Science for Biological, Medical and Health Research: Notes for PQHS 431" />
-  <meta name="generator" content="bookdown 0.13 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 41 Species Found on the Galapagos Islands | Data Science for Biological, Medical and Health Research: Notes for PQHS 431" />
   <meta property="og:type" content="book" />
@@ -39,6 +39,9 @@
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
 
 
 
@@ -729,6 +732,13 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="29.6" data-path="Tables.html"><a href="Tables.html#collapsing-levels-categories-in-a-factor"><i class="fa fa-check"></i><b>29.6</b> Collapsing Levels / Categories in a Factor</a></li>
 <li class="chapter" data-level="29.7" data-path="Tables.html"><a href="Tables.html#accuracy-of-death-certificates-a-6x3-table"><i class="fa fa-check"></i><b>29.7</b> Accuracy of Death Certificates (A 6x3 Table)</a></li>
 <li class="chapter" data-level="29.8" data-path="Tables.html"><a href="Tables.html#the-pearson-chi-square-test-of-independence"><i class="fa fa-check"></i><b>29.8</b> The Pearson Chi-Square Test of Independence</a></li>
+<li class="chapter" data-level="29.9" data-path="Tables.html"><a href="Tables.html#three-way-tables-a-2x2xk-table-and-a-mantel-haenszel-analysis"><i class="fa fa-check"></i><b>29.9</b> Three-Way Tables: A 2x2xK Table and a Mantel-Haenszel Analysis</a><ul>
+<li class="chapter" data-level="29.9.1" data-path="Tables.html"><a href="Tables.html#smoking-and-mortality-in-the-uk"><i class="fa fa-check"></i><b>29.9.1</b> Smoking and Mortality in the UK</a></li>
+<li class="chapter" data-level="29.9.2" data-path="Tables.html"><a href="Tables.html#the-whickham-data-including-age-as-well-as-smoking-and-mortality"><i class="fa fa-check"></i><b>29.9.2</b> The <code>whickham</code> data including age, as well as smoking and mortality</a></li>
+<li class="chapter" data-level="29.9.3" data-path="Tables.html"><a href="Tables.html#the-cochran-mantel-haenszel-test"><i class="fa fa-check"></i><b>29.9.3</b> The Cochran-Mantel-Haenszel Test</a></li>
+<li class="chapter" data-level="29.9.4" data-path="Tables.html"><a href="Tables.html#checking-assumptions-the-woolf-test"><i class="fa fa-check"></i><b>29.9.4</b> Checking Assumptions: The Woolf test</a></li>
+<li class="chapter" data-level="29.9.5" data-path="Tables.html"><a href="Tables.html#without-the-continuity-correction"><i class="fa fa-check"></i><b>29.9.5</b> Without the Continuity Correction</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="30" data-path="partial-review-to-help-you-prepare-for-quiz-2.html"><a href="partial-review-to-help-you-prepare-for-quiz-2.html"><i class="fa fa-check"></i><b>30</b> Partial Review to help you prepare for Quiz 2</a><ul>
 <li class="chapter" data-level="30.1" data-path="partial-review-to-help-you-prepare-for-quiz-2.html"><a href="partial-review-to-help-you-prepare-for-quiz-2.html#review-items-1-7"><i class="fa fa-check"></i><b>30.1</b> Review Items 1-7</a></li>
@@ -939,7 +949,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="41.7.1" data-path="species-found-on-the-galapagos-islands.html"><a href="species-found-on-the-galapagos-islands.html#questions-about-sequential-testing-and-anova"><i class="fa fa-check"></i><b>41.7.1</b> Questions about Sequential Testing and ANOVA</a></li>
 </ul></li>
 <li class="chapter" data-level="41.8" data-path="species-found-on-the-galapagos-islands.html"><a href="species-found-on-the-galapagos-islands.html#an-anova-table-for-the-model-as-a-whole"><i class="fa fa-check"></i><b>41.8</b> An ANOVA table for the Model as a Whole</a></li>
-<li class="chapter" data-level="41.9" data-path="species-found-on-the-galapagos-islands.html"><a href="species-found-on-the-galapagos-islands.html#assumption-checking-for-our-galapagos-islands-models"><i class="fa fa-check"></i><b>41.9</b> Assumption Checking for our Galápagos Islands models</a></li>
+<li class="chapter" data-level="41.9" data-path="species-found-on-the-galapagos-islands.html"><a href="species-found-on-the-galapagos-islands.html#assumption-checking-for-our-galápagos-islands-models"><i class="fa fa-check"></i><b>41.9</b> Assumption Checking for our Galápagos Islands models</a></li>
 <li class="chapter" data-level="41.10" data-path="species-found-on-the-galapagos-islands.html"><a href="species-found-on-the-galapagos-islands.html#my-first-plot-studentized-residuals-vs.-fitted-values"><i class="fa fa-check"></i><b>41.10</b> My First Plot: Studentized Residuals vs. Fitted Values</a><ul>
 <li class="chapter" data-level="41.10.1" data-path="species-found-on-the-galapagos-islands.html"><a href="species-found-on-the-galapagos-islands.html#questions-about-studentized-residuals-vs.-fitted-values"><i class="fa fa-check"></i><b>41.10.1</b> Questions about Studentized Residuals vs. Fitted Values</a></li>
 </ul></li>
@@ -1046,7 +1056,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li><strong>scruz</strong> = the distance from Santa Cruz Island, in kilometers. Santa Cruz is the home to the largest human population in the Islands, and to the town of Puerto Ayora.</li>
 <li><strong>adjacent</strong> = the area of the adjacent island, in square kilometers</li>
 </ul>
-<div class="sourceCode" id="cb1167"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1167-1" title="1">gala</a></code></pre></div>
+<div class="sourceCode" id="cb1185"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1185-1" title="1">gala</a></code></pre></div>
 <pre><code># A tibble: 30 x 8
       id island       species  area elevation nearest scruz adjacent
    &lt;int&gt; &lt;fct&gt;          &lt;int&gt; &lt;dbl&gt;     &lt;int&gt;   &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;
@@ -1061,7 +1071,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
  9     9 Eden               8  0.03        71     0.4   0.4    18.0 
 10    10 Enderby            2  0.18       112     2.6  50.2     0.1 
 # ... with 20 more rows</code></pre>
-<div class="sourceCode" id="cb1169"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1169-1" title="1">Hmisc<span class="op">::</span><span class="kw">describe</span>(gala) <span class="co"># check for missing and inexplicable values</span></a></code></pre></div>
+<div class="sourceCode" id="cb1187"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1187-1" title="1">Hmisc<span class="op">::</span><span class="kw">describe</span>(gala) <span class="co"># check for missing and inexplicable values</span></a></code></pre></div>
 <pre><code>gala 
 
  8  Variables      30  Observations
@@ -1151,11 +1161,11 @@ Proportion 0.567 0.067 0.067 0.067 0.067 0.067 0.033 0.033 0.033
 <li><code>scruz</code> and</li>
 <li><code>adjacent</code>.</li>
 </ul>
-<div class="sourceCode" id="cb1171"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1171-1" title="1"><span class="kw">pairs</span> (<span class="op">~</span><span class="st"> </span>species <span class="op">+</span><span class="st"> </span>area <span class="op">+</span><span class="st"> </span>elevation <span class="op">+</span><span class="st"> </span>nearest <span class="op">+</span><span class="st"> </span>scruz <span class="op">+</span><span class="st"> </span>adjacent,</a>
-<a class="sourceLine" id="cb1171-2" title="2">       <span class="dt">data=</span>gala, <span class="dt">main=</span><span class="st">&quot;Galapagos Islands Matrix&quot;</span>, </a>
-<a class="sourceLine" id="cb1171-3" title="3">       <span class="dt">upper.panel =</span> panel.smooth,</a>
-<a class="sourceLine" id="cb1171-4" title="4">       <span class="dt">diag.panel =</span> panel.hist,</a>
-<a class="sourceLine" id="cb1171-5" title="5">       <span class="dt">lower.panel =</span> panel.cor)</a></code></pre></div>
+<div class="sourceCode" id="cb1189"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1189-1" title="1"><span class="kw">pairs</span> (<span class="op">~</span><span class="st"> </span>species <span class="op">+</span><span class="st"> </span>area <span class="op">+</span><span class="st"> </span>elevation <span class="op">+</span><span class="st"> </span>nearest <span class="op">+</span><span class="st"> </span>scruz <span class="op">+</span><span class="st"> </span>adjacent,</a>
+<a class="sourceLine" id="cb1189-2" title="2">       <span class="dt">data=</span>gala, <span class="dt">main=</span><span class="st">&quot;Galapagos Islands Matrix&quot;</span>, </a>
+<a class="sourceLine" id="cb1189-3" title="3">       <span class="dt">upper.panel =</span> panel.smooth,</a>
+<a class="sourceLine" id="cb1189-4" title="4">       <span class="dt">diag.panel =</span> panel.hist,</a>
+<a class="sourceLine" id="cb1189-5" title="5">       <span class="dt">lower.panel =</span> panel.cor)</a></code></pre></div>
 <p><img src="2019-431-book_files/figure-html/p51%20fancy%20scatterplot%20matrix-1.png" width="768" /></p>
 <div id="questions-about-the-scatterplot-matrix" class="section level3">
 <h3><span class="header-section-number">41.2.1</span> Questions about the Scatterplot Matrix</h3>
@@ -1171,9 +1181,9 @@ Proportion 0.567 0.067 0.067 0.067 0.067 0.067 0.033 0.033 0.033
 <div id="fitting-a-kitchen-sink-linear-regression-model" class="section level2">
 <h2><span class="header-section-number">41.3</span> Fitting A “Kitchen Sink” Linear Regression model</h2>
 <p>Next, we’ll fit a multiple linear regression model to predict the number of species based on the five predictors included in the gala data frame (and scatterplot matrix above.) We use the lm command to fit the linear model, and use what is called Wilkinson-Rogers notation to specify the model.</p>
-<div class="sourceCode" id="cb1172"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1172-1" title="1">model1 &lt;-<span class="st"> </span><span class="kw">lm</span>(species <span class="op">~</span><span class="st"> </span>area <span class="op">+</span><span class="st"> </span>elevation <span class="op">+</span><span class="st"> </span>nearest <span class="op">+</span><span class="st"> </span>scruz <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb1172-2" title="2"><span class="st">               </span>adjacent, <span class="dt">data=</span>gala)</a>
-<a class="sourceLine" id="cb1172-3" title="3"><span class="kw">summary</span>(model1)</a></code></pre></div>
+<div class="sourceCode" id="cb1190"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1190-1" title="1">model1 &lt;-<span class="st"> </span><span class="kw">lm</span>(species <span class="op">~</span><span class="st"> </span>area <span class="op">+</span><span class="st"> </span>elevation <span class="op">+</span><span class="st"> </span>nearest <span class="op">+</span><span class="st"> </span>scruz <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb1190-2" title="2"><span class="st">               </span>adjacent, <span class="dt">data=</span>gala)</a>
+<a class="sourceLine" id="cb1190-3" title="3"><span class="kw">summary</span>(model1)</a></code></pre></div>
 <pre><code>
 Call:
 lm(formula = species ~ area + elevation + nearest + scruz + adjacent, 
@@ -1216,7 +1226,7 @@ F-statistic: 15.7 on 5 and 24 DF,  p-value: 6.84e-07</code></pre>
 </div>
 <div id="finding-confidence-intervals-for-our-coefficient-estimates" class="section level2">
 <h2><span class="header-section-number">41.4</span> Finding Confidence Intervals for our Coefficient Estimates</h2>
-<div class="sourceCode" id="cb1174"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1174-1" title="1"><span class="kw">confint</span>(model1, <span class="dt">level =</span> <span class="fl">0.95</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb1192"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1192-1" title="1"><span class="kw">confint</span>(model1, <span class="dt">level =</span> <span class="fl">0.95</span>)</a></code></pre></div>
 <pre><code>               2.5 %  97.5 %
 (Intercept) -32.4641 46.6005
 area         -0.0702  0.0223
@@ -1237,7 +1247,7 @@ adjacent     -0.1113 -0.0383</code></pre>
 <p>The <strong>variance inflation factor</strong> (abbreviated VIF) can be used to quantify the impact of multicollinearity in a linear regression model.</p>
 <p>The VIF is sometimes interpreted by taking its square root, and then interpreting the result as telling you how much larger the standard error for that coefficient is, as compared to what it would be if that variable were uncorrelated with the other predictors.</p>
 <p>In R, the <code>vif</code> function from the <code>car</code> library, when applied to a linear regression model, specifies the variance inflation factors for each of the model’s coefficients, as follows.</p>
-<div class="sourceCode" id="cb1176"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1176-1" title="1"><span class="kw">vif</span>(model1)</a></code></pre></div>
+<div class="sourceCode" id="cb1194"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1194-1" title="1"><span class="kw">vif</span>(model1)</a></code></pre></div>
 <pre><code>     area elevation   nearest     scruz  adjacent 
      2.93      3.99      1.77      1.68      1.83 </code></pre>
 <p>So, for instance, the VIF of 3.99 for <code>elevation</code> implies that the standard error of the elevation coefficient is approximately 2 times larger than it would be if elevation was uncorrelated with the other predictors.</p>
@@ -1254,8 +1264,8 @@ adjacent     -0.1113 -0.0383</code></pre>
 <div id="global-f-testing-of-overall-significance" class="section level2">
 <h2><span class="header-section-number">41.6</span> Global (F) Testing of Overall Significance</h2>
 <p>Our Galapagos Islands species count regression model (called <code>model1</code>) predicts the count of an island’s species using <code>area</code>, <code>elevation</code>, <code>nearest</code>, <code>scruz</code> and <code>adjacent</code>.</p>
-<div class="sourceCode" id="cb1178"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1178-1" title="1">nullmodel &lt;-<span class="st"> </span><span class="kw">lm</span>(species <span class="op">~</span><span class="st"> </span><span class="dv">1</span>, <span class="dt">data=</span>gala)</a>
-<a class="sourceLine" id="cb1178-2" title="2"><span class="kw">summary</span>(nullmodel)</a></code></pre></div>
+<div class="sourceCode" id="cb1196"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1196-1" title="1">nullmodel &lt;-<span class="st"> </span><span class="kw">lm</span>(species <span class="op">~</span><span class="st"> </span><span class="dv">1</span>, <span class="dt">data=</span>gala)</a>
+<a class="sourceLine" id="cb1196-2" title="2"><span class="kw">summary</span>(nullmodel)</a></code></pre></div>
 <pre><code>
 Call:
 lm(formula = species ~ 1, data = gala)
@@ -1271,7 +1281,7 @@ Coefficients:
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 
 Residual standard error: 115 on 29 degrees of freedom</code></pre>
-<div class="sourceCode" id="cb1180"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1180-1" title="1"><span class="kw">anova</span>(model1, nullmodel)</a></code></pre></div>
+<div class="sourceCode" id="cb1198"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1198-1" title="1"><span class="kw">anova</span>(model1, nullmodel)</a></code></pre></div>
 <pre><code>Analysis of Variance Table
 
 Model 1: species ~ area + elevation + nearest + scruz + adjacent
@@ -1296,7 +1306,7 @@ Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&
 </div>
 <div id="sequential-testing-in-a-regression-model-with-anova" class="section level2">
 <h2><span class="header-section-number">41.7</span> Sequential Testing in a Regression Model with ANOVA</h2>
-<div class="sourceCode" id="cb1182"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1182-1" title="1"><span class="kw">anova</span>(model1)</a></code></pre></div>
+<div class="sourceCode" id="cb1200"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1200-1" title="1"><span class="kw">anova</span>(model1)</a></code></pre></div>
 <pre><code>Analysis of Variance Table
 
 Response: species
@@ -1323,7 +1333,7 @@ Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&
 <li>How could we use the original linear model output to whether a model using the four predictors that appear most promising here would be statistically significantly worse than the full model with all five predictors?</li>
 <li>What does the following output do differently than the output above, and why is that potentially useful here? Why is the p value for <code>scruz</code> so different?</li>
 </ol>
-<div class="sourceCode" id="cb1184"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1184-1" title="1"><span class="kw">anova</span>(<span class="kw">lm</span>(species <span class="op">~</span><span class="st"> </span>area <span class="op">+</span><span class="st"> </span>elevation <span class="op">+</span><span class="st"> </span>adjacent <span class="op">+</span><span class="st"> </span>scruz <span class="op">+</span><span class="st"> </span>nearest, <span class="dt">data=</span>gala))</a></code></pre></div>
+<div class="sourceCode" id="cb1202"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1202-1" title="1"><span class="kw">anova</span>(<span class="kw">lm</span>(species <span class="op">~</span><span class="st"> </span>area <span class="op">+</span><span class="st"> </span>elevation <span class="op">+</span><span class="st"> </span>adjacent <span class="op">+</span><span class="st"> </span>scruz <span class="op">+</span><span class="st"> </span>nearest, <span class="dt">data=</span>gala))</a></code></pre></div>
 <pre><code>Analysis of Variance Table
 
 Response: species
@@ -1339,7 +1349,7 @@ Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&
 <ol start="35" style="list-style-type: decimal">
 <li>Consider the ANOVA below, run on a new model with <code>elevation</code> after <code>adjacent</code>. What happens? Why?</li>
 </ol>
-<div class="sourceCode" id="cb1186"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1186-1" title="1"><span class="kw">anova</span>(<span class="kw">lm</span>(species <span class="op">~</span><span class="st"> </span>area <span class="op">+</span><span class="st"> </span>adjacent <span class="op">+</span><span class="st"> </span>elevation <span class="op">+</span><span class="st"> </span>scruz <span class="op">+</span><span class="st"> </span>nearest, <span class="dt">data=</span>gala))</a></code></pre></div>
+<div class="sourceCode" id="cb1204"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1204-1" title="1"><span class="kw">anova</span>(<span class="kw">lm</span>(species <span class="op">~</span><span class="st"> </span>area <span class="op">+</span><span class="st"> </span>adjacent <span class="op">+</span><span class="st"> </span>elevation <span class="op">+</span><span class="st"> </span>scruz <span class="op">+</span><span class="st"> </span>nearest, <span class="dt">data=</span>gala))</a></code></pre></div>
 <pre><code>Analysis of Variance Table
 
 Response: species
@@ -1400,7 +1410,7 @@ Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&
 <li>What conclusions can we draw from this ANOVA table?</li>
 </ol>
 </div>
-<div id="assumption-checking-for-our-galapagos-islands-models" class="section level2">
+<div id="assumption-checking-for-our-galápagos-islands-models" class="section level2">
 <h2><span class="header-section-number">41.9</span> Assumption Checking for our Galápagos Islands models</h2>
 <p>Remember that the key assumptions of multiple linear regression are:</p>
 <ul>
@@ -1421,14 +1431,14 @@ Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&
 <div id="my-first-plot-studentized-residuals-vs.-fitted-values" class="section level2">
 <h2><span class="header-section-number">41.10</span> My First Plot: Studentized Residuals vs. Fitted Values</h2>
 <p>The first diagnostic plot I usually draw for a multiple regression is a scatterplot of the model’s <strong>studentized</strong> residuals (on the vertical axis) vs. the model’s fitted values (on the horizontal.) This plot can be used to assess potential non-linearity, non-constant variance, and non-Normality in the residuals.</p>
-<div class="sourceCode" id="cb1188"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1188-1" title="1">gala<span class="op">$</span>stures &lt;-<span class="st"> </span><span class="kw">rstudent</span>(model1); gala<span class="op">$</span>fits &lt;-<span class="st"> </span><span class="kw">fitted</span>(model1)</a>
-<a class="sourceLine" id="cb1188-2" title="2"><span class="kw">ggplot</span>(gala, <span class="kw">aes</span>(<span class="dt">x =</span> fits, <span class="dt">y =</span> stures)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb1188-3" title="3"><span class="st">    </span><span class="kw">theme_bw</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">3</span>, <span class="dt">shape =</span> <span class="dv">1</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb1188-4" title="4"><span class="st">    </span><span class="kw">geom_smooth</span>(<span class="dt">col =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">se =</span> <span class="ot">FALSE</span>, <span class="dt">weight =</span> <span class="fl">0.5</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb1188-5" title="5"><span class="st">    </span><span class="kw">geom_hline</span>(<span class="kw">aes</span>(<span class="dt">yintercept =</span> <span class="dv">0</span>), <span class="dt">linetype =</span> <span class="st">&quot;dashed&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb1188-6" title="6"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Fitted Values of Species&quot;</span>, </a>
-<a class="sourceLine" id="cb1188-7" title="7">         <span class="dt">y =</span> <span class="st">&quot;Studentized Residuals&quot;</span>,</a>
-<a class="sourceLine" id="cb1188-8" title="8">         <span class="dt">title =</span> <span class="st">&quot;gala data: Model 1</span><span class="ch">\n</span><span class="st">Studentized Residuals vs. Fitted Values&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb1206"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1206-1" title="1">gala<span class="op">$</span>stures &lt;-<span class="st"> </span><span class="kw">rstudent</span>(model1); gala<span class="op">$</span>fits &lt;-<span class="st"> </span><span class="kw">fitted</span>(model1)</a>
+<a class="sourceLine" id="cb1206-2" title="2"><span class="kw">ggplot</span>(gala, <span class="kw">aes</span>(<span class="dt">x =</span> fits, <span class="dt">y =</span> stures)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb1206-3" title="3"><span class="st">    </span><span class="kw">theme_bw</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">3</span>, <span class="dt">shape =</span> <span class="dv">1</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb1206-4" title="4"><span class="st">    </span><span class="kw">geom_smooth</span>(<span class="dt">col =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">se =</span> <span class="ot">FALSE</span>, <span class="dt">weight =</span> <span class="fl">0.5</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb1206-5" title="5"><span class="st">    </span><span class="kw">geom_hline</span>(<span class="kw">aes</span>(<span class="dt">yintercept =</span> <span class="dv">0</span>), <span class="dt">linetype =</span> <span class="st">&quot;dashed&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb1206-6" title="6"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Fitted Values of Species&quot;</span>, </a>
+<a class="sourceLine" id="cb1206-7" title="7">         <span class="dt">y =</span> <span class="st">&quot;Studentized Residuals&quot;</span>,</a>
+<a class="sourceLine" id="cb1206-8" title="8">         <span class="dt">title =</span> <span class="st">&quot;gala data: Model 1</span><span class="ch">\n</span><span class="st">Studentized Residuals vs. Fitted Values&quot;</span>)</a></code></pre></div>
 <pre><code>`geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
 <p><img src="2019-431-book_files/figure-html/p60-1.png" width="384" style="display: block; margin: auto;" /></p>
 <div id="questions-about-studentized-residuals-vs.-fitted-values" class="section level3">
@@ -1448,7 +1458,7 @@ Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&
 <div id="model-1-diagnostic-plot-1" class="section level2">
 <h2><span class="header-section-number">41.12</span> Model 1: Diagnostic Plot 1</h2>
 <p>As we’ve seen, the first of R’s automated diagnostic plots for a linear model is a plot of the residuals vs. the fitted values.</p>
-<div class="sourceCode" id="cb1190"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1190-1" title="1"><span class="kw">plot</span>(model1, <span class="dt">which=</span><span class="dv">1</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb1208"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1208-1" title="1"><span class="kw">plot</span>(model1, <span class="dt">which=</span><span class="dv">1</span>)</a></code></pre></div>
 <p><img src="2019-431-book_files/figure-html/p61-1.png" width="480" style="display: block; margin: auto;" /></p>
 <div id="questions-about-diagnostic-plot-1-residuals-vs.-fitted-values" class="section level3">
 <h3><span class="header-section-number">41.12.1</span> Questions about Diagnostic Plot 1: Residuals vs. Fitted Values</h3>
@@ -1467,7 +1477,7 @@ Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&
 <div id="diagnostic-plot-2-assessing-normality" class="section level2">
 <h2><span class="header-section-number">41.13</span> Diagnostic Plot 2: Assessing Normality</h2>
 <p>The second diagnostic plot prepared by R for any linear model using the plot command is a Normal Q-Q plot of the standardized residuals from the model.</p>
-<div class="sourceCode" id="cb1191"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1191-1" title="1"><span class="kw">plot</span>(model1, <span class="dt">which=</span><span class="dv">2</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb1209"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1209-1" title="1"><span class="kw">plot</span>(model1, <span class="dt">which=</span><span class="dv">2</span>)</a></code></pre></div>
 <p><img src="2019-431-book_files/figure-html/p62-1.png" width="480" style="display: block; margin: auto;" /></p>
 <div id="questions-about-diagnostic-plot-2-normal-plot-of-standardized-residuals" class="section level3">
 <h3><span class="header-section-number">41.13.1</span> Questions about Diagnostic Plot 2: Normal Plot of Standardized Residuals</h3>
@@ -1483,7 +1493,7 @@ Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&
 <div id="diagnostic-plot-3-assessing-constant-variance" class="section level2">
 <h2><span class="header-section-number">41.14</span> Diagnostic Plot 3: Assessing Constant Variance</h2>
 <p>The third diagnostic plot prepared by R for any linear model using the <code>plot</code> command shows the square root of the model’s standardized residuals vs. its fitted values. R calls this a <strong>scale-location plot</strong>.</p>
-<div class="sourceCode" id="cb1192"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1192-1" title="1"><span class="kw">plot</span>(model1, <span class="dt">which=</span><span class="dv">3</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb1210"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1210-1" title="1"><span class="kw">plot</span>(model1, <span class="dt">which=</span><span class="dv">3</span>)</a></code></pre></div>
 <p><img src="2019-431-book_files/figure-html/p63-1.png" width="480" style="display: block; margin: auto;" /></p>
 <div id="questions-about-diagnostic-plot-3-scale-location-plot" class="section level3">
 <h3><span class="header-section-number">41.14.1</span> Questions about Diagnostic Plot 3: Scale-Location Plot</h3>
@@ -1499,14 +1509,14 @@ Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&
 <div id="obtaining-fitted-values-and-residuals-from-a-model" class="section level2">
 <h2><span class="header-section-number">41.15</span> Obtaining Fitted Values and Residuals from a Model</h2>
 <p>Remember that we can use the <code>fitted</code> function applied to a model to find the predictions made by the regression model for each of the observations used to create the model.</p>
-<div class="sourceCode" id="cb1193"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1193-1" title="1"><span class="kw">round</span>(<span class="kw">fitted</span>(model1),<span class="dv">2</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb1211"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1211-1" title="1"><span class="kw">round</span>(<span class="kw">fitted</span>(model1),<span class="dv">2</span>)</a></code></pre></div>
 <pre><code>     1      2      3      4      5      6      7      8      9     10 
 116.73  -7.27  29.33  10.36 -36.38  43.09  33.92  -9.02  28.31  30.79 
     11     12     13     14     15     16     17     18     19     20 
  47.66  96.99  -4.03  64.63  -0.50 386.40  88.69   4.04 215.68 150.48 
     21     22     23     24     25     26     27     28     29     30 
  35.08  75.55 206.95 277.68 261.42  85.38 195.62  49.81  52.94  26.70 </code></pre>
-<div class="sourceCode" id="cb1195"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1195-1" title="1">gala[<span class="dv">1</span>,]</a></code></pre></div>
+<div class="sourceCode" id="cb1213"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1213-1" title="1">gala[<span class="dv">1</span>,]</a></code></pre></div>
 <pre><code># A tibble: 1 x 10
      id island species  area elevation nearest scruz adjacent stures  fits
   &lt;int&gt; &lt;fct&gt;    &lt;int&gt; &lt;dbl&gt;     &lt;int&gt;   &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;
@@ -1519,7 +1529,7 @@ Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&
 <pre><code>species = 7.07 - 0.02 area + 0.32 elevation 
                + 0.009 nearest - 0.24 scruz - 0.07 adjacent</code></pre>
 <p>We can compare these predictions to the actual observed counts of the number of species on each island. Subtracting the fitted values from the observed values gives us the residuals, as does the <code>resid</code> function.</p>
-<div class="sourceCode" id="cb1198"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1198-1" title="1"><span class="kw">round</span>(<span class="kw">resid</span>(model1),<span class="dv">2</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb1216"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1216-1" title="1"><span class="kw">round</span>(<span class="kw">resid</span>(model1),<span class="dv">2</span>)</a></code></pre></div>
 <pre><code>      1       2       3       4       5       6       7       8       9 
  -58.73   38.27  -26.33   14.64   38.38  -25.09   -9.92   19.02  -20.31 
      10      11      12      13      14      15      16      17      18 
@@ -1537,16 +1547,16 @@ Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&
 <li>The standard deviation of the full set of 30 residuals turns out to be 55.47. How does this compare to the residual standard error?</li>
 <li>The command below identifies Santa Cruz. What does it indicate about Santa Cruz, specifically?</li>
 </ol>
-<div class="sourceCode" id="cb1200"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1200-1" title="1">gala<span class="op">$</span>island[<span class="kw">which.max</span>(<span class="kw">resid</span>(model1))]</a></code></pre></div>
+<div class="sourceCode" id="cb1218"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1218-1" title="1">gala<span class="op">$</span>island[<span class="kw">which.max</span>(<span class="kw">resid</span>(model1))]</a></code></pre></div>
 <pre><code>[1] SantaCruz
 30 Levels: Baltra Bartolome Caldwell Champion Coamano ... Wolf</code></pre>
 <ol start="64" style="list-style-type: decimal">
 <li>From the results below, what is the <code>model1</code> residual for Santa Cruz? What does this imply about the <code>species</code> prediction made by Model 1 for Santa Cruz?</li>
 </ol>
-<div class="sourceCode" id="cb1202"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1202-1" title="1"><span class="kw">which.max</span>(<span class="kw">resid</span>(model1))</a></code></pre></div>
+<div class="sourceCode" id="cb1220"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1220-1" title="1"><span class="kw">which.max</span>(<span class="kw">resid</span>(model1))</a></code></pre></div>
 <pre><code>25 
 25 </code></pre>
-<div class="sourceCode" id="cb1204"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1204-1" title="1"><span class="kw">round</span>(<span class="kw">resid</span>(model1),<span class="dv">2</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb1222"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1222-1" title="1"><span class="kw">round</span>(<span class="kw">resid</span>(model1),<span class="dv">2</span>)</a></code></pre></div>
 <pre><code>      1       2       3       4       5       6       7       8       9 
  -58.73   38.27  -26.33   14.64   38.38  -25.09   -9.92   19.02  -20.31 
      10      11      12      13      14      15      16      17      18 
@@ -1555,7 +1565,7 @@ Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&
 -111.68  -42.48  -23.08   -5.55   73.05  -40.68  182.58  -23.38   89.38 
      28      29      30 
   -5.81  -36.94   -5.70 </code></pre>
-<div class="sourceCode" id="cb1206"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1206-1" title="1">gala[<span class="kw">which.max</span>(<span class="kw">resid</span>(model1)),]</a></code></pre></div>
+<div class="sourceCode" id="cb1224"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1224-1" title="1">gala[<span class="kw">which.max</span>(<span class="kw">resid</span>(model1)),]</a></code></pre></div>
 <pre><code># A tibble: 1 x 10
      id island  species  area elevation nearest scruz adjacent stures  fits
   &lt;int&gt; &lt;fct&gt;     &lt;int&gt; &lt;dbl&gt;     &lt;int&gt;   &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;
@@ -1566,10 +1576,10 @@ Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&
 <h2><span class="header-section-number">41.16</span> Relationship between Fitted and Observed Values</h2>
 <p>We’ve already seen that the <code>fitted</code> command can produce predicted values for each observations used to develop a regression model, and that the <code>resid</code> command can produce the residuals (observed - predicted) for those same observations.
 Returning to our original model1, let’s compare the fitted values (stored earlier in <code>fits</code>) to the observed values.</p>
-<div class="sourceCode" id="cb1208"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1208-1" title="1"><span class="kw">ggplot</span>(gala, <span class="kw">aes</span>(<span class="dt">x =</span> species, <span class="dt">y =</span> fits)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb1208-2" title="2"><span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">3</span>, <span class="dt">shape =</span> <span class="dv">1</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_bw</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb1208-3" title="3"><span class="st">    </span><span class="kw">geom_abline</span>(<span class="dt">intercept =</span> <span class="dv">0</span>, <span class="dt">slope =</span> <span class="dv">1</span>, <span class="dt">col =</span> <span class="st">&quot;purple&quot;</span>, <span class="dt">linetype =</span> <span class="st">&quot;dashed&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb1208-4" title="4"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Observed Species Count&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Model Predicted Species&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb1226"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1226-1" title="1"><span class="kw">ggplot</span>(gala, <span class="kw">aes</span>(<span class="dt">x =</span> species, <span class="dt">y =</span> fits)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb1226-2" title="2"><span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">3</span>, <span class="dt">shape =</span> <span class="dv">1</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_bw</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb1226-3" title="3"><span class="st">    </span><span class="kw">geom_abline</span>(<span class="dt">intercept =</span> <span class="dv">0</span>, <span class="dt">slope =</span> <span class="dv">1</span>, <span class="dt">col =</span> <span class="st">&quot;purple&quot;</span>, <span class="dt">linetype =</span> <span class="st">&quot;dashed&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb1226-4" title="4"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Observed Species Count&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Model Predicted Species&quot;</span>)</a></code></pre></div>
 <p><img src="2019-431-book_files/figure-html/p65-1.png" width="480" style="display: block; margin: auto;" /></p>
 <div id="questions-about-fitted-and-observed-values" class="section level3">
 <h3><span class="header-section-number">41.16.1</span> Questions about Fitted and Observed Values</h3>
@@ -1601,15 +1611,15 @@ Returning to our original model1, let’s compare the fitted values (stored earl
 </div>
 <div id="three-types-of-residuals" class="section level2">
 <h2><span class="header-section-number">41.18</span> Three Types of Residuals</h2>
-<div class="sourceCode" id="cb1210"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1210-1" title="1">gala.res &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">raw.residuals =</span> <span class="kw">resid</span>(model1),</a>
-<a class="sourceLine" id="cb1210-2" title="2">                       <span class="dt">standardized =</span> <span class="kw">rstandard</span>(model1),</a>
-<a class="sourceLine" id="cb1210-3" title="3">                       <span class="dt">studentized =</span> <span class="kw">rstudent</span>(model1)) <span class="op">%&gt;%</span><span class="st"> </span>tbl_df</a>
-<a class="sourceLine" id="cb1210-4" title="4"></a>
-<a class="sourceLine" id="cb1210-5" title="5">gala.res_long &lt;-<span class="st"> </span><span class="kw">gather</span>(gala.res, <span class="dt">key =</span> <span class="st">&quot;type&quot;</span>, <span class="dt">value =</span> <span class="st">&quot;res&quot;</span>)</a>
-<a class="sourceLine" id="cb1210-6" title="6"><span class="kw">ggplot</span>(gala.res_long, <span class="kw">aes</span>(<span class="dt">x =</span> type, <span class="dt">y =</span> res)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb1210-7" title="7"><span class="st">    </span><span class="kw">geom_boxplot</span>() <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb1210-8" title="8"><span class="st">    </span><span class="kw">coord_flip</span>() <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb1210-9" title="9"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Residual&quot;</span>, <span class="dt">title =</span> <span class="st">&quot;3 Types of Residuals for Model 1&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb1228"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1228-1" title="1">gala.res &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">raw.residuals =</span> <span class="kw">resid</span>(model1),</a>
+<a class="sourceLine" id="cb1228-2" title="2">                       <span class="dt">standardized =</span> <span class="kw">rstandard</span>(model1),</a>
+<a class="sourceLine" id="cb1228-3" title="3">                       <span class="dt">studentized =</span> <span class="kw">rstudent</span>(model1)) <span class="op">%&gt;%</span><span class="st"> </span>tbl_df</a>
+<a class="sourceLine" id="cb1228-4" title="4"></a>
+<a class="sourceLine" id="cb1228-5" title="5">gala.res_long &lt;-<span class="st"> </span><span class="kw">gather</span>(gala.res, <span class="dt">key =</span> <span class="st">&quot;type&quot;</span>, <span class="dt">value =</span> <span class="st">&quot;res&quot;</span>)</a>
+<a class="sourceLine" id="cb1228-6" title="6"><span class="kw">ggplot</span>(gala.res_long, <span class="kw">aes</span>(<span class="dt">x =</span> type, <span class="dt">y =</span> res)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb1228-7" title="7"><span class="st">    </span><span class="kw">geom_boxplot</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb1228-8" title="8"><span class="st">    </span><span class="kw">coord_flip</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb1228-9" title="9"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Residual&quot;</span>, <span class="dt">title =</span> <span class="st">&quot;3 Types of Residuals for Model 1&quot;</span>)</a></code></pre></div>
 <p><img src="2019-431-book_files/figure-html/p67-1.png" width="672" /></p>
 <div id="questions-about-three-types-of-residuals" class="section level3">
 <h3><span class="header-section-number">41.18.1</span> Questions about Three Types of Residuals</h3>
@@ -1640,11 +1650,13 @@ Returning to our original model1, let’s compare the fitted values (stored earl
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({

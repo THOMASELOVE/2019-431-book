@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 27 A Review: Two Examples, Comparing Means | Data Science for Biological, Medical and Health Research: Notes for PQHS 431</title>
   <meta name="description" content="Chapter 27 A Review: Two Examples, Comparing Means | Data Science for Biological, Medical and Health Research: Notes for PQHS 431" />
-  <meta name="generator" content="bookdown 0.13 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 27 A Review: Two Examples, Comparing Means | Data Science for Biological, Medical and Health Research: Notes for PQHS 431" />
   <meta property="og:type" content="book" />
@@ -39,6 +39,9 @@
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
 
 
 
@@ -729,6 +732,13 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="29.6" data-path="Tables.html"><a href="Tables.html#collapsing-levels-categories-in-a-factor"><i class="fa fa-check"></i><b>29.6</b> Collapsing Levels / Categories in a Factor</a></li>
 <li class="chapter" data-level="29.7" data-path="Tables.html"><a href="Tables.html#accuracy-of-death-certificates-a-6x3-table"><i class="fa fa-check"></i><b>29.7</b> Accuracy of Death Certificates (A 6x3 Table)</a></li>
 <li class="chapter" data-level="29.8" data-path="Tables.html"><a href="Tables.html#the-pearson-chi-square-test-of-independence"><i class="fa fa-check"></i><b>29.8</b> The Pearson Chi-Square Test of Independence</a></li>
+<li class="chapter" data-level="29.9" data-path="Tables.html"><a href="Tables.html#three-way-tables-a-2x2xk-table-and-a-mantel-haenszel-analysis"><i class="fa fa-check"></i><b>29.9</b> Three-Way Tables: A 2x2xK Table and a Mantel-Haenszel Analysis</a><ul>
+<li class="chapter" data-level="29.9.1" data-path="Tables.html"><a href="Tables.html#smoking-and-mortality-in-the-uk"><i class="fa fa-check"></i><b>29.9.1</b> Smoking and Mortality in the UK</a></li>
+<li class="chapter" data-level="29.9.2" data-path="Tables.html"><a href="Tables.html#the-whickham-data-including-age-as-well-as-smoking-and-mortality"><i class="fa fa-check"></i><b>29.9.2</b> The <code>whickham</code> data including age, as well as smoking and mortality</a></li>
+<li class="chapter" data-level="29.9.3" data-path="Tables.html"><a href="Tables.html#the-cochran-mantel-haenszel-test"><i class="fa fa-check"></i><b>29.9.3</b> The Cochran-Mantel-Haenszel Test</a></li>
+<li class="chapter" data-level="29.9.4" data-path="Tables.html"><a href="Tables.html#checking-assumptions-the-woolf-test"><i class="fa fa-check"></i><b>29.9.4</b> Checking Assumptions: The Woolf test</a></li>
+<li class="chapter" data-level="29.9.5" data-path="Tables.html"><a href="Tables.html#without-the-continuity-correction"><i class="fa fa-check"></i><b>29.9.5</b> Without the Continuity Correction</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="30" data-path="partial-review-to-help-you-prepare-for-quiz-2.html"><a href="partial-review-to-help-you-prepare-for-quiz-2.html"><i class="fa fa-check"></i><b>30</b> Partial Review to help you prepare for Quiz 2</a><ul>
 <li class="chapter" data-level="30.1" data-path="partial-review-to-help-you-prepare-for-quiz-2.html"><a href="partial-review-to-help-you-prepare-for-quiz-2.html#review-items-1-7"><i class="fa fa-check"></i><b>30.1</b> Review Items 1-7</a></li>
@@ -939,7 +949,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="41.7.1" data-path="species-found-on-the-galapagos-islands.html"><a href="species-found-on-the-galapagos-islands.html#questions-about-sequential-testing-and-anova"><i class="fa fa-check"></i><b>41.7.1</b> Questions about Sequential Testing and ANOVA</a></li>
 </ul></li>
 <li class="chapter" data-level="41.8" data-path="species-found-on-the-galapagos-islands.html"><a href="species-found-on-the-galapagos-islands.html#an-anova-table-for-the-model-as-a-whole"><i class="fa fa-check"></i><b>41.8</b> An ANOVA table for the Model as a Whole</a></li>
-<li class="chapter" data-level="41.9" data-path="species-found-on-the-galapagos-islands.html"><a href="species-found-on-the-galapagos-islands.html#assumption-checking-for-our-galapagos-islands-models"><i class="fa fa-check"></i><b>41.9</b> Assumption Checking for our Galápagos Islands models</a></li>
+<li class="chapter" data-level="41.9" data-path="species-found-on-the-galapagos-islands.html"><a href="species-found-on-the-galapagos-islands.html#assumption-checking-for-our-galápagos-islands-models"><i class="fa fa-check"></i><b>41.9</b> Assumption Checking for our Galápagos Islands models</a></li>
 <li class="chapter" data-level="41.10" data-path="species-found-on-the-galapagos-islands.html"><a href="species-found-on-the-galapagos-islands.html#my-first-plot-studentized-residuals-vs.-fitted-values"><i class="fa fa-check"></i><b>41.10</b> My First Plot: Studentized Residuals vs. Fitted Values</a><ul>
 <li class="chapter" data-level="41.10.1" data-path="species-found-on-the-galapagos-islands.html"><a href="species-found-on-the-galapagos-islands.html#questions-about-studentized-residuals-vs.-fitted-values"><i class="fa fa-check"></i><b>41.10.1</b> Questions about Studentized Residuals vs. Fitted Values</a></li>
 </ul></li>
@@ -1331,11 +1341,13 @@ NOTE: n is number in *each* group</code></pre>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({

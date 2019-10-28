@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 40 BMI and Employment: Working with Categorical Predictors | Data Science for Biological, Medical and Health Research: Notes for PQHS 431</title>
   <meta name="description" content="Chapter 40 BMI and Employment: Working with Categorical Predictors | Data Science for Biological, Medical and Health Research: Notes for PQHS 431" />
-  <meta name="generator" content="bookdown 0.13 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 40 BMI and Employment: Working with Categorical Predictors | Data Science for Biological, Medical and Health Research: Notes for PQHS 431" />
   <meta property="og:type" content="book" />
@@ -39,6 +39,9 @@
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
 
 
 
@@ -729,6 +732,13 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="29.6" data-path="Tables.html"><a href="Tables.html#collapsing-levels-categories-in-a-factor"><i class="fa fa-check"></i><b>29.6</b> Collapsing Levels / Categories in a Factor</a></li>
 <li class="chapter" data-level="29.7" data-path="Tables.html"><a href="Tables.html#accuracy-of-death-certificates-a-6x3-table"><i class="fa fa-check"></i><b>29.7</b> Accuracy of Death Certificates (A 6x3 Table)</a></li>
 <li class="chapter" data-level="29.8" data-path="Tables.html"><a href="Tables.html#the-pearson-chi-square-test-of-independence"><i class="fa fa-check"></i><b>29.8</b> The Pearson Chi-Square Test of Independence</a></li>
+<li class="chapter" data-level="29.9" data-path="Tables.html"><a href="Tables.html#three-way-tables-a-2x2xk-table-and-a-mantel-haenszel-analysis"><i class="fa fa-check"></i><b>29.9</b> Three-Way Tables: A 2x2xK Table and a Mantel-Haenszel Analysis</a><ul>
+<li class="chapter" data-level="29.9.1" data-path="Tables.html"><a href="Tables.html#smoking-and-mortality-in-the-uk"><i class="fa fa-check"></i><b>29.9.1</b> Smoking and Mortality in the UK</a></li>
+<li class="chapter" data-level="29.9.2" data-path="Tables.html"><a href="Tables.html#the-whickham-data-including-age-as-well-as-smoking-and-mortality"><i class="fa fa-check"></i><b>29.9.2</b> The <code>whickham</code> data including age, as well as smoking and mortality</a></li>
+<li class="chapter" data-level="29.9.3" data-path="Tables.html"><a href="Tables.html#the-cochran-mantel-haenszel-test"><i class="fa fa-check"></i><b>29.9.3</b> The Cochran-Mantel-Haenszel Test</a></li>
+<li class="chapter" data-level="29.9.4" data-path="Tables.html"><a href="Tables.html#checking-assumptions-the-woolf-test"><i class="fa fa-check"></i><b>29.9.4</b> Checking Assumptions: The Woolf test</a></li>
+<li class="chapter" data-level="29.9.5" data-path="Tables.html"><a href="Tables.html#without-the-continuity-correction"><i class="fa fa-check"></i><b>29.9.5</b> Without the Continuity Correction</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="30" data-path="partial-review-to-help-you-prepare-for-quiz-2.html"><a href="partial-review-to-help-you-prepare-for-quiz-2.html"><i class="fa fa-check"></i><b>30</b> Partial Review to help you prepare for Quiz 2</a><ul>
 <li class="chapter" data-level="30.1" data-path="partial-review-to-help-you-prepare-for-quiz-2.html"><a href="partial-review-to-help-you-prepare-for-quiz-2.html#review-items-1-7"><i class="fa fa-check"></i><b>30.1</b> Review Items 1-7</a></li>
@@ -939,7 +949,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="41.7.1" data-path="species-found-on-the-galapagos-islands.html"><a href="species-found-on-the-galapagos-islands.html#questions-about-sequential-testing-and-anova"><i class="fa fa-check"></i><b>41.7.1</b> Questions about Sequential Testing and ANOVA</a></li>
 </ul></li>
 <li class="chapter" data-level="41.8" data-path="species-found-on-the-galapagos-islands.html"><a href="species-found-on-the-galapagos-islands.html#an-anova-table-for-the-model-as-a-whole"><i class="fa fa-check"></i><b>41.8</b> An ANOVA table for the Model as a Whole</a></li>
-<li class="chapter" data-level="41.9" data-path="species-found-on-the-galapagos-islands.html"><a href="species-found-on-the-galapagos-islands.html#assumption-checking-for-our-galapagos-islands-models"><i class="fa fa-check"></i><b>41.9</b> Assumption Checking for our Galápagos Islands models</a></li>
+<li class="chapter" data-level="41.9" data-path="species-found-on-the-galapagos-islands.html"><a href="species-found-on-the-galapagos-islands.html#assumption-checking-for-our-galápagos-islands-models"><i class="fa fa-check"></i><b>41.9</b> Assumption Checking for our Galápagos Islands models</a></li>
 <li class="chapter" data-level="41.10" data-path="species-found-on-the-galapagos-islands.html"><a href="species-found-on-the-galapagos-islands.html#my-first-plot-studentized-residuals-vs.-fitted-values"><i class="fa fa-check"></i><b>41.10</b> My First Plot: Studentized Residuals vs. Fitted Values</a><ul>
 <li class="chapter" data-level="41.10.1" data-path="species-found-on-the-galapagos-islands.html"><a href="species-found-on-the-galapagos-islands.html#questions-about-studentized-residuals-vs.-fitted-values"><i class="fa fa-check"></i><b>41.10.1</b> Questions about Studentized Residuals vs. Fitted Values</a></li>
 </ul></li>
@@ -1077,7 +1087,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb1128"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1128-1" title="1">Hmisc<span class="op">::</span><span class="kw">describe</span>(emp_bmi)</a></code></pre></div>
+<div class="sourceCode" id="cb1146"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1146-1" title="1">Hmisc<span class="op">::</span><span class="kw">describe</span>(emp_bmi)</a></code></pre></div>
 <pre><code>emp_bmi 
 
  8  Variables      999  Observations
@@ -1154,7 +1164,7 @@ Proportion                       0.294                       0.102
 </div>
 <div id="dealing-with-missing-predictor-values" class="section level3">
 <h3><span class="header-section-number">40.1.2</span> Dealing with Missing Predictor Values</h3>
-<div class="sourceCode" id="cb1130"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1130-1" title="1"><span class="kw">md.pattern</span>(emp_bmi)</a></code></pre></div>
+<div class="sourceCode" id="cb1148"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1148-1" title="1"><span class="kw">md.pattern</span>(emp_bmi)</a></code></pre></div>
 <p><img src="2019-431-book_files/figure-html/md.pattern-1.png" width="672" /></p>
 <pre><code>    pid bmi gender age employed married alcohol education   
 990   1   1      1   1        1       1       1         1  0
@@ -1166,8 +1176,8 @@ Proportion                       0.294                       0.102
       0   0      0   1        1       1       2         5 10</code></pre>
 <p>We will eventually build a model to predict <code>bmi</code> using all of the other variables besides <code>pid</code>. So we’ll eventually have to account for the 9 people with missing values (one of whom has two missing values, as we see above.) What I’m going to do in this example is to first build a complete-case analysis on the 990 subjects without missing values and then, later, do multiple imputation to account for the 9 subjects with missing values (and their 10 actual missing values) sensibly.</p>
 <p>I’ll put the “complete cases” data set of 990 subjects in <code>emp_bmi_noNA</code>.</p>
-<div class="sourceCode" id="cb1132"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1132-1" title="1">emp_bmi_noNA &lt;-<span class="st"> </span>emp_bmi <span class="op">%&gt;%</span><span class="st"> </span>na.omit</a>
-<a class="sourceLine" id="cb1132-2" title="2">emp_bmi_noNA</a></code></pre></div>
+<div class="sourceCode" id="cb1150"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1150-1" title="1">emp_bmi_noNA &lt;-<span class="st"> </span>emp_bmi <span class="op">%&gt;%</span><span class="st"> </span>na.omit</a>
+<a class="sourceLine" id="cb1150-2" title="2">emp_bmi_noNA</a></code></pre></div>
 <pre><code># A tibble: 990 x 8
      pid   bmi   age gender employed married alcohol         education     
    &lt;int&gt; &lt;dbl&gt; &lt;int&gt; &lt;fct&gt;     &lt;int&gt;   &lt;int&gt; &lt;fct&gt;           &lt;fct&gt;         
@@ -1182,7 +1192,7 @@ Proportion                       0.294                       0.102
  9   491  20.8    64 female        0       1 normal drinker~ 3 high school~
 10   531  24.3    84 female        0       0 normal drinker~ 1 elem school~
 # ... with 980 more rows</code></pre>
-<div class="sourceCode" id="cb1134"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1134-1" title="1"><span class="kw">colSums</span>(<span class="kw">is.na</span>(emp_bmi_noNA))</a></code></pre></div>
+<div class="sourceCode" id="cb1152"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1152-1" title="1"><span class="kw">colSums</span>(<span class="kw">is.na</span>(emp_bmi_noNA))</a></code></pre></div>
 <pre><code>      pid       bmi       age    gender  employed   married   alcohol 
         0         0         0         0         0         0         0 
 education 
@@ -1192,9 +1202,9 @@ education
 <div id="the-kitchen-sink-model-1" class="section level2">
 <h2><span class="header-section-number">40.2</span> The “Kitchen Sink” Model</h2>
 <p>A “kitchen sink” model includes all available predictors.</p>
-<div class="sourceCode" id="cb1136"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1136-1" title="1">ebmodel<span class="fl">.1</span> &lt;-<span class="st"> </span><span class="kw">lm</span>(bmi <span class="op">~</span><span class="st"> </span>age <span class="op">+</span><span class="st"> </span>gender <span class="op">+</span><span class="st"> </span>employed <span class="op">+</span><span class="st"> </span>married <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb1136-2" title="2"><span class="st">                    </span>alcohol <span class="op">+</span><span class="st"> </span>education, <span class="dt">data =</span> emp_bmi_noNA)</a>
-<a class="sourceLine" id="cb1136-3" title="3"><span class="kw">summary</span>(ebmodel<span class="fl">.1</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb1154"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1154-1" title="1">ebmodel<span class="fl">.1</span> &lt;-<span class="st"> </span><span class="kw">lm</span>(bmi <span class="op">~</span><span class="st"> </span>age <span class="op">+</span><span class="st"> </span>gender <span class="op">+</span><span class="st"> </span>employed <span class="op">+</span><span class="st"> </span>married <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb1154-2" title="2"><span class="st">                    </span>alcohol <span class="op">+</span><span class="st"> </span>education, <span class="dt">data =</span> emp_bmi_noNA)</a>
+<a class="sourceLine" id="cb1154-3" title="3"><span class="kw">summary</span>(ebmodel<span class="fl">.1</span>)</a></code></pre></div>
 <pre><code>
 Call:
 lm(formula = bmi ~ age + gender + employed + married + alcohol + 
@@ -1241,9 +1251,9 @@ F-statistic: 2.51 on 9 and 980 DF,  p-value: 0.00772</code></pre>
 <h3><span class="header-section-number">40.3.1</span> <code>gender</code>: A binary variable represented by letters</h3>
 <p>The <code>gender</code> variable contains the two categories: male and female, and R recognizes this as a factor. When building a regression model with such a variable, R assigns the first of the two levels of the factor to the baseline, and includes in the model an indicator variable for the second level. By default, R assigns each factor a level order alphabetically.</p>
 <p>So, in this case, we have:</p>
-<div class="sourceCode" id="cb1138"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1138-1" title="1"><span class="kw">is.factor</span>(emp_bmi_noNA<span class="op">$</span>gender)</a></code></pre></div>
+<div class="sourceCode" id="cb1156"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1156-1" title="1"><span class="kw">is.factor</span>(emp_bmi_noNA<span class="op">$</span>gender)</a></code></pre></div>
 <pre><code>[1] TRUE</code></pre>
-<div class="sourceCode" id="cb1140"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1140-1" title="1"><span class="kw">levels</span>(emp_bmi_noNA<span class="op">$</span>gender)</a></code></pre></div>
+<div class="sourceCode" id="cb1158"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1158-1" title="1"><span class="kw">levels</span>(emp_bmi_noNA<span class="op">$</span>gender)</a></code></pre></div>
 <pre><code>[1] &quot;female&quot; &quot;male&quot;  </code></pre>
 <p>As you see in the model, the <code>gender</code> information is captured by the indicator variable <code>gendermale</code>, which is 1 when <code>gender = male</code> and 0 otherwise.</p>
 <p>So, when our model includes:</p>
@@ -1251,10 +1261,10 @@ F-statistic: 2.51 on 9 and 980 DF,  p-value: 0.00772</code></pre>
 gendermale         0.29811    0.20271   1.471   0.1417    </code></pre>
 <p>this means that a male subject is predicted to have an outcome that is 0.29811 points higher than a female subject, if they have the same values of all of the other predictors.</p>
 <p>Note that if we wanted to switch the levels so that “male” came first (and so that R would use “male” as the baseline category and “female” as the 1 value in an indicator), we could do so with the <code>forcats</code> package and the <code>fct_relevel</code> command. Building a model with this version of <code>gender</code> will simply reverse the sign of our indicator variable, but not change any of the other output.</p>
-<div class="sourceCode" id="cb1143"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1143-1" title="1">emp_bmi_noNA<span class="op">$</span>gender<span class="fl">.2</span> &lt;-<span class="st"> </span><span class="kw">fct_relevel</span>(emp_bmi_noNA<span class="op">$</span>gender, <span class="st">&quot;male&quot;</span>, <span class="st">&quot;female&quot;</span>)</a>
-<a class="sourceLine" id="cb1143-2" title="2">revised.model &lt;-<span class="st"> </span><span class="kw">lm</span>(bmi <span class="op">~</span><span class="st"> </span>age <span class="op">+</span><span class="st"> </span>gender<span class="fl">.2</span> <span class="op">+</span><span class="st"> </span>employed <span class="op">+</span><span class="st"> </span>married <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb1143-3" title="3"><span class="st">                    </span>alcohol <span class="op">+</span><span class="st"> </span>education, <span class="dt">data =</span> emp_bmi_noNA)</a>
-<a class="sourceLine" id="cb1143-4" title="4"><span class="kw">summary</span>(revised.model)</a></code></pre></div>
+<div class="sourceCode" id="cb1161"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1161-1" title="1">emp_bmi_noNA<span class="op">$</span>gender<span class="fl">.2</span> &lt;-<span class="st"> </span><span class="kw">fct_relevel</span>(emp_bmi_noNA<span class="op">$</span>gender, <span class="st">&quot;male&quot;</span>, <span class="st">&quot;female&quot;</span>)</a>
+<a class="sourceLine" id="cb1161-2" title="2">revised.model &lt;-<span class="st"> </span><span class="kw">lm</span>(bmi <span class="op">~</span><span class="st"> </span>age <span class="op">+</span><span class="st"> </span>gender<span class="fl">.2</span> <span class="op">+</span><span class="st"> </span>employed <span class="op">+</span><span class="st"> </span>married <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb1161-3" title="3"><span class="st">                    </span>alcohol <span class="op">+</span><span class="st"> </span>education, <span class="dt">data =</span> emp_bmi_noNA)</a>
+<a class="sourceLine" id="cb1161-4" title="4"><span class="kw">summary</span>(revised.model)</a></code></pre></div>
 <pre><code>
 Call:
 lm(formula = bmi ~ age + gender.2 + employed + married + alcohol + 
@@ -1355,11 +1365,11 @@ alcoholnormal drinker or non-drinker  0.14121    0.40766   0.346   0.7291    </c
 </table>
 <p>and so, with two variables, we cover each of these three possible <code>alcohol</code> levels.</p>
 <p>When we have an ordered variable like this one, we usually want the baseline category to be at either end of the scale (either the highest or the lowest, but not something in the middle.) Another good idea in many settings is to use as the baseline category the most common category. Here, the baseline R chose was “alcohol dependent” which is the least common category, so I might want to use the <code>fct_relevel</code> function again to force R to choose, say, normal drinker/non-drinker as the baseline category.</p>
-<div class="sourceCode" id="cb1147"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1147-1" title="1">emp_bmi_noNA<span class="op">$</span>alcohol<span class="fl">.2</span> &lt;-<span class="st"> </span><span class="kw">fct_relevel</span>(emp_bmi_noNA<span class="op">$</span>alcohol, </a>
-<a class="sourceLine" id="cb1147-2" title="2">           <span class="st">&quot;normal drinker or non-drinker&quot;</span>, <span class="st">&quot;heavy drinker&quot;</span>)</a>
-<a class="sourceLine" id="cb1147-3" title="3">revised.model<span class="fl">.2</span> &lt;-<span class="st"> </span><span class="kw">lm</span>(bmi <span class="op">~</span><span class="st"> </span>age <span class="op">+</span><span class="st"> </span>gender <span class="op">+</span><span class="st"> </span>employed <span class="op">+</span><span class="st"> </span>married <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb1147-4" title="4"><span class="st">                    </span>alcohol<span class="fl">.2</span> <span class="op">+</span><span class="st"> </span>education, <span class="dt">data =</span> emp_bmi_noNA)</a>
-<a class="sourceLine" id="cb1147-5" title="5"><span class="kw">summary</span>(revised.model<span class="fl">.2</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb1165"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1165-1" title="1">emp_bmi_noNA<span class="op">$</span>alcohol<span class="fl">.2</span> &lt;-<span class="st"> </span><span class="kw">fct_relevel</span>(emp_bmi_noNA<span class="op">$</span>alcohol, </a>
+<a class="sourceLine" id="cb1165-2" title="2">           <span class="st">&quot;normal drinker or non-drinker&quot;</span>, <span class="st">&quot;heavy drinker&quot;</span>)</a>
+<a class="sourceLine" id="cb1165-3" title="3">revised.model<span class="fl">.2</span> &lt;-<span class="st"> </span><span class="kw">lm</span>(bmi <span class="op">~</span><span class="st"> </span>age <span class="op">+</span><span class="st"> </span>gender <span class="op">+</span><span class="st"> </span>employed <span class="op">+</span><span class="st"> </span>married <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb1165-4" title="4"><span class="st">                    </span>alcohol<span class="fl">.2</span> <span class="op">+</span><span class="st"> </span>education, <span class="dt">data =</span> emp_bmi_noNA)</a>
+<a class="sourceLine" id="cb1165-5" title="5"><span class="kw">summary</span>(revised.model<span class="fl">.2</span>)</a></code></pre></div>
 <pre><code>
 Call:
 lm(formula = bmi ~ age + gender + employed + married + alcohol.2 + 
@@ -1398,11 +1408,11 @@ F-statistic: 2.51 on 9 and 980 DF,  p-value: 0.00772</code></pre>
 <div id="t-tests-and-multi-categorical-variables" class="section level3">
 <h3><span class="header-section-number">40.3.4</span> t tests and multi-categorical variables</h3>
 <p>The usual “last predictor in” t test works perfectly for binary factors, but suppose we have a factor like <code>alcohol</code> which is represented by two different indicator variables. If we want to know whether the <code>alcohol</code> information, as a group, adds statistically significant value to the model that includes all of the other predictors, then our best strategy is to compare two models - one with the alcohol information, and one without.</p>
-<div class="sourceCode" id="cb1149"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1149-1" title="1">model.with.a &lt;-<span class="st"> </span><span class="kw">lm</span>(bmi <span class="op">~</span><span class="st"> </span>age <span class="op">+</span><span class="st"> </span>gender <span class="op">+</span><span class="st"> </span>alcohol <span class="op">+</span><span class="st"> </span>employed <span class="op">+</span><span class="st"> </span>married <span class="op">+</span><span class="st"> </span>education, </a>
-<a class="sourceLine" id="cb1149-2" title="2">                   <span class="dt">data =</span> emp_bmi_noNA)</a>
-<a class="sourceLine" id="cb1149-3" title="3">model.no.a &lt;-<span class="st"> </span><span class="kw">lm</span>(bmi <span class="op">~</span><span class="st"> </span>age <span class="op">+</span><span class="st"> </span>gender <span class="op">+</span><span class="st"> </span>employed <span class="op">+</span><span class="st"> </span>married <span class="op">+</span><span class="st"> </span>education, </a>
-<a class="sourceLine" id="cb1149-4" title="4">                 <span class="dt">data =</span> emp_bmi_noNA)</a>
-<a class="sourceLine" id="cb1149-5" title="5"><span class="kw">anova</span>(model.with.a, model.no.a)</a></code></pre></div>
+<div class="sourceCode" id="cb1167"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1167-1" title="1">model.with.a &lt;-<span class="st"> </span><span class="kw">lm</span>(bmi <span class="op">~</span><span class="st"> </span>age <span class="op">+</span><span class="st"> </span>gender <span class="op">+</span><span class="st"> </span>alcohol <span class="op">+</span><span class="st"> </span>employed <span class="op">+</span><span class="st"> </span>married <span class="op">+</span><span class="st"> </span>education, </a>
+<a class="sourceLine" id="cb1167-2" title="2">                   <span class="dt">data =</span> emp_bmi_noNA)</a>
+<a class="sourceLine" id="cb1167-3" title="3">model.no.a &lt;-<span class="st"> </span><span class="kw">lm</span>(bmi <span class="op">~</span><span class="st"> </span>age <span class="op">+</span><span class="st"> </span>gender <span class="op">+</span><span class="st"> </span>employed <span class="op">+</span><span class="st"> </span>married <span class="op">+</span><span class="st"> </span>education, </a>
+<a class="sourceLine" id="cb1167-4" title="4">                 <span class="dt">data =</span> emp_bmi_noNA)</a>
+<a class="sourceLine" id="cb1167-5" title="5"><span class="kw">anova</span>(model.with.a, model.no.a)</a></code></pre></div>
 <pre><code>Analysis of Variance Table
 
 Model 1: bmi ~ age + gender + alcohol + employed + married + education
@@ -1412,8 +1422,8 @@ Model 2: bmi ~ age + gender + employed + married + education
 2    982 6194 -2     -3.63 0.29   0.75</code></pre>
 <p>The <em>p</em> value for both of the indicator variables associated with <code>alcohol</code> combined is 0.75, according to an ANOVA F test with 2 degrees of freedom.</p>
 <p>Note that we can get the same information from an ANOVA table of the larger model if we add the <code>alcohol</code> predictor to the model last.</p>
-<div class="sourceCode" id="cb1151"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1151-1" title="1"><span class="kw">anova</span>(<span class="kw">lm</span>(bmi <span class="op">~</span><span class="st"> </span>age <span class="op">+</span><span class="st"> </span>gender <span class="op">+</span><span class="st"> </span>employed <span class="op">+</span><span class="st"> </span>married <span class="op">+</span><span class="st"> </span>education <span class="op">+</span><span class="st"> </span>alcohol, </a>
-<a class="sourceLine" id="cb1151-2" title="2">         <span class="dt">data =</span> emp_bmi_noNA))</a></code></pre></div>
+<div class="sourceCode" id="cb1169"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1169-1" title="1"><span class="kw">anova</span>(<span class="kw">lm</span>(bmi <span class="op">~</span><span class="st"> </span>age <span class="op">+</span><span class="st"> </span>gender <span class="op">+</span><span class="st"> </span>employed <span class="op">+</span><span class="st"> </span>married <span class="op">+</span><span class="st"> </span>education <span class="op">+</span><span class="st"> </span>alcohol, </a>
+<a class="sourceLine" id="cb1169-2" title="2">         <span class="dt">data =</span> emp_bmi_noNA))</a></code></pre></div>
 <pre><code>Analysis of Variance Table
 
 Response: bmi
@@ -1477,8 +1487,8 @@ education4 college grad or higher -0.79862    0.31068  -2.571   0.0103 *  </code
 </table>
 <p>Note that the four categories are <em>mutually exclusive</em> (a subject cannot be in more than one category) and <em>collectively exhaustive</em> (all subjects must fit into this set of categories.) As we have seen, this is a requirement of categorical variables in a regression analysis.</p>
 <p>Let’s run the ANOVA test for the <code>education</code> information captured in those three indicator variables…</p>
-<div class="sourceCode" id="cb1154"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1154-1" title="1"><span class="kw">anova</span>(<span class="kw">lm</span>(bmi <span class="op">~</span><span class="st"> </span>age <span class="op">+</span><span class="st"> </span>gender <span class="op">+</span><span class="st"> </span>employed <span class="op">+</span><span class="st"> </span>married <span class="op">+</span><span class="st"> </span>alcohol <span class="op">+</span><span class="st"> </span>education, </a>
-<a class="sourceLine" id="cb1154-2" title="2">         <span class="dt">data =</span> emp_bmi_noNA))</a></code></pre></div>
+<div class="sourceCode" id="cb1172"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1172-1" title="1"><span class="kw">anova</span>(<span class="kw">lm</span>(bmi <span class="op">~</span><span class="st"> </span>age <span class="op">+</span><span class="st"> </span>gender <span class="op">+</span><span class="st"> </span>employed <span class="op">+</span><span class="st"> </span>married <span class="op">+</span><span class="st"> </span>alcohol <span class="op">+</span><span class="st"> </span>education, </a>
+<a class="sourceLine" id="cb1172-2" title="2">         <span class="dt">data =</span> emp_bmi_noNA))</a></code></pre></div>
 <pre><code>Analysis of Variance Table
 
 Response: bmi
@@ -1497,9 +1507,9 @@ Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&
 <div id="interpreting-the-kitchen-sink-model" class="section level3">
 <h3><span class="header-section-number">40.3.6</span> Interpreting the Kitchen Sink Model</h3>
 <p>So, again, here’s our model, now pandered into a prettier format using the <code>pander</code> function from the <code>pander</code> package.</p>
-<div class="sourceCode" id="cb1156"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1156-1" title="1">ebmodel<span class="fl">.1</span> &lt;-<span class="st"> </span><span class="kw">lm</span>(bmi <span class="op">~</span><span class="st"> </span>age <span class="op">+</span><span class="st"> </span>gender <span class="op">+</span><span class="st"> </span>employed <span class="op">+</span><span class="st"> </span>married <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb1156-2" title="2"><span class="st">                    </span>alcohol <span class="op">+</span><span class="st"> </span>education, <span class="dt">data =</span> emp_bmi_noNA)</a>
-<a class="sourceLine" id="cb1156-3" title="3">pander<span class="op">::</span><span class="kw">pander</span>(ebmodel<span class="fl">.1</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb1174"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1174-1" title="1">ebmodel<span class="fl">.1</span> &lt;-<span class="st"> </span><span class="kw">lm</span>(bmi <span class="op">~</span><span class="st"> </span>age <span class="op">+</span><span class="st"> </span>gender <span class="op">+</span><span class="st"> </span>employed <span class="op">+</span><span class="st"> </span>married <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb1174-2" title="2"><span class="st">                    </span>alcohol <span class="op">+</span><span class="st"> </span>education, <span class="dt">data =</span> emp_bmi_noNA)</a>
+<a class="sourceLine" id="cb1174-3" title="3">pander<span class="op">::</span><span class="kw">pander</span>(ebmodel<span class="fl">.1</span>)</a></code></pre></div>
 <table style="width:100%;">
 <caption>Fitting linear model: bmi ~ age + gender + employed + married + alcohol + education</caption>
 <colgroup>
@@ -1612,29 +1622,29 @@ higher</strong></td>
 <div id="scatterplot-matrix-with-categorical-predictors" class="section level2">
 <h2><span class="header-section-number">40.4</span> Scatterplot Matrix with Categorical Predictors</h2>
 <p>Let’s look at a scatterplot matrix of a few key predictors, with my favorite approach (at least for quantitative predictors)…</p>
-<div class="sourceCode" id="cb1157"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1157-1" title="1"><span class="kw">pairs</span>( <span class="op">~</span><span class="st"> </span>bmi <span class="op">+</span><span class="st"> </span>age <span class="op">+</span><span class="st"> </span>gender <span class="op">+</span><span class="st"> </span>employed <span class="op">+</span><span class="st"> </span>education, <span class="dt">data =</span> emp_bmi_noNA,</a>
-<a class="sourceLine" id="cb1157-2" title="2">       <span class="dt">main =</span> <span class="st">&quot;emp_bmi Scatterplot and Correlation Matrix&quot;</span>,</a>
-<a class="sourceLine" id="cb1157-3" title="3">       <span class="dt">upper.panel =</span> panel.smooth,</a>
-<a class="sourceLine" id="cb1157-4" title="4">       <span class="dt">diag.panel =</span> panel.hist,</a>
-<a class="sourceLine" id="cb1157-5" title="5">       <span class="dt">lower.panel =</span> panel.cor)</a></code></pre></div>
+<div class="sourceCode" id="cb1175"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1175-1" title="1"><span class="kw">pairs</span>( <span class="op">~</span><span class="st"> </span>bmi <span class="op">+</span><span class="st"> </span>age <span class="op">+</span><span class="st"> </span>gender <span class="op">+</span><span class="st"> </span>employed <span class="op">+</span><span class="st"> </span>education, <span class="dt">data =</span> emp_bmi_noNA,</a>
+<a class="sourceLine" id="cb1175-2" title="2">       <span class="dt">main =</span> <span class="st">&quot;emp_bmi Scatterplot and Correlation Matrix&quot;</span>,</a>
+<a class="sourceLine" id="cb1175-3" title="3">       <span class="dt">upper.panel =</span> panel.smooth,</a>
+<a class="sourceLine" id="cb1175-4" title="4">       <span class="dt">diag.panel =</span> panel.hist,</a>
+<a class="sourceLine" id="cb1175-5" title="5">       <span class="dt">lower.panel =</span> panel.cor)</a></code></pre></div>
 <p><img src="2019-431-book_files/figure-html/pairs_scatter_mat_emp_bmi_fig-1.png" width="672" /></p>
 <p>Notice how the <code>ggpairs</code> approach reacts to the inclusion of factors as predictors…</p>
-<div class="sourceCode" id="cb1158"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1158-1" title="1">GGally<span class="op">::</span><span class="kw">ggpairs</span>(dplyr<span class="op">::</span><span class="kw">select</span>(emp_bmi_noNA, age, gender, employed, education, bmi))</a></code></pre></div>
+<div class="sourceCode" id="cb1176"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1176-1" title="1">GGally<span class="op">::</span><span class="kw">ggpairs</span>(dplyr<span class="op">::</span><span class="kw">select</span>(emp_bmi_noNA, age, gender, employed, education, bmi))</a></code></pre></div>
 <p><img src="2019-431-book_files/figure-html/ggpairs_emp_bmi_fig-1.png" width="672" /></p>
 </div>
 <div id="residual-plots-when-we-have-categorical-predictors" class="section level2">
 <h2><span class="header-section-number">40.5</span> Residual Plots when we have Categorical Predictors</h2>
 <p>Here are the main residual plots from the kitchen sink model <code>ebmodel.1</code> defined previously.</p>
-<div class="sourceCode" id="cb1159"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1159-1" title="1"><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</a>
-<a class="sourceLine" id="cb1159-2" title="2"><span class="kw">plot</span>(ebmodel<span class="fl">.1</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb1177"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1177-1" title="1"><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</a>
+<a class="sourceLine" id="cb1177-2" title="2"><span class="kw">plot</span>(ebmodel<span class="fl">.1</span>)</a></code></pre></div>
 <p><img src="2019-431-book_files/figure-html/resid_plot_ebmodel_1-1.png" width="672" /></p>
-<div class="sourceCode" id="cb1160"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1160-1" title="1"><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb1178"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1178-1" title="1"><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</a></code></pre></div>
 <p>Sometimes, in small samples, the categorical variables will make the regression residuals line up in somewhat strange patterns. But in this case, there’s no real problem. The use of categorical variables also has some impact on leverage, as it’s hard for a subject to be a serious outlier in terms of a predictor if that predictor only has a few possible levels.</p>
 </div>
 <div id="stepwise-regression-and-categorical-predictors" class="section level2">
 <h2><span class="header-section-number">40.6</span> Stepwise Regression and Categorical Predictors</h2>
 <p>When R does backwards elimination for stepwise model selection, it makes decisions about each categorical variable as in/out across all of the indicator variables simultaneously, as you’d hope.</p>
-<div class="sourceCode" id="cb1161"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1161-1" title="1"><span class="kw">step</span>(ebmodel<span class="fl">.1</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb1179"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1179-1" title="1"><span class="kw">step</span>(ebmodel<span class="fl">.1</span>)</a></code></pre></div>
 <pre><code>Start:  AIC=1835
 bmi ~ age + gender + employed + married + alcohol + education
 
@@ -1685,12 +1695,12 @@ education4 college grad or higher
 <div id="pooling-results-after-multiple-imputation" class="section level2">
 <h2><span class="header-section-number">40.7</span> Pooling Results after Multiple Imputation</h2>
 <p>As mentioned earlier, having built a model using complete cases, we should probably investigate the impact of multiple imputation on the missing observations. We’ll fit 100 imputations using the <code>emp_bmi</code> data and then fit a pooled regression model across those imputations.</p>
-<div class="sourceCode" id="cb1164"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1164-1" title="1">emp_bmi_mi &lt;-<span class="st"> </span><span class="kw">mice</span>(emp_bmi, <span class="dt">m =</span> <span class="dv">100</span>, <span class="dt">maxit =</span> <span class="dv">5</span>, </a>
-<a class="sourceLine" id="cb1164-2" title="2">                   <span class="dt">printFlag =</span> <span class="ot">FALSE</span>, <span class="dt">seed =</span> <span class="dv">4476</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb1182"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1182-1" title="1">emp_bmi_mi &lt;-<span class="st"> </span><span class="kw">mice</span>(emp_bmi, <span class="dt">m =</span> <span class="dv">100</span>, <span class="dt">maxit =</span> <span class="dv">5</span>, </a>
+<a class="sourceLine" id="cb1182-2" title="2">                   <span class="dt">printFlag =</span> <span class="ot">FALSE</span>, <span class="dt">seed =</span> <span class="dv">4476</span>)</a></code></pre></div>
 <p>Now, we’ll fit the pooled kitchen sink regression model to these imputed data sets and pool them.</p>
-<div class="sourceCode" id="cb1165"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1165-1" title="1">model.empbmi.mi &lt;-<span class="st"> </span><span class="kw">with</span>(emp_bmi_mi, <span class="kw">lm</span>(bmi <span class="op">~</span><span class="st"> </span>age <span class="op">+</span><span class="st"> </span>gender <span class="op">+</span><span class="st"> </span>employed <span class="op">+</span><span class="st"> </span>married <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb1165-2" title="2"><span class="st">                          </span>alcohol <span class="op">+</span><span class="st"> </span>education))</a>
-<a class="sourceLine" id="cb1165-3" title="3"><span class="kw">round</span>(<span class="kw">summary</span>(<span class="kw">pool</span>(model.empbmi.mi)),<span class="dv">3</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb1183"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1183-1" title="1">model.empbmi.mi &lt;-<span class="st"> </span><span class="kw">with</span>(emp_bmi_mi, <span class="kw">lm</span>(bmi <span class="op">~</span><span class="st"> </span>age <span class="op">+</span><span class="st"> </span>gender <span class="op">+</span><span class="st"> </span>employed <span class="op">+</span><span class="st"> </span>married <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb1183-2" title="2"><span class="st">                          </span>alcohol <span class="op">+</span><span class="st"> </span>education))</a>
+<a class="sourceLine" id="cb1183-3" title="3"><span class="kw">round</span>(<span class="kw">summary</span>(<span class="kw">pool</span>(model.empbmi.mi)),<span class="dv">3</span>)</a></code></pre></div>
 <pre><code>                                     estimate std.error statistic  df
 (Intercept)                            26.130     0.877    29.780 985
 age                                    -0.042     0.011    -3.983 985
@@ -1732,11 +1742,13 @@ education4 college grad or higher      0.010</code></pre>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({

@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 39 Dealing with Missing Data | Data Science for Biological, Medical and Health Research: Notes for PQHS 431</title>
   <meta name="description" content="Chapter 39 Dealing with Missing Data | Data Science for Biological, Medical and Health Research: Notes for PQHS 431" />
-  <meta name="generator" content="bookdown 0.13 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 39 Dealing with Missing Data | Data Science for Biological, Medical and Health Research: Notes for PQHS 431" />
   <meta property="og:type" content="book" />
@@ -39,6 +39,9 @@
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
 
 
 
@@ -729,6 +732,13 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="29.6" data-path="Tables.html"><a href="Tables.html#collapsing-levels-categories-in-a-factor"><i class="fa fa-check"></i><b>29.6</b> Collapsing Levels / Categories in a Factor</a></li>
 <li class="chapter" data-level="29.7" data-path="Tables.html"><a href="Tables.html#accuracy-of-death-certificates-a-6x3-table"><i class="fa fa-check"></i><b>29.7</b> Accuracy of Death Certificates (A 6x3 Table)</a></li>
 <li class="chapter" data-level="29.8" data-path="Tables.html"><a href="Tables.html#the-pearson-chi-square-test-of-independence"><i class="fa fa-check"></i><b>29.8</b> The Pearson Chi-Square Test of Independence</a></li>
+<li class="chapter" data-level="29.9" data-path="Tables.html"><a href="Tables.html#three-way-tables-a-2x2xk-table-and-a-mantel-haenszel-analysis"><i class="fa fa-check"></i><b>29.9</b> Three-Way Tables: A 2x2xK Table and a Mantel-Haenszel Analysis</a><ul>
+<li class="chapter" data-level="29.9.1" data-path="Tables.html"><a href="Tables.html#smoking-and-mortality-in-the-uk"><i class="fa fa-check"></i><b>29.9.1</b> Smoking and Mortality in the UK</a></li>
+<li class="chapter" data-level="29.9.2" data-path="Tables.html"><a href="Tables.html#the-whickham-data-including-age-as-well-as-smoking-and-mortality"><i class="fa fa-check"></i><b>29.9.2</b> The <code>whickham</code> data including age, as well as smoking and mortality</a></li>
+<li class="chapter" data-level="29.9.3" data-path="Tables.html"><a href="Tables.html#the-cochran-mantel-haenszel-test"><i class="fa fa-check"></i><b>29.9.3</b> The Cochran-Mantel-Haenszel Test</a></li>
+<li class="chapter" data-level="29.9.4" data-path="Tables.html"><a href="Tables.html#checking-assumptions-the-woolf-test"><i class="fa fa-check"></i><b>29.9.4</b> Checking Assumptions: The Woolf test</a></li>
+<li class="chapter" data-level="29.9.5" data-path="Tables.html"><a href="Tables.html#without-the-continuity-correction"><i class="fa fa-check"></i><b>29.9.5</b> Without the Continuity Correction</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="30" data-path="partial-review-to-help-you-prepare-for-quiz-2.html"><a href="partial-review-to-help-you-prepare-for-quiz-2.html"><i class="fa fa-check"></i><b>30</b> Partial Review to help you prepare for Quiz 2</a><ul>
 <li class="chapter" data-level="30.1" data-path="partial-review-to-help-you-prepare-for-quiz-2.html"><a href="partial-review-to-help-you-prepare-for-quiz-2.html#review-items-1-7"><i class="fa fa-check"></i><b>30.1</b> Review Items 1-7</a></li>
@@ -939,7 +949,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="41.7.1" data-path="species-found-on-the-galapagos-islands.html"><a href="species-found-on-the-galapagos-islands.html#questions-about-sequential-testing-and-anova"><i class="fa fa-check"></i><b>41.7.1</b> Questions about Sequential Testing and ANOVA</a></li>
 </ul></li>
 <li class="chapter" data-level="41.8" data-path="species-found-on-the-galapagos-islands.html"><a href="species-found-on-the-galapagos-islands.html#an-anova-table-for-the-model-as-a-whole"><i class="fa fa-check"></i><b>41.8</b> An ANOVA table for the Model as a Whole</a></li>
-<li class="chapter" data-level="41.9" data-path="species-found-on-the-galapagos-islands.html"><a href="species-found-on-the-galapagos-islands.html#assumption-checking-for-our-galapagos-islands-models"><i class="fa fa-check"></i><b>41.9</b> Assumption Checking for our Galápagos Islands models</a></li>
+<li class="chapter" data-level="41.9" data-path="species-found-on-the-galapagos-islands.html"><a href="species-found-on-the-galapagos-islands.html#assumption-checking-for-our-galápagos-islands-models"><i class="fa fa-check"></i><b>41.9</b> Assumption Checking for our Galápagos Islands models</a></li>
 <li class="chapter" data-level="41.10" data-path="species-found-on-the-galapagos-islands.html"><a href="species-found-on-the-galapagos-islands.html#my-first-plot-studentized-residuals-vs.-fitted-values"><i class="fa fa-check"></i><b>41.10</b> My First Plot: Studentized Residuals vs. Fitted Values</a><ul>
 <li class="chapter" data-level="41.10.1" data-path="species-found-on-the-galapagos-islands.html"><a href="species-found-on-the-galapagos-islands.html#questions-about-studentized-residuals-vs.-fitted-values"><i class="fa fa-check"></i><b>41.10.1</b> Questions about Studentized Residuals vs. Fitted Values</a></li>
 </ul></li>
@@ -1023,24 +1033,24 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="dealing-with-missing-data" class="section level1">
 <h1><span class="header-section-number">Chapter 39</span> Dealing with Missing Data</h1>
 <p>So what we should have done at the start of our <code>wcgs</code> analysis was to identify any issues with missing values or whether any variables show unreasonably large or small values.</p>
-<div class="sourceCode" id="cb1086"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1086-1" title="1">wcgs.s &lt;-<span class="st"> </span>wcgs <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb1086-2" title="2"><span class="st">    </span>dplyr<span class="op">::</span><span class="kw">select</span>(id, chol, age, bmi, sbp, dbp, smoke)</a></code></pre></div>
+<div class="sourceCode" id="cb1104"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1104-1" title="1">wcgs.s &lt;-<span class="st"> </span>wcgs <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb1104-2" title="2"><span class="st">    </span>dplyr<span class="op">::</span><span class="kw">select</span>(id, chol, age, bmi, sbp, dbp, smoke)</a></code></pre></div>
 <div id="identifying-missingness" class="section level2">
 <h2><span class="header-section-number">39.1</span> Identifying Missingness</h2>
 <p>If you just want a count of missing values, you can use <code>colSums</code> and <code>is.na</code></p>
-<div class="sourceCode" id="cb1087"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1087-1" title="1"><span class="kw">colSums</span>(<span class="kw">is.na</span>(wcgs.s))</a></code></pre></div>
+<div class="sourceCode" id="cb1105"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1105-1" title="1"><span class="kw">colSums</span>(<span class="kw">is.na</span>(wcgs.s))</a></code></pre></div>
 <pre><code>   id  chol   age   bmi   sbp   dbp smoke 
     0    12     0     0     0     0     0 </code></pre>
 <p>The <code>mice</code> package provides the <code>md.pattern</code> function to identify missingness patterns.</p>
-<div class="sourceCode" id="cb1089"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1089-1" title="1"><span class="kw">library</span>(mice)</a>
-<a class="sourceLine" id="cb1089-2" title="2"><span class="kw">md.pattern</span>(wcgs.s)</a></code></pre></div>
+<div class="sourceCode" id="cb1107"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1107-1" title="1"><span class="kw">library</span>(mice)</a>
+<a class="sourceLine" id="cb1107-2" title="2"><span class="kw">md.pattern</span>(wcgs.s)</a></code></pre></div>
 <p><img src="2019-431-book_files/figure-html/missing%20pattern%20in%20wcgs.s-1.png" width="672" /></p>
 <pre><code>     id age bmi sbp dbp smoke chol   
 3142  1   1   1   1   1     1    1  0
 12    1   1   1   1   1     1    0  1
       0   0   0   0   0     0   12 12</code></pre>
 <p>Given the relatively small set of variables we’re studying here, I would run the <code>describe</code> function from the <code>Hmisc</code> package on each variable (maybe skipping <code>id</code>) in order to identify missing and (potentially) unrealistic values through range checks.</p>
-<div class="sourceCode" id="cb1091"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1091-1" title="1">Hmisc<span class="op">::</span><span class="kw">describe</span>(wcgs.s[<span class="op">-</span><span class="dv">1</span>]) <span class="co"># won&#39;t bother summarizing id</span></a></code></pre></div>
+<div class="sourceCode" id="cb1109"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1109-1" title="1">Hmisc<span class="op">::</span><span class="kw">describe</span>(wcgs.s[<span class="op">-</span><span class="dv">1</span>]) <span class="co"># won&#39;t bother summarizing id</span></a></code></pre></div>
 <pre><code>wcgs.s[-1] 
 
  6  Variables      3154  Observations
@@ -1105,8 +1115,8 @@ Proportion 0.524 0.476
 <div id="complete-case-analysis-a-model-for-chol" class="section level2">
 <h2><span class="header-section-number">39.2</span> Complete Case Analysis: A model for <code>chol</code></h2>
 <p>Suppose we want to build a model for <code>chol</code> using age, body-mass index and systolic blood pressure, using the entire <code>wcgs</code> data frame, except those subjects with a missing <code>chol</code> value. Note that this is the default approach R takes, regardless of whether <code>chol</code> is used as an outcome or predictor.</p>
-<div class="sourceCode" id="cb1093"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1093-1" title="1">model1 &lt;-<span class="st"> </span><span class="kw">lm</span>(chol <span class="op">~</span><span class="st"> </span>age <span class="op">+</span><span class="st"> </span>bmi <span class="op">+</span><span class="st"> </span>sbp, <span class="dt">data =</span> wcgs.s)</a>
-<a class="sourceLine" id="cb1093-2" title="2"><span class="kw">summary</span>(model1)</a></code></pre></div>
+<div class="sourceCode" id="cb1111"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1111-1" title="1">model1 &lt;-<span class="st"> </span><span class="kw">lm</span>(chol <span class="op">~</span><span class="st"> </span>age <span class="op">+</span><span class="st"> </span>bmi <span class="op">+</span><span class="st"> </span>sbp, <span class="dt">data =</span> wcgs.s)</a>
+<a class="sourceLine" id="cb1111-2" title="2"><span class="kw">summary</span>(model1)</a></code></pre></div>
 <pre><code>
 Call:
 lm(formula = chol ~ age + bmi + sbp, data = wcgs.s)
@@ -1136,31 +1146,31 @@ F-statistic: 22.9 on 3 and 3138 DF,  p-value: 1.16e-14</code></pre>
 <li>That suggests we are using (3 + 3138) + 1 = 3142 subjects in this model.</li>
 <li>But <code>wcgs.s</code> actually contains 3,154 people so 12 were omitted.</li>
 </ul>
-<div class="sourceCode" id="cb1095"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1095-1" title="1"><span class="kw">dim</span>(wcgs.s)</a></code></pre></div>
+<div class="sourceCode" id="cb1113"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1113-1" title="1"><span class="kw">dim</span>(wcgs.s)</a></code></pre></div>
 <pre><code>[1] 3154    7</code></pre>
 <div id="removing-all-subjects-with-na-via-na.omit" class="section level3">
 <h3><span class="header-section-number">39.2.1</span> Removing all subjects with NA, via <code>na.omit</code></h3>
 <p>So, if we want to fit a complete case analysis, we don’t, technically, have to do anything except specify the model. We can also make this explicit by first pruning all subjects with any missing values on any variables from our tibble.</p>
-<div class="sourceCode" id="cb1097"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1097-1" title="1">wcgs.subnoNA &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">select</span>(wcgs, id, chol, age, bmi, sbp) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb1097-2" title="2"><span class="st">    </span>na.omit <span class="co">## the na.omit function drops all cases with NA</span></a>
-<a class="sourceLine" id="cb1097-3" title="3"><span class="kw">dim</span>(wcgs.subnoNA)</a></code></pre></div>
+<div class="sourceCode" id="cb1115"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1115-1" title="1">wcgs.subnoNA &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">select</span>(wcgs, id, chol, age, bmi, sbp) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb1115-2" title="2"><span class="st">    </span>na.omit <span class="co">## the na.omit function drops all cases with NA</span></a>
+<a class="sourceLine" id="cb1115-3" title="3"><span class="kw">dim</span>(wcgs.subnoNA)</a></code></pre></div>
 <pre><code>[1] 3142    5</code></pre>
 </div>
 <div id="removing-subjects-with-na-on-one-particular-variable" class="section level3">
 <h3><span class="header-section-number">39.2.2</span> Removing subjects with NA on one particular variable</h3>
 <p>If we wanted to specify that only subjects with missing <code>chol</code> should be removed from the data set (in case there were missing values in other variables), we could use the following approach.</p>
 <p>Here, I’ll work with a data set (<code>wcgs.s3</code>) that contains 12 missing <code>chol</code> values, and 2 missing <code>arcus</code> values, and build a new set (<code>wcgs.s3noNAchol</code>) that retains the subjects who have a <code>chol</code> value, regardless of whether they are also missing <code>arcus</code>, but not include the 12 subjects with missing <code>chol</code> data</p>
-<div class="sourceCode" id="cb1099"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1099-1" title="1">wcgs.s3 &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">select</span>(wcgs, id, chol, arcus)</a>
-<a class="sourceLine" id="cb1099-2" title="2"><span class="kw">md.pattern</span>(wcgs.s3)</a></code></pre></div>
+<div class="sourceCode" id="cb1117"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1117-1" title="1">wcgs.s3 &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">select</span>(wcgs, id, chol, arcus)</a>
+<a class="sourceLine" id="cb1117-2" title="2"><span class="kw">md.pattern</span>(wcgs.s3)</a></code></pre></div>
 <p><img src="2019-431-book_files/figure-html/create%20subset%20with%20no%20missing%20chol%20but%20retain%20missing%20arcus-1.png" width="672" /></p>
 <pre><code>     id arcus chol   
 3140  1     1    1  0
 12    1     1    0  1
 2     1     0    1  1
       0     2   12 14</code></pre>
-<div class="sourceCode" id="cb1101"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1101-1" title="1">wcgs.s3noNAchol &lt;-<span class="st"> </span>wcgs.s3 <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb1101-2" title="2"><span class="st">    </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(chol))</a>
-<a class="sourceLine" id="cb1101-3" title="3"><span class="kw">md.pattern</span>(wcgs.s3noNAchol)</a></code></pre></div>
+<div class="sourceCode" id="cb1119"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1119-1" title="1">wcgs.s3noNAchol &lt;-<span class="st"> </span>wcgs.s3 <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb1119-2" title="2"><span class="st">    </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(chol))</a>
+<a class="sourceLine" id="cb1119-3" title="3"><span class="kw">md.pattern</span>(wcgs.s3noNAchol)</a></code></pre></div>
 <p><img src="2019-431-book_files/figure-html/create%20subset%20with%20no%20missing%20chol%20but%20retain%20missing%20arcus-2.png" width="672" /></p>
 <pre><code>     id chol arcus  
 3140  1    1     1 0
@@ -1171,14 +1181,14 @@ F-statistic: 22.9 on 3 and 3138 DF,  p-value: 1.16e-14</code></pre>
 <div id="using-multiple-imputation-to-fit-our-regression-model" class="section level2">
 <h2><span class="header-section-number">39.3</span> Using Multiple Imputation to fit our Regression Model</h2>
 <p>Following the approach we outlined in the R-20 document, we’ll try fitting the model while imputing the 12 cholesterol values, 100 times each, creating 100 new “complete” data sets.</p>
-<div class="sourceCode" id="cb1103"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1103-1" title="1">wcgs.sub &lt;-<span class="st"> </span>wcgs <span class="op">%&gt;%</span><span class="st"> </span>dplyr<span class="op">::</span><span class="kw">select</span>(id, chol, age, bmi, sbp)</a>
-<a class="sourceLine" id="cb1103-2" title="2">chol.mi &lt;-<span class="st"> </span><span class="kw">mice</span>(wcgs.sub, <span class="dt">m =</span> <span class="dv">100</span>, <span class="dt">maxit =</span> <span class="dv">5</span>, </a>
-<a class="sourceLine" id="cb1103-3" title="3">                <span class="dt">meth =</span> <span class="st">&quot;pmm&quot;</span>, <span class="dt">printFlag =</span> <span class="ot">FALSE</span>, <span class="dt">seed =</span> <span class="dv">4314</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb1121"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1121-1" title="1">wcgs.sub &lt;-<span class="st"> </span>wcgs <span class="op">%&gt;%</span><span class="st"> </span>dplyr<span class="op">::</span><span class="kw">select</span>(id, chol, age, bmi, sbp)</a>
+<a class="sourceLine" id="cb1121-2" title="2">chol.mi &lt;-<span class="st"> </span><span class="kw">mice</span>(wcgs.sub, <span class="dt">m =</span> <span class="dv">100</span>, <span class="dt">maxit =</span> <span class="dv">5</span>, </a>
+<a class="sourceLine" id="cb1121-3" title="3">                <span class="dt">meth =</span> <span class="st">&quot;pmm&quot;</span>, <span class="dt">printFlag =</span> <span class="ot">FALSE</span>, <span class="dt">seed =</span> <span class="dv">4314</span>)</a></code></pre></div>
 <div id="examining-a-single-imputed-data-set" class="section level3">
 <h3><span class="header-section-number">39.3.1</span> Examining a Single Imputed Data Set</h3>
 <p>We could look at any one of our 100 imputations in some detail, perhaps the 12th such imputation, as follows:</p>
-<div class="sourceCode" id="cb1104"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1104-1" title="1">imp12 &lt;-<span class="st"> </span>mice<span class="op">::</span><span class="kw">complete</span>(chol.mi, <span class="dv">12</span>)</a>
-<a class="sourceLine" id="cb1104-2" title="2">Hmisc<span class="op">::</span><span class="kw">describe</span>(imp12<span class="op">$</span>chol)</a></code></pre></div>
+<div class="sourceCode" id="cb1122"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1122-1" title="1">imp12 &lt;-<span class="st"> </span>mice<span class="op">::</span><span class="kw">complete</span>(chol.mi, <span class="dv">12</span>)</a>
+<a class="sourceLine" id="cb1122-2" title="2">Hmisc<span class="op">::</span><span class="kw">describe</span>(imp12<span class="op">$</span>chol)</a></code></pre></div>
 <pre><code>imp12$chol 
        n  missing distinct     Info     Mean      Gmd      .05      .10 
     3154        0      237        1    226.4    47.98    161.7    175.0 
@@ -1191,8 +1201,8 @@ lowest : 103 110 111 112 113, highest: 386 390 400 414 645</code></pre>
 <div id="fitting-a-pooled-regression-model-across-the-imputations" class="section level3">
 <h3><span class="header-section-number">39.3.2</span> Fitting a Pooled Regression Model across the Imputations</h3>
 <p>Next, we’ll fit a set of pooled regression model estimates across all 100 imputations, producing the following results. We’ll even estimate both forms of R<sup>2</sup>.</p>
-<div class="sourceCode" id="cb1106"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1106-1" title="1">model<span class="fl">.1</span>mi &lt;-<span class="st"> </span><span class="kw">with</span>(chol.mi, <span class="kw">lm</span>(chol <span class="op">~</span><span class="st"> </span>age <span class="op">+</span><span class="st"> </span>bmi <span class="op">+</span><span class="st"> </span>sbp))</a>
-<a class="sourceLine" id="cb1106-2" title="2"><span class="kw">pool</span>(model<span class="fl">.1</span>mi)</a></code></pre></div>
+<div class="sourceCode" id="cb1124"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1124-1" title="1">model<span class="fl">.1</span>mi &lt;-<span class="st"> </span><span class="kw">with</span>(chol.mi, <span class="kw">lm</span>(chol <span class="op">~</span><span class="st"> </span>age <span class="op">+</span><span class="st"> </span>bmi <span class="op">+</span><span class="st"> </span>sbp))</a>
+<a class="sourceLine" id="cb1124-2" title="2"><span class="kw">pool</span>(model<span class="fl">.1</span>mi)</a></code></pre></div>
 <pre><code>Class: mipo    m = 100 
             estimate     ubar        b        t dfcom   df     riv  lambda
 (Intercept)  146.993 1.06e+02 8.02e-01 1.07e+02  3150 3118 0.00766 0.00760
@@ -1204,16 +1214,16 @@ sbp            0.284 2.87e-03 4.84e-05 2.92e-03  3150 3068 0.01702 0.01674
 age         0.00810
 bmi         0.00794
 sbp         0.01738</code></pre>
-<div class="sourceCode" id="cb1108"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1108-1" title="1"><span class="kw">round</span>(<span class="kw">summary</span>(<span class="kw">pool</span>(model<span class="fl">.1</span>mi)),<span class="dv">2</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb1126"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1126-1" title="1"><span class="kw">round</span>(<span class="kw">summary</span>(<span class="kw">pool</span>(model<span class="fl">.1</span>mi)),<span class="dv">2</span>)</a></code></pre></div>
 <pre><code>            estimate std.error statistic   df p.value
 (Intercept)   146.99     10.33     14.23 3118    0.00
 age             0.56      0.14      3.99 3119    0.00
 bmi             0.69      0.31      2.19 3120    0.03
 sbp             0.28      0.05      5.25 3068    0.00</code></pre>
-<div class="sourceCode" id="cb1110"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1110-1" title="1"><span class="kw">pool.r.squared</span>(model<span class="fl">.1</span>mi, <span class="dt">adjusted =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb1128"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1128-1" title="1"><span class="kw">pool.r.squared</span>(model<span class="fl">.1</span>mi, <span class="dt">adjusted =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
 <pre><code>       est  lo 95  hi 95 fmi
 R^2 0.0214 0.0125 0.0325 NaN</code></pre>
-<div class="sourceCode" id="cb1112"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1112-1" title="1"><span class="kw">pool.r.squared</span>(model<span class="fl">.1</span>mi, <span class="dt">adjusted =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb1130"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1130-1" title="1"><span class="kw">pool.r.squared</span>(model<span class="fl">.1</span>mi, <span class="dt">adjusted =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
 <pre><code>           est  lo 95  hi 95 fmi
 adj R^2 0.0204 0.0118 0.0314 NaN</code></pre>
 <ul>
@@ -1221,7 +1231,7 @@ adj R^2 0.0204 0.0118 0.0314 NaN</code></pre>
 <li><code>lambda</code> in that output is the proportion of the total variance that is attributable to the missing data.</li>
 </ul>
 <p>So, how do these estimates after imputation compare to our complete case analysis originally developed as <code>model1</code>, and re-summarized below?</p>
-<div class="sourceCode" id="cb1114"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1114-1" title="1"><span class="kw">summary</span>(model1)</a></code></pre></div>
+<div class="sourceCode" id="cb1132"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1132-1" title="1"><span class="kw">summary</span>(model1)</a></code></pre></div>
 <pre><code>
 Call:
 lm(formula = chol ~ age + bmi + sbp, data = wcgs.s)
@@ -1248,22 +1258,22 @@ F-statistic: 22.9 on 3 and 3138 DF,  p-value: 1.16e-14</code></pre>
 <div id="comparing-two-models-after-imputation-with-pool.compare" class="section level2">
 <h2><span class="header-section-number">39.4</span> Comparing Two Models After Imputation with <code>pool.compare</code></h2>
 <p>Suppose we want to assess whether a model for <code>chol</code> with <code>age</code>, <code>bmi</code> and <code>sbp</code> is statistically significantly more effective than a model with <code>age</code> alone. As long as the models we want to compare are <em>nested</em> (so that one model is a proper subset of the other), then this can be done as follows, to produce a Wald test.</p>
-<div class="sourceCode" id="cb1116"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1116-1" title="1">model<span class="fl">.1</span>mi &lt;-<span class="st"> </span><span class="kw">with</span>(chol.mi, <span class="kw">lm</span>(chol <span class="op">~</span><span class="st"> </span>age <span class="op">+</span><span class="st"> </span>bmi <span class="op">+</span><span class="st"> </span>sbp))</a>
-<a class="sourceLine" id="cb1116-2" title="2">model<span class="fl">.2</span>mi &lt;-<span class="st"> </span><span class="kw">with</span>(chol.mi, <span class="kw">lm</span>(chol <span class="op">~</span><span class="st"> </span>age))</a>
-<a class="sourceLine" id="cb1116-3" title="3">comp1 &lt;-<span class="st"> </span><span class="kw">pool.compare</span>(model<span class="fl">.1</span>mi, model<span class="fl">.2</span>mi, <span class="dt">method =</span> <span class="st">&quot;wald&quot;</span>)</a></code></pre></div>
-<div class="sourceCode" id="cb1117"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1117-1" title="1">comp1<span class="op">$</span>qbar1 <span class="co"># pooled estimate of first (larger) model</span></a></code></pre></div>
+<div class="sourceCode" id="cb1134"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1134-1" title="1">model<span class="fl">.1</span>mi &lt;-<span class="st"> </span><span class="kw">with</span>(chol.mi, <span class="kw">lm</span>(chol <span class="op">~</span><span class="st"> </span>age <span class="op">+</span><span class="st"> </span>bmi <span class="op">+</span><span class="st"> </span>sbp))</a>
+<a class="sourceLine" id="cb1134-2" title="2">model<span class="fl">.2</span>mi &lt;-<span class="st"> </span><span class="kw">with</span>(chol.mi, <span class="kw">lm</span>(chol <span class="op">~</span><span class="st"> </span>age))</a>
+<a class="sourceLine" id="cb1134-3" title="3">comp1 &lt;-<span class="st"> </span><span class="kw">pool.compare</span>(model<span class="fl">.1</span>mi, model<span class="fl">.2</span>mi, <span class="dt">method =</span> <span class="st">&quot;wald&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb1135"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1135-1" title="1">comp1<span class="op">$</span>qbar1 <span class="co"># pooled estimate of first (larger) model</span></a></code></pre></div>
 <pre><code>(Intercept)         age         bmi         sbp 
     146.993       0.563       0.685       0.284 </code></pre>
-<div class="sourceCode" id="cb1119"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1119-1" title="1">comp1<span class="op">$</span>qbar0 <span class="co"># pooled estimate of second (smaller) model</span></a></code></pre></div>
+<div class="sourceCode" id="cb1137"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1137-1" title="1">comp1<span class="op">$</span>qbar0 <span class="co"># pooled estimate of second (smaller) model</span></a></code></pre></div>
 <pre><code>(Intercept)         age 
       194.0         0.7 </code></pre>
-<div class="sourceCode" id="cb1121"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1121-1" title="1">comp1<span class="op">$</span>Dm <span class="co"># Wald test statistic comparing the models</span></a></code></pre></div>
+<div class="sourceCode" id="cb1139"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1139-1" title="1">comp1<span class="op">$</span>Dm <span class="co"># Wald test statistic comparing the models</span></a></code></pre></div>
 <pre><code>     [,1]
 [1,] 16.3</code></pre>
-<div class="sourceCode" id="cb1123"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1123-1" title="1">comp1<span class="op">$</span>df1; comp1<span class="op">$</span>df2 <span class="co"># degrees of freedom for Wald test</span></a></code></pre></div>
+<div class="sourceCode" id="cb1141"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1141-1" title="1">comp1<span class="op">$</span>df1; comp1<span class="op">$</span>df2 <span class="co"># degrees of freedom for Wald test</span></a></code></pre></div>
 <pre><code>[1] 2</code></pre>
 <pre><code>[1] 1311410</code></pre>
-<div class="sourceCode" id="cb1126"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1126-1" title="1">comp1<span class="op">$</span>pvalue <span class="co"># p value for Wald test</span></a></code></pre></div>
+<div class="sourceCode" id="cb1144"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1144-1" title="1">comp1<span class="op">$</span>pvalue <span class="co"># p value for Wald test</span></a></code></pre></div>
 <pre><code>         [,1]
 [1,] 8.71e-08</code></pre>
 <p>Practically, a significant value of the Wald test here suggests that the difference in predictive value between <code>model.1mi</code> and <code>model.2mi</code> is statistically significant, and thus, that you need the larger model. A non-significant Wald test would be consistent with a situation where you could use the model with <code>age</code> alone.</p>
@@ -1284,11 +1294,13 @@ F-statistic: 22.9 on 3 and 3138 DF,  p-value: 1.16e-14</code></pre>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({

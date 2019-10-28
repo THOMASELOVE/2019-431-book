@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 30 Partial Review to help you prepare for Quiz 2 | Data Science for Biological, Medical and Health Research: Notes for PQHS 431</title>
   <meta name="description" content="Chapter 30 Partial Review to help you prepare for Quiz 2 | Data Science for Biological, Medical and Health Research: Notes for PQHS 431" />
-  <meta name="generator" content="bookdown 0.13 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 30 Partial Review to help you prepare for Quiz 2 | Data Science for Biological, Medical and Health Research: Notes for PQHS 431" />
   <meta property="og:type" content="book" />
@@ -39,6 +39,9 @@
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
 
 
 
@@ -729,6 +732,13 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="29.6" data-path="Tables.html"><a href="Tables.html#collapsing-levels-categories-in-a-factor"><i class="fa fa-check"></i><b>29.6</b> Collapsing Levels / Categories in a Factor</a></li>
 <li class="chapter" data-level="29.7" data-path="Tables.html"><a href="Tables.html#accuracy-of-death-certificates-a-6x3-table"><i class="fa fa-check"></i><b>29.7</b> Accuracy of Death Certificates (A 6x3 Table)</a></li>
 <li class="chapter" data-level="29.8" data-path="Tables.html"><a href="Tables.html#the-pearson-chi-square-test-of-independence"><i class="fa fa-check"></i><b>29.8</b> The Pearson Chi-Square Test of Independence</a></li>
+<li class="chapter" data-level="29.9" data-path="Tables.html"><a href="Tables.html#three-way-tables-a-2x2xk-table-and-a-mantel-haenszel-analysis"><i class="fa fa-check"></i><b>29.9</b> Three-Way Tables: A 2x2xK Table and a Mantel-Haenszel Analysis</a><ul>
+<li class="chapter" data-level="29.9.1" data-path="Tables.html"><a href="Tables.html#smoking-and-mortality-in-the-uk"><i class="fa fa-check"></i><b>29.9.1</b> Smoking and Mortality in the UK</a></li>
+<li class="chapter" data-level="29.9.2" data-path="Tables.html"><a href="Tables.html#the-whickham-data-including-age-as-well-as-smoking-and-mortality"><i class="fa fa-check"></i><b>29.9.2</b> The <code>whickham</code> data including age, as well as smoking and mortality</a></li>
+<li class="chapter" data-level="29.9.3" data-path="Tables.html"><a href="Tables.html#the-cochran-mantel-haenszel-test"><i class="fa fa-check"></i><b>29.9.3</b> The Cochran-Mantel-Haenszel Test</a></li>
+<li class="chapter" data-level="29.9.4" data-path="Tables.html"><a href="Tables.html#checking-assumptions-the-woolf-test"><i class="fa fa-check"></i><b>29.9.4</b> Checking Assumptions: The Woolf test</a></li>
+<li class="chapter" data-level="29.9.5" data-path="Tables.html"><a href="Tables.html#without-the-continuity-correction"><i class="fa fa-check"></i><b>29.9.5</b> Without the Continuity Correction</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="30" data-path="partial-review-to-help-you-prepare-for-quiz-2.html"><a href="partial-review-to-help-you-prepare-for-quiz-2.html"><i class="fa fa-check"></i><b>30</b> Partial Review to help you prepare for Quiz 2</a><ul>
 <li class="chapter" data-level="30.1" data-path="partial-review-to-help-you-prepare-for-quiz-2.html"><a href="partial-review-to-help-you-prepare-for-quiz-2.html#review-items-1-7"><i class="fa fa-check"></i><b>30.1</b> Review Items 1-7</a></li>
@@ -939,7 +949,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="41.7.1" data-path="species-found-on-the-galapagos-islands.html"><a href="species-found-on-the-galapagos-islands.html#questions-about-sequential-testing-and-anova"><i class="fa fa-check"></i><b>41.7.1</b> Questions about Sequential Testing and ANOVA</a></li>
 </ul></li>
 <li class="chapter" data-level="41.8" data-path="species-found-on-the-galapagos-islands.html"><a href="species-found-on-the-galapagos-islands.html#an-anova-table-for-the-model-as-a-whole"><i class="fa fa-check"></i><b>41.8</b> An ANOVA table for the Model as a Whole</a></li>
-<li class="chapter" data-level="41.9" data-path="species-found-on-the-galapagos-islands.html"><a href="species-found-on-the-galapagos-islands.html#assumption-checking-for-our-galapagos-islands-models"><i class="fa fa-check"></i><b>41.9</b> Assumption Checking for our Galápagos Islands models</a></li>
+<li class="chapter" data-level="41.9" data-path="species-found-on-the-galapagos-islands.html"><a href="species-found-on-the-galapagos-islands.html#assumption-checking-for-our-galápagos-islands-models"><i class="fa fa-check"></i><b>41.9</b> Assumption Checking for our Galápagos Islands models</a></li>
 <li class="chapter" data-level="41.10" data-path="species-found-on-the-galapagos-islands.html"><a href="species-found-on-the-galapagos-islands.html#my-first-plot-studentized-residuals-vs.-fitted-values"><i class="fa fa-check"></i><b>41.10</b> My First Plot: Studentized Residuals vs. Fitted Values</a><ul>
 <li class="chapter" data-level="41.10.1" data-path="species-found-on-the-galapagos-islands.html"><a href="species-found-on-the-galapagos-islands.html#questions-about-studentized-residuals-vs.-fitted-values"><i class="fa fa-check"></i><b>41.10.1</b> Questions about Studentized Residuals vs. Fitted Values</a></li>
 </ul></li>
@@ -1067,14 +1077,14 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">30.5</span> Answer Sketch for Review Items</h2>
 <div id="answer-1" class="section level3">
 <h3><span class="header-section-number">30.5.1</span> Answer 1</h3>
-<div class="sourceCode" id="cb884"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb884-1" title="1"><span class="kw">saifs.ci</span>(<span class="dv">65</span>, <span class="dv">85</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb902"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb902-1" title="1"><span class="kw">saifs.ci</span>(<span class="dv">65</span>, <span class="dv">85</span>)</a></code></pre></div>
 <pre><code>Sample Proportion             0.025             0.975 
             0.765             0.663             0.859 </code></pre>
 <p>The 95% confidence interval for the proportion of people using medication A who obtain relief is (0.663, 0.859). We are 95% confident that the true percentage of people who find relief using medication A is between 66.3% and 85.9%.</p>
 </div>
 <div id="answer-2" class="section level3">
 <h3><span class="header-section-number">30.5.2</span> Answer 2</h3>
-<div class="sourceCode" id="cb886"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb886-1" title="1"><span class="kw">saifs.ci</span>(<span class="dv">45</span>, <span class="dv">70</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb904"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb904-1" title="1"><span class="kw">saifs.ci</span>(<span class="dv">45</span>, <span class="dv">70</span>)</a></code></pre></div>
 <pre><code>Sample Proportion             0.025             0.975 
             0.643             0.519             0.762 </code></pre>
 <p>The 95% confidence interval for the proportion of people using medication B who obtain relief is (0.519, 0.762).</p>
@@ -1085,7 +1095,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="answer-4" class="section level3">
 <h3><span class="header-section-number">30.5.4</span> Answer 4</h3>
-<div class="sourceCode" id="cb888"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb888-1" title="1"><span class="kw">twobytwo</span>(<span class="dv">65</span><span class="op">+</span><span class="dv">1</span>, <span class="dv">20</span><span class="op">+</span><span class="dv">1</span>, <span class="dv">45</span><span class="op">+</span><span class="dv">1</span>, <span class="dv">25</span><span class="op">+</span><span class="dv">1</span>, <span class="st">&quot;Med. A&quot;</span>, <span class="st">&quot;Med. B&quot;</span>, <span class="st">&quot;Relief&quot;</span>, <span class="st">&quot;No Relief&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb906"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb906-1" title="1"><span class="kw">twobytwo</span>(<span class="dv">65</span><span class="op">+</span><span class="dv">1</span>, <span class="dv">20</span><span class="op">+</span><span class="dv">1</span>, <span class="dv">45</span><span class="op">+</span><span class="dv">1</span>, <span class="dv">25</span><span class="op">+</span><span class="dv">1</span>, <span class="st">&quot;Med. A&quot;</span>, <span class="st">&quot;Med. B&quot;</span>, <span class="st">&quot;Relief&quot;</span>, <span class="st">&quot;No Relief&quot;</span>)</a></code></pre></div>
 <pre><code>2 by 2 table analysis: 
 ------------------------------------------------------ 
 Outcome   : Relief 
@@ -1136,40 +1146,40 @@ Conditional MLE Odds Ratio:  1.77    0.8446    3.749
 <div id="answer-11" class="section level3">
 <h3><span class="header-section-number">30.5.11</span> Answer 11</h3>
 <p>We need a plot of the 15 paired differences, for example a boxplot, or a normal Q-Q plot.</p>
-<div class="sourceCode" id="cb890"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb890-1" title="1">darwin<span class="op">$</span>diffs &lt;-<span class="st"> </span>darwin<span class="op">$</span>cross.fertilized <span class="op">-</span><span class="st"> </span>darwin<span class="op">$</span>self.fertilized</a>
-<a class="sourceLine" id="cb890-2" title="2"></a>
-<a class="sourceLine" id="cb890-3" title="3">p1 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(darwin, <span class="kw">aes</span>(<span class="dt">x =</span> diffs)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb890-4" title="4"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">y =</span> ..density..), <span class="dt">bins =</span> <span class="kw">fd_bins</span>(darwin<span class="op">$</span>diffs),</a>
-<a class="sourceLine" id="cb890-5" title="5">                 <span class="dt">fill =</span> <span class="st">&quot;forestgreen&quot;</span>, <span class="dt">col =</span> <span class="st">&quot;white&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb890-6" title="6"><span class="st">  </span><span class="kw">stat_function</span>(<span class="dt">fun =</span> dnorm,</a>
-<a class="sourceLine" id="cb890-7" title="7">                <span class="dt">args =</span> <span class="kw">list</span>(<span class="dt">mean =</span> <span class="kw">mean</span>(darwin<span class="op">$</span>diffs), </a>
-<a class="sourceLine" id="cb890-8" title="8">                            <span class="dt">sd =</span> <span class="kw">sd</span>(darwin<span class="op">$</span>diffs)),</a>
-<a class="sourceLine" id="cb890-9" title="9">                <span class="dt">lwd =</span> <span class="fl">1.5</span>, <span class="dt">col =</span> <span class="st">&quot;navy&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb890-10" title="10"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Histogram&quot;</span>,</a>
-<a class="sourceLine" id="cb890-11" title="11">       <span class="dt">x =</span> <span class="st">&quot;Height Diff.&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Density&quot;</span>)</a>
-<a class="sourceLine" id="cb890-12" title="12"></a>
-<a class="sourceLine" id="cb890-13" title="13">p2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(darwin, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="dv">1</span>, <span class="dt">y =</span> diffs)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb890-14" title="14"><span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">fill =</span> <span class="st">&quot;forestgreen&quot;</span>, <span class="dt">outlier.color =</span> <span class="st">&quot;forestgreen&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb890-15" title="15"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_blank</span>(), <span class="dt">axis.ticks.x =</span> <span class="kw">element_blank</span>()) <span class="op">+</span></a>
-<a class="sourceLine" id="cb890-16" title="16"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Boxplot&quot;</span>,</a>
-<a class="sourceLine" id="cb890-17" title="17">       <span class="dt">y =</span> <span class="st">&quot;Difference in Seedling Height (inches)&quot;</span>, <span class="dt">x =</span> <span class="st">&quot;&quot;</span>)</a>
-<a class="sourceLine" id="cb890-18" title="18"></a>
-<a class="sourceLine" id="cb890-19" title="19">p3 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(darwin, <span class="kw">aes</span>(<span class="dt">sample =</span> diffs)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb890-20" title="20"><span class="st">  </span><span class="kw">geom_qq</span>(<span class="dt">col =</span> <span class="st">&quot;forestgreen&quot;</span>, <span class="dt">size =</span> <span class="dv">2</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb890-21" title="21"><span class="st">  </span><span class="kw">geom_abline</span>(<span class="dt">intercept =</span> <span class="kw">qq_int</span>(darwin<span class="op">$</span>diffs), </a>
-<a class="sourceLine" id="cb890-22" title="22">              <span class="dt">slope =</span> <span class="kw">qq_slope</span>(darwin<span class="op">$</span>diffs)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb890-23" title="23"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Normal Q-Q&quot;</span>,</a>
-<a class="sourceLine" id="cb890-24" title="24">       <span class="dt">y =</span> <span class="st">&quot;Difference in Seedling Height (inches)&quot;</span>, <span class="dt">x =</span> <span class="st">&quot;&quot;</span>)</a>
-<a class="sourceLine" id="cb890-25" title="25"></a>
-<a class="sourceLine" id="cb890-26" title="26">gridExtra<span class="op">::</span><span class="kw">grid.arrange</span>(p1, p2, p3, <span class="dt">nrow=</span><span class="dv">1</span>, </a>
-<a class="sourceLine" id="cb890-27" title="27">   <span class="dt">top =</span> <span class="st">&quot;Cross-Self Fertilized Difference in Seedling Height </span></a>
-<a class="sourceLine" id="cb890-28" title="28"><span class="st">   in inches for 15 pairs of seedlings&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb908"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb908-1" title="1">darwin<span class="op">$</span>diffs &lt;-<span class="st"> </span>darwin<span class="op">$</span>cross.fertilized <span class="op">-</span><span class="st"> </span>darwin<span class="op">$</span>self.fertilized</a>
+<a class="sourceLine" id="cb908-2" title="2"></a>
+<a class="sourceLine" id="cb908-3" title="3">p1 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(darwin, <span class="kw">aes</span>(<span class="dt">x =</span> diffs)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb908-4" title="4"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">y =</span> ..density..), <span class="dt">bins =</span> <span class="kw">fd_bins</span>(darwin<span class="op">$</span>diffs),</a>
+<a class="sourceLine" id="cb908-5" title="5">                 <span class="dt">fill =</span> <span class="st">&quot;forestgreen&quot;</span>, <span class="dt">col =</span> <span class="st">&quot;white&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb908-6" title="6"><span class="st">  </span><span class="kw">stat_function</span>(<span class="dt">fun =</span> dnorm,</a>
+<a class="sourceLine" id="cb908-7" title="7">                <span class="dt">args =</span> <span class="kw">list</span>(<span class="dt">mean =</span> <span class="kw">mean</span>(darwin<span class="op">$</span>diffs), </a>
+<a class="sourceLine" id="cb908-8" title="8">                            <span class="dt">sd =</span> <span class="kw">sd</span>(darwin<span class="op">$</span>diffs)),</a>
+<a class="sourceLine" id="cb908-9" title="9">                <span class="dt">lwd =</span> <span class="fl">1.5</span>, <span class="dt">col =</span> <span class="st">&quot;navy&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb908-10" title="10"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Histogram&quot;</span>,</a>
+<a class="sourceLine" id="cb908-11" title="11">       <span class="dt">x =</span> <span class="st">&quot;Height Diff.&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Density&quot;</span>)</a>
+<a class="sourceLine" id="cb908-12" title="12"></a>
+<a class="sourceLine" id="cb908-13" title="13">p2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(darwin, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="dv">1</span>, <span class="dt">y =</span> diffs)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb908-14" title="14"><span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">fill =</span> <span class="st">&quot;forestgreen&quot;</span>, <span class="dt">outlier.color =</span> <span class="st">&quot;forestgreen&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb908-15" title="15"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_blank</span>(), <span class="dt">axis.ticks.x =</span> <span class="kw">element_blank</span>()) <span class="op">+</span></a>
+<a class="sourceLine" id="cb908-16" title="16"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Boxplot&quot;</span>,</a>
+<a class="sourceLine" id="cb908-17" title="17">       <span class="dt">y =</span> <span class="st">&quot;Difference in Seedling Height (inches)&quot;</span>, <span class="dt">x =</span> <span class="st">&quot;&quot;</span>)</a>
+<a class="sourceLine" id="cb908-18" title="18"></a>
+<a class="sourceLine" id="cb908-19" title="19">p3 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(darwin, <span class="kw">aes</span>(<span class="dt">sample =</span> diffs)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb908-20" title="20"><span class="st">  </span><span class="kw">geom_qq</span>(<span class="dt">col =</span> <span class="st">&quot;forestgreen&quot;</span>, <span class="dt">size =</span> <span class="dv">2</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb908-21" title="21"><span class="st">  </span><span class="kw">geom_abline</span>(<span class="dt">intercept =</span> <span class="kw">qq_int</span>(darwin<span class="op">$</span>diffs), </a>
+<a class="sourceLine" id="cb908-22" title="22">              <span class="dt">slope =</span> <span class="kw">qq_slope</span>(darwin<span class="op">$</span>diffs)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb908-23" title="23"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Normal Q-Q&quot;</span>,</a>
+<a class="sourceLine" id="cb908-24" title="24">       <span class="dt">y =</span> <span class="st">&quot;Difference in Seedling Height (inches)&quot;</span>, <span class="dt">x =</span> <span class="st">&quot;&quot;</span>)</a>
+<a class="sourceLine" id="cb908-25" title="25"></a>
+<a class="sourceLine" id="cb908-26" title="26">gridExtra<span class="op">::</span><span class="kw">grid.arrange</span>(p1, p2, p3, <span class="dt">nrow=</span><span class="dv">1</span>, </a>
+<a class="sourceLine" id="cb908-27" title="27">   <span class="dt">top =</span> <span class="st">&quot;Cross-Self Fertilized Difference in Seedling Height </span></a>
+<a class="sourceLine" id="cb908-28" title="28"><span class="st">   in inches for 15 pairs of seedlings&quot;</span>)</a></code></pre></div>
 <p><img src="2019-431-book_files/figure-html/a11-1.png" width="672" /></p>
 <p>It appears that we have two low outliers out of the 15 paired differences. Assuming normality seems inappropriate here. I would probably use a Wilcoxon approach instead.</p>
 </div>
 <div id="answer-12" class="section level3">
 <h3><span class="header-section-number">30.5.12</span> Answer 12</h3>
-<div class="sourceCode" id="cb891"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb891-1" title="1"><span class="kw">wilcox.test</span>(darwin<span class="op">$</span>diffs, <span class="dt">conf.int=</span><span class="ot">TRUE</span>, <span class="dt">conf.level=</span><span class="fl">0.95</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb909"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb909-1" title="1"><span class="kw">wilcox.test</span>(darwin<span class="op">$</span>diffs, <span class="dt">conf.int=</span><span class="ot">TRUE</span>, <span class="dt">conf.level=</span><span class="fl">0.95</span>)</a></code></pre></div>
 <pre><code>
     Wilcoxon signed rank test
 
@@ -1185,14 +1195,14 @@ sample estimates:
 </div>
 <div id="answer-13" class="section level3">
 <h3><span class="header-section-number">30.5.13</span> Answer 13</h3>
-<div class="sourceCode" id="cb893"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb893-1" title="1"><span class="kw">set.seed</span>(<span class="dv">4310</span>); Hmisc<span class="op">::</span><span class="kw">smean.cl.boot</span>(darwin<span class="op">$</span>diffs)</a></code></pre></div>
+<div class="sourceCode" id="cb911"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb911-1" title="1"><span class="kw">set.seed</span>(<span class="dv">4310</span>); Hmisc<span class="op">::</span><span class="kw">smean.cl.boot</span>(darwin<span class="op">$</span>diffs)</a></code></pre></div>
 <pre><code> Mean Lower Upper 
 2.617 0.316 4.759 </code></pre>
 <p>This confidence interval is a bit narrower than the interval in item 12, and also shifted a bit closer to zero. We are 95% confident that the population mean cross-self difference is between 0.2 and 4.7 inches.</p>
 </div>
 <div id="answer-14" class="section level3">
 <h3><span class="header-section-number">30.5.14</span> Answer 14</h3>
-<div class="sourceCode" id="cb895"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb895-1" title="1"><span class="kw">power.t.test</span>(<span class="dt">n =</span> <span class="dv">120</span>, <span class="dt">delta =</span> <span class="fl">3.5</span>, <span class="dt">sd =</span> <span class="dv">9</span>, <span class="dt">sig.level =</span> <span class="fl">0.05</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb913"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb913-1" title="1"><span class="kw">power.t.test</span>(<span class="dt">n =</span> <span class="dv">120</span>, <span class="dt">delta =</span> <span class="fl">3.5</span>, <span class="dt">sd =</span> <span class="dv">9</span>, <span class="dt">sig.level =</span> <span class="fl">0.05</span>)</a></code></pre></div>
 <pre><code>
      Two-sample t test power calculation 
 
@@ -1208,7 +1218,7 @@ NOTE: n is number in *each* group</code></pre>
 </div>
 <div id="answer-15" class="section level3">
 <h3><span class="header-section-number">30.5.15</span> Answer 15</h3>
-<div class="sourceCode" id="cb897"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb897-1" title="1"><span class="kw">power.t.test</span>(<span class="dt">power=</span><span class="fl">0.9</span>, <span class="dt">delta =</span> <span class="fl">3.5</span>, <span class="dt">sd =</span> <span class="dv">9</span>, <span class="dt">sig.level =</span> <span class="fl">0.05</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb915"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb915-1" title="1"><span class="kw">power.t.test</span>(<span class="dt">power=</span><span class="fl">0.9</span>, <span class="dt">delta =</span> <span class="fl">3.5</span>, <span class="dt">sd =</span> <span class="dv">9</span>, <span class="dt">sig.level =</span> <span class="fl">0.05</span>)</a></code></pre></div>
 <pre><code>
      Two-sample t test power calculation 
 
@@ -1239,11 +1249,13 @@ NOTE: n is number in *each* group</code></pre>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({

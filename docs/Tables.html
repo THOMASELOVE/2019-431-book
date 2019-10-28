@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 29 Comparisons with Contingency Tables | Data Science for Biological, Medical and Health Research: Notes for PQHS 431</title>
   <meta name="description" content="Chapter 29 Comparisons with Contingency Tables | Data Science for Biological, Medical and Health Research: Notes for PQHS 431" />
-  <meta name="generator" content="bookdown 0.13 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 29 Comparisons with Contingency Tables | Data Science for Biological, Medical and Health Research: Notes for PQHS 431" />
   <meta property="og:type" content="book" />
@@ -39,6 +39,9 @@
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
 
 
 
@@ -729,6 +732,13 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="29.6" data-path="Tables.html"><a href="Tables.html#collapsing-levels-categories-in-a-factor"><i class="fa fa-check"></i><b>29.6</b> Collapsing Levels / Categories in a Factor</a></li>
 <li class="chapter" data-level="29.7" data-path="Tables.html"><a href="Tables.html#accuracy-of-death-certificates-a-6x3-table"><i class="fa fa-check"></i><b>29.7</b> Accuracy of Death Certificates (A 6x3 Table)</a></li>
 <li class="chapter" data-level="29.8" data-path="Tables.html"><a href="Tables.html#the-pearson-chi-square-test-of-independence"><i class="fa fa-check"></i><b>29.8</b> The Pearson Chi-Square Test of Independence</a></li>
+<li class="chapter" data-level="29.9" data-path="Tables.html"><a href="Tables.html#three-way-tables-a-2x2xk-table-and-a-mantel-haenszel-analysis"><i class="fa fa-check"></i><b>29.9</b> Three-Way Tables: A 2x2xK Table and a Mantel-Haenszel Analysis</a><ul>
+<li class="chapter" data-level="29.9.1" data-path="Tables.html"><a href="Tables.html#smoking-and-mortality-in-the-uk"><i class="fa fa-check"></i><b>29.9.1</b> Smoking and Mortality in the UK</a></li>
+<li class="chapter" data-level="29.9.2" data-path="Tables.html"><a href="Tables.html#the-whickham-data-including-age-as-well-as-smoking-and-mortality"><i class="fa fa-check"></i><b>29.9.2</b> The <code>whickham</code> data including age, as well as smoking and mortality</a></li>
+<li class="chapter" data-level="29.9.3" data-path="Tables.html"><a href="Tables.html#the-cochran-mantel-haenszel-test"><i class="fa fa-check"></i><b>29.9.3</b> The Cochran-Mantel-Haenszel Test</a></li>
+<li class="chapter" data-level="29.9.4" data-path="Tables.html"><a href="Tables.html#checking-assumptions-the-woolf-test"><i class="fa fa-check"></i><b>29.9.4</b> Checking Assumptions: The Woolf test</a></li>
+<li class="chapter" data-level="29.9.5" data-path="Tables.html"><a href="Tables.html#without-the-continuity-correction"><i class="fa fa-check"></i><b>29.9.5</b> Without the Continuity Correction</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="30" data-path="partial-review-to-help-you-prepare-for-quiz-2.html"><a href="partial-review-to-help-you-prepare-for-quiz-2.html"><i class="fa fa-check"></i><b>30</b> Partial Review to help you prepare for Quiz 2</a><ul>
 <li class="chapter" data-level="30.1" data-path="partial-review-to-help-you-prepare-for-quiz-2.html"><a href="partial-review-to-help-you-prepare-for-quiz-2.html#review-items-1-7"><i class="fa fa-check"></i><b>30.1</b> Review Items 1-7</a></li>
@@ -939,7 +949,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="41.7.1" data-path="species-found-on-the-galapagos-islands.html"><a href="species-found-on-the-galapagos-islands.html#questions-about-sequential-testing-and-anova"><i class="fa fa-check"></i><b>41.7.1</b> Questions about Sequential Testing and ANOVA</a></li>
 </ul></li>
 <li class="chapter" data-level="41.8" data-path="species-found-on-the-galapagos-islands.html"><a href="species-found-on-the-galapagos-islands.html#an-anova-table-for-the-model-as-a-whole"><i class="fa fa-check"></i><b>41.8</b> An ANOVA table for the Model as a Whole</a></li>
-<li class="chapter" data-level="41.9" data-path="species-found-on-the-galapagos-islands.html"><a href="species-found-on-the-galapagos-islands.html#assumption-checking-for-our-galapagos-islands-models"><i class="fa fa-check"></i><b>41.9</b> Assumption Checking for our Galápagos Islands models</a></li>
+<li class="chapter" data-level="41.9" data-path="species-found-on-the-galapagos-islands.html"><a href="species-found-on-the-galapagos-islands.html#assumption-checking-for-our-galápagos-islands-models"><i class="fa fa-check"></i><b>41.9</b> Assumption Checking for our Galápagos Islands models</a></li>
 <li class="chapter" data-level="41.10" data-path="species-found-on-the-galapagos-islands.html"><a href="species-found-on-the-galapagos-islands.html#my-first-plot-studentized-residuals-vs.-fitted-values"><i class="fa fa-check"></i><b>41.10</b> My First Plot: Studentized Residuals vs. Fitted Values</a><ul>
 <li class="chapter" data-level="41.10.1" data-path="species-found-on-the-galapagos-islands.html"><a href="species-found-on-the-galapagos-islands.html#questions-about-studentized-residuals-vs.-fitted-values"><i class="fa fa-check"></i><b>41.10.1</b> Questions about Studentized Residuals vs. Fitted Values</a></li>
 </ul></li>
@@ -1398,7 +1408,230 @@ data:  z
 X-squared = 209, df = 10, p-value &lt;2e-16</code></pre>
 <p>The chi-square test statistic is 200 on 10 degrees of freedom, yielding p &lt; 0.0001.</p>
 <p>Autopsies are not performed at random; in fact, many are done because the cause of death listed on the certificate is uncertain. What problems may arise if you attempt to use the results of these studies to make inference about the population as a whole?</p>
+</div>
+<div id="three-way-tables-a-2x2xk-table-and-a-mantel-haenszel-analysis" class="section level2">
+<h2><span class="header-section-number">29.9</span> Three-Way Tables: A 2x2xK Table and a Mantel-Haenszel Analysis</h2>
+<p>The material I discuss in this section is attributable to Jeff Simonoff and his book <em>Analyzing Categorical Data</em>. The example is taken from Section 8.1 of that book.</p>
+<p>A three-dimensional or three-way table of counts often reflects a situation where the rows and columns refer to variables whose association is of primary interest to us, and the third factor (a layer, or strata) describes a control variable, whose effect on our primary association is something we are <em>controlling</em> for in the analysis.</p>
+<div id="smoking-and-mortality-in-the-uk" class="section level3">
+<h3><span class="header-section-number">29.9.1</span> Smoking and Mortality in the UK</h3>
+<p>In the early 1970s and then again 20 years later, in Whickham, United Kingdom, surveys yielded the following relationship between whether a person was a smoker at the time of the original survey and whether they were still alive 20 years later.</p>
+<div class="sourceCode" id="cb884"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb884-1" title="1">whickham1 &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">443</span>, <span class="dv">139</span>, <span class="dv">502</span>, <span class="dv">230</span>), <span class="dt">byrow=</span><span class="ot">TRUE</span>, <span class="dt">nrow=</span><span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb884-2" title="2"><span class="kw">rownames</span>(whickham1) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Smoker&quot;</span>, <span class="st">&quot;Non-Smoker&quot;</span>)</a>
+<a class="sourceLine" id="cb884-3" title="3"><span class="kw">colnames</span>(whickham1) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Alive&quot;</span>, <span class="st">&quot;Dead&quot;</span>)</a>
+<a class="sourceLine" id="cb884-4" title="4"><span class="kw">addmargins</span>(whickham1)</a></code></pre></div>
+<pre><code>           Alive Dead  Sum
+Smoker       443  139  582
+Non-Smoker   502  230  732
+Sum          945  369 1314</code></pre>
+<p>Here’s the two-by-two table analysis.</p>
+<div class="sourceCode" id="cb886"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb886-1" title="1">Epi<span class="op">::</span><span class="kw">twoby2</span>(whickham1)</a></code></pre></div>
+<pre><code>2 by 2 table analysis: 
+------------------------------------------------------ 
+Outcome   : Alive 
+Comparing : Smoker vs. Non-Smoker 
 
+           Alive Dead    P(Alive) 95% conf. interval
+Smoker       443  139       0.761     0.725    0.794
+Non-Smoker   502  230       0.686     0.651    0.718
+
+                                   95% conf. interval
+             Relative Risk: 1.1099    1.0381    1.187
+         Sample Odds Ratio: 1.4602    1.1414    1.868
+Conditional MLE Odds Ratio: 1.4598    1.1335    1.884
+    Probability difference: 0.0754    0.0266    0.123
+
+             Exact P-value: 0.0030 
+        Asymptotic P-value: 0.0026 
+------------------------------------------------------</code></pre>
+<div class="sourceCode" id="cb888"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb888-1" title="1"><span class="kw">chisq.test</span>(whickham1)</a></code></pre></div>
+<pre><code>
+    Pearson&#39;s Chi-squared test with Yates&#39; continuity correction
+
+data:  whickham1
+X-squared = 9, df = 1, p-value = 0.003</code></pre>
+<p>There is a significant association between smoking and mortality (<span class="math inline">\(\chi^2\)</span> = 8.75 on 1 df, <em>p</em> = 0.003), but it isn’t the one you might expect.</p>
+<ul>
+<li>The odds ratio is 1.46, implying that the odds of having lived were 46% higher for smokers than for non-smokers.</li>
+<li>Does that mean that smoking is <em>good</em> for you?</li>
+</ul>
+<p>Not likely. There is a key “lurking” variable here - a variable that is related to both smoking and mortality that is obscuring the actual relationship - namely, age.</p>
+</div>
+<div id="the-whickham-data-including-age-as-well-as-smoking-and-mortality" class="section level3">
+<h3><span class="header-section-number">29.9.2</span> The <code>whickham</code> data including age, as well as smoking and mortality</h3>
+<p>The table below gives the mortality experience separated into subtables by initial age group.</p>
+<div class="sourceCode" id="cb890"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb890-1" title="1">age &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="kw">rep</span>(<span class="st">&quot;18-24&quot;</span>, <span class="dv">4</span>), <span class="kw">rep</span>(<span class="st">&quot;25-34&quot;</span>, <span class="dv">4</span>), </a>
+<a class="sourceLine" id="cb890-2" title="2">         <span class="kw">rep</span>(<span class="st">&quot;35-44&quot;</span>, <span class="dv">4</span>), <span class="kw">rep</span>(<span class="st">&quot;45-54&quot;</span>, <span class="dv">4</span>), </a>
+<a class="sourceLine" id="cb890-3" title="3">         <span class="kw">rep</span>(<span class="st">&quot;55-64&quot;</span>, <span class="dv">4</span>), <span class="kw">rep</span>(<span class="st">&quot;65-74&quot;</span>, <span class="dv">4</span>), </a>
+<a class="sourceLine" id="cb890-4" title="4">         <span class="kw">rep</span>(<span class="st">&quot;75+&quot;</span>, <span class="dv">4</span>))</a>
+<a class="sourceLine" id="cb890-5" title="5">smoking &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;Smoker&quot;</span>, <span class="st">&quot;Smoker&quot;</span>, <span class="st">&quot;Non-Smoker&quot;</span>, <span class="st">&quot;Non-Smoker&quot;</span>), <span class="dv">7</span>))</a>
+<a class="sourceLine" id="cb890-6" title="6">status &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;Alive&quot;</span>, <span class="st">&quot;Dead&quot;</span>), <span class="dv">14</span>))</a>
+<a class="sourceLine" id="cb890-7" title="7">counts &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">53</span>, <span class="dv">2</span>, <span class="dv">61</span>, <span class="dv">1</span>, <span class="dv">121</span>, <span class="dv">3</span>, <span class="dv">152</span>, <span class="dv">5</span>,</a>
+<a class="sourceLine" id="cb890-8" title="8">            <span class="dv">95</span>, <span class="dv">14</span>, <span class="dv">114</span>, <span class="dv">7</span>, <span class="dv">103</span>, <span class="dv">27</span>, <span class="dv">66</span>, <span class="dv">12</span>,</a>
+<a class="sourceLine" id="cb890-9" title="9">            <span class="dv">64</span>, <span class="dv">51</span>, <span class="dv">81</span>, <span class="dv">40</span>, <span class="dv">7</span>, <span class="dv">29</span>, <span class="dv">28</span>, <span class="dv">101</span>,</a>
+<a class="sourceLine" id="cb890-10" title="10">            <span class="dv">0</span>, <span class="dv">13</span>, <span class="dv">0</span>, <span class="dv">64</span>)</a>
+<a class="sourceLine" id="cb890-11" title="11">whickham2 &lt;-<span class="st"> </span><span class="kw">data.frame</span>(smoking, status, age, counts) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">tbl_df</span>()</a>
+<a class="sourceLine" id="cb890-12" title="12">whickham2<span class="op">$</span>smoking &lt;-<span class="st"> </span><span class="kw">factor</span>(whickham2<span class="op">$</span>smoking, <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">&quot;Smoker&quot;</span>, <span class="st">&quot;Non-Smoker&quot;</span>))</a>
+<a class="sourceLine" id="cb890-13" title="13">whickham2.tab1 &lt;-<span class="st"> </span><span class="kw">xtabs</span>(counts <span class="op">~</span><span class="st"> </span>smoking <span class="op">+</span><span class="st"> </span>status <span class="op">+</span><span class="st"> </span>age, <span class="dt">data =</span> whickham2)</a>
+<a class="sourceLine" id="cb890-14" title="14">whickham2.tab1</a></code></pre></div>
+<pre><code>, , age = 18-24
+
+            status
+smoking      Alive Dead
+  Smoker        53    2
+  Non-Smoker    61    1
+
+, , age = 25-34
+
+            status
+smoking      Alive Dead
+  Smoker       121    3
+  Non-Smoker   152    5
+
+, , age = 35-44
+
+            status
+smoking      Alive Dead
+  Smoker        95   14
+  Non-Smoker   114    7
+
+, , age = 45-54
+
+            status
+smoking      Alive Dead
+  Smoker       103   27
+  Non-Smoker    66   12
+
+, , age = 55-64
+
+            status
+smoking      Alive Dead
+  Smoker        64   51
+  Non-Smoker    81   40
+
+, , age = 65-74
+
+            status
+smoking      Alive Dead
+  Smoker         7   29
+  Non-Smoker    28  101
+
+, , age = 75+
+
+            status
+smoking      Alive Dead
+  Smoker         0   13
+  Non-Smoker     0   64</code></pre>
+<p>The odds ratios for each of these subtables, except the last one, where it is undefined are as follows:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="right">Age Group</th>
+<th align="center">Odds Ratio</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">18-24</td>
+<td align="center">0.43</td>
+</tr>
+<tr class="even">
+<td align="right">25-34</td>
+<td align="center">1.33</td>
+</tr>
+<tr class="odd">
+<td align="right">35-44</td>
+<td align="center">0.42</td>
+</tr>
+<tr class="even">
+<td align="right">45-54</td>
+<td align="center">0.69</td>
+</tr>
+<tr class="odd">
+<td align="right">55-64</td>
+<td align="center">0.62</td>
+</tr>
+<tr class="even">
+<td align="right">65-74</td>
+<td align="center">0.87</td>
+</tr>
+<tr class="odd">
+<td align="right">75+</td>
+<td align="center"><em>undefined</em></td>
+</tr>
+</tbody>
+</table>
+<p>Thus, for all age groups except 25-34 year olds, smoking is associated with higher mortality.</p>
+<p>Why? Not surprisingly, there is a strong association between age and mortality, with mortality rates being very low for young people (2.5% for 18-24 year olds) and increasing to 100% for 75+ year olds.</p>
+<p>There is also an association between age and smoking, with smoking rates peaking in the 45-54 year old range and then falling off rapidly. In particular, respondents who were 65 and older at the time of the first survey had very low smoking rates (25.4%) but very high mortality rates (85.5%). Smoking was hardly the cause, however, since even among the 65-74 year olds mortality was higher among smokers (80.6%) than it was among non-smokers (78.3%). A flat version of the table (<code>ftable</code> in R) can help us with these calculations.</p>
+<div class="sourceCode" id="cb892"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb892-1" title="1"><span class="kw">ftable</span>(whickham2.tab1)</a></code></pre></div>
+<pre><code>                  age 18-24 25-34 35-44 45-54 55-64 65-74 75+
+smoking    status                                            
+Smoker     Alive         53   121    95   103    64     7   0
+           Dead           2     3    14    27    51    29  13
+Non-Smoker Alive         61   152   114    66    81    28   0
+           Dead           1     5     7    12    40   101  64</code></pre>
+</div>
+<div id="the-cochran-mantel-haenszel-test" class="section level3">
+<h3><span class="header-section-number">29.9.3</span> The Cochran-Mantel-Haenszel Test</h3>
+<p>So, the marginal table looking at smoking and mortality combining all age groups isn’t the most meaningful summary of the relationship between smoking and mortality. Instead, we need to look at the <em>conditional</em> association of smoking and mortality, <strong>given age</strong>, to address our interests.</p>
+<p>The null hypothesis would be that, in the population, smoking and mortality are independent within strata formed by age group. In other words, H<sub>0</sub> requires that smoking be of no value in predicting mortality once age has been accounted for.</p>
+<p>The alternative hypothesis would be that, in the population, smoking and mortality are associated within the strata formed by age group. In other words, H<sub>A</sub> requires that smoking be of at least some value in predicting mortality even after age has been accounted for.</p>
+<p>We can consider the evidence that helps us choose between these two hypotheses with a Cochran-Mantel-Haenszel test, which is obtained in R through the <code>mantelhaen.test</code> function. This test requires us to assume that, in the population and within each age group, the smoking-mortality odds ratio is the same. Essentially, this means that the association of smoking with mortality is the same for older and younger people.</p>
+<div class="sourceCode" id="cb894"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb894-1" title="1"><span class="kw">mantelhaen.test</span>(whickham2.tab1, <span class="dt">conf.level  =</span> <span class="fl">0.90</span>)</a></code></pre></div>
+<pre><code>
+    Mantel-Haenszel chi-squared test with continuity correction
+
+data:  whickham2.tab1
+Mantel-Haenszel X-squared = 5, df = 1, p-value = 0.02
+alternative hypothesis: true common odds ratio is not equal to 1
+90 percent confidence interval:
+ 0.490 0.875
+sample estimates:
+common odds ratio 
+            0.655 </code></pre>
+<ul>
+<li>The Cochran-Mantel-Haenszel test statistic is 5.44 (after a continuity correction) leading to a <em>p</em> value of 0.02, indicating strong rejection of the null hypothesis of conditional independence of smoking and survival given age.</li>
+<li>The estimated common conditional odds ratio is 0.65. This implies that (given age) being a smoker is associated with a 35% lower odds of being alive 20 years later than being a non-smoker.</li>
+<li>A 90% confidence interval for that common odds ratio is (0.49, 0.87), reinforcing rejection of the conditional independence (where the odds ratio would be 1).</li>
+</ul>
+</div>
+<div id="checking-assumptions-the-woolf-test" class="section level3">
+<h3><span class="header-section-number">29.9.4</span> Checking Assumptions: The Woolf test</h3>
+<p>We can also obtain a test (using the <code>woolf_test</code> function, in the <code>vcd</code> library) to see if the common odds ratio estimated in the Mantel-Haenszel procedure is reasonable for all age groups. In other words, the Woolf test is a test of the assumption of homogeneous odds ratios across the six age groups.</p>
+<p>If the Woolf test is significant, it suggests that the Cochran-Mantel-Haenszel test is not appropriate, since the odds ratios for smoking and mortality vary too much in the sub-tables by age group. Here, we have the following log odds ratios (estimated using conditional maximum likelihood, rather than cross-product ratios) and the associated Woolf test.</p>
+<div class="sourceCode" id="cb896"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb896-1" title="1"><span class="co">## Next two results use the vcd library</span></a>
+<a class="sourceLine" id="cb896-2" title="2"></a>
+<a class="sourceLine" id="cb896-3" title="3">vcd<span class="op">::</span><span class="kw">oddsratio</span>(whickham2.tab1, <span class="dt">log =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<pre><code>log odds ratios for smoking and status by age 
+
+  18-24   25-34   35-44   45-54   55-64   65-74     75+ 
+-0.6502  0.2247 -0.8407 -0.3461 -0.4742 -0.0993  1.5640 </code></pre>
+<div class="sourceCode" id="cb898"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb898-1" title="1">vcd<span class="op">::</span><span class="kw">woolf_test</span>(whickham2.tab1)</a></code></pre></div>
+<pre><code>
+    Woolf-test on Homogeneity of Odds Ratios (no 3-Way assoc.)
+
+data:  whickham2.tab1
+X-squared = 3, df = 6, p-value = 0.8</code></pre>
+<p>As you can see, the Woolf test is not close to statistically significant, implying the common odds ratio is at least potentially reasonable for all age groups (or at least the ones under ages 75, where some data are available.)</p>
+</div>
+<div id="without-the-continuity-correction" class="section level3">
+<h3><span class="header-section-number">29.9.5</span> Without the Continuity Correction</h3>
+<p>By default, R presents the Mantel-Haenszel test with a continuity correction, when used for a 2x2xK table. In virtually all cases, go ahead and do this, but as you can see below, the difference it makes in this case is modest.</p>
+<div class="sourceCode" id="cb900"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb900-1" title="1"><span class="kw">mantelhaen.test</span>(whickham2.tab1, <span class="dt">correct=</span><span class="ot">FALSE</span>, <span class="dt">conf.level =</span> <span class="fl">0.90</span>)</a></code></pre></div>
+<pre><code>
+    Mantel-Haenszel chi-squared test without continuity correction
+
+data:  whickham2.tab1
+Mantel-Haenszel X-squared = 6, df = 1, p-value = 0.02
+alternative hypothesis: true common odds ratio is not equal to 1
+90 percent confidence interval:
+ 0.490 0.875
+sample estimates:
+common odds ratio 
+            0.655 </code></pre>
+
+</div>
 </div>
 </div>
             </section>
@@ -1412,11 +1645,13 @@ X-squared = 209, df = 10, p-value &lt;2e-16</code></pre>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
