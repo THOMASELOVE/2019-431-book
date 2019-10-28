@@ -194,7 +194,7 @@ Paired t | Means | 11.3, 20.6
 Wilcoxon signed rank | Pseudo-medians | 11, 20.5
 Bootstrap CI | Means | 11.6, 20.6
 
-Note that **one-sided** or **one-tailed** hypothesis testing procedures work the same way for paired samples as they did for single samples in Section \@ref(Test-One-Mean).
+Note that **one-sided** or **one-tailed** hypothesis testing procedures work the same way for paired samples as they did for a single sample in Chapter \@ref(One-Mean).
 
 ## The Sign test
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.11.16)  27 OCT 2019 21:23
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.11.16)  28 OCT 2019 15:50
 entering extended mode
 **2019-431-book.tex
 (C:\Users\Thomas\Dropbox\2019-431\2019-431-book\2019-431-book.tex
@@ -6164,11 +6164,6 @@ G TWO PAIRED SAMPLES
  []
 
 [368] [369]
-
-LaTeX Warning: Reference `Test-One-Mean' on page 370 undefined on input line 13
-308.
-
-
 Overfull \hbox (38.24889pt too wide) in paragraph at lines 13338--13338
 [] \T1/lmtt/m/n/10 [1] 22  5 23 -6 18 25 13 47 15 16  6  1  2  7  0  4 -9 -3 36
  25  1 16 42[] 
@@ -6430,7 +6425,7 @@ Chapter 27.
 [417
 
 ] [418]
-<2019-431-book_files/figure-latex/battery1-fig-1.pdf, id=5526, 469.755pt x 325.
+<2019-431-book_files/figure-latex/battery1-fig-1.pdf, id=5527, 469.755pt x 325.
 215pt>
 File: 2019-431-book_files/figure-latex/battery1-fig-1.pdf Graphic file (type pd
 f)
@@ -6442,7 +6437,7 @@ ed on input line 15350.
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [419]
-<2019-431-book_files/figure-latex/histogram-battery-fig-1.pdf, id=5538, 469.755
+<2019-431-book_files/figure-latex/histogram-battery-fig-1.pdf, id=5539, 469.755
 pt x 252.945pt>
 File: 2019-431-book_files/figure-latex/histogram-battery-fig-1.pdf Graphic file
  (type pdf)
@@ -6466,7 +6461,7 @@ Overfull \hbox (17.24736pt too wide) in alignment at lines 15412--15418
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [421] [422]
-<2019-431-book_files/figure-latex/paired-breakfast-fig-1.pdf, id=5583, 469.755p
+<2019-431-book_files/figure-latex/paired-breakfast-fig-1.pdf, id=5584, 469.755p
 t x 289.08pt>
 File: 2019-431-book_files/figure-latex/paired-breakfast-fig-1.pdf Graphic file 
 (type pdf)
@@ -6589,7 +6584,7 @@ MEANS: ANALYSIS OF VARIANCE
  []
 
 [430]
-<2019-431-book_files/figure-latex/boxplot_nyfs2a-1.pdf, id=5647, 469.755pt x 32
+<2019-431-book_files/figure-latex/boxplot_nyfs2a-1.pdf, id=5648, 469.755pt x 32
 5.215pt>
 File: 2019-431-book_files/figure-latex/boxplot_nyfs2a-1.pdf Graphic file (type 
 pdf)
@@ -6598,7 +6593,7 @@ Package pdftex.def Info: 2019-431-book_files/figure-latex/boxplot_nyfs2a-1.pdf
 used on input line 15728.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
 
-<2019-431-book_files/figure-latex/histograms_nyfs2a-1.pdf, id=5648, 469.755pt x
+<2019-431-book_files/figure-latex/histograms_nyfs2a-1.pdf, id=5649, 469.755pt x
  289.08pt>
 File: 2019-431-book_files/figure-latex/histograms_nyfs2a-1.pdf Graphic file (ty
 pe pdf)
@@ -6617,7 +6612,7 @@ Overfull \hbox (119.5497pt too wide) has occurred while \output is active
 
 [431 <C:/Users/Thomas/Dropbox/2019-431/2019-431-book/2019-431-book_files/figure
 -latex/boxplot_nyfs2a-1.pdf>]
-<2019-431-book_files/figure-latex/nyfs2a_ridgelineplot-1.pdf, id=5664, 469.755p
+<2019-431-book_files/figure-latex/nyfs2a_ridgelineplot-1.pdf, id=5665, 469.755p
 t x 325.215pt>
 File: 2019-431-book_files/figure-latex/nyfs2a_ridgelineplot-1.pdf Graphic file 
 (type pdf)
@@ -6724,7 +6719,7 @@ Underfull \hbox (badness 2073) in paragraph at lines 16339--16339
  []
 
 
-<2019-431-book_files/figure-latex/hsd_plot_nyfs2a-1.pdf, id=5781, 469.755pt x 4
+<2019-431-book_files/figure-latex/hsd_plot_nyfs2a-1.pdf, id=5782, 469.755pt x 4
 33.62pt>
 File: 2019-431-book_files/figure-latex/hsd_plot_nyfs2a-1.pdf Graphic file (type
  pdf)
@@ -6742,7 +6737,7 @@ MEANS: ANALYSIS OF VARIANCE
  []
 
 [444]
-<2019-431-book_files/figure-latex/revised plot hsd for glucose-1.pdf, id=5790, 
+<2019-431-book_files/figure-latex/revised plot hsd for glucose-1.pdf, id=5791, 
 469.755pt x 325.215pt>
 File: 2019-431-book_files/figure-latex/revised plot hsd for glucose-1.pdf Graph
 ic file (type pdf)
@@ -6755,7 +6750,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [445 <C:/Users/Thomas/Dropbox/2019-431/2019-431-book/2019-431-book_files/figure
 -latex/hsd_plot_nyfs2a-1.pdf>]
-<2019-431-book_files/figure-latex/unnamed-chunk-217-1.pdf, id=5802, 469.755pt x
+<2019-431-book_files/figure-latex/unnamed-chunk-217-1.pdf, id=5803, 469.755pt x
  325.215pt>
 File: 2019-431-book_files/figure-latex/unnamed-chunk-217-1.pdf Graphic file (ty
 pe pdf)
@@ -6774,7 +6769,7 @@ MEANS: ANALYSIS OF VARIANCE
 
 [446 <C:/Users/Thomas/Dropbox/2019-431/2019-431-book/2019-431-book_files/figure
 -latex/revised plot hsd for glucose-1.pdf>]
-<2019-431-book_files/figure-latex/unnamed-chunk-218-1.pdf, id=5814, 469.755pt x
+<2019-431-book_files/figure-latex/unnamed-chunk-218-1.pdf, id=5815, 469.755pt x
  325.215pt>
 File: 2019-431-book_files/figure-latex/unnamed-chunk-218-1.pdf Graphic file (ty
 pe pdf)
@@ -6794,7 +6789,7 @@ MEANS: ANALYSIS OF VARIANCE
 
 [448 <C:/Users/Thomas/Dropbox/2019-431/2019-431-book/2019-431-book_files/figure
 -latex/unnamed-chunk-218-1.pdf>]
-<2019-431-book_files/figure-latex/unnamed-chunk-221-1.pdf, id=5840, 469.755pt x
+<2019-431-book_files/figure-latex/unnamed-chunk-221-1.pdf, id=5841, 469.755pt x
  325.215pt>
 File: 2019-431-book_files/figure-latex/unnamed-chunk-221-1.pdf Graphic file (ty
 pe pdf)
@@ -6927,7 +6922,7 @@ Overfull \hbox (11.56366pt too wide) has occurred while \output is active
 ARE FOR QUIZ 2
  []
 
-[470] [471] <2019-431-book_files/figure-latex/a11-1.pdf, id=6018, 469.755pt x 3
+[470] [471] <2019-431-book_files/figure-latex/a11-1.pdf, id=6019, 469.755pt x 3
 25.215pt>
 File: 2019-431-book_files/figure-latex/a11-1.pdf Graphic file (type pdf)
 <use 2019-431-book_files/figure-latex/a11-1.pdf>
@@ -6978,7 +6973,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 [483
 
 ]
-<2019-431-book_files/figure-latex/simul1a-1.pdf, id=6134, 361.35pt x 325.215pt>
+<2019-431-book_files/figure-latex/simul1a-1.pdf, id=6135, 361.35pt x 325.215pt>
 File: 2019-431-book_files/figure-latex/simul1a-1.pdf Graphic file (type pdf)
 <use 2019-431-book_files/figure-latex/simul1a-1.pdf>
 Package pdftex.def Info: 2019-431-book_files/figure-latex/simul1a-1.pdf used on
@@ -6994,7 +6989,7 @@ Overfull \hbox (10.18047pt too wide) has occurred while \output is active
  []
 
 [484]
-<2019-431-book_files/figure-latex/simul1b-1.pdf, id=6147, 469.755pt x 325.215pt
+<2019-431-book_files/figure-latex/simul1b-1.pdf, id=6148, 469.755pt x 325.215pt
 >
 File: 2019-431-book_files/figure-latex/simul1b-1.pdf Graphic file (type pdf)
 <use 2019-431-book_files/figure-latex/simul1b-1.pdf>
@@ -7013,7 +7008,7 @@ Overfull \hbox (10.18047pt too wide) has occurred while \output is active
 
 [486 <C:/Users/Thomas/Dropbox/2019-431/2019-431-book/2019-431-book_files/figure
 -latex/simul1b-1.pdf>]
-<2019-431-book_files/figure-latex/simul1c-1.pdf, id=6168, 469.755pt x 325.215pt
+<2019-431-book_files/figure-latex/simul1c-1.pdf, id=6169, 469.755pt x 325.215pt
 >
 File: 2019-431-book_files/figure-latex/simul1c-1.pdf Graphic file (type pdf)
 <use 2019-431-book_files/figure-latex/simul1c-1.pdf>
@@ -7033,7 +7028,7 @@ Overfull \hbox (10.18047pt too wide) has occurred while \output is active
  []
 
 [488]
-<2019-431-book_files/figure-latex/check1c-1.pdf, id=6192, 469.755pt x 289.08pt>
+<2019-431-book_files/figure-latex/check1c-1.pdf, id=6193, 469.755pt x 289.08pt>
 File: 2019-431-book_files/figure-latex/check1c-1.pdf Graphic file (type pdf)
 <use 2019-431-book_files/figure-latex/check1c-1.pdf>
 Package pdftex.def Info: 2019-431-book_files/figure-latex/check1c-1.pdf used on
@@ -7051,7 +7046,7 @@ Overfull \hbox (10.18047pt too wide) has occurred while \output is active
 ]
 Chapter 33.
 [491]
-<2019-431-book_files/figure-latex/scatterplot_matrix_hydrate_fig-1.pdf, id=6212
+<2019-431-book_files/figure-latex/scatterplot_matrix_hydrate_fig-1.pdf, id=6213
 , 469.755pt x 325.215pt>
 File: 2019-431-book_files/figure-latex/scatterplot_matrix_hydrate_fig-1.pdf Gra
 phic file (type pdf)
@@ -7076,7 +7071,7 @@ Overfull \hbox (56.84053pt too wide) has occurred while \output is active
 
 [493 <C:/Users/Thomas/Dropbox/2019-431/2019-431-book/2019-431-book_files/figure
 -latex/scatterplot_matrix_hydrate_fig-1.pdf>]
-<2019-431-book_files/figure-latex/recov.score_eda-1.pdf, id=6229, 469.755pt x 3
+<2019-431-book_files/figure-latex/recov.score_eda-1.pdf, id=6230, 469.755pt x 3
 25.215pt>
 File: 2019-431-book_files/figure-latex/recov.score_eda-1.pdf Graphic file (type
  pdf)
@@ -7111,7 +7106,7 @@ Overfull \hbox (5.31744pt too wide) has occurred while \output is active
 ]
 Chapter 34.
 
-<2019-431-book_files/figure-latex/scatterplot_model_hydrate_1-1.pdf, id=6249, 4
+<2019-431-book_files/figure-latex/scatterplot_model_hydrate_1-1.pdf, id=6250, 4
 69.755pt x 325.215pt>
 File: 2019-431-book_files/figure-latex/scatterplot_model_hydrate_1-1.pdf Graphi
 c file (type pdf)
@@ -7148,7 +7143,7 @@ O PREDICT RECOVERY
  []
 
 [504]
-<2019-431-book_files/figure-latex/resid_for_hydrate_regression_1-1.pdf, id=6317
+<2019-431-book_files/figure-latex/resid_for_hydrate_regression_1-1.pdf, id=6318
 , 469.755pt x 325.215pt>
 File: 2019-431-book_files/figure-latex/resid_for_hydrate_regression_1-1.pdf Gra
 phic file (type pdf)
@@ -7165,7 +7160,7 @@ O PREDICT RECOVERY
 
 [506]
 Chapter 35.
-<2019-431-book_files/figure-latex/p11-1.pdf, id=6334, 469.755pt x 505.89pt>
+<2019-431-book_files/figure-latex/p11-1.pdf, id=6335, 469.755pt x 505.89pt>
 File: 2019-431-book_files/figure-latex/p11-1.pdf Graphic file (type pdf)
 <use 2019-431-book_files/figure-latex/p11-1.pdf>
 Package pdftex.def Info: 2019-431-book_files/figure-latex/p11-1.pdf used on inp
@@ -7212,7 +7207,7 @@ Overfull \hbox (106.91058pt too wide) has occurred while \output is active
 N CRITERION \T1/lmr/m/n/10 519
  []
 
-[519] [520] <2019-431-book_files/figure-latex/p23b-1.pdf, id=6446, 469.755pt x 
+[519] [520] <2019-431-book_files/figure-latex/p23b-1.pdf, id=6447, 469.755pt x 
 433.62pt>
 File: 2019-431-book_files/figure-latex/p23b-1.pdf Graphic file (type pdf)
 <use 2019-431-book_files/figure-latex/p23b-1.pdf>
@@ -7233,14 +7228,14 @@ CE INTERVALS \T1/lmr/m/n/10 521
 Chapter 36.
 [523
 
-] <2019-431-book_files/figure-latex/p26-1.pdf, id=6471, 469.755pt x 361.35pt>
+] <2019-431-book_files/figure-latex/p26-1.pdf, id=6472, 469.755pt x 361.35pt>
 File: 2019-431-book_files/figure-latex/p26-1.pdf Graphic file (type pdf)
 <use 2019-431-book_files/figure-latex/p26-1.pdf>
 Package pdftex.def Info: 2019-431-book_files/figure-latex/p26-1.pdf used on inp
 ut line 19739.
 (pdftex.def)             Requested size: 344.997pt x 265.3823pt.
 [524] [525 <C:/Users/Thomas/Dropbox/2019-431/2019-431-book/2019-431-book_files/
-figure-latex/p26-1.pdf>] <2019-431-book_files/figure-latex/p27-1.pdf, id=6491, 
+figure-latex/p26-1.pdf>] <2019-431-book_files/figure-latex/p27-1.pdf, id=6492, 
 361.35pt x 361.35pt>
 File: 2019-431-book_files/figure-latex/p27-1.pdf Graphic file (type pdf)
 <use 2019-431-book_files/figure-latex/p27-1.pdf>
@@ -7248,7 +7243,7 @@ Package pdftex.def Info: 2019-431-book_files/figure-latex/p27-1.pdf used on inp
 ut line 19764.
 (pdftex.def)             Requested size: 345.00084pt x 345.00084pt.
 [526 <C:/Users/Thomas/Dropbox/2019-431/2019-431-book/2019-431-book_files/figure
--latex/p27-1.pdf>] <2019-431-book_files/figure-latex/p28a-1.pdf, id=6503, 469.7
+-latex/p27-1.pdf>] <2019-431-book_files/figure-latex/p28a-1.pdf, id=6504, 469.7
 55pt x 361.35pt>
 File: 2019-431-book_files/figure-latex/p28a-1.pdf Graphic file (type pdf)
 <use 2019-431-book_files/figure-latex/p28a-1.pdf>
@@ -7259,7 +7254,7 @@ put line 19802.
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [527] [528 <C:/Users/Thomas/Dropbox/2019-431/2019-431-book/2019-431-book_files/
-figure-latex/p28a-1.pdf>] <2019-431-book_files/figure-latex/p29-1.pdf, id=6521,
+figure-latex/p28a-1.pdf>] <2019-431-book_files/figure-latex/p29-1.pdf, id=6522,
  325.215pt x 325.215pt>
 File: 2019-431-book_files/figure-latex/p29-1.pdf Graphic file (type pdf)
 <use 2019-431-book_files/figure-latex/p29-1.pdf>
@@ -7272,7 +7267,7 @@ Underfull \hbox (badness 3138) in paragraph at lines 19850--19850
 []\T1/lmr/bx/n/12 The Scale-Location Plot to Check for Non-
  []
 
-<2019-431-book_files/figure-latex/p30-1.pdf, id=6534, 361.35pt x 289.08pt>
+<2019-431-book_files/figure-latex/p30-1.pdf, id=6535, 361.35pt x 289.08pt>
 File: 2019-431-book_files/figure-latex/p30-1.pdf Graphic file (type pdf)
 <use 2019-431-book_files/figure-latex/p30-1.pdf>
 Package pdftex.def Info: 2019-431-book_files/figure-latex/p30-1.pdf used on inp
@@ -7283,7 +7278,7 @@ Underfull \vbox (badness 2285) has occurred while \output is active []
 
 [530 <C:/Users/Thomas/Dropbox/2019-431/2019-431-book/2019-431-book_files/figure
 -latex/p30-1.pdf>]
-<2019-431-book_files/figure-latex/p31_fig-1.pdf, id=6547, 469.755pt x 505.89pt>
+<2019-431-book_files/figure-latex/p31_fig-1.pdf, id=6548, 469.755pt x 505.89pt>
 File: 2019-431-book_files/figure-latex/p31_fig-1.pdf Graphic file (type pdf)
 <use 2019-431-book_files/figure-latex/p31_fig-1.pdf>
 Package pdftex.def Info: 2019-431-book_files/figure-latex/p31_fig-1.pdf used on
@@ -7294,7 +7289,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [531 <C:/Users/Thomas/Dropbox/2019-431/2019-431-book/2019-431-book_files/figure
 -latex/p31_fig-1.pdf>] [532] <2019-431-book_files/figure-latex/p32-1.pdf, id=65
-68, 361.35pt x 361.35pt>
+69, 361.35pt x 361.35pt>
 File: 2019-431-book_files/figure-latex/p32-1.pdf Graphic file (type pdf)
 <use 2019-431-book_files/figure-latex/p32-1.pdf>
 Package pdftex.def Info: 2019-431-book_files/figure-latex/p32-1.pdf used on inp
@@ -7414,7 +7409,7 @@ Overfull \hbox (114.20337pt too wide) has occurred while \output is active
 IGH LEVERAGE \T1/lmr/m/n/10 535
  []
 
-[535] <2019-431-book_files/figure-latex/p35b-1.pdf, id=6594, 361.35pt x 361.35p
+[535] <2019-431-book_files/figure-latex/p35b-1.pdf, id=6595, 361.35pt x 361.35p
 t>
 File: 2019-431-book_files/figure-latex/p35b-1.pdf Graphic file (type pdf)
 <use 2019-431-book_files/figure-latex/p35b-1.pdf>
@@ -7422,7 +7417,7 @@ Package pdftex.def Info: 2019-431-book_files/figure-latex/p35b-1.pdf used on in
 put line 20013.
 (pdftex.def)             Requested size: 345.00084pt x 345.00084pt.
 [536 <C:/Users/Thomas/Dropbox/2019-431/2019-431-book/2019-431-book_files/figure
--latex/p35b-1.pdf>] <2019-431-book_files/figure-latex/p36b-1.pdf, id=6604, 469.
+-latex/p35b-1.pdf>] <2019-431-book_files/figure-latex/p36b-1.pdf, id=6605, 469.
 755pt x 325.215pt>
 File: 2019-431-book_files/figure-latex/p36b-1.pdf Graphic file (type pdf)
 <use 2019-431-book_files/figure-latex/p36b-1.pdf>
@@ -7441,7 +7436,7 @@ NCE ON THE MODEL \T1/lmr/m/n/10 537
  []
 
 [537 <C:/Users/Thomas/Dropbox/2019-431/2019-431-book/2019-431-book_files/figure
--latex/p36b-1.pdf>] <2019-431-book_files/figure-latex/cooks1-1.pdf, id=6615, 36
+-latex/p36b-1.pdf>] <2019-431-book_files/figure-latex/cooks1-1.pdf, id=6616, 36
 1.35pt x 361.35pt>
 File: 2019-431-book_files/figure-latex/cooks1-1.pdf Graphic file (type pdf)
 <use 2019-431-book_files/figure-latex/cooks1-1.pdf>
@@ -7449,7 +7444,7 @@ Package pdftex.def Info: 2019-431-book_files/figure-latex/cooks1-1.pdf used on
 input line 20081.
 (pdftex.def)             Requested size: 345.00084pt x 345.00084pt.
 [538 <C:/Users/Thomas/Dropbox/2019-431/2019-431-book/2019-431-book_files/figure
--latex/cooks1-1.pdf>] <2019-431-book_files/figure-latex/cooks2-1.pdf, id=6628, 
+-latex/cooks1-1.pdf>] <2019-431-book_files/figure-latex/cooks2-1.pdf, id=6629, 
 361.35pt x 361.35pt>
 File: 2019-431-book_files/figure-latex/cooks2-1.pdf Graphic file (type pdf)
 <use 2019-431-book_files/figure-latex/cooks2-1.pdf>
@@ -7509,7 +7504,7 @@ e[-24,[]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [542]
-<2019-431-book_files/figure-latex/diagplotDW1-1.pdf, id=6661, 397.485pt x 361.3
+<2019-431-book_files/figure-latex/diagplotDW1-1.pdf, id=6662, 397.485pt x 361.3
 5pt>
 File: 2019-431-book_files/figure-latex/diagplotDW1-1.pdf Graphic file (type pdf
 )
@@ -7517,7 +7512,7 @@ File: 2019-431-book_files/figure-latex/diagplotDW1-1.pdf Graphic file (type pdf
 Package pdftex.def Info: 2019-431-book_files/figure-latex/diagplotDW1-1.pdf use
 d on input line 20299.
 (pdftex.def)             Requested size: 345.00856pt x 313.64415pt.
-<2019-431-book_files/figure-latex/p41a-1.pdf, id=6662, 469.755pt x 433.62pt>
+<2019-431-book_files/figure-latex/p41a-1.pdf, id=6663, 469.755pt x 433.62pt>
 File: 2019-431-book_files/figure-latex/p41a-1.pdf Graphic file (type pdf)
 <use 2019-431-book_files/figure-latex/p41a-1.pdf>
 Package pdftex.def Info: 2019-431-book_files/figure-latex/p41a-1.pdf used on in
@@ -7544,7 +7539,7 @@ Overfull \vbox (0.19151pt too high) detected at line 20330
 
 [544 <C:/Users/Thomas/Dropbox/2019-431/2019-431-book/2019-431-book_files/figure
 -latex/p41a-1.pdf>]
-<2019-431-book_files/figure-latex/violsim 1-1.pdf, id=6689, 469.755pt x 325.215
+<2019-431-book_files/figure-latex/violsim 1-1.pdf, id=6690, 469.755pt x 325.215
 pt>
 File: 2019-431-book_files/figure-latex/violsim 1-1.pdf Graphic file (type pdf)
 <use 2019-431-book_files/figure-latex/violsim 1-1.pdf>
@@ -7552,7 +7547,7 @@ Package pdftex.def Info: 2019-431-book_files/figure-latex/violsim 1-1.pdf used
 on input line 20332.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
 
-<2019-431-book_files/figure-latex/boxCox_1_violsim1-1.pdf, id=6690, 469.755pt x
+<2019-431-book_files/figure-latex/boxCox_1_violsim1-1.pdf, id=6691, 469.755pt x
  325.215pt>
 File: 2019-431-book_files/figure-latex/boxCox_1_violsim1-1.pdf Graphic file (ty
 pe pdf)
@@ -7571,7 +7566,7 @@ contrasts[]
  []
 
 
-<2019-431-book_files/figure-latex/violsim_2-1.pdf, id=6700, 469.755pt x 325.215
+<2019-431-book_files/figure-latex/violsim_2-1.pdf, id=6701, 469.755pt x 325.215
 pt>
 File: 2019-431-book_files/figure-latex/violsim_2-1.pdf Graphic file (type pdf)
 <use 2019-431-book_files/figure-latex/violsim_2-1.pdf>
@@ -7583,7 +7578,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [546 <C:/Users/Thomas/Dropbox/2019-431/2019-431-book/2019-431-book_files/figure
 -latex/boxCox_1_violsim1-1.pdf>]
-<2019-431-book_files/figure-latex/violsim_2b-1.pdf, id=6711, 469.755pt x 325.21
+<2019-431-book_files/figure-latex/violsim_2b-1.pdf, id=6712, 469.755pt x 325.21
 5pt>
 File: 2019-431-book_files/figure-latex/violsim_2b-1.pdf Graphic file (type pdf)
 
@@ -7594,7 +7589,7 @@ Package pdftex.def Info: 2019-431-book_files/figure-latex/violsim_2b-1.pdf used
 [547 <C:/Users/Thomas/Dropbox/2019-431/2019-431-book/2019-431-book_files/figure
 -latex/violsim_2-1.pdf> <C:/Users/Thomas/Dropbox/2019-431/2019-431-book/2019-43
 1-book_files/figure-latex/violsim_2b-1.pdf>]
-<2019-431-book_files/figure-latex/violsim_2c-1.pdf, id=6727, 469.755pt x 325.21
+<2019-431-book_files/figure-latex/violsim_2c-1.pdf, id=6728, 469.755pt x 325.21
 5pt>
 File: 2019-431-book_files/figure-latex/violsim_2c-1.pdf Graphic file (type pdf)
 
@@ -7603,7 +7598,7 @@ Package pdftex.def Info: 2019-431-book_files/figure-latex/violsim_2c-1.pdf used
  on input line 20389.
 (pdftex.def)             Requested size: 344.997pt x 238.84406pt.
 
-<2019-431-book_files/figure-latex/violsim_5-1.pdf, id=6728, 469.755pt x 325.215
+<2019-431-book_files/figure-latex/violsim_5-1.pdf, id=6729, 469.755pt x 325.215
 pt>
 File: 2019-431-book_files/figure-latex/violsim_5-1.pdf Graphic file (type pdf)
 <use 2019-431-book_files/figure-latex/violsim_5-1.pdf>
@@ -7615,7 +7610,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [548 <C:/Users/Thomas/Dropbox/2019-431/2019-431-book/2019-431-book_files/figure
 -latex/violsim_2c-1.pdf>]
-<2019-431-book_files/figure-latex/viol_fit_without_72-1.pdf, id=6739, 469.755pt
+<2019-431-book_files/figure-latex/viol_fit_without_72-1.pdf, id=6740, 469.755pt
  x 325.215pt>
 File: 2019-431-book_files/figure-latex/viol_fit_without_72-1.pdf Graphic file (
 type pdf)
@@ -7634,7 +7629,7 @@ mr/m/n/10 549
 
 [549 <C:/Users/Thomas/Dropbox/2019-431/2019-431-book/2019-431-book_files/figure
 -latex/violsim_5-1.pdf>]
-<2019-431-book_files/figure-latex/viol_fit_without_72_1and3-1.pdf, id=6749, 469
+<2019-431-book_files/figure-latex/viol_fit_without_72_1and3-1.pdf, id=6750, 469
 .755pt x 325.215pt>
 File: 2019-431-book_files/figure-latex/viol_fit_without_72_1and3-1.pdf Graphic 
 file (type pdf)
@@ -7647,7 +7642,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [550 <C:/Users/Thomas/Dropbox/2019-431/2019-431-book/2019-431-book_files/figure
 -latex/viol_fit_without_72-1.pdf>]
-<2019-431-book_files/figure-latex/viol_fit_without_72_2and5-1.pdf, id=6759, 469
+<2019-431-book_files/figure-latex/viol_fit_without_72_2and5-1.pdf, id=6760, 469
 .755pt x 325.215pt>
 File: 2019-431-book_files/figure-latex/viol_fit_without_72_2and5-1.pdf Graphic 
 file (type pdf)
@@ -7666,7 +7661,7 @@ mr/m/n/10 551
 
 [551 <C:/Users/Thomas/Dropbox/2019-431/2019-431-book/2019-431-book_files/figure
 -latex/viol_fit_without_72_1and3-1.pdf>]
-<2019-431-book_files/figure-latex/viol2sim-1.pdf, id=6769, 469.755pt x 325.215p
+<2019-431-book_files/figure-latex/viol2sim-1.pdf, id=6770, 469.755pt x 325.215p
 t>
 File: 2019-431-book_files/figure-latex/viol2sim-1.pdf Graphic file (type pdf)
 <use 2019-431-book_files/figure-latex/viol2sim-1.pdf>
@@ -7678,7 +7673,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [552 <C:/Users/Thomas/Dropbox/2019-431/2019-431-book/2019-431-book_files/figure
 -latex/viol_fit_without_72_2and5-1.pdf>]
-<2019-431-book_files/figure-latex/viol2sim_model3plot1-1.pdf, id=6780, 469.755p
+<2019-431-book_files/figure-latex/viol2sim_model3plot1-1.pdf, id=6781, 469.755p
 t x 325.215pt>
 File: 2019-431-book_files/figure-latex/viol2sim_model3plot1-1.pdf Graphic file 
 (type pdf)
@@ -7694,7 +7689,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 20482--20484
 [553 <C:/Users/Thomas/Dropbox/2019-431/2019-431-book/2019-431-book_files/figure
 -latex/viol2sim-1.pdf> <C:/Users/Thomas/Dropbox/2019-431/2019-431-book/2019-431
 -book_files/figure-latex/viol2sim_model3plot1-1.pdf>]
-<2019-431-book_files/figure-latex/viol2sim_model3plotboxcox-1.pdf, id=6796, 469
+<2019-431-book_files/figure-latex/viol2sim_model3plotboxcox-1.pdf, id=6797, 469
 .755pt x 325.215pt>
 File: 2019-431-book_files/figure-latex/viol2sim_model3plotboxcox-1.pdf Graphic 
 file (type pdf)
@@ -7709,7 +7704,7 @@ contrasts[]
  []
 
 
-<2019-431-book_files/figure-latex/viol2sim_model4plot2-1.pdf, id=6797, 469.755p
+<2019-431-book_files/figure-latex/viol2sim_model4plot2-1.pdf, id=6798, 469.755p
 t x 325.215pt>
 File: 2019-431-book_files/figure-latex/viol2sim_model4plot2-1.pdf Graphic file 
 (type pdf)
@@ -7722,7 +7717,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [554 <C:/Users/Thomas/Dropbox/2019-431/2019-431-book/2019-431-book_files/figure
 -latex/viol2sim_model3plotboxcox-1.pdf>]
-<2019-431-book_files/figure-latex/viol2sim_model4plot1-1.pdf, id=6808, 469.755p
+<2019-431-book_files/figure-latex/viol2sim_model4plot1-1.pdf, id=6809, 469.755p
 t x 325.215pt>
 File: 2019-431-book_files/figure-latex/viol2sim_model4plot1-1.pdf Graphic file 
 (type pdf)
@@ -7864,7 +7859,7 @@ Chapter 38.
 [565
 
 ]
-<2019-431-book_files/figure-latex/unnamed-chunk-229-1.pdf, id=6896, 469.755pt x
+<2019-431-book_files/figure-latex/unnamed-chunk-229-1.pdf, id=6897, 469.755pt x
  325.215pt>
 File: 2019-431-book_files/figure-latex/unnamed-chunk-229-1.pdf Graphic file (ty
 pe pdf)
@@ -7987,7 +7982,7 @@ PLE IMPUTATION
 [574]
 Chapter 39.
 
-<2019-431-book_files/figure-latex/missing pattern in wcgs.s-1.pdf, id=6975, 469
+<2019-431-book_files/figure-latex/missing pattern in wcgs.s-1.pdf, id=6976, 469
 .755pt x 325.215pt>
 File: 2019-431-book_files/figure-latex/missing pattern in wcgs.s-1.pdf Graphic 
 file (type pdf)
@@ -8111,7 +8106,7 @@ Overfull \hbox (48.74886pt too wide) in paragraph at lines 21526--21526
 
 [577] [578]
 <2019-431-book_files/figure-latex/create subset with no missing chol but retain
- missing arcus-1.pdf, id=7004, 469.755pt x 325.215pt>
+ missing arcus-1.pdf, id=7005, 469.755pt x 325.215pt>
 File: 2019-431-book_files/figure-latex/create subset with no missing chol but r
 etain missing arcus-1.pdf Graphic file (type pdf)
 
@@ -8125,7 +8120,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [579]
 <2019-431-book_files/figure-latex/create subset with no missing chol but retain
- missing arcus-2.pdf, id=7013, 469.755pt x 325.215pt>
+ missing arcus-2.pdf, id=7014, 469.755pt x 325.215pt>
 File: 2019-431-book_files/figure-latex/create subset with no missing chol but r
 etain missing arcus-2.pdf Graphic file (type pdf)
 
@@ -8360,7 +8355,7 @@ Overfull \hbox (48.74886pt too wide) in paragraph at lines 21984--21984
  []
 
 [587]
-<2019-431-book_files/figure-latex/md.pattern-1.pdf, id=7081, 469.755pt x 325.21
+<2019-431-book_files/figure-latex/md.pattern-1.pdf, id=7082, 469.755pt x 325.21
 5pt>
 File: 2019-431-book_files/figure-latex/md.pattern-1.pdf Graphic file (type pdf)
 
@@ -8785,7 +8780,7 @@ lmr/m/n/10 597
  []
 
 [597]
-<2019-431-book_files/figure-latex/pairs_scatter_mat_emp_bmi_fig-1.pdf, id=7150,
+<2019-431-book_files/figure-latex/pairs_scatter_mat_emp_bmi_fig-1.pdf, id=7151,
  469.755pt x 433.62pt>
 File: 2019-431-book_files/figure-latex/pairs_scatter_mat_emp_bmi_fig-1.pdf Grap
 hic file (type pdf)
@@ -8803,7 +8798,7 @@ H CATEGORICAL PREDICTORS
  []
 
 [598]
-<2019-431-book_files/figure-latex/ggpairs_emp_bmi_fig-1.pdf, id=7156, 469.755pt
+<2019-431-book_files/figure-latex/ggpairs_emp_bmi_fig-1.pdf, id=7157, 469.755pt
  x 433.62pt>
 File: 2019-431-book_files/figure-latex/ggpairs_emp_bmi_fig-1.pdf Graphic file (
 type pdf)
@@ -8816,7 +8811,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [599 <C:/Users/Thomas/Dropbox/2019-431/2019-431-book/2019-431-book_files/figure
 -latex/pairs_scatter_mat_emp_bmi_fig-1.pdf>]
-<2019-431-book_files/figure-latex/resid_plot_ebmodel_1-1.pdf, id=7167, 469.755p
+<2019-431-book_files/figure-latex/resid_plot_ebmodel_1-1.pdf, id=7168, 469.755p
 t x 433.62pt>
 File: 2019-431-book_files/figure-latex/resid_plot_ebmodel_1-1.pdf Graphic file 
 (type pdf)
@@ -8960,7 +8955,7 @@ H CATEGORICAL PREDICTORS
 
 [604]
 Chapter 41.
-<figures/galapic.jpg, id=7203, 737.75626pt x 500.62032pt>
+<figures/galapic.jpg, id=7204, 737.75626pt x 500.62032pt>
 File: figures/galapic.jpg Graphic file (type jpg)
 <use figures/galapic.jpg>
 Package pdftex.def Info: figures/galapic.jpg used on input line 22815.
@@ -9217,7 +9212,7 @@ Overfull \hbox (48.74886pt too wide) in paragraph at lines 22952--22952
  []
 
 [608]
-<2019-431-book_files/figure-latex/p51 fancy scatterplot matrix-1.pdf, id=7230, 
+<2019-431-book_files/figure-latex/p51 fancy scatterplot matrix-1.pdf, id=7231, 
 578.16pt x 596.2275pt>
 File: 2019-431-book_files/figure-latex/p51 fancy scatterplot matrix-1.pdf Graph
 ic file (type pdf)
@@ -9251,7 +9246,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Overfull \vbox (0.25241pt too high) detected at line 23399
  []
 
-[616] <2019-431-book_files/figure-latex/p60-1.pdf, id=7332, 289.08pt x 289.08pt
+[616] <2019-431-book_files/figure-latex/p60-1.pdf, id=7333, 289.08pt x 289.08pt
 >
 File: 2019-431-book_files/figure-latex/p60-1.pdf Graphic file (type pdf)
 <use 2019-431-book_files/figure-latex/p60-1.pdf>
@@ -9263,7 +9258,7 @@ Underfull \hbox (badness 2846) in paragraph at lines 23425--23425
 []\T1/lmr/bx/n/14.4 Automatic Re-gres-sion Di-ag-nos-tics for
  []
 
-<2019-431-book_files/figure-latex/p58-1.pdf, id=7333, 469.755pt x 578.16pt>
+<2019-431-book_files/figure-latex/p58-1.pdf, id=7334, 469.755pt x 578.16pt>
 File: 2019-431-book_files/figure-latex/p58-1.pdf Graphic file (type pdf)
 <use 2019-431-book_files/figure-latex/p58-1.pdf>
 Package pdftex.def Info: 2019-431-book_files/figure-latex/p58-1.pdf used on inp
@@ -9281,14 +9276,14 @@ Overfull \hbox (21.42807pt too wide) has occurred while \output is active
 [617 <C:/Users/Thomas/Dropbox/2019-431/2019-431-book/2019-431-book_files/figure
 -latex/p60-1.pdf>] [618 <C:/Users/Thomas/Dropbox/2019-431/2019-431-book/2019-43
 1-book_files/figure-latex/p58-1.pdf>] <2019-431-book_files/figure-latex/p61-1.p
-df, id=7360, 361.35pt x 325.215pt>
+df, id=7361, 361.35pt x 325.215pt>
 File: 2019-431-book_files/figure-latex/p61-1.pdf Graphic file (type pdf)
 <use 2019-431-book_files/figure-latex/p61-1.pdf>
 Package pdftex.def Info: 2019-431-book_files/figure-latex/p61-1.pdf used on inp
 ut line 23440.
 (pdftex.def)             Requested size: 345.00084pt x 310.50075pt.
 [619 <C:/Users/Thomas/Dropbox/2019-431/2019-431-book/2019-431-book_files/figure
--latex/p61-1.pdf>] <2019-431-book_files/figure-latex/p62-1.pdf, id=7382, 361.35
+-latex/p61-1.pdf>] <2019-431-book_files/figure-latex/p62-1.pdf, id=7383, 361.35
 pt x 325.215pt>
 File: 2019-431-book_files/figure-latex/p62-1.pdf Graphic file (type pdf)
 <use 2019-431-book_files/figure-latex/p62-1.pdf>
@@ -9296,7 +9291,7 @@ Package pdftex.def Info: 2019-431-book_files/figure-latex/p62-1.pdf used on inp
 ut line 23478.
 (pdftex.def)             Requested size: 345.00084pt x 310.50075pt.
 [620 <C:/Users/Thomas/Dropbox/2019-431/2019-431-book/2019-431-book_files/figure
--latex/p62-1.pdf>] <2019-431-book_files/figure-latex/p63-1.pdf, id=7398, 361.35
+-latex/p62-1.pdf>] <2019-431-book_files/figure-latex/p63-1.pdf, id=7399, 361.35
 pt x 325.215pt>
 File: 2019-431-book_files/figure-latex/p63-1.pdf Graphic file (type pdf)
 <use 2019-431-book_files/figure-latex/p63-1.pdf>
@@ -9467,7 +9462,7 @@ Underfull \hbox (badness 1701) in paragraph at lines 23677--23677
 []\T1/lmr/bx/n/14.4 Relationship be-tween Fit-ted and Ob-
  []
 
-<2019-431-book_files/figure-latex/p65-1.pdf, id=7435, 361.35pt x 289.08pt>
+<2019-431-book_files/figure-latex/p65-1.pdf, id=7436, 361.35pt x 289.08pt>
 File: 2019-431-book_files/figure-latex/p65-1.pdf Graphic file (type pdf)
 <use 2019-431-book_files/figure-latex/p65-1.pdf>
 Package pdftex.def Info: 2019-431-book_files/figure-latex/p65-1.pdf used on inp
@@ -9477,7 +9472,7 @@ ut line 23691.
 Underfull \vbox (badness 2103) has occurred while \output is active []
 
 [624 <C:/Users/Thomas/Dropbox/2019-431/2019-431-book/2019-431-book_files/figure
--latex/p65-1.pdf>] <2019-431-book_files/figure-latex/p66-1.pdf, id=7447, 469.75
+-latex/p65-1.pdf>] <2019-431-book_files/figure-latex/p66-1.pdf, id=7448, 469.75
 5pt x 252.945pt>
 File: 2019-431-book_files/figure-latex/p66-1.pdf Graphic file (type pdf)
 <use 2019-431-book_files/figure-latex/p66-1.pdf>
@@ -9487,7 +9482,7 @@ ut line 23731.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[625] <2019-431-book_files/figure-latex/p67-1.pdf, id=7459, 469.755pt x 325.215
+[625] <2019-431-book_files/figure-latex/p67-1.pdf, id=7460, 469.755pt x 325.215
 pt>
 File: 2019-431-book_files/figure-latex/p67-1.pdf Graphic file (type pdf)
 <use 2019-431-book_files/figure-latex/p67-1.pdf>
@@ -9559,7 +9554,7 @@ Overfull \hbox (6.9154pt too wide) has occurred while \output is active
  []
 
 [630]
-<2019-431-book_files/figure-latex/model 1 diagnostic 4-1.pdf, id=7504, 469.755p
+<2019-431-book_files/figure-latex/model 1 diagnostic 4-1.pdf, id=7505, 469.755p
 t x 325.215pt>
 File: 2019-431-book_files/figure-latex/model 1 diagnostic 4-1.pdf Graphic file 
 (type pdf)
@@ -9681,10 +9676,10 @@ LaTeX Warning: There were undefined references.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 24522.
  ) 
 Here is how much of TeX's memory you used:
- 17167 strings out of 493705
- 313181 string characters out of 3142148
+ 17166 strings out of 493705
+ 313166 string characters out of 3142148
  358014 words of memory out of 3000000
- 17524 multiletter control sequences out of 15000+200000
+ 17523 multiletter control sequences out of 15000+200000
  121163 words of font info for 196 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
  33i,9n,35p,1370b,556s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -9717,9 +9712,9 @@ TeX 2.9/fonts/type1/public/lm/lmtt10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fon
 ts/type1/public/lm/lmtt8.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/pub
 lic/lm/lmtti10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/lm/lmt
 to10.pfb>
-Output written on 2019-431-book.pdf (647 pages, 12030867 bytes).
+Output written on 2019-431-book.pdf (647 pages, 12031623 bytes).
 PDF statistics:
- 8288 PDF objects out of 8907 (max. 8388607)
+ 8289 PDF objects out of 8907 (max. 8388607)
  2546 named destinations out of 2984 (max. 500000)
  24424 words of extra memory for PDF output out of 24883 (max. 10000000)
 
