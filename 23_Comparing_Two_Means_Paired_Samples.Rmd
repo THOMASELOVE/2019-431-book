@@ -31,11 +31,11 @@ There are two main approaches used frequently to estimate the population mean of
 - Estimation using the t distribution (and assuming at least an approximately Normal distribution for the paired differences)
 - Estimation using the bootstrap (which doesn't require the Normal assumption)
 
-In addition, we might consider estimating an alternate statistic when the data don't follow a symmetric distribution, like the median, with the bootstrap. In other settings, a rank-based alternative called the Wilcoxon signed rank test is available to estimate a psuedo-median. All of these approaches mirror what we did with a single sample, back in Chapter \@ref(One-Mean)
+In addition, we might consider estimating an alternate statistic when the data don't follow a symmetric distribution, like the median, with the bootstrap. In other settings, a rank-based alternative called the Wilcoxon signed rank test is available to estimate a psuedo-median. All of these approaches mirror what we did with a single sample, back in Chapter \@ref(One-Mean).
 
 ## t-based CI for Population Mean of Paired Differences, $\mu_d$.
 
-In R, there are at least five different methods for obtaining the t-based confidence interval for the population difference in means between paired samples. They are all mathematically identical. The key idea is to calculate the paired differences (exposed - control, for example) in each pair, and then treat the result as if it were a single sample and apply the methods discussed in Section \@ref(CI-1-Sample).
+In R, there are at least five different methods for obtaining the t-based confidence interval for the population difference in means between paired samples. They are all mathematically identical. The key idea is to calculate the paired differences (exposed - control, for example) in each pair, and then treat the result as if it were a single sample and apply the methods discussed in Chapter \@ref(One-Mean).
 
 ### Method 1 
 
