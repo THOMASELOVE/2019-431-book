@@ -573,7 +573,7 @@ If we're willing to believe the `zinc` levels come from a population with a symm
 
 For a non-symmetric population, this only applies to the *pseudo-median*.
 
-Note that the pseudo-median (87.5) is actually closer here to the sample mean (86) than it is to the sample median (87.9).
+Note that the pseudo-median (87.5) is actually closer here to the sample mean (87.9) than it is to the sample median (86).
 
 ### Using the `broom` package with the Wilcoxon test
 

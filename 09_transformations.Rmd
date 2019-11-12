@@ -286,7 +286,7 @@ p5 <- ggplot(nnyfs, aes(sample = log(protein))) +
     labs(title = "log (power 0)",
          y = "Natural Log of Protein")
 
-p6 <- ggplot(nnyfs, aes(sample = protein^(0.5))) +
+p6 <- ggplot(nnyfs, aes(sample = protein^(-0.5))) +
     geom_qq(col = "salmon") + 
     geom_qq_line(col = "black") +
     theme_light() +
