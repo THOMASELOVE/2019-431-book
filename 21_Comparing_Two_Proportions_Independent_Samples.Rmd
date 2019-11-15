@@ -75,7 +75,7 @@ Our "crude" estimate of the **risk difference** of a good outcome for Ibuprofen 
 
 Among the Ibuprofen subjects, the odds of a good outcome (temperature drop) are 2.484. Among the placebo subjects, the odds of a good outcome (temperature drop) are 1.141.
 
-So our "crude" estimate of the **odds ratio** of a good outcome for amoxicillin subjects as compared to placebo subjects, is 2.484 / 1.141 = 2.18
+So our "crude" estimate of the **odds ratio** of a good outcome for Ibuprofen subjects as compared to placebo subjects, is 2.484 / 1.141 = 2.18
 
 Another way to calculate this odds ratio is to calculate the **cross-product ratio**, which is equal to (a x d) / (b x  c), for the 2 by 2 table with counts specified as shown:
 

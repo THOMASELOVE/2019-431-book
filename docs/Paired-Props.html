@@ -1362,7 +1362,7 @@ odds ratio
 </ul>
 <p>Can we compare these percentages (or perhaps their equivalent proportions) directly, and estimate that difference with a confidence interval?</p>
 <p>Yes, thanks to the <code>PropCIs</code> package, and its <code>diffpropci.Wald.mp()</code> and <code>diffpropci.mp()</code> functions. To use these tools, we load the <code>PropCIs</code> package, and specify the values of <code>b</code>, <code>c</code> and <code>n</code>, the total sample size.</p>
-<p>We will specify the values of <code>b = 16</code> and <code>c = 2</code> here so that the difference in conditional probability that we are comparing is the probability, assuming the clinic accepted the patient only once, of accepting private insurance minus the probability of accepting public insurance. We are estimating:</p>
+<p>We will specify the values of <code>b = 2</code> and <code>c = 16</code> here so that the difference in conditional probability that we are comparing is the probability, assuming the clinic accepted the patient only once, of accepting private insurance minus the probability of accepting public insurance. We are estimating:</p>
 <p><span class="math display">\[
 Pr(Accepted for Private | only Accepted once) - Pr(Accepted for Public | only Accepted once)
 \]</span></p>

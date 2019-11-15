@@ -313,10 +313,11 @@ Oversimplifying a lot, the idea is that if we sample (with replacement) from our
 The interval will be reasonable as long as we're willing to believe that:
 
 - the original sample was a random sample (or at least a completely representative sample) from a population, 
-- and that the samples are independent of each other 
-- and that the samples are identically distributed (even though that distribution may not be Normal.) 
+- and that the samples are independent of each other, 
 
-A downside is that you and I will get (somewhat) different answers if we resample from the same data without setting the same random seed.
+even if the population of interest doesn't follow a Normal, or even a symmetric distribution.
+
+A downside of the bootstrap is that you and I will get (somewhat) different answers if we resample from the same data without setting the same random seed.
 
 ### Bootstrap: Steps to estimate a confidence interval for $\mu$
 
