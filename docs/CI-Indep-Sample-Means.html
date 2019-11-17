@@ -1034,7 +1034,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">Chapter 20</span> Comparing Means/Quantities using Two Independent Samples</h1>
 <p>Here, we’ll consider the problem of estimating a confidence interval to describe the difference in population means (or medians) based on a comparison of two samples of quantitative data, gathered using an independent samples design. Specifically, we’ll look at the randomized controlled trial of Ibuprofen in Sepsis patients described in Chapter @ref(Sepsis_RCT).</p>
 <p>In that trial, 300 patients meeting specific criteria (including elevated temperature) for a diagnosis of sepsis were randomly assigned to either the Ibuprofen group (150 patients) and 150 to the Placebo group. Group information (our exposure) is contained in the <code>treat</code> variable. The key outcome of interest to us was <code>temp_drop</code>, the change in body temperature (in <span class="math inline">\(^{\circ}\)</span>C) from baseline to 2 hours later, so that positive numbers indicate drops in temperature (a good outcome.) Here’s the comparison of <code>temp_drop</code> summary statistics in the two <code>treat</code> groups.</p>
-<div class="sourceCode" id="cb574"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb574-1" title="1">mosaic<span class="op">::</span><span class="kw">favstats</span>(temp_drop <span class="op">~</span><span class="st"> </span>treat, <span class="dt">data =</span> sepsis)</a></code></pre></div>
+<div class="sourceCode" id="cb578"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb578-1" title="1">mosaic<span class="op">::</span><span class="kw">favstats</span>(temp_drop <span class="op">~</span><span class="st"> </span>treat, <span class="dt">data =</span> sepsis)</a></code></pre></div>
 <pre><code>      treat  min     Q1 median  Q3 max  mean    sd   n missing
 1 Ibuprofen -1.5  0.000    0.5 0.9 3.1 0.464 0.688 150       0
 2   Placebo -2.7 -0.175    0.1 0.4 1.9 0.153 0.571 150       0</code></pre>
@@ -1043,10 +1043,10 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="the-pooled-t-procedure" class="section level3">
 <h3><span class="header-section-number">20.1.1</span> The Pooled t procedure</h3>
 <p>The most commonly used t-procedure for building a confidence interval assumes not only that each of the two populations being compared follows a Normal distribution, but also that they have the same population variance. This is the pooled t-test, and it is what people usually mean when they describe a two-sample t test.</p>
-<div class="sourceCode" id="cb576"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb576-1" title="1">sepsis <span class="op">%$%</span><span class="st"> </span><span class="kw">t.test</span>(temp_drop <span class="op">~</span><span class="st"> </span>treat,</a>
-<a class="sourceLine" id="cb576-2" title="2">                  <span class="dt">conf.level =</span> <span class="fl">0.90</span>,</a>
-<a class="sourceLine" id="cb576-3" title="3">                  <span class="dt">alt =</span> <span class="st">&quot;two.sided&quot;</span>,</a>
-<a class="sourceLine" id="cb576-4" title="4">                  <span class="dt">var.equal =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb580"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb580-1" title="1">sepsis <span class="op">%$%</span><span class="st"> </span><span class="kw">t.test</span>(temp_drop <span class="op">~</span><span class="st"> </span>treat,</a>
+<a class="sourceLine" id="cb580-2" title="2">                  <span class="dt">conf.level =</span> <span class="fl">0.90</span>,</a>
+<a class="sourceLine" id="cb580-3" title="3">                  <span class="dt">alt =</span> <span class="st">&quot;two.sided&quot;</span>,</a>
+<a class="sourceLine" id="cb580-4" title="4">                  <span class="dt">var.equal =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
 <pre><code>
     Two Sample t-test
 
@@ -1059,11 +1059,11 @@ sample estimates:
 mean in group Ibuprofen   mean in group Placebo 
                   0.464                   0.153 </code></pre>
 <p>Or, we can use <code>tidy</code> on this object:</p>
-<div class="sourceCode" id="cb578"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb578-1" title="1">tt1 &lt;-<span class="st"> </span>sepsis <span class="op">%$%</span><span class="st"> </span><span class="kw">t.test</span>(temp_drop <span class="op">~</span><span class="st"> </span>treat,</a>
-<a class="sourceLine" id="cb578-2" title="2">                  <span class="dt">conf.level =</span> <span class="fl">0.90</span>,</a>
-<a class="sourceLine" id="cb578-3" title="3">                  <span class="dt">alt =</span> <span class="st">&quot;two.sided&quot;</span>,</a>
-<a class="sourceLine" id="cb578-4" title="4">                  <span class="dt">var.equal =</span> <span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb578-5" title="5"><span class="kw">tidy</span>(tt1)</a></code></pre></div>
+<div class="sourceCode" id="cb582"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb582-1" title="1">tt1 &lt;-<span class="st"> </span>sepsis <span class="op">%$%</span><span class="st"> </span><span class="kw">t.test</span>(temp_drop <span class="op">~</span><span class="st"> </span>treat,</a>
+<a class="sourceLine" id="cb582-2" title="2">                  <span class="dt">conf.level =</span> <span class="fl">0.90</span>,</a>
+<a class="sourceLine" id="cb582-3" title="3">                  <span class="dt">alt =</span> <span class="st">&quot;two.sided&quot;</span>,</a>
+<a class="sourceLine" id="cb582-4" title="4">                  <span class="dt">var.equal =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb582-5" title="5"><span class="kw">tidy</span>(tt1)</a></code></pre></div>
 <pre><code># A tibble: 1 x 9
   estimate1 estimate2 statistic p.value parameter conf.low conf.high method
       &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt; 
@@ -1073,9 +1073,9 @@ mean in group Ibuprofen   mean in group Placebo
 <div id="using-linear-regression-to-obtain-a-pooled-t-confidence-interval" class="section level3">
 <h3><span class="header-section-number">20.1.2</span> Using linear regression to obtain a pooled t confidence interval</h3>
 <p>A linear regression model, using the same outcome and predictor (group) as the pooled t procedure, produces the same confidence interval, again, under the assumption that the two populations we are comparing follow a Normal distribution with the same (population) variance.</p>
-<div class="sourceCode" id="cb580"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb580-1" title="1">model1 &lt;-<span class="st"> </span><span class="kw">lm</span>(temp_drop <span class="op">~</span><span class="st"> </span>treat, <span class="dt">data =</span> sepsis)</a>
-<a class="sourceLine" id="cb580-2" title="2"></a>
-<a class="sourceLine" id="cb580-3" title="3"><span class="kw">tidy</span>(model1, <span class="dt">conf.int =</span> <span class="ot">TRUE</span>, <span class="dt">conf.level =</span> <span class="fl">0.90</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb584"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb584-1" title="1">model1 &lt;-<span class="st"> </span><span class="kw">lm</span>(temp_drop <span class="op">~</span><span class="st"> </span>treat, <span class="dt">data =</span> sepsis)</a>
+<a class="sourceLine" id="cb584-2" title="2"></a>
+<a class="sourceLine" id="cb584-3" title="3"><span class="kw">tidy</span>(model1, <span class="dt">conf.int =</span> <span class="ot">TRUE</span>, <span class="dt">conf.level =</span> <span class="fl">0.90</span>)</a></code></pre></div>
 <pre><code># A tibble: 2 x 7
   term         estimate std.error statistic  p.value conf.low conf.high
   &lt;chr&gt;           &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
@@ -1083,7 +1083,7 @@ mean in group Ibuprofen   mean in group Placebo
 2 treatPlacebo   -0.311    0.0730     -4.27 2.68e- 5   -0.432    -0.191</code></pre>
 <p>We see that our point estimate from the linear regression model is that the difference in <code>temp_drop</code> is -0.311, where Ibuprofen subjects have higher <code>temp_drop</code> values than do Placebo subjects, and that the 90% confidence interval for this difference ranges from -0.432 to -0.191.</p>
 <p>We can obtain a t-based confidence interval for each of the parameter estimates in a linear model directly using <code>confint</code>. Linear models usually summarize only the estimate and standard error. Remember that a reasonable approximation in large samples to a 95% confidence interval for a regression estimate (slope or intercept) can be obtained from estimate <span class="math inline">\(\pm\)</span> 2 * standard error.</p>
-<div class="sourceCode" id="cb582"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb582-1" title="1"><span class="kw">summary</span>(model1)</a></code></pre></div>
+<div class="sourceCode" id="cb586"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb586-1" title="1"><span class="kw">summary</span>(model1)</a></code></pre></div>
 <pre><code>
 Call:
 lm(formula = temp_drop ~ treat, data = sepsis)
@@ -1103,7 +1103,7 @@ Residual standard error: 0.632 on 298 degrees of freedom
 Multiple R-squared:  0.0575,    Adjusted R-squared:  0.0544 
 F-statistic: 18.2 on 1 and 298 DF,  p-value: 2.68e-05</code></pre>
 <p>So, in the case of the <code>treatPlacebo</code> estimate, we can obtain an approximate 95% confidence interval with -0.311 <span class="math inline">\(\pm\)</span> 2 x 0.073 or (-0.457, -0.165). Compare this to the 95% confidence interval available from the model directly, shown in the tidied output above, or with the <code>confint</code> command below, and you’ll see only a small difference.</p>
-<div class="sourceCode" id="cb584"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb584-1" title="1"><span class="kw">confint</span>(model1, <span class="dt">level =</span> <span class="fl">0.95</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb588"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb588-1" title="1"><span class="kw">confint</span>(model1, <span class="dt">level =</span> <span class="fl">0.95</span>)</a></code></pre></div>
 <pre><code>              2.5 % 97.5 %
 (Intercept)   0.362  0.566
 treatPlacebo -0.455 -0.168</code></pre>
@@ -1111,9 +1111,9 @@ treatPlacebo -0.455 -0.168</code></pre>
 <div id="the-welch-t-procedure" class="section level3">
 <h3><span class="header-section-number">20.1.3</span> The Welch t procedure</h3>
 <p>The default confidence interval based on the t test for independent samples in R uses something called the Welch test, in which the two populations being compared are not assumed to have the same variance. Each population is assumed to follow a Normal distribution.</p>
-<div class="sourceCode" id="cb586"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb586-1" title="1">sepsis <span class="op">%$%</span><span class="st"> </span><span class="kw">t.test</span>(temp_drop <span class="op">~</span><span class="st"> </span>treat,</a>
-<a class="sourceLine" id="cb586-2" title="2">                  <span class="dt">conf.level =</span> <span class="fl">0.90</span>, </a>
-<a class="sourceLine" id="cb586-3" title="3">                  <span class="dt">alt =</span> <span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb590"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb590-1" title="1">sepsis <span class="op">%$%</span><span class="st"> </span><span class="kw">t.test</span>(temp_drop <span class="op">~</span><span class="st"> </span>treat,</a>
+<a class="sourceLine" id="cb590-2" title="2">                  <span class="dt">conf.level =</span> <span class="fl">0.90</span>, </a>
+<a class="sourceLine" id="cb590-3" title="3">                  <span class="dt">alt =</span> <span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
 <pre><code>
     Welch Two Sample t-test
 
@@ -1126,11 +1126,11 @@ sample estimates:
 mean in group Ibuprofen   mean in group Placebo 
                   0.464                   0.153 </code></pre>
 <p>Tidying works in this situation, too.</p>
-<div class="sourceCode" id="cb588"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb588-1" title="1">tt0 &lt;-<span class="st"> </span>sepsis <span class="op">%$%</span><span class="st"> </span><span class="kw">t.test</span>(temp_drop <span class="op">~</span><span class="st"> </span>treat,</a>
-<a class="sourceLine" id="cb588-2" title="2">                  <span class="dt">conf.level =</span> <span class="fl">0.90</span>, </a>
-<a class="sourceLine" id="cb588-3" title="3">                  <span class="dt">alt =</span> <span class="st">&quot;two.sided&quot;</span>)</a>
-<a class="sourceLine" id="cb588-4" title="4"></a>
-<a class="sourceLine" id="cb588-5" title="5"><span class="kw">tidy</span>(tt0)</a></code></pre></div>
+<div class="sourceCode" id="cb592"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb592-1" title="1">tt0 &lt;-<span class="st"> </span>sepsis <span class="op">%$%</span><span class="st"> </span><span class="kw">t.test</span>(temp_drop <span class="op">~</span><span class="st"> </span>treat,</a>
+<a class="sourceLine" id="cb592-2" title="2">                  <span class="dt">conf.level =</span> <span class="fl">0.90</span>, </a>
+<a class="sourceLine" id="cb592-3" title="3">                  <span class="dt">alt =</span> <span class="st">&quot;two.sided&quot;</span>)</a>
+<a class="sourceLine" id="cb592-4" title="4"></a>
+<a class="sourceLine" id="cb592-5" title="5"><span class="kw">tidy</span>(tt0)</a></code></pre></div>
 <pre><code># A tibble: 1 x 10
   estimate estimate1 estimate2 statistic p.value parameter conf.low
      &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
@@ -1143,20 +1143,20 @@ mean in group Ibuprofen   mean in group Placebo
 <div id="bootstrap-ci-for-mu_1---mu_2-from-independent-samples" class="section level2">
 <h2><span class="header-section-number">20.2</span> Bootstrap CI for <span class="math inline">\(mu_1 - \mu_2\)</span> from Independent Samples</h2>
 <p>The <code>bootdif</code> function contained in the <code>Love-boost.R</code> script, that we will use in this setting is a slightly edited version of the function at <a href="http://biostat.mc.vanderbilt.edu/wiki/Main/BootstrapMeansSoftware" class="uri">http://biostat.mc.vanderbilt.edu/wiki/Main/BootstrapMeansSoftware</a>. Note that this approach uses a comma to separate the outcome variable (here, <code>temp_drop</code>) from the variable identifying the exposure groups (here, <code>treat</code>).</p>
-<div class="sourceCode" id="cb590"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb590-1" title="1"><span class="kw">set.seed</span>(<span class="dv">431212</span>)</a>
-<a class="sourceLine" id="cb590-2" title="2"></a>
-<a class="sourceLine" id="cb590-3" title="3">sepsis <span class="op">%$%</span><span class="st"> </span><span class="kw">bootdif</span>(temp_drop, treat, <span class="dt">conf.level =</span> <span class="fl">0.90</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb594"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb594-1" title="1"><span class="kw">set.seed</span>(<span class="dv">431212</span>)</a>
+<a class="sourceLine" id="cb594-2" title="2"></a>
+<a class="sourceLine" id="cb594-3" title="3">sepsis <span class="op">%$%</span><span class="st"> </span><span class="kw">bootdif</span>(temp_drop, treat, <span class="dt">conf.level =</span> <span class="fl">0.90</span>)</a></code></pre></div>
 <pre><code>Mean Difference            0.05            0.95 
          -0.311          -0.431          -0.183 </code></pre>
 </div>
 <div id="wilcoxon-mann-whitney-rank-sum-ci-from-independent-samples" class="section level2">
 <h2><span class="header-section-number">20.3</span> Wilcoxon-Mann-Whitney “Rank Sum” CI from Independent Samples</h2>
 <p>As in the one-sample case, a rank-based alternative attributed to Wilcoxon (and sometimes to Mann and Whitney) provides a two-sample comparison of the pseudomedians in the two <code>treat</code> groups in terms of <code>temp_drop</code>. This is called a <strong>rank sum</strong> test, rather than the Wilcoxon <strong>signed rank</strong> test that is used for inference about a single sample. Here’s the resulting 90% confidence interval for the difference in pseudomedians.</p>
-<div class="sourceCode" id="cb592"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb592-1" title="1">wt &lt;-<span class="st"> </span>sepsis <span class="op">%$%</span><span class="st"> </span><span class="kw">wilcox.test</span>(temp_drop <span class="op">~</span><span class="st"> </span>treat,</a>
-<a class="sourceLine" id="cb592-2" title="2">                       <span class="dt">conf.int =</span> <span class="ot">TRUE</span>, <span class="dt">conf.level =</span> <span class="fl">0.90</span>,</a>
-<a class="sourceLine" id="cb592-3" title="3">                       <span class="dt">alt =</span> <span class="st">&quot;two.sided&quot;</span>) </a>
-<a class="sourceLine" id="cb592-4" title="4"></a>
-<a class="sourceLine" id="cb592-5" title="5">wt</a></code></pre></div>
+<div class="sourceCode" id="cb596"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb596-1" title="1">wt &lt;-<span class="st"> </span>sepsis <span class="op">%$%</span><span class="st"> </span><span class="kw">wilcox.test</span>(temp_drop <span class="op">~</span><span class="st"> </span>treat,</a>
+<a class="sourceLine" id="cb596-2" title="2">                       <span class="dt">conf.int =</span> <span class="ot">TRUE</span>, <span class="dt">conf.level =</span> <span class="fl">0.90</span>,</a>
+<a class="sourceLine" id="cb596-3" title="3">                       <span class="dt">alt =</span> <span class="st">&quot;two.sided&quot;</span>) </a>
+<a class="sourceLine" id="cb596-4" title="4"></a>
+<a class="sourceLine" id="cb596-5" title="5">wt</a></code></pre></div>
 <pre><code>
     Wilcoxon rank sum test with continuity correction
 
@@ -1168,7 +1168,7 @@ alternative hypothesis: true location shift is not equal to 0
 sample estimates:
 difference in location 
                    0.3 </code></pre>
-<div class="sourceCode" id="cb594"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb594-1" title="1"><span class="kw">tidy</span>(wt)</a></code></pre></div>
+<div class="sourceCode" id="cb598"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb598-1" title="1"><span class="kw">tidy</span>(wt)</a></code></pre></div>
 <pre><code># A tibble: 1 x 7
   estimate statistic  p.value conf.low conf.high method         alternative
      &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;          &lt;chr&gt;      
@@ -1200,68 +1200,68 @@ difference in location
 </ol>
 <p>Questions 7 and 8 don’t apply, because these are independent samples of data, rather than paired samples.</p>
 <p>To address question 9, we’ll need to look at the data in each sample. We’ll repeat the boxplot and Normal Q-Q plots from Chapter @ref(Sepsis_RCT), that allow us to assess the Normality of the distributions of (separately) the <code>temp_drop</code> results in the Ibuprofen and Placebo groups.</p>
-<div class="sourceCode" id="cb596"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb596-1" title="1"><span class="kw">ggplot</span>(sepsis, <span class="kw">aes</span>(<span class="dt">x =</span> treat, <span class="dt">y =</span> temp_drop, <span class="dt">fill =</span> treat)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb596-2" title="2"><span class="st">    </span><span class="kw">geom_violin</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb596-3" title="3"><span class="st">    </span><span class="kw">geom_boxplot</span>(<span class="dt">width =</span> <span class="fl">0.3</span>, <span class="dt">fill =</span> <span class="st">&quot;white&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb596-4" title="4"><span class="st">    </span><span class="kw">scale_fill_viridis_d</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb596-5" title="5"><span class="st">    </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb596-6" title="6"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Boxplot of Temperature Drop in Sepsis Patients&quot;</span>,</a>
-<a class="sourceLine" id="cb596-7" title="7">         <span class="dt">x =</span> <span class="st">&quot;&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Drop in Temperature (degrees C)&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb596-8" title="8"><span class="st">    </span><span class="kw">coord_flip</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb596-9" title="9"><span class="st">    </span><span class="kw">theme_bw</span>()</a></code></pre></div>
-<p><img src="2019-431-book_files/figure-html/unnamed-chunk-157-1.png" width="672" /></p>
-<div class="sourceCode" id="cb597"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb597-1" title="1"><span class="kw">ggplot</span>(sepsis, <span class="kw">aes</span>(<span class="dt">sample =</span> temp_drop)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb597-2" title="2"><span class="st">    </span><span class="kw">geom_qq</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_qq_line</span>(<span class="dt">col =</span> <span class="st">&quot;red&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb597-3" title="3"><span class="st">    </span><span class="kw">theme_bw</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb597-4" title="4"><span class="st">    </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>treat) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb597-5" title="5"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">y =</span> <span class="st">&quot;Temperature Drop Values (in degrees C)&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb600"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb600-1" title="1"><span class="kw">ggplot</span>(sepsis, <span class="kw">aes</span>(<span class="dt">x =</span> treat, <span class="dt">y =</span> temp_drop, <span class="dt">fill =</span> treat)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb600-2" title="2"><span class="st">    </span><span class="kw">geom_violin</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb600-3" title="3"><span class="st">    </span><span class="kw">geom_boxplot</span>(<span class="dt">width =</span> <span class="fl">0.3</span>, <span class="dt">fill =</span> <span class="st">&quot;white&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb600-4" title="4"><span class="st">    </span><span class="kw">scale_fill_viridis_d</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb600-5" title="5"><span class="st">    </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb600-6" title="6"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Boxplot of Temperature Drop in Sepsis Patients&quot;</span>,</a>
+<a class="sourceLine" id="cb600-7" title="7">         <span class="dt">x =</span> <span class="st">&quot;&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Drop in Temperature (degrees C)&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb600-8" title="8"><span class="st">    </span><span class="kw">coord_flip</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb600-9" title="9"><span class="st">    </span><span class="kw">theme_bw</span>()</a></code></pre></div>
 <p><img src="2019-431-book_files/figure-html/unnamed-chunk-158-1.png" width="672" /></p>
+<div class="sourceCode" id="cb601"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb601-1" title="1"><span class="kw">ggplot</span>(sepsis, <span class="kw">aes</span>(<span class="dt">sample =</span> temp_drop)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb601-2" title="2"><span class="st">    </span><span class="kw">geom_qq</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_qq_line</span>(<span class="dt">col =</span> <span class="st">&quot;red&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb601-3" title="3"><span class="st">    </span><span class="kw">theme_bw</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb601-4" title="4"><span class="st">    </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>treat) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb601-5" title="5"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">y =</span> <span class="st">&quot;Temperature Drop Values (in degrees C)&quot;</span>)</a></code></pre></div>
+<p><img src="2019-431-book_files/figure-html/unnamed-chunk-159-1.png" width="672" /></p>
 <p>From these plots we conclude that the data in the Ibuprofen sample follow a reasonably Normal distribution, but this isn’t quite as true for the Placebo sample. It’s hard to know whether the apparent Placebo group outliers will affect whether the Normal distribution assumption is reasonable, so we can see if the confidence intervals change much when we <em>don’t</em> assume Normality (for instance, comparing the bootstrap to the t-based approaches), as a way of understanding whether a Normal model has a large impact on our conclusions.</p>
 </div>
 <div id="sepsis-estimation-results" class="section level3">
 <h3><span class="header-section-number">20.4.2</span> Sepsis Estimation Results</h3>
 <p>Here’s a set of confidence interval estimates (we’ll use 90% confidence here) using the methods discussed in this Chapter.</p>
-<div class="sourceCode" id="cb598"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb598-1" title="1">mosaic<span class="op">::</span><span class="kw">favstats</span>(temp_drop <span class="op">~</span><span class="st"> </span>treat, <span class="dt">data =</span> sepsis)</a></code></pre></div>
+<div class="sourceCode" id="cb602"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb602-1" title="1">mosaic<span class="op">::</span><span class="kw">favstats</span>(temp_drop <span class="op">~</span><span class="st"> </span>treat, <span class="dt">data =</span> sepsis)</a></code></pre></div>
 <pre><code>      treat  min     Q1 median  Q3 max  mean    sd   n missing
 1 Ibuprofen -1.5  0.000    0.5 0.9 3.1 0.464 0.688 150       0
 2   Placebo -2.7 -0.175    0.1 0.4 1.9 0.153 0.571 150       0</code></pre>
-<div class="sourceCode" id="cb600"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb600-1" title="1">s_pooled_t_test &lt;-<span class="st"> </span>sepsis <span class="op">%$%</span><span class="st"> </span><span class="kw">t.test</span>(temp_drop <span class="op">~</span><span class="st"> </span>treat, </a>
-<a class="sourceLine" id="cb600-2" title="2">                           <span class="dt">conf.level =</span> <span class="fl">0.90</span>,</a>
-<a class="sourceLine" id="cb600-3" title="3">                           <span class="dt">alt =</span> <span class="st">&quot;two.sided&quot;</span>, </a>
-<a class="sourceLine" id="cb600-4" title="4">                           <span class="dt">var.equal =</span> <span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb600-5" title="5"></a>
-<a class="sourceLine" id="cb600-6" title="6"><span class="kw">tidy</span>(s_pooled_t_test) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb600-7" title="7"><span class="st">    </span><span class="kw">select</span>(conf.low, conf.high)</a></code></pre></div>
+<div class="sourceCode" id="cb604"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb604-1" title="1">s_pooled_t_test &lt;-<span class="st"> </span>sepsis <span class="op">%$%</span><span class="st"> </span><span class="kw">t.test</span>(temp_drop <span class="op">~</span><span class="st"> </span>treat, </a>
+<a class="sourceLine" id="cb604-2" title="2">                           <span class="dt">conf.level =</span> <span class="fl">0.90</span>,</a>
+<a class="sourceLine" id="cb604-3" title="3">                           <span class="dt">alt =</span> <span class="st">&quot;two.sided&quot;</span>, </a>
+<a class="sourceLine" id="cb604-4" title="4">                           <span class="dt">var.equal =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb604-5" title="5"></a>
+<a class="sourceLine" id="cb604-6" title="6"><span class="kw">tidy</span>(s_pooled_t_test) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb604-7" title="7"><span class="st">    </span><span class="kw">select</span>(conf.low, conf.high)</a></code></pre></div>
 <pre><code># A tibble: 1 x 2
   conf.low conf.high
      &lt;dbl&gt;     &lt;dbl&gt;
 1    0.191     0.432</code></pre>
-<div class="sourceCode" id="cb602"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb602-1" title="1">s_welch_t_test &lt;-<span class="st"> </span>sepsis <span class="op">%$%</span><span class="st"> </span><span class="kw">t.test</span>(temp_drop <span class="op">~</span><span class="st"> </span>treat, </a>
-<a class="sourceLine" id="cb602-2" title="2">                           <span class="dt">conf.level =</span> <span class="fl">0.90</span>,</a>
-<a class="sourceLine" id="cb602-3" title="3">                           <span class="dt">alt =</span> <span class="st">&quot;two.sided&quot;</span>, </a>
-<a class="sourceLine" id="cb602-4" title="4">                           <span class="dt">var.equal =</span> <span class="ot">FALSE</span>)</a>
-<a class="sourceLine" id="cb602-5" title="5"></a>
-<a class="sourceLine" id="cb602-6" title="6"><span class="kw">tidy</span>(s_welch_t_test) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb602-7" title="7"><span class="st">    </span><span class="kw">select</span>(estimate, conf.low, conf.high)</a></code></pre></div>
+<div class="sourceCode" id="cb606"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb606-1" title="1">s_welch_t_test &lt;-<span class="st"> </span>sepsis <span class="op">%$%</span><span class="st"> </span><span class="kw">t.test</span>(temp_drop <span class="op">~</span><span class="st"> </span>treat, </a>
+<a class="sourceLine" id="cb606-2" title="2">                           <span class="dt">conf.level =</span> <span class="fl">0.90</span>,</a>
+<a class="sourceLine" id="cb606-3" title="3">                           <span class="dt">alt =</span> <span class="st">&quot;two.sided&quot;</span>, </a>
+<a class="sourceLine" id="cb606-4" title="4">                           <span class="dt">var.equal =</span> <span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb606-5" title="5"></a>
+<a class="sourceLine" id="cb606-6" title="6"><span class="kw">tidy</span>(s_welch_t_test) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb606-7" title="7"><span class="st">    </span><span class="kw">select</span>(estimate, conf.low, conf.high)</a></code></pre></div>
 <pre><code># A tibble: 1 x 3
   estimate conf.low conf.high
      &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
 1    0.311    0.191     0.432</code></pre>
-<div class="sourceCode" id="cb604"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb604-1" title="1">s_wilcoxon_test &lt;-<span class="st"> </span>sepsis <span class="op">%$%</span><span class="st"> </span><span class="kw">wilcox.test</span>(temp_drop <span class="op">~</span><span class="st"> </span>treat,</a>
-<a class="sourceLine" id="cb604-2" title="2">                       <span class="dt">conf.int =</span> <span class="ot">TRUE</span>, <span class="dt">conf.level =</span> <span class="fl">0.90</span>,</a>
-<a class="sourceLine" id="cb604-3" title="3">                       <span class="dt">alt =</span> <span class="st">&quot;two.sided&quot;</span>) </a>
-<a class="sourceLine" id="cb604-4" title="4"></a>
-<a class="sourceLine" id="cb604-5" title="5"><span class="kw">tidy</span>(s_wilcoxon_test) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb604-6" title="6"><span class="st">    </span><span class="kw">select</span>(estimate, conf.low, conf.high)</a></code></pre></div>
+<div class="sourceCode" id="cb608"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb608-1" title="1">s_wilcoxon_test &lt;-<span class="st"> </span>sepsis <span class="op">%$%</span><span class="st"> </span><span class="kw">wilcox.test</span>(temp_drop <span class="op">~</span><span class="st"> </span>treat,</a>
+<a class="sourceLine" id="cb608-2" title="2">                       <span class="dt">conf.int =</span> <span class="ot">TRUE</span>, <span class="dt">conf.level =</span> <span class="fl">0.90</span>,</a>
+<a class="sourceLine" id="cb608-3" title="3">                       <span class="dt">alt =</span> <span class="st">&quot;two.sided&quot;</span>) </a>
+<a class="sourceLine" id="cb608-4" title="4"></a>
+<a class="sourceLine" id="cb608-5" title="5"><span class="kw">tidy</span>(s_wilcoxon_test) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb608-6" title="6"><span class="st">    </span><span class="kw">select</span>(estimate, conf.low, conf.high)</a></code></pre></div>
 <pre><code># A tibble: 1 x 3
   estimate conf.low conf.high
      &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
 1    0.300    0.200     0.400</code></pre>
-<div class="sourceCode" id="cb606"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb606-1" title="1"><span class="kw">set.seed</span>(<span class="dv">431212</span>)</a>
-<a class="sourceLine" id="cb606-2" title="2">s_bootstrap &lt;-<span class="st"> </span>sepsis <span class="op">%$%</span><span class="st"> </span><span class="kw">bootdif</span>(temp_drop, treat, </a>
-<a class="sourceLine" id="cb606-3" title="3">                                  <span class="dt">conf.level =</span> <span class="fl">0.90</span>)</a>
-<a class="sourceLine" id="cb606-4" title="4"></a>
-<a class="sourceLine" id="cb606-5" title="5">s_bootstrap</a></code></pre></div>
+<div class="sourceCode" id="cb610"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb610-1" title="1"><span class="kw">set.seed</span>(<span class="dv">431212</span>)</a>
+<a class="sourceLine" id="cb610-2" title="2">s_bootstrap &lt;-<span class="st"> </span>sepsis <span class="op">%$%</span><span class="st"> </span><span class="kw">bootdif</span>(temp_drop, treat, </a>
+<a class="sourceLine" id="cb610-3" title="3">                                  <span class="dt">conf.level =</span> <span class="fl">0.90</span>)</a>
+<a class="sourceLine" id="cb610-4" title="4"></a>
+<a class="sourceLine" id="cb610-5" title="5">s_bootstrap</a></code></pre></div>
 <pre><code>Mean Difference            0.05            0.95 
          -0.311          -0.431          -0.183 </code></pre>
 <table>

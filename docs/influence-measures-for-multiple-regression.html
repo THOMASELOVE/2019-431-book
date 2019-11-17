@@ -1034,7 +1034,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">Chapter 42</span> Influence Measures for Multiple Regression</h1>
 <p>R can output a series of <strong>influence measures</strong> for a regression model. Let me show you all of the available measures for model 1, but just for three of the data points - #1 (which is not particularly influential) and #12 and #16 (which are).</p>
 <p>First, we’ll look at the raw data:</p>
-<div class="sourceCode" id="cb1229"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1229-1" title="1">gala[<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">12</span>,<span class="dv">16</span>),]</a></code></pre></div>
+<div class="sourceCode" id="cb1233"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1233-1" title="1">gala[<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">12</span>,<span class="dv">16</span>),]</a></code></pre></div>
 <pre><code># A tibble: 3 x 11
      id island species   area elevation nearest scruz adjacent stures  fits
   &lt;int&gt; &lt;fct&gt;    &lt;int&gt;  &lt;dbl&gt;     &lt;int&gt;   &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;
@@ -1043,7 +1043,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 3    16 Isabe~     347 4669.       1707     0.7  28.1   634.   -5.33  386. 
 # ... with 1 more variable: stanres &lt;dbl&gt;</code></pre>
 <p>And then, we’ll gather the output available in the <code>influence.measures</code> function.</p>
-<div class="sourceCode" id="cb1231"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1231-1" title="1"><span class="kw">influence.measures</span>(model1)</a></code></pre></div>
+<div class="sourceCode" id="cb1235"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1235-1" title="1"><span class="kw">influence.measures</span>(model1)</a></code></pre></div>
 <p>Here’s an edited version of this output…</p>
 <pre><code>Influence measures of
 lm(formula = species ~ area + elevation + nearest + scruz + adjacent, 
@@ -1176,7 +1176,7 @@ data = gala) :
 <div id="plotting-cooks-distance" class="section level3">
 <h3><span class="header-section-number">42.2.2</span> Plotting Cook’s Distance</h3>
 <p>As one of its automated regression diagnostic plots, R will produce an index plot of the Cook’s distance values. Note the relatively enormous influence for island 16 (Isabela).</p>
-<div class="sourceCode" id="cb1234"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1234-1" title="1"><span class="kw">plot</span>(model1, <span class="dt">which =</span> <span class="dv">4</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb1238"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1238-1" title="1"><span class="kw">plot</span>(model1, <span class="dt">which =</span> <span class="dv">4</span>)</a></code></pre></div>
 <p><img src="2019-431-book_files/figure-html/model%201%20diagnostic%204-1.png" width="672" /></p>
 </div>
 <div id="dffits" class="section level3">

@@ -1251,17 +1251,42 @@ X1    1 462 87.9 16     86    87.2 16.3  50 153   103 0.62     0.87 0.74</code><
         1 395   0.855
     Total 462   1.000</code></pre>
 <p>So, our data can be summarized as: <code>x = 395, n = 462</code>.</p>
-<div class="sourceCode" id="cb465"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb465-1" title="1"><span class="kw">tidy</span>(<span class="kw">binom.test</span>(<span class="dt">x =</span> <span class="dv">395</span>, <span class="dt">n =</span> <span class="dv">462</span>), <span class="dt">conf.level =</span> <span class="fl">0.90</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb465"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb465-1" title="1"><span class="kw">binom.test</span>(<span class="dt">x =</span> <span class="dv">395</span>, <span class="dt">n =</span> <span class="dv">462</span>, <span class="dt">conf.level =</span> <span class="fl">0.90</span>)</a></code></pre></div>
+<pre><code>
+    Exact binomial test
+
+data:  395 and 462
+number of successes = 395, number of trials = 462, p-value &lt;2e-16
+alternative hypothesis: true probability of success is not equal to 0.5
+90 percent confidence interval:
+ 0.825 0.881
+sample estimates:
+probability of success 
+                 0.855 </code></pre>
+<div class="sourceCode" id="cb467"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb467-1" title="1"><span class="kw">prop.test</span>(<span class="dt">x =</span> <span class="dv">395</span>, <span class="dt">n =</span> <span class="dv">462</span>, <span class="dt">conf.level =</span> <span class="fl">0.90</span>)</a></code></pre></div>
+<pre><code>
+    1-sample proportions test with continuity correction
+
+data:  395 out of 462, null probability 0.5
+X-squared = 231, df = 1, p-value &lt;2e-16
+alternative hypothesis: true p is not equal to 0.5
+90 percent confidence interval:
+ 0.825 0.881
+sample estimates:
+    p 
+0.855 </code></pre>
+<p>Or, if we want to see tidied output, we have…</p>
+<div class="sourceCode" id="cb469"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb469-1" title="1"><span class="kw">binom.test</span>(<span class="dt">x =</span> <span class="dv">395</span>, <span class="dt">n =</span> <span class="dv">462</span>, <span class="dt">conf.level =</span> <span class="fl">0.90</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">tidy</span>()</a></code></pre></div>
 <pre><code># A tibble: 1 x 8
   estimate statistic  p.value parameter conf.low conf.high method
      &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt; 
-1    0.855       395 1.23e-57       462    0.820     0.886 Exact~
+1    0.855       395 1.23e-57       462    0.825     0.881 Exact~
 # ... with 1 more variable: alternative &lt;chr&gt;</code></pre>
-<div class="sourceCode" id="cb467"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb467-1" title="1"><span class="kw">tidy</span>(<span class="kw">prop.test</span>(<span class="dt">x =</span> <span class="dv">395</span>, <span class="dt">n =</span> <span class="dv">462</span>), <span class="dt">conf.level =</span> <span class="fl">0.90</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb471"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb471-1" title="1"><span class="kw">prop.test</span>(<span class="dt">x =</span> <span class="dv">395</span>, <span class="dt">n =</span> <span class="dv">462</span>, <span class="dt">conf.level =</span> <span class="fl">0.90</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">tidy</span>()</a></code></pre></div>
 <pre><code># A tibble: 1 x 8
   estimate statistic  p.value parameter conf.low conf.high method
      &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;     &lt;int&gt;    &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt; 
-1    0.855      231. 2.88e-52         1    0.819     0.885 1-sam~
+1    0.855      231. 2.88e-52         1    0.825     0.881 1-sam~
 # ... with 1 more variable: alternative &lt;chr&gt;</code></pre>
 <p>In Chapter <a href="One-Proportion.html#One-Proportion">18</a>, we will discuss the development of confidence intervals for population proportions, and develop additional alternatives for building inference about proportions, percentages and rates.</p>
 

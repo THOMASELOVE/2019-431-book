@@ -1034,7 +1034,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">Chapter 23</span> Comparing Means/Quantities using Two Paired Samples</h1>
 <p>Here, we’ll consider the problem of estimating a confidence interval to describe the difference in population means (or medians) based on a comparison of two samples of quantitative data, gathered using a matched pairs design. Specifically, we’ll use as our example the Lead in the Blood of Children study, described in Section <a href="Blood-Lead-Study.html#Blood-Lead-Study">22</a>.</p>
 <p>Recall that in that study, we measured blood lead content, in mg/dl, for 33 matched pairs of children, one of which was exposed (had a parent working in a battery factory) and the other of which was control (no parent in the battery factory, but matched to the exposed child by age, exposure to traffic and neighborhood). We then created a variable called <code>lead_diff</code> which contained the (exposed - control) differences within each pair.</p>
-<div class="sourceCode" id="cb643"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb643-1" title="1">bloodlead</a></code></pre></div>
+<div class="sourceCode" id="cb647"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb647-1" title="1">bloodlead</a></code></pre></div>
 <pre><code># A tibble: 33 x 4
    pair  exposed control lead_diff
    &lt;fct&gt;   &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;
@@ -1085,10 +1085,10 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="method-1" class="section level3">
 <h3><span class="header-section-number">23.2.1</span> Method 1</h3>
 <p>We can use the single-sample approach, applied to the variable containing the paired differences. Let’s build a <strong>90%</strong> two-sided confidence interval for the population mean of the difference in blood lead content across all possible pairs of an exposed (parent works in a lead-based industry) and a control (parent does not) child, <span class="math inline">\(\mu_d\)</span>.</p>
-<div class="sourceCode" id="cb645"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb645-1" title="1">tt1 &lt;-<span class="st"> </span>bloodlead <span class="op">%$%</span><span class="st"> </span><span class="kw">t.test</span>(lead_diff, <span class="dt">conf.level =</span> <span class="fl">0.90</span>, </a>
-<a class="sourceLine" id="cb645-2" title="2">                            <span class="dt">alt =</span> <span class="st">&quot;two.sided&quot;</span>)</a>
-<a class="sourceLine" id="cb645-3" title="3"></a>
-<a class="sourceLine" id="cb645-4" title="4">tt1</a></code></pre></div>
+<div class="sourceCode" id="cb649"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb649-1" title="1">tt1 &lt;-<span class="st"> </span>bloodlead <span class="op">%$%</span><span class="st"> </span><span class="kw">t.test</span>(lead_diff, <span class="dt">conf.level =</span> <span class="fl">0.90</span>, </a>
+<a class="sourceLine" id="cb649-2" title="2">                            <span class="dt">alt =</span> <span class="st">&quot;two.sided&quot;</span>)</a>
+<a class="sourceLine" id="cb649-3" title="3"></a>
+<a class="sourceLine" id="cb649-4" title="4">tt1</a></code></pre></div>
 <pre><code>
     One Sample t-test
 
@@ -1100,7 +1100,7 @@ alternative hypothesis: true mean is not equal to 0
 sample estimates:
 mean of x 
        16 </code></pre>
-<div class="sourceCode" id="cb647"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb647-1" title="1"><span class="kw">tidy</span>(tt1) <span class="op">%&gt;%</span><span class="st"> </span>knitr<span class="op">::</span><span class="kw">kable</span>(<span class="dt">digits =</span> <span class="dv">2</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb651"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb651-1" title="1"><span class="kw">tidy</span>(tt1) <span class="op">%&gt;%</span><span class="st"> </span>knitr<span class="op">::</span><span class="kw">kable</span>(<span class="dt">digits =</span> <span class="dv">2</span>)</a></code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -1137,10 +1137,10 @@ mean of x
 <div id="method-2" class="section level3">
 <h3><span class="header-section-number">23.2.2</span> Method 2</h3>
 <p>Or, we can apply the single-sample approach to a calculated difference in blood lead content between the exposed and control groups. Here, we’ll get a <strong>95%</strong> two-sided confidence interval for <span class="math inline">\(\mu_d\)</span>, instead of the 90% interval we obtained above.</p>
-<div class="sourceCode" id="cb648"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb648-1" title="1">tt2 &lt;-<span class="st"> </span>bloodlead <span class="op">%$%</span><span class="st"> </span><span class="kw">t.test</span>(exposed <span class="op">-</span><span class="st"> </span>control, </a>
-<a class="sourceLine" id="cb648-2" title="2">       <span class="dt">conf.level =</span> <span class="fl">0.95</span>, <span class="dt">alt =</span> <span class="st">&quot;two.sided&quot;</span>)</a>
-<a class="sourceLine" id="cb648-3" title="3"></a>
-<a class="sourceLine" id="cb648-4" title="4">tt2</a></code></pre></div>
+<div class="sourceCode" id="cb652"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb652-1" title="1">tt2 &lt;-<span class="st"> </span>bloodlead <span class="op">%$%</span><span class="st"> </span><span class="kw">t.test</span>(exposed <span class="op">-</span><span class="st"> </span>control, </a>
+<a class="sourceLine" id="cb652-2" title="2">       <span class="dt">conf.level =</span> <span class="fl">0.95</span>, <span class="dt">alt =</span> <span class="st">&quot;two.sided&quot;</span>)</a>
+<a class="sourceLine" id="cb652-3" title="3"></a>
+<a class="sourceLine" id="cb652-4" title="4">tt2</a></code></pre></div>
 <pre><code>
     One Sample t-test
 
@@ -1152,7 +1152,7 @@ alternative hypothesis: true mean is not equal to 0
 sample estimates:
 mean of x 
        16 </code></pre>
-<div class="sourceCode" id="cb650"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb650-1" title="1"><span class="kw">tidy</span>(tt2) <span class="op">%&gt;%</span><span class="st"> </span>knitr<span class="op">::</span><span class="kw">kable</span>(<span class="dt">digits =</span> <span class="dv">2</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb654"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb654-1" title="1"><span class="kw">tidy</span>(tt2) <span class="op">%&gt;%</span><span class="st"> </span>knitr<span class="op">::</span><span class="kw">kable</span>(<span class="dt">digits =</span> <span class="dv">2</span>)</a></code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -1183,10 +1183,10 @@ mean of x
 <div id="method-3" class="section level3">
 <h3><span class="header-section-number">23.2.3</span> Method 3</h3>
 <p>Or, we can provide R with two separate samples (unaffected and affected) and specify that the samples are paired. Here, we’ll get a <strong>99%</strong> <strong>one-sided</strong> confidence interval (lower bound) for <span class="math inline">\(\mu_d\)</span>, the population mean difference in blood lead content.</p>
-<div class="sourceCode" id="cb651"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb651-1" title="1">tt3 &lt;-<span class="st"> </span>bloodlead <span class="op">%$%</span><span class="st"> </span><span class="kw">t.test</span>(exposed, control, <span class="dt">conf.level =</span> <span class="fl">0.99</span>,</a>
-<a class="sourceLine" id="cb651-2" title="2">       <span class="dt">paired =</span> <span class="ot">TRUE</span>, <span class="dt">alt =</span> <span class="st">&quot;greater&quot;</span>)</a>
-<a class="sourceLine" id="cb651-3" title="3"></a>
-<a class="sourceLine" id="cb651-4" title="4">tt3</a></code></pre></div>
+<div class="sourceCode" id="cb655"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb655-1" title="1">tt3 &lt;-<span class="st"> </span>bloodlead <span class="op">%$%</span><span class="st"> </span><span class="kw">t.test</span>(exposed, control, <span class="dt">conf.level =</span> <span class="fl">0.99</span>,</a>
+<a class="sourceLine" id="cb655-2" title="2">       <span class="dt">paired =</span> <span class="ot">TRUE</span>, <span class="dt">alt =</span> <span class="st">&quot;greater&quot;</span>)</a>
+<a class="sourceLine" id="cb655-3" title="3"></a>
+<a class="sourceLine" id="cb655-4" title="4">tt3</a></code></pre></div>
 <pre><code>
     Paired t-test
 
@@ -1198,7 +1198,7 @@ alternative hypothesis: true difference in means is greater than 0
 sample estimates:
 mean of the differences 
                      16 </code></pre>
-<div class="sourceCode" id="cb653"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb653-1" title="1"><span class="kw">tidy</span>(tt3) <span class="op">%&gt;%</span><span class="st"> </span>knitr<span class="op">::</span><span class="kw">kable</span>(<span class="dt">digits =</span> <span class="dv">2</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb657"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb657-1" title="1"><span class="kw">tidy</span>(tt3) <span class="op">%&gt;%</span><span class="st"> </span>knitr<span class="op">::</span><span class="kw">kable</span>(<span class="dt">digits =</span> <span class="dv">2</span>)</a></code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -1230,9 +1230,9 @@ mean of the differences
 <div id="method-4" class="section level3">
 <h3><span class="header-section-number">23.2.4</span> Method 4</h3>
 <p>As we saw in Chapter <a href="Blood-Lead-Study.html#Blood-Lead-Study">22</a>, we can also use an intercept-only linear regression model to estimate the population mean of the paired differences with a two-tailed confidence interval, by creating a variable containing those paired differences.</p>
-<div class="sourceCode" id="cb654"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb654-1" title="1">model_lead &lt;-<span class="st"> </span><span class="kw">lm</span>(lead_diff <span class="op">~</span><span class="st"> </span><span class="dv">1</span>, <span class="dt">data =</span> bloodlead)</a>
-<a class="sourceLine" id="cb654-2" title="2"></a>
-<a class="sourceLine" id="cb654-3" title="3"><span class="kw">tidy</span>(model_lead, <span class="dt">conf.int =</span> <span class="ot">TRUE</span>, <span class="dt">conf.level =</span> <span class="fl">0.95</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb658"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb658-1" title="1">model_lead &lt;-<span class="st"> </span><span class="kw">lm</span>(lead_diff <span class="op">~</span><span class="st"> </span><span class="dv">1</span>, <span class="dt">data =</span> bloodlead)</a>
+<a class="sourceLine" id="cb658-2" title="2"></a>
+<a class="sourceLine" id="cb658-3" title="3"><span class="kw">tidy</span>(model_lead, <span class="dt">conf.int =</span> <span class="ot">TRUE</span>, <span class="dt">conf.level =</span> <span class="fl">0.95</span>)</a></code></pre></div>
 <pre><code># A tibble: 1 x 7
   term        estimate std.error statistic    p.value conf.low conf.high
   &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
@@ -1241,10 +1241,10 @@ mean of the differences
 <div id="method-5" class="section level3">
 <h3><span class="header-section-number">23.2.5</span> Method 5</h3>
 <p>As we also saw in Chapter <a href="Blood-Lead-Study.html#Blood-Lead-Study">22</a>, if we have the data in a longer format, with a variable identifying the matched pairs, we can use a different specification for a linear model to obtain the same estimate.</p>
-<div class="sourceCode" id="cb656"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb656-1" title="1">model2_lead &lt;-<span class="st"> </span><span class="kw">lm</span>(lead_level <span class="op">~</span><span class="st"> </span>status <span class="op">+</span><span class="st"> </span><span class="kw">factor</span>(pair), <span class="dt">data =</span> bloodlead_longer)</a>
-<a class="sourceLine" id="cb656-2" title="2"></a>
-<a class="sourceLine" id="cb656-3" title="3"><span class="kw">tidy</span>(model2_lead, <span class="dt">conf.int =</span> <span class="ot">TRUE</span>, <span class="dt">conf.level =</span> <span class="fl">0.95</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb656-4" title="4"><span class="st">    </span><span class="kw">filter</span>(term <span class="op">==</span><span class="st"> &quot;statusexposed&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb660"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb660-1" title="1">model2_lead &lt;-<span class="st"> </span><span class="kw">lm</span>(lead_level <span class="op">~</span><span class="st"> </span>status <span class="op">+</span><span class="st"> </span><span class="kw">factor</span>(pair), <span class="dt">data =</span> bloodlead_longer)</a>
+<a class="sourceLine" id="cb660-2" title="2"></a>
+<a class="sourceLine" id="cb660-3" title="3"><span class="kw">tidy</span>(model2_lead, <span class="dt">conf.int =</span> <span class="ot">TRUE</span>, <span class="dt">conf.level =</span> <span class="fl">0.95</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb660-4" title="4"><span class="st">    </span><span class="kw">filter</span>(term <span class="op">==</span><span class="st"> &quot;statusexposed&quot;</span>)</a></code></pre></div>
 <pre><code># A tibble: 1 x 7
   term          estimate std.error statistic    p.value conf.low conf.high
   &lt;chr&gt;            &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
@@ -1264,16 +1264,16 @@ mean of the differences
 <div id="bootstrap-ci-for-mean-difference-using-paired-samples" class="section level2">
 <h2><span class="header-section-number">23.3</span> Bootstrap CI for mean difference using paired samples</h2>
 <p>The same bootstrap approach is used for paired differences as for a single sample. We again use the <code>smean.cl.boot()</code> function in the <code>Hmisc</code> package to obtain bootstrap confidence intervals for the population mean, <span class="math inline">\(\mu_d\)</span>, of the paired differences in blood lead content.</p>
-<div class="sourceCode" id="cb658"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb658-1" title="1"><span class="kw">set.seed</span>(<span class="dv">431555</span>)</a>
-<a class="sourceLine" id="cb658-2" title="2">bloodlead <span class="op">%$%</span><span class="st"> </span>Hmisc<span class="op">::</span><span class="kw">smean.cl.boot</span>(lead_diff, <span class="dt">B =</span> <span class="dv">1000</span>,</a>
-<a class="sourceLine" id="cb658-3" title="3">                                   <span class="dt">conf.int =</span> <span class="fl">0.95</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb662"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb662-1" title="1"><span class="kw">set.seed</span>(<span class="dv">431555</span>)</a>
+<a class="sourceLine" id="cb662-2" title="2">bloodlead <span class="op">%$%</span><span class="st"> </span>Hmisc<span class="op">::</span><span class="kw">smean.cl.boot</span>(lead_diff, <span class="dt">B =</span> <span class="dv">1000</span>,</a>
+<a class="sourceLine" id="cb662-3" title="3">                                   <span class="dt">conf.int =</span> <span class="fl">0.95</span>)</a></code></pre></div>
 <pre><code> Mean Lower Upper 
  16.0  10.8  21.5 </code></pre>
 <p>Note that in this case, the confidence interval for the difference in means is a bit less wide than the 95% confidence interval generated by the t test, which was (10.34, 21.59). It’s common for the bootstrap to produce a narrower range (i.e. an apparently more precise estimate) for the population mean, but it’s not automatic that the endpoints from the bootstrap will be inside those provided by the t test, either.</p>
 <p>For example, this bootstrap CI doesn’t contain the t-test based interval, since its upper bound exceeds that of the t-based interval:</p>
-<div class="sourceCode" id="cb660"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb660-1" title="1"><span class="kw">set.seed</span>(<span class="dv">431002</span>)</a>
-<a class="sourceLine" id="cb660-2" title="2">bloodlead <span class="op">%$%</span><span class="st"> </span>Hmisc<span class="op">::</span><span class="kw">smean.cl.boot</span>(lead_diff, <span class="dt">B =</span> <span class="dv">1000</span>,</a>
-<a class="sourceLine" id="cb660-3" title="3">                                   <span class="dt">conf.int =</span> <span class="fl">0.95</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb664"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb664-1" title="1"><span class="kw">set.seed</span>(<span class="dv">431002</span>)</a>
+<a class="sourceLine" id="cb664-2" title="2">bloodlead <span class="op">%$%</span><span class="st"> </span>Hmisc<span class="op">::</span><span class="kw">smean.cl.boot</span>(lead_diff, <span class="dt">B =</span> <span class="dv">1000</span>,</a>
+<a class="sourceLine" id="cb664-3" title="3">                                   <span class="dt">conf.int =</span> <span class="fl">0.95</span>)</a></code></pre></div>
 <pre><code> Mean Lower Upper 
  16.0  10.8  21.7 </code></pre>
 <p>This demonstration aside, the appropriate thing to do when applying the bootstrap to specify a confidence interval is select a seed and the number (<code>B</code> = 1,000 or 10,000, usually) of desired bootstrap replications, then run the bootstrap just once and move on, rather than repeating the process multiple times looking for a particular result.</p>
@@ -1292,10 +1292,10 @@ mean of the differences
 <div id="wilcoxon-signed-rank-based-ci-for-paired-samples" class="section level2">
 <h2><span class="header-section-number">23.4</span> Wilcoxon Signed Rank-based CI for paired samples</h2>
 <p>We could also use the Wilcoxon signed rank procedure to generate a CI for the pseudo-median of the paired differences.</p>
-<div class="sourceCode" id="cb662"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb662-1" title="1">wt &lt;-<span class="st"> </span>bloodlead <span class="op">%$%</span><span class="st"> </span><span class="kw">wilcox.test</span>(lead_diff, <span class="dt">conf.int =</span> <span class="ot">TRUE</span>,</a>
-<a class="sourceLine" id="cb662-2" title="2">                                <span class="dt">conf.level =</span> <span class="fl">0.90</span>, </a>
-<a class="sourceLine" id="cb662-3" title="3">                                <span class="dt">exact =</span> <span class="ot">FALSE</span>)</a>
-<a class="sourceLine" id="cb662-4" title="4">wt</a></code></pre></div>
+<div class="sourceCode" id="cb666"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb666-1" title="1">wt &lt;-<span class="st"> </span>bloodlead <span class="op">%$%</span><span class="st"> </span><span class="kw">wilcox.test</span>(lead_diff, <span class="dt">conf.int =</span> <span class="ot">TRUE</span>,</a>
+<a class="sourceLine" id="cb666-2" title="2">                                <span class="dt">conf.level =</span> <span class="fl">0.90</span>, </a>
+<a class="sourceLine" id="cb666-3" title="3">                                <span class="dt">exact =</span> <span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb666-4" title="4">wt</a></code></pre></div>
 <pre><code>
     Wilcoxon signed rank test with continuity correction
 
@@ -1307,7 +1307,7 @@ alternative hypothesis: true location is not equal to 0
 sample estimates:
 (pseudo)median 
           15.5 </code></pre>
-<div class="sourceCode" id="cb664"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb664-1" title="1"><span class="kw">tidy</span>(wt)</a></code></pre></div>
+<div class="sourceCode" id="cb668"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb668-1" title="1"><span class="kw">tidy</span>(wt)</a></code></pre></div>
 <pre><code># A tibble: 1 x 7
   estimate statistic  p.value conf.low conf.high method         alternative
      &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;          &lt;chr&gt;      
@@ -1381,7 +1381,7 @@ sample estimates:
 <li>Assuming that <span class="math inline">\(H_0\)</span> is true, then <span class="math inline">\(W\)</span> follows a binomial distribution with probability 0.5 on <span class="math inline">\(N\)</span> trials.</li>
 </ul>
 <p>For example, consider our data on blood lead content:</p>
-<div class="sourceCode" id="cb666"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb666-1" title="1">bloodlead<span class="op">$</span>lead_diff</a></code></pre></div>
+<div class="sourceCode" id="cb670"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb670-1" title="1">bloodlead<span class="op">$</span>lead_diff</a></code></pre></div>
 <pre><code> [1] 22  5 23 -6 18 25 13 47 15 16  6  1  2  7  0  4 -9 -3 36 25  1 16 42
 [24] 30 25 23 32 17  9 -3 60 14 14</code></pre>
 <table>
@@ -1407,8 +1407,8 @@ sample estimates:
 </tbody>
 </table>
 <p>So we have <span class="math inline">\(N\)</span> = 32 pairs, with <span class="math inline">\(W\)</span> = 28 that are positive. We then use the <code>binom.test</code> approach in R:</p>
-<div class="sourceCode" id="cb668"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb668-1" title="1"><span class="kw">binom.test</span>(<span class="dt">x =</span> <span class="dv">28</span>, <span class="dt">n =</span> <span class="dv">32</span>, <span class="dt">p =</span> <span class="fl">0.5</span>, </a>
-<a class="sourceLine" id="cb668-2" title="2">           <span class="dt">alternative =</span> <span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb672"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb672-1" title="1"><span class="kw">binom.test</span>(<span class="dt">x =</span> <span class="dv">28</span>, <span class="dt">n =</span> <span class="dv">32</span>, <span class="dt">p =</span> <span class="fl">0.5</span>, </a>
+<a class="sourceLine" id="cb672-2" title="2">           <span class="dt">alternative =</span> <span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
 <pre><code>
     Exact binomial test
 

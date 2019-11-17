@@ -1053,11 +1053,11 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li><em>temp_0</em> = baseline temperature, degrees Celsius.</li>
 </ul>
 <p>but for the moment, we won’t worry about those.</p>
-<div class="sourceCode" id="cb557"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb557-1" title="1">sepsis &lt;-<span class="st"> </span>sepsis <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb557-2" title="2"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">treat =</span> <span class="kw">factor</span>(treat),</a>
-<a class="sourceLine" id="cb557-3" title="3">           <span class="dt">race =</span> <span class="kw">factor</span>(race))</a>
-<a class="sourceLine" id="cb557-4" title="4"></a>
-<a class="sourceLine" id="cb557-5" title="5">mosaic<span class="op">::</span><span class="kw">favstats</span>(temp_drop <span class="op">~</span><span class="st"> </span>treat, <span class="dt">data =</span> sepsis)</a></code></pre></div>
+<div class="sourceCode" id="cb561"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb561-1" title="1">sepsis &lt;-<span class="st"> </span>sepsis <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb561-2" title="2"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">treat =</span> <span class="kw">factor</span>(treat),</a>
+<a class="sourceLine" id="cb561-3" title="3">           <span class="dt">race =</span> <span class="kw">factor</span>(race))</a>
+<a class="sourceLine" id="cb561-4" title="4"></a>
+<a class="sourceLine" id="cb561-5" title="5">mosaic<span class="op">::</span><span class="kw">favstats</span>(temp_drop <span class="op">~</span><span class="st"> </span>treat, <span class="dt">data =</span> sepsis)</a></code></pre></div>
 <pre><code>      treat  min     Q1 median  Q3 max  mean    sd   n missing
 1 Ibuprofen -1.5  0.000    0.5 0.9 3.1 0.464 0.688 150       0
 2   Placebo -2.7 -0.175    0.1 0.4 1.9 0.153 0.571 150       0</code></pre>
@@ -1099,45 +1099,45 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="exploratory-data-analysis" class="section level2">
 <h2><span class="header-section-number">19.3</span> Exploratory Data Analysis</h2>
 <p>Consider the following boxplot with violin of the <code>temp_drop</code> data within each <code>treat</code> group.</p>
-<div class="sourceCode" id="cb559"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb559-1" title="1"><span class="kw">ggplot</span>(sepsis, <span class="kw">aes</span>(<span class="dt">x =</span> treat, <span class="dt">y =</span> temp_drop, <span class="dt">fill =</span> treat)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb559-2" title="2"><span class="st">    </span><span class="kw">geom_violin</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb559-3" title="3"><span class="st">    </span><span class="kw">geom_boxplot</span>(<span class="dt">width =</span> <span class="fl">0.3</span>, <span class="dt">fill =</span> <span class="st">&quot;white&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb559-4" title="4"><span class="st">    </span><span class="kw">scale_fill_viridis_d</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb559-5" title="5"><span class="st">    </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb559-6" title="6"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Boxplot of Temperature Drop in Sepsis Patients&quot;</span>,</a>
-<a class="sourceLine" id="cb559-7" title="7">         <span class="dt">x =</span> <span class="st">&quot;&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Drop in Temperature (degrees C)&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb559-8" title="8"><span class="st">    </span><span class="kw">coord_flip</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb559-9" title="9"><span class="st">    </span><span class="kw">theme_bw</span>()</a></code></pre></div>
-<p><img src="2019-431-book_files/figure-html/unnamed-chunk-138-1.png" width="672" /></p>
+<div class="sourceCode" id="cb563"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb563-1" title="1"><span class="kw">ggplot</span>(sepsis, <span class="kw">aes</span>(<span class="dt">x =</span> treat, <span class="dt">y =</span> temp_drop, <span class="dt">fill =</span> treat)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb563-2" title="2"><span class="st">    </span><span class="kw">geom_violin</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb563-3" title="3"><span class="st">    </span><span class="kw">geom_boxplot</span>(<span class="dt">width =</span> <span class="fl">0.3</span>, <span class="dt">fill =</span> <span class="st">&quot;white&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb563-4" title="4"><span class="st">    </span><span class="kw">scale_fill_viridis_d</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb563-5" title="5"><span class="st">    </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb563-6" title="6"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Boxplot of Temperature Drop in Sepsis Patients&quot;</span>,</a>
+<a class="sourceLine" id="cb563-7" title="7">         <span class="dt">x =</span> <span class="st">&quot;&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Drop in Temperature (degrees C)&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb563-8" title="8"><span class="st">    </span><span class="kw">coord_flip</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb563-9" title="9"><span class="st">    </span><span class="kw">theme_bw</span>()</a></code></pre></div>
+<p><img src="2019-431-book_files/figure-html/unnamed-chunk-139-1.png" width="672" /></p>
 <p>Next, we’ll consider faceted histograms of the data.</p>
-<div class="sourceCode" id="cb560"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb560-1" title="1"><span class="kw">ggplot</span>(sepsis, <span class="kw">aes</span>(<span class="dt">x =</span> temp_drop, <span class="dt">fill =</span> treat, <span class="dt">color =</span> treat)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb560-2" title="2"><span class="st">    </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">20</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb560-3" title="3"><span class="st">    </span><span class="kw">scale_fill_viridis_d</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb560-4" title="4"><span class="st">    </span><span class="kw">scale_color_viridis_d</span>(<span class="dt">direction =</span> <span class="dv">-1</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb560-5" title="5"><span class="st">    </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>, <span class="dt">color =</span> <span class="ot">FALSE</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb560-6" title="6"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Histograms of Temperature Drop in Sepsis Patients&quot;</span>,</a>
-<a class="sourceLine" id="cb560-7" title="7">         <span class="dt">x =</span> <span class="st">&quot;Drop in Temperature (degrees Celsius&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb560-8" title="8"><span class="st">    </span><span class="kw">theme_bw</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb560-9" title="9"><span class="st">    </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>treat)</a></code></pre></div>
+<div class="sourceCode" id="cb564"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb564-1" title="1"><span class="kw">ggplot</span>(sepsis, <span class="kw">aes</span>(<span class="dt">x =</span> temp_drop, <span class="dt">fill =</span> treat, <span class="dt">color =</span> treat)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb564-2" title="2"><span class="st">    </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">20</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb564-3" title="3"><span class="st">    </span><span class="kw">scale_fill_viridis_d</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb564-4" title="4"><span class="st">    </span><span class="kw">scale_color_viridis_d</span>(<span class="dt">direction =</span> <span class="dv">-1</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb564-5" title="5"><span class="st">    </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>, <span class="dt">color =</span> <span class="ot">FALSE</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb564-6" title="6"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Histograms of Temperature Drop in Sepsis Patients&quot;</span>,</a>
+<a class="sourceLine" id="cb564-7" title="7">         <span class="dt">x =</span> <span class="st">&quot;Drop in Temperature (degrees Celsius&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb564-8" title="8"><span class="st">    </span><span class="kw">theme_bw</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb564-9" title="9"><span class="st">    </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>treat)</a></code></pre></div>
 <p><img src="2019-431-book_files/figure-html/sepsis_temp_drop_by_treat_histograms-1.png" width="672" /></p>
 <p>Here’s a pair of Normal Q-Q plots. It’s not hard to use a Normal model to approximate the Ibuprofen data, but such a model is probably not a good choice for the Placebo results.</p>
-<div class="sourceCode" id="cb561"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb561-1" title="1"><span class="kw">ggplot</span>(sepsis, <span class="kw">aes</span>(<span class="dt">sample =</span> temp_drop)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb561-2" title="2"><span class="st">    </span><span class="kw">geom_qq</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_qq_line</span>(<span class="dt">col =</span> <span class="st">&quot;red&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb561-3" title="3"><span class="st">    </span><span class="kw">theme_bw</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb561-4" title="4"><span class="st">    </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>treat) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb561-5" title="5"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">y =</span> <span class="st">&quot;Temperature Drop Values (in degrees C)&quot;</span>)</a></code></pre></div>
-<p><img src="2019-431-book_files/figure-html/unnamed-chunk-139-1.png" width="672" /></p>
-<p>We’ll could perhaps also look at a ridgeline plot.</p>
-<div class="sourceCode" id="cb562"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb562-1" title="1"><span class="kw">ggplot</span>(sepsis, <span class="kw">aes</span>(<span class="dt">x =</span> temp_drop, <span class="dt">y =</span> treat, <span class="dt">fill =</span> treat)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb562-2" title="2"><span class="st">    </span>ggridges<span class="op">::</span><span class="kw">geom_density_ridges</span>(<span class="dt">scale =</span> <span class="fl">0.9</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb562-3" title="3"><span class="st">    </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb562-4" title="4"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Temperature Drop in Sepsis Patients&quot;</span>,</a>
-<a class="sourceLine" id="cb562-5" title="5">         <span class="dt">x =</span> <span class="st">&quot;Drop in Temperature (degrees Celsius)&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb562-6" title="6"><span class="st">    </span>ggridges<span class="op">::</span><span class="kw">theme_ridges</span>()</a></code></pre></div>
-<pre><code>Picking joint bandwidth of 0.182</code></pre>
+<div class="sourceCode" id="cb565"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb565-1" title="1"><span class="kw">ggplot</span>(sepsis, <span class="kw">aes</span>(<span class="dt">sample =</span> temp_drop)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb565-2" title="2"><span class="st">    </span><span class="kw">geom_qq</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_qq_line</span>(<span class="dt">col =</span> <span class="st">&quot;red&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb565-3" title="3"><span class="st">    </span><span class="kw">theme_bw</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb565-4" title="4"><span class="st">    </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>treat) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb565-5" title="5"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">y =</span> <span class="st">&quot;Temperature Drop Values (in degrees C)&quot;</span>)</a></code></pre></div>
 <p><img src="2019-431-book_files/figure-html/unnamed-chunk-140-1.png" width="672" /></p>
+<p>We’ll could perhaps also look at a ridgeline plot.</p>
+<div class="sourceCode" id="cb566"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb566-1" title="1"><span class="kw">ggplot</span>(sepsis, <span class="kw">aes</span>(<span class="dt">x =</span> temp_drop, <span class="dt">y =</span> treat, <span class="dt">fill =</span> treat)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb566-2" title="2"><span class="st">    </span>ggridges<span class="op">::</span><span class="kw">geom_density_ridges</span>(<span class="dt">scale =</span> <span class="fl">0.9</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb566-3" title="3"><span class="st">    </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb566-4" title="4"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Temperature Drop in Sepsis Patients&quot;</span>,</a>
+<a class="sourceLine" id="cb566-5" title="5">         <span class="dt">x =</span> <span class="st">&quot;Drop in Temperature (degrees Celsius)&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb566-6" title="6"><span class="st">    </span>ggridges<span class="op">::</span><span class="kw">theme_ridges</span>()</a></code></pre></div>
+<pre><code>Picking joint bandwidth of 0.182</code></pre>
+<p><img src="2019-431-book_files/figure-html/unnamed-chunk-141-1.png" width="672" /></p>
 <p>The center of the ibuprofen distribution is shifted a bit towards the more positive (greater improvement) direction, it seems, than is the distribution for the placebo patients. This conclusion matches what we see in some key numerical summaries, within the treatment groups.</p>
-<div class="sourceCode" id="cb564"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb564-1" title="1">mosaic<span class="op">::</span><span class="kw">favstats</span>(temp_drop <span class="op">~</span><span class="st"> </span>treat, <span class="dt">data =</span> sepsis)</a></code></pre></div>
+<div class="sourceCode" id="cb568"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb568-1" title="1">mosaic<span class="op">::</span><span class="kw">favstats</span>(temp_drop <span class="op">~</span><span class="st"> </span>treat, <span class="dt">data =</span> sepsis)</a></code></pre></div>
 <pre><code>      treat  min     Q1 median  Q3 max  mean    sd   n missing
 1 Ibuprofen -1.5  0.000    0.5 0.9 3.1 0.464 0.688 150       0
 2   Placebo -2.7 -0.175    0.1 0.4 1.9 0.153 0.571 150       0</code></pre>
@@ -1145,10 +1145,10 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="estimating-the-difference-in-population-means" class="section level2">
 <h2><span class="header-section-number">19.4</span> Estimating the Difference in Population Means</h2>
 <p>Next, we will build a point estimate and 90% confidence interval for the difference between the mean <code>temp_drop</code> if treated with Ibuprofen and the mean <code>temp_drop</code> if treated with Placebo. We’ll use a regression model with a single predictor (the <code>treat</code> group) to do this.</p>
-<div class="sourceCode" id="cb566"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb566-1" title="1">model_sep &lt;-<span class="st"> </span><span class="kw">lm</span>(temp_drop <span class="op">~</span><span class="st"> </span>treat <span class="op">==</span><span class="st"> &quot;Ibuprofen&quot;</span>, <span class="dt">data =</span> sepsis)</a>
-<a class="sourceLine" id="cb566-2" title="2"></a>
-<a class="sourceLine" id="cb566-3" title="3"><span class="kw">tidy</span>(model_sep, <span class="dt">conf.int =</span> <span class="ot">TRUE</span>, <span class="dt">conf.level =</span> <span class="fl">0.90</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb566-4" title="4"><span class="st">    </span>knitr<span class="op">::</span><span class="kw">kable</span>(<span class="dt">digits =</span> <span class="dv">3</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb570"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb570-1" title="1">model_sep &lt;-<span class="st"> </span><span class="kw">lm</span>(temp_drop <span class="op">~</span><span class="st"> </span>treat <span class="op">==</span><span class="st"> &quot;Ibuprofen&quot;</span>, <span class="dt">data =</span> sepsis)</a>
+<a class="sourceLine" id="cb570-2" title="2"></a>
+<a class="sourceLine" id="cb570-3" title="3"><span class="kw">tidy</span>(model_sep, <span class="dt">conf.int =</span> <span class="ot">TRUE</span>, <span class="dt">conf.level =</span> <span class="fl">0.90</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb570-4" title="4"><span class="st">    </span>knitr<span class="op">::</span><span class="kw">kable</span>(<span class="dt">digits =</span> <span class="dv">3</span>)</a></code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -1184,10 +1184,10 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </table>
 <p>The point estimate for the “Ibuprofen - Placebo” difference in population means is 0.311 degrees C, and the 90% confidence interval is (0.191, 0.432) degrees C.</p>
 <p>We could also have run the model like this:</p>
-<div class="sourceCode" id="cb567"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb567-1" title="1">model_sep2 &lt;-<span class="st"> </span><span class="kw">lm</span>(temp_drop <span class="op">~</span><span class="st"> </span>treat, <span class="dt">data =</span> sepsis)</a>
-<a class="sourceLine" id="cb567-2" title="2"></a>
-<a class="sourceLine" id="cb567-3" title="3"><span class="kw">tidy</span>(model_sep2, <span class="dt">conf.int =</span> <span class="ot">TRUE</span>, <span class="dt">conf.level =</span> <span class="fl">0.90</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb567-4" title="4"><span class="st">    </span>knitr<span class="op">::</span><span class="kw">kable</span>(<span class="dt">digits =</span> <span class="dv">3</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb571"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb571-1" title="1">model_sep2 &lt;-<span class="st"> </span><span class="kw">lm</span>(temp_drop <span class="op">~</span><span class="st"> </span>treat, <span class="dt">data =</span> sepsis)</a>
+<a class="sourceLine" id="cb571-2" title="2"></a>
+<a class="sourceLine" id="cb571-3" title="3"><span class="kw">tidy</span>(model_sep2, <span class="dt">conf.int =</span> <span class="ot">TRUE</span>, <span class="dt">conf.level =</span> <span class="fl">0.90</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb571-4" title="4"><span class="st">    </span>knitr<span class="op">::</span><span class="kw">kable</span>(<span class="dt">digits =</span> <span class="dv">3</span>)</a></code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -1227,19 +1227,19 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="categorizing-the-outcome" class="section level2">
 <h2><span class="header-section-number">19.5</span> Categorizing the Outcome</h2>
 <p>Suppose we were interested in comparing the percentage of patients in each arm of the trial (Ibuprofen vs. Placebo) that showed an improvement in their temperature (<code>temp_drop</code> &gt; 0). To build the cross-tabulation of interest, we could create a new variable, called <code>dropped</code> which indicates whether the subject’s temperature dropped, and then use <code>tabyl</code>.</p>
-<div class="sourceCode" id="cb568"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb568-1" title="1">sepsis &lt;-<span class="st"> </span>sepsis <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb568-2" title="2"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">dropped =</span> <span class="kw">ifelse</span>(temp_drop <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>, <span class="st">&quot;Drop&quot;</span>, <span class="st">&quot;No Drop&quot;</span>))</a>
-<a class="sourceLine" id="cb568-3" title="3"></a>
-<a class="sourceLine" id="cb568-4" title="4">sepsis <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">tabyl</span>(treat, dropped)</a></code></pre></div>
+<div class="sourceCode" id="cb572"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb572-1" title="1">sepsis &lt;-<span class="st"> </span>sepsis <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb572-2" title="2"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">dropped =</span> <span class="kw">ifelse</span>(temp_drop <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>, <span class="st">&quot;Drop&quot;</span>, <span class="st">&quot;No Drop&quot;</span>))</a>
+<a class="sourceLine" id="cb572-3" title="3"></a>
+<a class="sourceLine" id="cb572-4" title="4">sepsis <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">tabyl</span>(treat, dropped)</a></code></pre></div>
 <pre><code>     treat Drop No Drop
  Ibuprofen  107      43
    Placebo   80      70</code></pre>
 <p>Our primary interest is in comparing the percentage of Ibuprofen patients whose temperature dropped to the percentage of Placebo patients whose temperature dropped.</p>
-<div class="sourceCode" id="cb570"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb570-1" title="1">sepsis <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">tabyl</span>(treat, dropped) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb570-2" title="2"><span class="st">    </span><span class="kw">adorn_totals</span>() <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb570-3" title="3"><span class="st">    </span><span class="kw">adorn_percentages</span>(<span class="dt">denom =</span> <span class="st">&quot;row&quot;</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb570-4" title="4"><span class="st">    </span><span class="kw">adorn_pct_formatting</span>(<span class="dt">digits =</span> <span class="dv">1</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb570-5" title="5"><span class="st">    </span><span class="kw">adorn_ns</span>(<span class="dt">position =</span> <span class="st">&quot;front&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb574"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb574-1" title="1">sepsis <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">tabyl</span>(treat, dropped) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb574-2" title="2"><span class="st">    </span><span class="kw">adorn_totals</span>() <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb574-3" title="3"><span class="st">    </span><span class="kw">adorn_percentages</span>(<span class="dt">denom =</span> <span class="st">&quot;row&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb574-4" title="4"><span class="st">    </span><span class="kw">adorn_pct_formatting</span>(<span class="dt">digits =</span> <span class="dv">1</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb574-5" title="5"><span class="st">    </span><span class="kw">adorn_ns</span>(<span class="dt">position =</span> <span class="st">&quot;front&quot;</span>)</a></code></pre></div>
 <pre><code>     treat        Drop     No Drop
  Ibuprofen 107 (71.3%)  43 (28.7%)
    Placebo  80 (53.3%)  70 (46.7%)
@@ -1249,7 +1249,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">19.6</span> Estimating the Difference in Proportions</h2>
 <p>In our sample, 71.3% of the Ibuprofen subjects, and 53.3% of the Placebo subjects, experienced a drop in temperature. So our <em>point estimate</em> of the difference in percentages would be 18.0 percentage points, but we will usually set this instead in terms of proportions, so that the difference is 0.180.</p>
 <p>Now, we’ll find a confidence interval for that difference, which we can do in several ways, including the <code>twoby2</code> function in the <code>Epi</code> package.</p>
-<div class="sourceCode" id="cb572"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb572-1" title="1">sepsis <span class="op">%$%</span><span class="st"> </span><span class="kw">table</span>(treat, dropped) <span class="op">%&gt;%</span><span class="st"> </span>Epi<span class="op">::</span><span class="kw">twoby2</span>(<span class="dt">alpha =</span> <span class="fl">0.10</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb576"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb576-1" title="1">sepsis <span class="op">%$%</span><span class="st"> </span><span class="kw">table</span>(treat, dropped) <span class="op">%&gt;%</span><span class="st"> </span>Epi<span class="op">::</span><span class="kw">twoby2</span>(<span class="dt">alpha =</span> <span class="fl">0.10</span>)</a></code></pre></div>
 <pre><code>2 by 2 table analysis: 
 ------------------------------------------------------ 
 Outcome   : Drop 

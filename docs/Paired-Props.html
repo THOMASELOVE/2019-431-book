@@ -1077,7 +1077,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="working-with-the-specialty-data" class="section level3">
 <h3><span class="header-section-number">24.1.1</span> Working with the <code>specialty</code> data</h3>
 <p>I’ve gathered the complete data (for all 273 clinics reported in <span class="citation">Bisgaier and Rhodes (<a href="#ref-Bisgaier2011">2011</a>)</span>) into a table called <code>specialty</code>.</p>
-<div class="sourceCode" id="cb670"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb670-1" title="1">specialty</a></code></pre></div>
+<div class="sourceCode" id="cb674"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb674-1" title="1">specialty</a></code></pre></div>
 <pre><code># A tibble: 546 x 4
    clinic_id clinic_type insurance appointment
    &lt;chr&gt;     &lt;chr&gt;       &lt;chr&gt;     &lt;chr&gt;      
@@ -1093,9 +1093,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 10 C-005     Orthopedics Public    Denied     
 # ... with 536 more rows</code></pre>
 <p>We’re interested here in the data among the Psychiatry clinics, so we can filter and tabulate:</p>
-<div class="sourceCode" id="cb672"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb672-1" title="1">specialty <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(clinic_type <span class="op">==</span><span class="st"> &quot;Psychiatry&quot;</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb672-2" title="2"><span class="st">    </span><span class="kw">tabyl</span>(insurance, appointment) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb672-3" title="3"><span class="st">    </span><span class="kw">adorn_totals</span>(<span class="dt">where =</span> <span class="kw">c</span>(<span class="st">&quot;row&quot;</span>, <span class="st">&quot;col&quot;</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb676"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb676-1" title="1">specialty <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(clinic_type <span class="op">==</span><span class="st"> &quot;Psychiatry&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb676-2" title="2"><span class="st">    </span><span class="kw">tabyl</span>(insurance, appointment) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb676-3" title="3"><span class="st">    </span><span class="kw">adorn_totals</span>(<span class="dt">where =</span> <span class="kw">c</span>(<span class="st">&quot;row&quot;</span>, <span class="st">&quot;col&quot;</span>))</a></code></pre></div>
 <pre><code> insurance Accepted Denied Total
    Private       21     20    41
     Public        7     34    41
@@ -1105,11 +1105,11 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="using-pivot_wider-to-get-a-paired-samples-table" class="section level3">
 <h3><span class="header-section-number">24.1.2</span> Using <code>pivot_wider</code> to get a paired samples table</h3>
 <p>So let’s go back to the full <code>specialty</code> data, with 273 clinics and 546 calls. We want to “widen” the tibble, creating more columns but half as many rows, so that our new tibble has 273 rows (one per clinic) as opposed to 546 rows (one per call). To accomplish this, we’ll use <code>pivot_wider</code>, creating more columns but fewer rows.</p>
-<div class="sourceCode" id="cb674"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb674-1" title="1">specialty_wider &lt;-<span class="st"> </span>specialty <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb674-2" title="2"><span class="st">    </span><span class="kw">pivot_wider</span>(<span class="dt">names_from =</span> insurance,</a>
-<a class="sourceLine" id="cb674-3" title="3">                <span class="dt">values_from =</span> appointment)</a>
-<a class="sourceLine" id="cb674-4" title="4"></a>
-<a class="sourceLine" id="cb674-5" title="5">specialty_wider</a></code></pre></div>
+<div class="sourceCode" id="cb678"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb678-1" title="1">specialty_wider &lt;-<span class="st"> </span>specialty <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb678-2" title="2"><span class="st">    </span><span class="kw">pivot_wider</span>(<span class="dt">names_from =</span> insurance,</a>
+<a class="sourceLine" id="cb678-3" title="3">                <span class="dt">values_from =</span> appointment)</a>
+<a class="sourceLine" id="cb678-4" title="4"></a>
+<a class="sourceLine" id="cb678-5" title="5">specialty_wider</a></code></pre></div>
 <pre><code># A tibble: 273 x 4
    clinic_id clinic_type Private  Public  
    &lt;chr&gt;     &lt;chr&gt;       &lt;chr&gt;    &lt;chr&gt;   
@@ -1125,10 +1125,10 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 10 C-010     Orthopedics Accepted Denied  
 # ... with 263 more rows</code></pre>
 <p>Now we have one row per clinic, and so now we can try again on the table for our 41 Psychiatry clinics.</p>
-<div class="sourceCode" id="cb676"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb676-1" title="1">specialty_wider <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(clinic_type <span class="op">==</span><span class="st"> &quot;Psychiatry&quot;</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb676-2" title="2"><span class="st">    </span><span class="kw">tabyl</span>(Public, Private) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb676-3" title="3"><span class="st">    </span><span class="kw">adorn_totals</span>(<span class="dt">where =</span> <span class="kw">c</span>(<span class="st">&quot;row&quot;</span>, <span class="st">&quot;col&quot;</span>)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb676-4" title="4"><span class="st">    </span><span class="kw">adorn_title</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb680"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb680-1" title="1">specialty_wider <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(clinic_type <span class="op">==</span><span class="st"> &quot;Psychiatry&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb680-2" title="2"><span class="st">    </span><span class="kw">tabyl</span>(Public, Private) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb680-3" title="3"><span class="st">    </span><span class="kw">adorn_totals</span>(<span class="dt">where =</span> <span class="kw">c</span>(<span class="st">&quot;row&quot;</span>, <span class="st">&quot;col&quot;</span>)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb680-4" title="4"><span class="st">    </span><span class="kw">adorn_title</span>()</a></code></pre></div>
 <pre><code>           Private             
    Public Accepted Denied Total
  Accepted        5      2     7
@@ -1206,19 +1206,19 @@ c  d</code></pre>
 <div id="building-a-confidence-interval-for-the-mcnemar-odds-ratio" class="section level2">
 <h2><span class="header-section-number">24.3</span> Building a Confidence Interval for the McNemar Odds Ratio</h2>
 <p>As a reminder, our table is:</p>
-<div class="sourceCode" id="cb679"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb679-1" title="1">specialty_wider <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb679-2" title="2"><span class="st">    </span><span class="kw">filter</span>(clinic_type <span class="op">==</span><span class="st"> &quot;Psychiatry&quot;</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb679-3" title="3"><span class="st">    </span><span class="kw">tabyl</span>(Public, Private)</a></code></pre></div>
+<div class="sourceCode" id="cb683"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb683-1" title="1">specialty_wider <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb683-2" title="2"><span class="st">    </span><span class="kw">filter</span>(clinic_type <span class="op">==</span><span class="st"> &quot;Psychiatry&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb683-3" title="3"><span class="st">    </span><span class="kw">tabyl</span>(Public, Private)</a></code></pre></div>
 <pre><code>   Public Accepted Denied
  Accepted        5      2
    Denied       16     18</code></pre>
-<div class="sourceCode" id="cb681"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb681-1" title="1"><span class="kw">library</span>(exact2x2)</a></code></pre></div>
+<div class="sourceCode" id="cb685"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb685-1" title="1"><span class="kw">library</span>(exact2x2)</a></code></pre></div>
 <pre><code>Loading required package: exactci</code></pre>
 <pre><code>Loading required package: ssanv</code></pre>
-<div class="sourceCode" id="cb684"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb684-1" title="1">specialty_wider <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb684-2" title="2"><span class="st">    </span><span class="kw">filter</span>(clinic_type <span class="op">==</span><span class="st"> &quot;Psychiatry&quot;</span>) <span class="op">%$%</span></a>
-<a class="sourceLine" id="cb684-3" title="3"><span class="st">    </span><span class="kw">exact2x2</span>(Public, Private, <span class="dt">paired =</span> <span class="ot">TRUE</span>,</a>
-<a class="sourceLine" id="cb684-4" title="4">             <span class="dt">conf.int =</span> <span class="ot">TRUE</span>, <span class="dt">conf.level =</span> <span class="fl">0.90</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb688"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb688-1" title="1">specialty_wider <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb688-2" title="2"><span class="st">    </span><span class="kw">filter</span>(clinic_type <span class="op">==</span><span class="st"> &quot;Psychiatry&quot;</span>) <span class="op">%$%</span></a>
+<a class="sourceLine" id="cb688-3" title="3"><span class="st">    </span><span class="kw">exact2x2</span>(Public, Private, <span class="dt">paired =</span> <span class="ot">TRUE</span>,</a>
+<a class="sourceLine" id="cb688-4" title="4">             <span class="dt">conf.int =</span> <span class="ot">TRUE</span>, <span class="dt">conf.level =</span> <span class="fl">0.90</span>)</a></code></pre></div>
 <pre><code>
     Exact McNemar test (with central confidence intervals)
 
@@ -1231,10 +1231,10 @@ sample estimates:
 odds ratio 
      0.125 </code></pre>
 <p>This gives us the point estimate and 90% confidence interval for a McNemar odds ratio. The odds of being accepted for an appointment are lower for children with Public insurance than Private. We might prefer to develop an odds ratio point estimate that exceeds 1. To do so, we can simply invert the rows and columns.</p>
-<div class="sourceCode" id="cb686"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb686-1" title="1">specialty_wider <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb686-2" title="2"><span class="st">    </span><span class="kw">filter</span>(clinic_type <span class="op">==</span><span class="st"> &quot;Psychiatry&quot;</span>) <span class="op">%$%</span></a>
-<a class="sourceLine" id="cb686-3" title="3"><span class="st">    </span><span class="kw">exact2x2</span>(Private, Public, <span class="dt">paired =</span> <span class="ot">TRUE</span>,</a>
-<a class="sourceLine" id="cb686-4" title="4">             <span class="dt">conf.int =</span> <span class="ot">TRUE</span>, <span class="dt">conf.level =</span> <span class="fl">0.90</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb690"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb690-1" title="1">specialty_wider <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb690-2" title="2"><span class="st">    </span><span class="kw">filter</span>(clinic_type <span class="op">==</span><span class="st"> &quot;Psychiatry&quot;</span>) <span class="op">%$%</span></a>
+<a class="sourceLine" id="cb690-3" title="3"><span class="st">    </span><span class="kw">exact2x2</span>(Private, Public, <span class="dt">paired =</span> <span class="ot">TRUE</span>,</a>
+<a class="sourceLine" id="cb690-4" title="4">             <span class="dt">conf.int =</span> <span class="ot">TRUE</span>, <span class="dt">conf.level =</span> <span class="fl">0.90</span>)</a></code></pre></div>
 <pre><code>
     Exact McNemar test (with central confidence intervals)
 
@@ -1248,10 +1248,10 @@ odds ratio
          8 </code></pre>
 <p>This is equivalent to simply taking the reciprocal of the point and interval estimates we saw previously.</p>
 <p><span class="citation">Bisgaier and Rhodes (<a href="#ref-Bisgaier2011">2011</a>)</span> published (in their Table 2) a 95% confidence interval for this odds ratio, as (1.9 - 71.7). Does our result match theirs?</p>
-<div class="sourceCode" id="cb688"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb688-1" title="1">specialty_wider <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb688-2" title="2"><span class="st">    </span><span class="kw">filter</span>(clinic_type <span class="op">==</span><span class="st"> &quot;Psychiatry&quot;</span>) <span class="op">%$%</span></a>
-<a class="sourceLine" id="cb688-3" title="3"><span class="st">    </span><span class="kw">exact2x2</span>(Private, Public, <span class="dt">paired =</span> <span class="ot">TRUE</span>,</a>
-<a class="sourceLine" id="cb688-4" title="4">             <span class="dt">conf.int =</span> <span class="ot">TRUE</span>, <span class="dt">conf.level =</span> <span class="fl">0.95</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb692"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb692-1" title="1">specialty_wider <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb692-2" title="2"><span class="st">    </span><span class="kw">filter</span>(clinic_type <span class="op">==</span><span class="st"> &quot;Psychiatry&quot;</span>) <span class="op">%$%</span></a>
+<a class="sourceLine" id="cb692-3" title="3"><span class="st">    </span><span class="kw">exact2x2</span>(Private, Public, <span class="dt">paired =</span> <span class="ot">TRUE</span>,</a>
+<a class="sourceLine" id="cb692-4" title="4">             <span class="dt">conf.int =</span> <span class="ot">TRUE</span>, <span class="dt">conf.level =</span> <span class="fl">0.95</span>)</a></code></pre></div>
 <pre><code>
     Exact McNemar test (with central confidence intervals)
 
@@ -1266,11 +1266,11 @@ odds ratio
 <div id="a-one-sided-confidence-interval-for-the-mcnemar-odds-ratio" class="section level3">
 <h3><span class="header-section-number">24.3.1</span> A One-Sided Confidence Interval for the McNemar Odds Ratio</h3>
 <p>Suppose we simply wanted an upper bound, perhaps now with a 95% confidence level, for our McNemar odds ratio. We just need to specify an appropriate alternative in the exact2x2 function.</p>
-<div class="sourceCode" id="cb690"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb690-1" title="1">specialty_wider <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb690-2" title="2"><span class="st">    </span><span class="kw">filter</span>(clinic_type <span class="op">==</span><span class="st"> &quot;Psychiatry&quot;</span>) <span class="op">%$%</span></a>
-<a class="sourceLine" id="cb690-3" title="3"><span class="st">    </span><span class="kw">exact2x2</span>(Private, Public, <span class="dt">paired =</span> <span class="ot">TRUE</span>,</a>
-<a class="sourceLine" id="cb690-4" title="4">             <span class="dt">conf.int =</span> <span class="ot">TRUE</span>, <span class="dt">conf.level =</span> <span class="fl">0.95</span>,</a>
-<a class="sourceLine" id="cb690-5" title="5">             <span class="dt">alternative =</span> <span class="st">&quot;less&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb694"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb694-1" title="1">specialty_wider <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb694-2" title="2"><span class="st">    </span><span class="kw">filter</span>(clinic_type <span class="op">==</span><span class="st"> &quot;Psychiatry&quot;</span>) <span class="op">%$%</span></a>
+<a class="sourceLine" id="cb694-3" title="3"><span class="st">    </span><span class="kw">exact2x2</span>(Private, Public, <span class="dt">paired =</span> <span class="ot">TRUE</span>,</a>
+<a class="sourceLine" id="cb694-4" title="4">             <span class="dt">conf.int =</span> <span class="ot">TRUE</span>, <span class="dt">conf.level =</span> <span class="fl">0.95</span>,</a>
+<a class="sourceLine" id="cb694-5" title="5">             <span class="dt">alternative =</span> <span class="st">&quot;less&quot;</span>)</a></code></pre></div>
 <pre><code>
     Exact McNemar-type test
 
@@ -1283,11 +1283,11 @@ sample estimates:
 odds ratio 
          8 </code></pre>
 <p>And if we wanted a lower bound, that is also available.</p>
-<div class="sourceCode" id="cb692"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb692-1" title="1">specialty_wider <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb692-2" title="2"><span class="st">    </span><span class="kw">filter</span>(clinic_type <span class="op">==</span><span class="st"> &quot;Psychiatry&quot;</span>) <span class="op">%$%</span></a>
-<a class="sourceLine" id="cb692-3" title="3"><span class="st">    </span><span class="kw">exact2x2</span>(Private, Public, <span class="dt">paired =</span> <span class="ot">TRUE</span>,</a>
-<a class="sourceLine" id="cb692-4" title="4">             <span class="dt">conf.int =</span> <span class="ot">TRUE</span>, <span class="dt">conf.level =</span> <span class="fl">0.95</span>,</a>
-<a class="sourceLine" id="cb692-5" title="5">             <span class="dt">alternative =</span> <span class="st">&quot;greater&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb696"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb696-1" title="1">specialty_wider <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb696-2" title="2"><span class="st">    </span><span class="kw">filter</span>(clinic_type <span class="op">==</span><span class="st"> &quot;Psychiatry&quot;</span>) <span class="op">%$%</span></a>
+<a class="sourceLine" id="cb696-3" title="3"><span class="st">    </span><span class="kw">exact2x2</span>(Private, Public, <span class="dt">paired =</span> <span class="ot">TRUE</span>,</a>
+<a class="sourceLine" id="cb696-4" title="4">             <span class="dt">conf.int =</span> <span class="ot">TRUE</span>, <span class="dt">conf.level =</span> <span class="fl">0.95</span>,</a>
+<a class="sourceLine" id="cb696-5" title="5">             <span class="dt">alternative =</span> <span class="st">&quot;greater&quot;</span>)</a></code></pre></div>
 <pre><code>
     Exact McNemar-type test
 
@@ -1304,16 +1304,16 @@ odds ratio
 <div id="what-if-we-looked-at-all-of-the-clinic-types" class="section level3">
 <h3><span class="header-section-number">24.3.2</span> What if we looked at all of the clinic types?</h3>
 <p>Here’s the table for our complete set of 273 clinics.</p>
-<div class="sourceCode" id="cb694"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb694-1" title="1">specialty_wider <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb694-2" title="2"><span class="st">    </span><span class="kw">tabyl</span>(Public, Private)</a></code></pre></div>
+<div class="sourceCode" id="cb698"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb698-1" title="1">specialty_wider <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb698-2" title="2"><span class="st">    </span><span class="kw">tabyl</span>(Public, Private)</a></code></pre></div>
 <pre><code>   Public Accepted Denied
  Accepted       89      5
    Denied      155     24</code></pre>
 <p>The McNemar odds ratio should be 155/5 or 31. Cohen’s g is (155/(155 + 5)) - 0.5 = 0.96875 - 0.5 = 0.46875. These are enormous effect sizes. For example, <span class="citation">Cohen (<a href="#ref-Cohen1988">1988</a>)</span> tentatively identified large effects as those with odds ratios exceeding 3 or Cohen’s g exceeding 0.25. (Small effects were those with Cohen’s g below 0.15, or Odds Ratios below 1.86).</p>
 <p>What’s a 90% confidence interval for the McNemar odds ratio across all 273 clinics?</p>
-<div class="sourceCode" id="cb696"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb696-1" title="1">specialty_wider <span class="op">%$%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb696-2" title="2"><span class="st">    </span><span class="kw">exact2x2</span>(Private, Public, <span class="dt">paired =</span> <span class="ot">TRUE</span>,</a>
-<a class="sourceLine" id="cb696-3" title="3">             <span class="dt">conf.int =</span> <span class="ot">TRUE</span>, <span class="dt">conf.level =</span> <span class="fl">0.9</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb700"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb700-1" title="1">specialty_wider <span class="op">%$%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb700-2" title="2"><span class="st">    </span><span class="kw">exact2x2</span>(Private, Public, <span class="dt">paired =</span> <span class="ot">TRUE</span>,</a>
+<a class="sourceLine" id="cb700-3" title="3">             <span class="dt">conf.int =</span> <span class="ot">TRUE</span>, <span class="dt">conf.level =</span> <span class="fl">0.9</span>)</a></code></pre></div>
 <pre><code>
     Exact McNemar test (with central confidence intervals)
 
@@ -1326,9 +1326,9 @@ sample estimates:
 odds ratio 
         31 </code></pre>
 <p><span class="citation">Bisgaier and Rhodes (<a href="#ref-Bisgaier2011">2011</a>)</span> published a 95% confidence interval for this odds ratio in Table 2, as (13.0, 96.8).</p>
-<div class="sourceCode" id="cb698"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb698-1" title="1">specialty_wider <span class="op">%$%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb698-2" title="2"><span class="st">    </span><span class="kw">exact2x2</span>(Private, Public, <span class="dt">paired =</span> <span class="ot">TRUE</span>,</a>
-<a class="sourceLine" id="cb698-3" title="3">             <span class="dt">conf.int =</span> <span class="ot">TRUE</span>, <span class="dt">conf.level =</span> <span class="fl">0.95</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb702"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb702-1" title="1">specialty_wider <span class="op">%$%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb702-2" title="2"><span class="st">    </span><span class="kw">exact2x2</span>(Private, Public, <span class="dt">paired =</span> <span class="ot">TRUE</span>,</a>
+<a class="sourceLine" id="cb702-3" title="3">             <span class="dt">conf.int =</span> <span class="ot">TRUE</span>, <span class="dt">conf.level =</span> <span class="fl">0.95</span>)</a></code></pre></div>
 <pre><code>
     Exact McNemar test (with central confidence intervals)
 
@@ -1346,11 +1346,11 @@ odds ratio
 <div id="estimating-the-difference-in-proportions-1" class="section level2">
 <h2><span class="header-section-number">24.4</span> Estimating the difference in proportions</h2>
 <p>Within the Psychiatry clinics, we saw the following:</p>
-<div class="sourceCode" id="cb700"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb700-1" title="1">specialty_wider <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb700-2" title="2"><span class="st">    </span><span class="kw">filter</span>(clinic_type <span class="op">==</span><span class="st"> &quot;Psychiatry&quot;</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb700-3" title="3"><span class="st">    </span><span class="kw">tabyl</span>(Public, Private) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb700-4" title="4"><span class="st">    </span><span class="kw">adorn_totals</span>(<span class="dt">where =</span> <span class="kw">c</span>(<span class="st">&quot;row&quot;</span>, <span class="st">&quot;col&quot;</span>)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb700-5" title="5"><span class="st">    </span><span class="kw">adorn_title</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb704"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb704-1" title="1">specialty_wider <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb704-2" title="2"><span class="st">    </span><span class="kw">filter</span>(clinic_type <span class="op">==</span><span class="st"> &quot;Psychiatry&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb704-3" title="3"><span class="st">    </span><span class="kw">tabyl</span>(Public, Private) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb704-4" title="4"><span class="st">    </span><span class="kw">adorn_totals</span>(<span class="dt">where =</span> <span class="kw">c</span>(<span class="st">&quot;row&quot;</span>, <span class="st">&quot;col&quot;</span>)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb704-5" title="5"><span class="st">    </span><span class="kw">adorn_title</span>()</a></code></pre></div>
 <pre><code>           Private             
    Public Accepted Denied Total
  Accepted        5      2     7
@@ -1368,9 +1368,9 @@ Pr(Accepted for Private | only Accepted once) - Pr(Accepted for Public | only Ac
 \]</span></p>
 <p>based on a sample of <code>n = 41</code> Psychiatry clinics.</p>
 <p>There are two confidence interval estimation procedures available. The first is the <em>Wald</em> confidence interval:</p>
-<div class="sourceCode" id="cb702"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb702-1" title="1"><span class="kw">library</span>(PropCIs)</a>
-<a class="sourceLine" id="cb702-2" title="2"></a>
-<a class="sourceLine" id="cb702-3" title="3"><span class="kw">diffpropci.Wald.mp</span>(<span class="dt">b =</span> <span class="dv">2</span>, <span class="dt">c =</span> <span class="dv">16</span>, <span class="dt">n =</span> <span class="dv">41</span>, <span class="dt">conf.level =</span> <span class="fl">0.90</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb706"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb706-1" title="1"><span class="kw">library</span>(PropCIs)</a>
+<a class="sourceLine" id="cb706-2" title="2"></a>
+<a class="sourceLine" id="cb706-3" title="3"><span class="kw">diffpropci.Wald.mp</span>(<span class="dt">b =</span> <span class="dv">2</span>, <span class="dt">c =</span> <span class="dv">16</span>, <span class="dt">n =</span> <span class="dv">41</span>, <span class="dt">conf.level =</span> <span class="fl">0.90</span>)</a></code></pre></div>
 <pre><code>
 
 
@@ -1381,7 +1381,7 @@ data:
 sample estimates:
 [1] 0.341</code></pre>
 <p>Also available in the <code>PropCIs</code> package is the <em>Agresti-Min</em> confidence interval.</p>
-<div class="sourceCode" id="cb704"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb704-1" title="1"><span class="kw">diffpropci.mp</span>(<span class="dt">b =</span> <span class="dv">2</span>, <span class="dt">c =</span> <span class="dv">16</span>, <span class="dt">n =</span> <span class="dv">41</span>, <span class="dt">conf.level =</span> <span class="fl">0.90</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb708"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb708-1" title="1"><span class="kw">diffpropci.mp</span>(<span class="dt">b =</span> <span class="dv">2</span>, <span class="dt">c =</span> <span class="dv">16</span>, <span class="dt">n =</span> <span class="dv">41</span>, <span class="dt">conf.level =</span> <span class="fl">0.90</span>)</a></code></pre></div>
 <pre><code>
 
 
@@ -1396,17 +1396,17 @@ sample estimates:
 <div id="what-if-we-looked-at-all-of-the-clinic-types-1" class="section level3">
 <h3><span class="header-section-number">24.4.1</span> What if we looked at all of the clinic types?</h3>
 <p>Here, again is the table for our complete set of 273 clinics.</p>
-<div class="sourceCode" id="cb706"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb706-1" title="1">specialty_wider <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb706-2" title="2"><span class="st">    </span><span class="kw">tabyl</span>(Public, Private) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb706-3" title="3"><span class="st">    </span><span class="kw">adorn_totals</span>(<span class="dt">where =</span> <span class="kw">c</span>(<span class="st">&quot;row&quot;</span>, <span class="st">&quot;col&quot;</span>)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb706-4" title="4"><span class="st">    </span><span class="kw">adorn_title</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb710"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb710-1" title="1">specialty_wider <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb710-2" title="2"><span class="st">    </span><span class="kw">tabyl</span>(Public, Private) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb710-3" title="3"><span class="st">    </span><span class="kw">adorn_totals</span>(<span class="dt">where =</span> <span class="kw">c</span>(<span class="st">&quot;row&quot;</span>, <span class="st">&quot;col&quot;</span>)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb710-4" title="4"><span class="st">    </span><span class="kw">adorn_title</span>()</a></code></pre></div>
 <pre><code>           Private             
    Public Accepted Denied Total
  Accepted       89      5    94
    Denied      155     24   179
     Total      244     29   273</code></pre>
 <p>And here are the 90% Wald and Agresti-Min confidence intervals for matched pairs describing the proportion accepted for Private but not Public, minus the proportion accepted for Public but not Private.</p>
-<div class="sourceCode" id="cb708"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb708-1" title="1"><span class="kw">diffpropci.Wald.mp</span>(<span class="dt">b =</span> <span class="dv">5</span>, <span class="dt">c =</span> <span class="dv">155</span>, <span class="dt">n =</span> <span class="dv">273</span>, <span class="dt">conf.level =</span> <span class="fl">0.90</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb712"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb712-1" title="1"><span class="kw">diffpropci.Wald.mp</span>(<span class="dt">b =</span> <span class="dv">5</span>, <span class="dt">c =</span> <span class="dv">155</span>, <span class="dt">n =</span> <span class="dv">273</span>, <span class="dt">conf.level =</span> <span class="fl">0.90</span>)</a></code></pre></div>
 <pre><code>
 
 
@@ -1416,7 +1416,7 @@ data:
  0.496 0.603
 sample estimates:
 [1] 0.549</code></pre>
-<div class="sourceCode" id="cb710"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb710-1" title="1"><span class="kw">diffpropci.mp</span>(<span class="dt">b =</span> <span class="dv">5</span>, <span class="dt">c =</span> <span class="dv">155</span>, <span class="dt">n =</span> <span class="dv">273</span>, <span class="dt">conf.level =</span> <span class="fl">0.90</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb714"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb714-1" title="1"><span class="kw">diffpropci.mp</span>(<span class="dt">b =</span> <span class="dv">5</span>, <span class="dt">c =</span> <span class="dv">155</span>, <span class="dt">n =</span> <span class="dv">273</span>, <span class="dt">conf.level =</span> <span class="fl">0.90</span>)</a></code></pre></div>
 <pre><code>
 
 

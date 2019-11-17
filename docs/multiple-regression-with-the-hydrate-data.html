@@ -1035,18 +1035,18 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="another-scatterplot-matrix-for-the-hydrate-data" class="section level2">
 <h2><span class="header-section-number">35.1</span> Another Scatterplot Matrix for the <code>hydrate</code> data</h2>
 <p>Along the diagonals of the scatterplot matrix, we have histograms of each of the variables. In the first row of the matrix, we have scatterplots of Recovery (on the y-axis) against each of the predictor variables in turn. We see a positive relationship with Dose, and a negative relationship with both Age, and then Weight. All possible scatterplots are shown, including plots that look at the association between the predictor variables.</p>
-<div class="sourceCode" id="cb959"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb959-1" title="1"><span class="kw">pairs</span> (<span class="op">~</span><span class="st"> </span>recov.score <span class="op">+</span><span class="st"> </span>dose <span class="op">+</span><span class="st"> </span>age <span class="op">+</span><span class="st"> </span>weight, <span class="dt">data=</span>hydrate,</a>
-<a class="sourceLine" id="cb959-2" title="2">       <span class="dt">main=</span><span class="st">&quot;Hydrate Scatterplot and Correlation Matrix&quot;</span>, </a>
-<a class="sourceLine" id="cb959-3" title="3">       <span class="dt">upper.panel =</span> panel.smooth,</a>
-<a class="sourceLine" id="cb959-4" title="4">       <span class="dt">diag.panel =</span> panel.hist,</a>
-<a class="sourceLine" id="cb959-5" title="5">       <span class="dt">lower.panel =</span> panel.cor)</a></code></pre></div>
+<div class="sourceCode" id="cb963"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb963-1" title="1"><span class="kw">pairs</span> (<span class="op">~</span><span class="st"> </span>recov.score <span class="op">+</span><span class="st"> </span>dose <span class="op">+</span><span class="st"> </span>age <span class="op">+</span><span class="st"> </span>weight, <span class="dt">data=</span>hydrate,</a>
+<a class="sourceLine" id="cb963-2" title="2">       <span class="dt">main=</span><span class="st">&quot;Hydrate Scatterplot and Correlation Matrix&quot;</span>, </a>
+<a class="sourceLine" id="cb963-3" title="3">       <span class="dt">upper.panel =</span> panel.smooth,</a>
+<a class="sourceLine" id="cb963-4" title="4">       <span class="dt">diag.panel =</span> panel.hist,</a>
+<a class="sourceLine" id="cb963-5" title="5">       <span class="dt">lower.panel =</span> panel.cor)</a></code></pre></div>
 <p><img src="2019-431-book_files/figure-html/p11-1.png" width="672" /></p>
 <p>We see the positive correlation between Recovery and Dose (+.36) and the negative correlations between Recovery and Age (-.47) and Recovery and Weight (-.51). We can also see a very strong positive correlation between Weight and Age (+.94), which implies that it may be very difficult to separate out the effect of Weight from the effect of Age on our response.</p>
 </div>
 <div id="a-multiple-regression-for-recov.score" class="section level2">
 <h2><span class="header-section-number">35.2</span> A Multiple Regression for <code>recov.score</code></h2>
 <p>Our first multiple linear regression model will predict <code>recov.score</code> using three predictors: <code>dose</code>, <code>age</code> and <code>weight</code>.</p>
-<div class="sourceCode" id="cb960"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb960-1" title="1"><span class="kw">summary</span>(<span class="kw">lm</span>(recov.score <span class="op">~</span><span class="st"> </span>dose <span class="op">+</span><span class="st"> </span>age <span class="op">+</span><span class="st"> </span>weight, <span class="dt">data =</span> hydrate))</a></code></pre></div>
+<div class="sourceCode" id="cb964"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb964-1" title="1"><span class="kw">summary</span>(<span class="kw">lm</span>(recov.score <span class="op">~</span><span class="st"> </span>dose <span class="op">+</span><span class="st"> </span>age <span class="op">+</span><span class="st"> </span>weight, <span class="dt">data =</span> hydrate))</a></code></pre></div>
 <pre><code>
 Call:
 lm(formula = recov.score ~ dose + age + weight, data = hydrate)
@@ -1148,7 +1148,7 @@ Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&
 <div id="confidence-intervals-for-the-slopes-in-a-multiple-regression-model" class="section level3">
 <h3><span class="header-section-number">35.2.6</span> Confidence Intervals for the Slopes in a Multiple Regression Model</h3>
 <p>Here are the confidence intervals for the coefficients of our multiple regression model.</p>
-<div class="sourceCode" id="cb965"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb965-1" title="1"><span class="kw">confint</span>(<span class="kw">lm</span>(recov.score <span class="op">~</span><span class="st"> </span>dose <span class="op">+</span><span class="st"> </span>age <span class="op">+</span><span class="st"> </span>weight, <span class="dt">data =</span> hydrate))</a></code></pre></div>
+<div class="sourceCode" id="cb969"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb969-1" title="1"><span class="kw">confint</span>(<span class="kw">lm</span>(recov.score <span class="op">~</span><span class="st"> </span>dose <span class="op">+</span><span class="st"> </span>age <span class="op">+</span><span class="st"> </span>weight, <span class="dt">data =</span> hydrate))</a></code></pre></div>
 <pre><code>            2.5 % 97.5 %
 (Intercept) 73.33 97.627
 dose         2.52  9.817
@@ -1156,7 +1156,7 @@ age         -4.38  4.931
 weight      -1.20  0.116</code></pre>
 <p>We conclude, for instance, with 95% confidence, that that true slope of dose is between 2.52 and 9.82 points on the recovery score scale.</p>
 <p>This is pretty different from the confidence interval we found for the slope of dose in a simple regression on dose alone that we saw previously, and repeat below.</p>
-<div class="sourceCode" id="cb967"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb967-1" title="1"><span class="kw">confint</span>(<span class="kw">lm</span>(recov.score <span class="op">~</span><span class="st"> </span>dose, <span class="dt">data =</span> hydrate), <span class="dt">level =</span> <span class="fl">.95</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb971"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb971-1" title="1"><span class="kw">confint</span>(<span class="kw">lm</span>(recov.score <span class="op">~</span><span class="st"> </span>dose, <span class="dt">data =</span> hydrate), <span class="dt">level =</span> <span class="fl">.95</span>)</a></code></pre></div>
 <pre><code>             2.5 % 97.5 %
 (Intercept) 55.827   72.0
 dose         0.466    9.3</code></pre>
@@ -1197,7 +1197,7 @@ F-statistic:  9.03 on 3 and 32 DF,  p-value: 0.0001769</code></pre>
 <li>This is the same as 1 minus [residual sum of squares divided by total sum of squares].</li>
 <li>We can verify the calculation with the complete ANOVA table for this model</li>
 </ul>
-<div class="sourceCode" id="cb970"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb970-1" title="1"><span class="kw">anova</span>(<span class="kw">lm</span>(recov.score <span class="op">~</span><span class="st"> </span>dose <span class="op">+</span><span class="st"> </span>weight <span class="op">+</span><span class="st"> </span>age, <span class="dt">data =</span> hydrate))</a></code></pre></div>
+<div class="sourceCode" id="cb974"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb974-1" title="1"><span class="kw">anova</span>(<span class="kw">lm</span>(recov.score <span class="op">~</span><span class="st"> </span>dose <span class="op">+</span><span class="st"> </span>weight <span class="op">+</span><span class="st"> </span>age, <span class="dt">data =</span> hydrate))</a></code></pre></div>
 <pre><code>Analysis of Variance Table
 
 Response: recov.score
@@ -1221,7 +1221,7 @@ Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&
 <div id="anova-for-sequential-comparison-of-models" class="section level2">
 <h2><span class="header-section-number">35.3</span> ANOVA for Sequential Comparison of Models</h2>
 <p>Outside of the main summary, we can also run a sequence of comparisons of the impact of various predictors in our model with the <code>anova</code> function.</p>
-<div class="sourceCode" id="cb972"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb972-1" title="1"><span class="kw">anova</span>(<span class="kw">lm</span>(recov.score <span class="op">~</span><span class="st"> </span>dose <span class="op">+</span><span class="st"> </span>age <span class="op">+</span><span class="st"> </span>weight, <span class="dt">data =</span> hydrate))</a></code></pre></div>
+<div class="sourceCode" id="cb976"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb976-1" title="1"><span class="kw">anova</span>(<span class="kw">lm</span>(recov.score <span class="op">~</span><span class="st"> </span>dose <span class="op">+</span><span class="st"> </span>age <span class="op">+</span><span class="st"> </span>weight, <span class="dt">data =</span> hydrate))</a></code></pre></div>
 <pre><code>Analysis of Variance Table
 
 Response: recov.score
@@ -1240,7 +1240,7 @@ Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&
 </ol>
 <p>Note that this last p value is the same as the t test for weight we have already seen in the main summary of the model.</p>
 <p>If we change the order of the predictors entering the model, the main summary of our linear model will not change, but these ANOVA results will change.</p>
-<div class="sourceCode" id="cb974"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb974-1" title="1"><span class="kw">summary</span>(<span class="kw">lm</span>(recov.score <span class="op">~</span><span class="st"> </span>dose <span class="op">+</span><span class="st"> </span>weight <span class="op">+</span><span class="st"> </span>age, <span class="dt">data =</span> hydrate))</a></code></pre></div>
+<div class="sourceCode" id="cb978"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb978-1" title="1"><span class="kw">summary</span>(<span class="kw">lm</span>(recov.score <span class="op">~</span><span class="st"> </span>dose <span class="op">+</span><span class="st"> </span>weight <span class="op">+</span><span class="st"> </span>age, <span class="dt">data =</span> hydrate))</a></code></pre></div>
 <pre><code>
 Call:
 lm(formula = recov.score ~ dose + weight + age, data = hydrate)
@@ -1261,7 +1261,7 @@ Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&
 Residual standard error: 9.92 on 32 degrees of freedom
 Multiple R-squared:  0.458, Adjusted R-squared:  0.408 
 F-statistic: 9.03 on 3 and 32 DF,  p-value: 0.000177</code></pre>
-<div class="sourceCode" id="cb976"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb976-1" title="1"><span class="kw">anova</span>(<span class="kw">lm</span>(recov.score <span class="op">~</span><span class="st"> </span>dose <span class="op">+</span><span class="st"> </span>weight <span class="op">+</span><span class="st"> </span>age, <span class="dt">data =</span> hydrate))</a></code></pre></div>
+<div class="sourceCode" id="cb980"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb980-1" title="1"><span class="kw">anova</span>(<span class="kw">lm</span>(recov.score <span class="op">~</span><span class="st"> </span>dose <span class="op">+</span><span class="st"> </span>weight <span class="op">+</span><span class="st"> </span>age, <span class="dt">data =</span> hydrate))</a></code></pre></div>
 <pre><code>Analysis of Variance Table
 
 Response: recov.score
@@ -1420,7 +1420,7 @@ Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&
 <p>Sometimes, we want to express the coefficients of the regression in a standardized way, to compare the impact of each predictor within the model on a fairer scale. A common trick is to “standardize” each input variable (predictor) by subtracting its mean and dividing by its standard deviation. Each coefficient in this semi-standardized model is the expected difference in the outcome, comparing subjects that differ by one standard deviation in one variable with all other variables fixed at their average. R can do this rescaling quite efficiently, with the use of the <code>scale</code> function.</p>
 <div id="a-semi-standardized-model-for-the-hydrate-data" class="section level3">
 <h3><span class="header-section-number">35.4.1</span> A Semi-Standardized Model for the <code>hydrate</code> data</h3>
-<div class="sourceCode" id="cb978"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb978-1" title="1"><span class="kw">summary</span>(<span class="kw">lm</span>(recov.score <span class="op">~</span><span class="st"> </span><span class="kw">scale</span>(dose) <span class="op">+</span><span class="st"> </span><span class="kw">scale</span>(weight) <span class="op">+</span><span class="st"> </span><span class="kw">scale</span>(age), <span class="dt">data =</span> hydrate))</a></code></pre></div>
+<div class="sourceCode" id="cb982"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb982-1" title="1"><span class="kw">summary</span>(<span class="kw">lm</span>(recov.score <span class="op">~</span><span class="st"> </span><span class="kw">scale</span>(dose) <span class="op">+</span><span class="st"> </span><span class="kw">scale</span>(weight) <span class="op">+</span><span class="st"> </span><span class="kw">scale</span>(age), <span class="dt">data =</span> hydrate))</a></code></pre></div>
 <pre><code>
 Call:
 lm(formula = recov.score ~ scale(dose) + scale(weight) + scale(age), 
@@ -1556,9 +1556,9 @@ summary(lm(recov.score ~ dose + age + weight))</code></pre>
 </table>
 <p>By the AIC, DW looks best out of these five models.</p>
 <p><em>Note</em>: R uses the <code>AIC</code> function applied to a model to derive these results. For example,</p>
-<div class="sourceCode" id="cb981"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb981-1" title="1"><span class="kw">AIC</span>(<span class="kw">lm</span>(recov.score <span class="op">~</span><span class="st"> </span><span class="dv">1</span>, <span class="dt">data =</span> hydrate))</a></code></pre></div>
+<div class="sourceCode" id="cb985"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb985-1" title="1"><span class="kw">AIC</span>(<span class="kw">lm</span>(recov.score <span class="op">~</span><span class="st"> </span><span class="dv">1</span>, <span class="dt">data =</span> hydrate))</a></code></pre></div>
 <pre><code>[1] 289</code></pre>
-<div class="sourceCode" id="cb983"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb983-1" title="1"><span class="kw">AIC</span>(<span class="kw">lm</span>(recov.score <span class="op">~</span><span class="st"> </span>dose <span class="op">+</span><span class="st"> </span>age <span class="op">+</span><span class="st"> </span>weight, <span class="dt">data =</span> hydrate))</a></code></pre></div>
+<div class="sourceCode" id="cb987"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb987-1" title="1"><span class="kw">AIC</span>(<span class="kw">lm</span>(recov.score <span class="op">~</span><span class="st"> </span>dose <span class="op">+</span><span class="st"> </span>age <span class="op">+</span><span class="st"> </span>weight, <span class="dt">data =</span> hydrate))</a></code></pre></div>
 <pre><code>[1] 273</code></pre>
 </div>
 <div id="comparing-model-fit-with-the-bic-or-bayesian-information-criterion" class="section level2">
@@ -1588,7 +1588,7 @@ summary(lm(recov.score ~ dose + age + weight))</code></pre>
 </table>
 <p>By the BIC, as well, DW looks best out of these five models.</p>
 <p>To obtain the results, just apply <code>BIC</code> instead of <code>AIC</code> to the model.</p>
-<div class="sourceCode" id="cb985"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb985-1" title="1"><span class="kw">BIC</span>(<span class="kw">lm</span>(recov.score <span class="op">~</span><span class="st"> </span>dose <span class="op">+</span><span class="st"> </span>weight, <span class="dt">data =</span> hydrate))</a></code></pre></div>
+<div class="sourceCode" id="cb989"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb989-1" title="1"><span class="kw">BIC</span>(<span class="kw">lm</span>(recov.score <span class="op">~</span><span class="st"> </span>dose <span class="op">+</span><span class="st"> </span>weight, <span class="dt">data =</span> hydrate))</a></code></pre></div>
 <pre><code>[1] 278</code></pre>
 </div>
 <div id="making-predictions-for-new-data-prediction-vs.-confidence-intervals" class="section level2">
@@ -1603,12 +1603,12 @@ summary(lm(recov.score ~ dose + age + weight))</code></pre>
 <div id="making-a-prediction-using-the-hydrate-data" class="section level3">
 <h3><span class="header-section-number">35.8.1</span> Making a Prediction using the <code>hydrate</code> data</h3>
 <p>Now, suppose that we wish to predict a <code>recov.score</code> associated with <code>dose</code> = 2, <code>age</code> = 7 and <code>weight</code> = 50. The approach I would use follows…</p>
-<div class="sourceCode" id="cb987"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb987-1" title="1">modela &lt;-<span class="st"> </span><span class="kw">lm</span>(recov.score <span class="op">~</span><span class="st"> </span>dose <span class="op">+</span><span class="st"> </span>age <span class="op">+</span><span class="st"> </span>weight, <span class="dt">data =</span> hydrate)</a>
-<a class="sourceLine" id="cb987-2" title="2">newdata &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">dose =</span> <span class="dv">2</span>, <span class="dt">age =</span> <span class="dv">7</span>, <span class="dt">weight =</span> <span class="dv">50</span>)</a>
-<a class="sourceLine" id="cb987-3" title="3"><span class="kw">predict</span>(modela, newdata, <span class="dt">interval=</span><span class="st">&quot;prediction&quot;</span>, <span class="dt">level=</span><span class="fl">0.95</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb991"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb991-1" title="1">modela &lt;-<span class="st"> </span><span class="kw">lm</span>(recov.score <span class="op">~</span><span class="st"> </span>dose <span class="op">+</span><span class="st"> </span>age <span class="op">+</span><span class="st"> </span>weight, <span class="dt">data =</span> hydrate)</a>
+<a class="sourceLine" id="cb991-2" title="2">newdata &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">dose =</span> <span class="dv">2</span>, <span class="dt">age =</span> <span class="dv">7</span>, <span class="dt">weight =</span> <span class="dv">50</span>)</a>
+<a class="sourceLine" id="cb991-3" title="3"><span class="kw">predict</span>(modela, newdata, <span class="dt">interval=</span><span class="st">&quot;prediction&quot;</span>, <span class="dt">level=</span><span class="fl">0.95</span>)</a></code></pre></div>
 <pre><code>   fit  lwr  upr
 1 72.6 52.1 93.2</code></pre>
-<div class="sourceCode" id="cb989"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb989-1" title="1"><span class="kw">predict</span>(modela, newdata, <span class="dt">interval=</span><span class="st">&quot;confidence&quot;</span>, <span class="dt">level=</span><span class="fl">0.95</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb993"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb993-1" title="1"><span class="kw">predict</span>(modela, newdata, <span class="dt">interval=</span><span class="st">&quot;confidence&quot;</span>, <span class="dt">level=</span><span class="fl">0.95</span>)</a></code></pre></div>
 <pre><code>   fit  lwr  upr
 1 72.6 68.9 76.4</code></pre>
 <p>So, our conclusions are:</p>
@@ -1620,16 +1620,16 @@ summary(lm(recov.score ~ dose + age + weight))</code></pre>
 <div id="a-new-prediction" class="section level3">
 <h3><span class="header-section-number">35.8.2</span> A New Prediction?</h3>
 <p>Suppose that now you wanted to make a prediction for a <code>recov.score</code> with <code>dose</code> = 1, <code>age</code> = 4 and <code>weight</code> = 60. Why would this be a meaningfully worse idea than the prediction we just made, and how does the plot below tell us this?</p>
-<div class="sourceCode" id="cb991"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb991-1" title="1"><span class="kw">ggplot</span>(hydrate, <span class="kw">aes</span>(<span class="dt">x =</span> age, <span class="dt">y =</span> weight)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb991-2" title="2"><span class="st">    </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb991-3" title="3"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Weight vs. Age in the hydrate data&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb995"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb995-1" title="1"><span class="kw">ggplot</span>(hydrate, <span class="kw">aes</span>(<span class="dt">x =</span> age, <span class="dt">y =</span> weight)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb995-2" title="2"><span class="st">    </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb995-3" title="3"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Weight vs. Age in the hydrate data&quot;</span>)</a></code></pre></div>
 <p><img src="2019-431-book_files/figure-html/p23b-1.png" width="672" /></p>
 </div>
 </div>
 <div id="interpreting-the-regression-model-two-key-questions" class="section level2">
 <h2><span class="header-section-number">35.9</span> Interpreting the Regression Model: Two Key Questions</h2>
 <p>Suppose we land, finally, on the DW model…</p>
-<div class="sourceCode" id="cb992"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb992-1" title="1"><span class="kw">summary</span>(<span class="kw">lm</span>(recov.score <span class="op">~</span><span class="st"> </span>dose <span class="op">+</span><span class="st"> </span>weight, <span class="dt">data =</span> hydrate))</a></code></pre></div>
+<div class="sourceCode" id="cb996"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb996-1" title="1"><span class="kw">summary</span>(<span class="kw">lm</span>(recov.score <span class="op">~</span><span class="st"> </span>dose <span class="op">+</span><span class="st"> </span>weight, <span class="dt">data =</span> hydrate))</a></code></pre></div>
 <pre><code>
 Call:
 lm(formula = recov.score ~ dose + weight, data = hydrate)

@@ -1064,13 +1064,13 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="separating-the-data-into-a-training-and-a-test-sample" class="section level2">
 <h2><span class="header-section-number">37.2</span> Separating the Data into a Training and a Test Sample</h2>
 <p>There are several ways to partition the data into training (model development) and test (model checking) samples. For example, we could develop separate data frames for a holdout sample of 500 randomly selected subjects (<code>wcgs.test</code>), and then use the remainder as the model development sample (<code>wcgs.dev</code>). Remember to set a seed so that you can replicate the selection.</p>
-<div class="sourceCode" id="cb1042"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1042-1" title="1"><span class="kw">set.seed</span>(<span class="dv">4311</span>); wcgs.test &lt;-<span class="st"> </span>wcgs <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">sample_n</span>(<span class="dv">500</span>)</a>
-<a class="sourceLine" id="cb1042-2" title="2"><span class="co">## hold out exactly 500 randomly selected observations</span></a>
-<a class="sourceLine" id="cb1042-3" title="3"></a>
-<a class="sourceLine" id="cb1042-4" title="4">wcgs.dev &lt;-<span class="st"> </span><span class="kw">anti_join</span>(wcgs, wcgs.test, <span class="st">&quot;id&quot;</span>) </a>
-<a class="sourceLine" id="cb1042-5" title="5"><span class="co">## model development sample - 2654 observations</span></a>
-<a class="sourceLine" id="cb1042-6" title="6"></a>
-<a class="sourceLine" id="cb1042-7" title="7">wcgs.test</a></code></pre></div>
+<div class="sourceCode" id="cb1046"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1046-1" title="1"><span class="kw">set.seed</span>(<span class="dv">4311</span>); wcgs.test &lt;-<span class="st"> </span>wcgs <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">sample_n</span>(<span class="dv">500</span>)</a>
+<a class="sourceLine" id="cb1046-2" title="2"><span class="co">## hold out exactly 500 randomly selected observations</span></a>
+<a class="sourceLine" id="cb1046-3" title="3"></a>
+<a class="sourceLine" id="cb1046-4" title="4">wcgs.dev &lt;-<span class="st"> </span><span class="kw">anti_join</span>(wcgs, wcgs.test, <span class="st">&quot;id&quot;</span>) </a>
+<a class="sourceLine" id="cb1046-5" title="5"><span class="co">## model development sample - 2654 observations</span></a>
+<a class="sourceLine" id="cb1046-6" title="6"></a>
+<a class="sourceLine" id="cb1046-7" title="7">wcgs.test</a></code></pre></div>
 <pre><code># A tibble: 500 x 22
       id   age agec  height weight lnwght wghtcat   bmi   sbp lnsbp   dbp
    &lt;int&gt; &lt;int&gt; &lt;fct&gt;  &lt;int&gt;  &lt;int&gt;  &lt;dbl&gt; &lt;fct&gt;   &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;int&gt;
@@ -1087,16 +1087,16 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 # ... with 490 more rows, and 11 more variables: chol &lt;int&gt;, behpat &lt;fct&gt;,
 #   dibpat &lt;fct&gt;, smoke &lt;fct&gt;, ncigs &lt;int&gt;, arcus &lt;int&gt;, chd69 &lt;fct&gt;,
 #   typchd69 &lt;int&gt;, time169 &lt;int&gt;, t1 &lt;dbl&gt;, uni &lt;dbl&gt;</code></pre>
-<div class="sourceCode" id="cb1044"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1044-1" title="1"><span class="kw">dim</span>(wcgs.dev) <span class="co"># verify size of development sample</span></a></code></pre></div>
+<div class="sourceCode" id="cb1048"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1048-1" title="1"><span class="kw">dim</span>(wcgs.dev) <span class="co"># verify size of development sample</span></a></code></pre></div>
 <pre><code>[1] 2654   22</code></pre>
 <div id="using-a-specified-fraction-of-the-data-in-the-test-sample" class="section level3">
 <h3><span class="header-section-number">37.2.1</span> Using a specified fraction of the data in the test sample</h3>
 <p>If we’d wanted to select 20% of the data for our test sample, we could have instead used the <code>sample_frac</code> and <code>anti_join</code> commands. For the <code>wcgs</code> data which has a unique <code>id</code> variable that identifies each subject, we’d have…</p>
-<div class="sourceCode" id="cb1046"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1046-1" title="1"><span class="kw">set.seed</span>(<span class="dv">43199</span>); wcgs.train80 &lt;-<span class="st"> </span>wcgs <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">sample_frac</span>(<span class="fl">0.80</span>)</a>
-<a class="sourceLine" id="cb1046-2" title="2">wcgs.test20 &lt;-<span class="st"> </span><span class="kw">anti_join</span>(wcgs, wcgs.train80, <span class="dt">by=</span><span class="st">&quot;id&quot;</span>)</a>
-<a class="sourceLine" id="cb1046-3" title="3"><span class="kw">dim</span>(wcgs.train80)</a></code></pre></div>
+<div class="sourceCode" id="cb1050"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1050-1" title="1"><span class="kw">set.seed</span>(<span class="dv">43199</span>); wcgs.train80 &lt;-<span class="st"> </span>wcgs <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">sample_frac</span>(<span class="fl">0.80</span>)</a>
+<a class="sourceLine" id="cb1050-2" title="2">wcgs.test20 &lt;-<span class="st"> </span><span class="kw">anti_join</span>(wcgs, wcgs.train80, <span class="dt">by=</span><span class="st">&quot;id&quot;</span>)</a>
+<a class="sourceLine" id="cb1050-3" title="3"><span class="kw">dim</span>(wcgs.train80)</a></code></pre></div>
 <pre><code>[1] 2523   22</code></pre>
-<div class="sourceCode" id="cb1048"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1048-1" title="1"><span class="kw">dim</span>(wcgs.test20)</a></code></pre></div>
+<div class="sourceCode" id="cb1052"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1052-1" title="1"><span class="kw">dim</span>(wcgs.test20)</a></code></pre></div>
 <pre><code>[1] 631  22</code></pre>
 <p>Given a large sample size (at least 500 observations in the full data set) I would usually think about holding out somewhere between 15% and 25% of the data in this manner.</p>
 </div>
@@ -1106,7 +1106,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p>We next select the <code>wcgs.dev</code> (development sample) and run a stepwise procedure, beginning with the kitchen sink model, that includes all potential predictors.</p>
 <div id="the-kitchen-sink-model" class="section level3">
 <h3><span class="header-section-number">37.3.1</span> The Kitchen Sink Model</h3>
-<div class="sourceCode" id="cb1050"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1050-1" title="1"><span class="kw">summary</span>(<span class="kw">lm</span>(chol <span class="op">~</span><span class="st"> </span>age <span class="op">+</span><span class="st"> </span>bmi <span class="op">+</span><span class="st"> </span>sbp <span class="op">+</span><span class="st"> </span>dbp <span class="op">+</span><span class="st"> </span>smoke, <span class="dt">data =</span> wcgs.dev))</a></code></pre></div>
+<div class="sourceCode" id="cb1054"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1054-1" title="1"><span class="kw">summary</span>(<span class="kw">lm</span>(chol <span class="op">~</span><span class="st"> </span>age <span class="op">+</span><span class="st"> </span>bmi <span class="op">+</span><span class="st"> </span>sbp <span class="op">+</span><span class="st"> </span>dbp <span class="op">+</span><span class="st"> </span>smoke, <span class="dt">data =</span> wcgs.dev))</a></code></pre></div>
 <pre><code>
 Call:
 lm(formula = chol ~ age + bmi + sbp + dbp + smoke, data = wcgs.dev)
@@ -1133,7 +1133,7 @@ F-statistic: 19.2 on 5 and 2640 DF,  p-value: &lt;2e-16</code></pre>
 </div>
 <div id="stepwise-backward-elimination-procedure" class="section level3">
 <h3><span class="header-section-number">37.3.2</span> Stepwise (Backward Elimination) Procedure</h3>
-<div class="sourceCode" id="cb1052"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1052-1" title="1"><span class="kw">step</span>(<span class="kw">lm</span>(chol <span class="op">~</span><span class="st"> </span>age <span class="op">+</span><span class="st"> </span>bmi <span class="op">+</span><span class="st"> </span>sbp <span class="op">+</span><span class="st"> </span>dbp <span class="op">+</span><span class="st"> </span>smoke, <span class="dt">data =</span> wcgs.dev))</a></code></pre></div>
+<div class="sourceCode" id="cb1056"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1056-1" title="1"><span class="kw">step</span>(<span class="kw">lm</span>(chol <span class="op">~</span><span class="st"> </span>age <span class="op">+</span><span class="st"> </span>bmi <span class="op">+</span><span class="st"> </span>sbp <span class="op">+</span><span class="st"> </span>dbp <span class="op">+</span><span class="st"> </span>smoke, <span class="dt">data =</span> wcgs.dev))</a></code></pre></div>
 <pre><code>Start:  AIC=19892
 chol ~ age + bmi + sbp + dbp + smoke
 
@@ -1158,21 +1158,21 @@ Coefficients:
 <div id="three-candidate-models" class="section level3">
 <h3><span class="header-section-number">37.3.3</span> Three Candidate Models</h3>
 <p>For purposes of this exercise, we’ll call this four-predictor model <code>model.A</code> and compare it to a three-predictor model with <code>age</code>, <code>dbp</code> and <code>smoke</code>, which we’ll call <code>model.B</code></p>
-<div class="sourceCode" id="cb1055"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1055-1" title="1">model.kitchensink &lt;-<span class="st"> </span><span class="kw">lm</span>(chol <span class="op">~</span><span class="st"> </span>age <span class="op">+</span><span class="st"> </span>bmi <span class="op">+</span><span class="st"> </span>sbp <span class="op">+</span><span class="st"> </span>dbp <span class="op">+</span><span class="st"> </span>smoke, <span class="dt">data =</span> wcgs.dev)</a>
-<a class="sourceLine" id="cb1055-2" title="2">model.A &lt;-<span class="st"> </span><span class="kw">lm</span>(chol <span class="op">~</span><span class="st"> </span>age <span class="op">+</span><span class="st"> </span>bmi <span class="op">+</span><span class="st"> </span>dbp <span class="op">+</span><span class="st"> </span>smoke, <span class="dt">data =</span> wcgs.dev)</a>
-<a class="sourceLine" id="cb1055-3" title="3">model.B &lt;-<span class="st"> </span><span class="kw">lm</span>(chol <span class="op">~</span><span class="st"> </span>age <span class="op">+</span><span class="st"> </span>dbp <span class="op">+</span><span class="st"> </span>smoke, <span class="dt">data =</span> wcgs.dev)</a></code></pre></div>
+<div class="sourceCode" id="cb1059"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1059-1" title="1">model.kitchensink &lt;-<span class="st"> </span><span class="kw">lm</span>(chol <span class="op">~</span><span class="st"> </span>age <span class="op">+</span><span class="st"> </span>bmi <span class="op">+</span><span class="st"> </span>sbp <span class="op">+</span><span class="st"> </span>dbp <span class="op">+</span><span class="st"> </span>smoke, <span class="dt">data =</span> wcgs.dev)</a>
+<a class="sourceLine" id="cb1059-2" title="2">model.A &lt;-<span class="st"> </span><span class="kw">lm</span>(chol <span class="op">~</span><span class="st"> </span>age <span class="op">+</span><span class="st"> </span>bmi <span class="op">+</span><span class="st"> </span>dbp <span class="op">+</span><span class="st"> </span>smoke, <span class="dt">data =</span> wcgs.dev)</a>
+<a class="sourceLine" id="cb1059-3" title="3">model.B &lt;-<span class="st"> </span><span class="kw">lm</span>(chol <span class="op">~</span><span class="st"> </span>age <span class="op">+</span><span class="st"> </span>dbp <span class="op">+</span><span class="st"> </span>smoke, <span class="dt">data =</span> wcgs.dev)</a></code></pre></div>
 </div>
 </div>
 <div id="aic-anova-and-bic-to-assess-candidate-models" class="section level2">
 <h2><span class="header-section-number">37.4</span> AIC, ANOVA and BIC to assess Candidate Models</h2>
 <p>The stepwise regression output specifies the AIC value for each model, but we can also look at other characteristics, like the ANOVA table comparing the various models, or the Bayesian Information Criterion, abbreviated BIC.</p>
-<div class="sourceCode" id="cb1056"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1056-1" title="1"><span class="kw">AIC</span>(model.kitchensink, model.A, model.B)</a></code></pre></div>
+<div class="sourceCode" id="cb1060"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1060-1" title="1"><span class="kw">AIC</span>(model.kitchensink, model.A, model.B)</a></code></pre></div>
 <pre><code>                  df   AIC
 model.kitchensink  7 27403
 model.A            6 27403
 model.B            5 27406</code></pre>
 <p>AIC suggests model A (since it has the smallest AIC of these choices)</p>
-<div class="sourceCode" id="cb1058"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1058-1" title="1"><span class="kw">anova</span>(model.kitchensink, model.A, model.B)</a></code></pre></div>
+<div class="sourceCode" id="cb1062"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1062-1" title="1"><span class="kw">anova</span>(model.kitchensink, model.A, model.B)</a></code></pre></div>
 <pre><code>Analysis of Variance Table
 
 Model 1: chol ~ age + bmi + sbp + dbp + smoke
@@ -1190,7 +1190,7 @@ Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&
 <li>On the other hand, the <em>p</em> value of 0.013 indicates that moving from what we’ve called model A (model 2 in the ANOVA output) to what we’ve called model B (model 3 in the ANOVA output) does have a statistically significant impact on predictive value.</li>
 <li>Because these models are <strong>nested</strong> (model B is a proper subset of model A which is a proper subset of the kitchen sink) we can make these ANOVA comparisons directly.</li>
 </ul>
-<div class="sourceCode" id="cb1060"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1060-1" title="1"><span class="kw">BIC</span>(model.kitchensink, model.A, model.B)</a></code></pre></div>
+<div class="sourceCode" id="cb1064"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1064-1" title="1"><span class="kw">BIC</span>(model.kitchensink, model.A, model.B)</a></code></pre></div>
 <pre><code>                  df   BIC
 model.kitchensink  7 27444
 model.A            6 27438
@@ -1201,50 +1201,50 @@ model.B            5 27436</code></pre>
 <h2><span class="header-section-number">37.5</span> Comparing Models in the Test Sample (MSPE, MAPE)</h2>
 <p>Finally, we’ll use our two candidate models (Model A and Model B) to predict the results in our holdout sample of 500 observations to see which model performs better in these new data (remember that our holdout sample was <strong>not</strong> used to identify or fit Models A or B.)</p>
 <p>To do this, we first carefully specify the two models being compared</p>
-<div class="sourceCode" id="cb1062"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1062-1" title="1">model.A &lt;-<span class="st"> </span><span class="kw">lm</span>(chol <span class="op">~</span><span class="st"> </span>age <span class="op">+</span><span class="st"> </span>bmi <span class="op">+</span><span class="st"> </span>dbp <span class="op">+</span><span class="st"> </span>smoke, <span class="dt">data=</span>wcgs.dev)</a>
-<a class="sourceLine" id="cb1062-2" title="2">model.B &lt;-<span class="st"> </span><span class="kw">lm</span>(chol <span class="op">~</span><span class="st"> </span>age <span class="op">+</span><span class="st"> </span>dbp <span class="op">+</span><span class="st"> </span>smoke, <span class="dt">data=</span>wcgs.dev)</a></code></pre></div>
+<div class="sourceCode" id="cb1066"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1066-1" title="1">model.A &lt;-<span class="st"> </span><span class="kw">lm</span>(chol <span class="op">~</span><span class="st"> </span>age <span class="op">+</span><span class="st"> </span>bmi <span class="op">+</span><span class="st"> </span>dbp <span class="op">+</span><span class="st"> </span>smoke, <span class="dt">data=</span>wcgs.dev)</a>
+<a class="sourceLine" id="cb1066-2" title="2">model.B &lt;-<span class="st"> </span><span class="kw">lm</span>(chol <span class="op">~</span><span class="st"> </span>age <span class="op">+</span><span class="st"> </span>dbp <span class="op">+</span><span class="st"> </span>smoke, <span class="dt">data=</span>wcgs.dev)</a></code></pre></div>
 <p>Next, use <code>predict</code> to make predictions for the test data:</p>
-<div class="sourceCode" id="cb1063"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1063-1" title="1">modA.pre &lt;-<span class="st"> </span><span class="kw">predict</span>(model.A, <span class="dt">newdata=</span>wcgs.test)</a>
-<a class="sourceLine" id="cb1063-2" title="2">modB.pre &lt;-<span class="st"> </span><span class="kw">predict</span>(model.B, <span class="dt">newdata=</span>wcgs.test)</a></code></pre></div>
+<div class="sourceCode" id="cb1067"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1067-1" title="1">modA.pre &lt;-<span class="st"> </span><span class="kw">predict</span>(model.A, <span class="dt">newdata=</span>wcgs.test)</a>
+<a class="sourceLine" id="cb1067-2" title="2">modB.pre &lt;-<span class="st"> </span><span class="kw">predict</span>(model.B, <span class="dt">newdata=</span>wcgs.test)</a></code></pre></div>
 <p>Just to fix ideas, here are the first few predictions for Model A…</p>
-<div class="sourceCode" id="cb1064"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1064-1" title="1"><span class="kw">head</span>(modA.pre)</a></code></pre></div>
+<div class="sourceCode" id="cb1068"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1068-1" title="1"><span class="kw">head</span>(modA.pre)</a></code></pre></div>
 <pre><code>  1   2   3   4   5   6 
 231 217 231 215 225 224 </code></pre>
 <p>We can compare these to the first few observed values of <code>chol</code> in the test sample.</p>
-<div class="sourceCode" id="cb1066"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1066-1" title="1"><span class="kw">head</span>(wcgs.test<span class="op">$</span>chol)</a></code></pre></div>
+<div class="sourceCode" id="cb1070"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1070-1" title="1"><span class="kw">head</span>(wcgs.test<span class="op">$</span>chol)</a></code></pre></div>
 <pre><code>[1] 215 198 175 208 348 315</code></pre>
 <p>Next, calculate errors (observed value minus predicted value) for each model:</p>
-<div class="sourceCode" id="cb1068"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1068-1" title="1">modA.err &lt;-<span class="st"> </span>wcgs.test<span class="op">$</span>chol <span class="op">-</span><span class="st"> </span>modA.pre</a>
-<a class="sourceLine" id="cb1068-2" title="2">modB.err &lt;-<span class="st"> </span>wcgs.test<span class="op">$</span>chol <span class="op">-</span><span class="st"> </span>modB.pre</a></code></pre></div>
+<div class="sourceCode" id="cb1072"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1072-1" title="1">modA.err &lt;-<span class="st"> </span>wcgs.test<span class="op">$</span>chol <span class="op">-</span><span class="st"> </span>modA.pre</a>
+<a class="sourceLine" id="cb1072-2" title="2">modB.err &lt;-<span class="st"> </span>wcgs.test<span class="op">$</span>chol <span class="op">-</span><span class="st"> </span>modB.pre</a></code></pre></div>
 <p>Again, just to be sure we understand, we look at the first few errors for Model A.</p>
-<div class="sourceCode" id="cb1069"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1069-1" title="1"><span class="kw">head</span>(modA.err)</a></code></pre></div>
+<div class="sourceCode" id="cb1073"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1073-1" title="1"><span class="kw">head</span>(modA.err)</a></code></pre></div>
 <pre><code>     1      2      3      4      5      6 
 -16.36 -19.04 -56.22  -7.47 123.48  90.97 </code></pre>
 <p>Next, we calculate the absolute errors (as |observed - predicted|) from each model in turn:</p>
-<div class="sourceCode" id="cb1071"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1071-1" title="1">modA.abserr &lt;-<span class="st"> </span><span class="kw">abs</span>(modA.err)</a>
-<a class="sourceLine" id="cb1071-2" title="2">modB.abserr &lt;-<span class="st"> </span><span class="kw">abs</span>(modB.err)</a></code></pre></div>
+<div class="sourceCode" id="cb1075"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1075-1" title="1">modA.abserr &lt;-<span class="st"> </span><span class="kw">abs</span>(modA.err)</a>
+<a class="sourceLine" id="cb1075-2" title="2">modB.abserr &lt;-<span class="st"> </span><span class="kw">abs</span>(modB.err)</a></code></pre></div>
 <p>Let’s look at the first few absolute errors for Model A.</p>
-<div class="sourceCode" id="cb1072"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1072-1" title="1"><span class="kw">head</span>(modA.abserr)</a></code></pre></div>
+<div class="sourceCode" id="cb1076"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1076-1" title="1"><span class="kw">head</span>(modA.abserr)</a></code></pre></div>
 <pre><code>     1      2      3      4      5      6 
  16.36  19.04  56.22   7.47 123.48  90.97 </code></pre>
 <p>Next, we calculate the squared prediction errors from each model in turn:</p>
-<div class="sourceCode" id="cb1074"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1074-1" title="1">modA.sqerr &lt;-<span class="st"> </span>modA.err<span class="op">^</span><span class="dv">2</span></a>
-<a class="sourceLine" id="cb1074-2" title="2">modB.sqerr &lt;-<span class="st"> </span>modB.err<span class="op">^</span><span class="dv">2</span></a></code></pre></div>
+<div class="sourceCode" id="cb1078"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1078-1" title="1">modA.sqerr &lt;-<span class="st"> </span>modA.err<span class="op">^</span><span class="dv">2</span></a>
+<a class="sourceLine" id="cb1078-2" title="2">modB.sqerr &lt;-<span class="st"> </span>modB.err<span class="op">^</span><span class="dv">2</span></a></code></pre></div>
 <p>And again, we look at the first few squared errors for Model A.</p>
-<div class="sourceCode" id="cb1075"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1075-1" title="1"><span class="kw">head</span>(modA.sqerr)</a></code></pre></div>
+<div class="sourceCode" id="cb1079"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1079-1" title="1"><span class="kw">head</span>(modA.sqerr)</a></code></pre></div>
 <pre><code>      1       2       3       4       5       6 
   267.7   362.7  3160.8    55.8 15246.8  8275.4 </code></pre>
 <p>To obtain our two key summaries: mean absolute prediction error and mean squared prediction error, I just use the <code>summary</code> function.</p>
-<div class="sourceCode" id="cb1077"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1077-1" title="1"><span class="kw">summary</span>(modA.abserr)</a></code></pre></div>
+<div class="sourceCode" id="cb1081"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1081-1" title="1"><span class="kw">summary</span>(modA.abserr)</a></code></pre></div>
 <pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA&#39;s 
     0.1    10.9    27.2    32.3    48.4   148.2       4 </code></pre>
-<div class="sourceCode" id="cb1079"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1079-1" title="1"><span class="kw">summary</span>(modB.abserr)</a></code></pre></div>
+<div class="sourceCode" id="cb1083"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1083-1" title="1"><span class="kw">summary</span>(modB.abserr)</a></code></pre></div>
 <pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA&#39;s 
     0.0    11.1    27.4    32.5    48.1   147.0       4 </code></pre>
-<div class="sourceCode" id="cb1081"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1081-1" title="1"><span class="kw">summary</span>(modA.sqerr)</a></code></pre></div>
+<div class="sourceCode" id="cb1085"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1085-1" title="1"><span class="kw">summary</span>(modA.sqerr)</a></code></pre></div>
 <pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA&#39;s 
       0     119     740    1740    2340   21963       4 </code></pre>
-<div class="sourceCode" id="cb1083"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1083-1" title="1"><span class="kw">summary</span>(modB.sqerr)</a></code></pre></div>
+<div class="sourceCode" id="cb1087"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1087-1" title="1"><span class="kw">summary</span>(modB.sqerr)</a></code></pre></div>
 <pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA&#39;s 
       0     123     749    1743    2318   21613       4 </code></pre>
 <table>

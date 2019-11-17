@@ -70,7 +70,7 @@ The difference from our calculated interval is attributable to differences in ro
 For most purposes, when using `prop.test`, I'll use `tidy` from the `broom` package to present the results.
 
 ```{r}
-tidy(prop.test(x = 395, n = 462), conf.int = TRUE, conf.level = 0.95)
+prop.test(x = 395, n = 462, conf.level = 0.95) %>% tidy()
 ```
 
 
@@ -87,7 +87,7 @@ The 95% confidence interval by this method is (0.820, 0.886), which is in the sa
 For most purposes, when using `binom.test`, I'll again use `tidy` from the `broom` package to present the results.
 
 ```{r}
-tidy(binom.test(x = 395, n = 462), conf.int = TRUE, conf.level = 0.95)
+binom.test(x = 395, n = 462, conf.level = 0.95) %>% tidy()
 ```
 
 ### SAIFS: single augmentation with an imaginary failure or success
@@ -201,7 +201,7 @@ We are 95% confident that the true population proportion is between 0.686 and 0.
 
 ```{r}
 pt <- prop.test(x = 1229, n = 1737)
-tidy(pt, conf.int = TRUE, conf.int = 0.95) %>%
+tidy(pt, conf.int = 0.95) %>%
   knitr::kable(digits = 3)
 ```
 
@@ -209,7 +209,7 @@ The 95% confidence interval by this method is (0.685, 0.729), which is close, bu
 
 ```{r}
 bt <- binom.test(x = 1229, n = 1737)
-tidy(bt, conf.int = TRUE, conf.int = 0.95) %>%
+tidy(bt, conf.int = 0.95) %>%
   knitr::kable(digits = 3)
 ```
 

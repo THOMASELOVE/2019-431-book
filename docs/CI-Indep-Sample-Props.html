@@ -1043,14 +1043,14 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li>The rows need to be mutually exclusive and collectively exhaustive: each patient must either receive Ibuprofen or Placebo. Similarly, the columns must meet the same standard: every patient’s temperature either drops or does not drop.</li>
 </ul>
 <p>Here’s the contingency table.</p>
-<div class="sourceCode" id="cb608"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb608-1" title="1">sepsis &lt;-<span class="st"> </span>sepsis <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb608-2" title="2"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">dropped =</span> <span class="kw">ifelse</span>(temp_drop <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>, <span class="st">&quot;Drop&quot;</span>, <span class="st">&quot;No Drop&quot;</span>))</a>
-<a class="sourceLine" id="cb608-3" title="3"></a>
-<a class="sourceLine" id="cb608-4" title="4">sepsis <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">tabyl</span>(treat, dropped) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb608-5" title="5"><span class="st">    </span><span class="kw">adorn_totals</span>() <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb608-6" title="6"><span class="st">    </span><span class="kw">adorn_percentages</span>(<span class="dt">denom =</span> <span class="st">&quot;row&quot;</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb608-7" title="7"><span class="st">    </span><span class="kw">adorn_pct_formatting</span>(<span class="dt">digits =</span> <span class="dv">1</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb608-8" title="8"><span class="st">    </span><span class="kw">adorn_ns</span>(<span class="dt">position =</span> <span class="st">&quot;front&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb612"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb612-1" title="1">sepsis &lt;-<span class="st"> </span>sepsis <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb612-2" title="2"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">dropped =</span> <span class="kw">ifelse</span>(temp_drop <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>, <span class="st">&quot;Drop&quot;</span>, <span class="st">&quot;No Drop&quot;</span>))</a>
+<a class="sourceLine" id="cb612-3" title="3"></a>
+<a class="sourceLine" id="cb612-4" title="4">sepsis <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">tabyl</span>(treat, dropped) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb612-5" title="5"><span class="st">    </span><span class="kw">adorn_totals</span>() <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb612-6" title="6"><span class="st">    </span><span class="kw">adorn_percentages</span>(<span class="dt">denom =</span> <span class="st">&quot;row&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb612-7" title="7"><span class="st">    </span><span class="kw">adorn_pct_formatting</span>(<span class="dt">digits =</span> <span class="dv">1</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb612-8" title="8"><span class="st">    </span><span class="kw">adorn_ns</span>(<span class="dt">position =</span> <span class="st">&quot;front&quot;</span>)</a></code></pre></div>
 <pre><code>     treat        Drop     No Drop
  Ibuprofen 107 (71.3%)  43 (28.7%)
    Placebo  80 (53.3%)  70 (46.7%)
@@ -1212,9 +1212,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </table>
 <p>The command just requires you to read off the cells of the table, followed by the labels for the two treatments, then the two outcomes, then a specification of the names of the rows (exposures) and columns (outcomes) from the table, and a specification of the confidence level you desire. We’ll use 90% here.</p>
 <p>The resulting output follows.</p>
-<div class="sourceCode" id="cb610"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb610-1" title="1"><span class="kw">twobytwo</span>(<span class="dv">107</span>, <span class="dv">43</span>, <span class="dv">80</span>, <span class="dv">70</span>, </a>
-<a class="sourceLine" id="cb610-2" title="2">         <span class="st">&quot;Ibuprofen&quot;</span>, <span class="st">&quot;Placebo&quot;</span>, <span class="st">&quot;Dropped&quot;</span>, <span class="st">&quot;No Drop&quot;</span>,</a>
-<a class="sourceLine" id="cb610-3" title="3">         <span class="dt">conf.level =</span> <span class="fl">0.90</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb614"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb614-1" title="1"><span class="kw">twobytwo</span>(<span class="dv">107</span>, <span class="dv">43</span>, <span class="dv">80</span>, <span class="dv">70</span>, </a>
+<a class="sourceLine" id="cb614-2" title="2">         <span class="st">&quot;Ibuprofen&quot;</span>, <span class="st">&quot;Placebo&quot;</span>, <span class="st">&quot;Dropped&quot;</span>, <span class="st">&quot;No Drop&quot;</span>,</a>
+<a class="sourceLine" id="cb614-3" title="3">         <span class="dt">conf.level =</span> <span class="fl">0.90</span>)</a></code></pre></div>
 <pre><code>2 by 2 table analysis: 
 ------------------------------------------------------ 
 Outcome   : Dropped 
@@ -1286,13 +1286,13 @@ Conditional MLE Odds Ratio: 2.1716    1.4177   3.3437
 <p>For example, if n = 10, and p is 1 in a million, then x will almost certainly be zero, and an estimate of 1/12 is much worse than the simple 0/10. However, how big a deal is this? If p might be 1 in a million, you’re not going to estimate it with a n = 10 experiment.</p>
 <p>Applying this method to our Ibuprofen and Sepsis Trial data, we would simply add one to each frequency in the main four cells in our 2x2 table.</p>
 <p>So instead of using</p>
-<div class="sourceCode" id="cb614"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb614-1" title="1"><span class="kw">twobytwo</span>(<span class="dv">107</span>, <span class="dv">43</span>, <span class="dv">80</span>, <span class="dv">70</span>, </a>
-<a class="sourceLine" id="cb614-2" title="2">         <span class="st">&quot;Ibuprofen&quot;</span>, <span class="st">&quot;Placebo&quot;</span>, <span class="st">&quot;Dropped&quot;</span>, <span class="st">&quot;No Drop&quot;</span>,</a>
-<a class="sourceLine" id="cb614-3" title="3">         <span class="dt">conf.level =</span> <span class="fl">0.90</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb618"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb618-1" title="1"><span class="kw">twobytwo</span>(<span class="dv">107</span>, <span class="dv">43</span>, <span class="dv">80</span>, <span class="dv">70</span>, </a>
+<a class="sourceLine" id="cb618-2" title="2">         <span class="st">&quot;Ibuprofen&quot;</span>, <span class="st">&quot;Placebo&quot;</span>, <span class="st">&quot;Dropped&quot;</span>, <span class="st">&quot;No Drop&quot;</span>,</a>
+<a class="sourceLine" id="cb618-3" title="3">         <span class="dt">conf.level =</span> <span class="fl">0.90</span>)</a></code></pre></div>
 <p>the Bayesian augmentation would encourage us to look at</p>
-<div class="sourceCode" id="cb615"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb615-1" title="1"><span class="kw">twobytwo</span>(<span class="dv">108</span>, <span class="dv">44</span>, <span class="dv">81</span>, <span class="dv">71</span>, </a>
-<a class="sourceLine" id="cb615-2" title="2">         <span class="st">&quot;Ibuprofen&quot;</span>, <span class="st">&quot;Placebo&quot;</span>, <span class="st">&quot;Dropped&quot;</span>, <span class="st">&quot;No Drop&quot;</span>,</a>
-<a class="sourceLine" id="cb615-3" title="3">         <span class="dt">conf.level =</span> <span class="fl">0.90</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb619"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb619-1" title="1"><span class="kw">twobytwo</span>(<span class="dv">108</span>, <span class="dv">44</span>, <span class="dv">81</span>, <span class="dv">71</span>, </a>
+<a class="sourceLine" id="cb619-2" title="2">         <span class="st">&quot;Ibuprofen&quot;</span>, <span class="st">&quot;Placebo&quot;</span>, <span class="st">&quot;Dropped&quot;</span>, <span class="st">&quot;No Drop&quot;</span>,</a>
+<a class="sourceLine" id="cb619-3" title="3">         <span class="dt">conf.level =</span> <span class="fl">0.90</span>)</a></code></pre></div>
 <pre><code>2 by 2 table analysis: 
 ------------------------------------------------------ 
 Outcome   : Dropped 
@@ -1382,9 +1382,9 @@ Conditional MLE Odds Ratio: 2.146    1.4061    3.292
 </table>
 <p>We want to compare the fatality risk (probability of being in the deceased column) for the population of people in the hospitalized row to the population of people in the not hospitalized row.</p>
 <p>We can run these data through R, using the Bayesian augmentation (adding a death and a survival to the hospitalized and also to the not hospitalized groups.) We’ll use a 95% confidence level this time.</p>
-<div class="sourceCode" id="cb617"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb617-1" title="1"><span class="kw">twobytwo</span>(<span class="dv">741</span><span class="op">+</span><span class="dv">1</span>, <span class="dv">412</span><span class="op">+</span><span class="dv">1</span>, <span class="dv">488</span><span class="op">+</span><span class="dv">1</span>, <span class="dv">96</span><span class="op">+</span><span class="dv">1</span>, </a>
-<a class="sourceLine" id="cb617-2" title="2">         <span class="st">&quot;Hospitalized&quot;</span>, <span class="st">&quot;Not Hospitalized&quot;</span>, <span class="st">&quot;Deceased&quot;</span>, <span class="st">&quot;Alive&quot;</span>,</a>
-<a class="sourceLine" id="cb617-3" title="3">         <span class="dt">conf.level =</span> <span class="fl">0.95</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb621"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb621-1" title="1"><span class="kw">twobytwo</span>(<span class="dv">741</span><span class="op">+</span><span class="dv">1</span>, <span class="dv">412</span><span class="op">+</span><span class="dv">1</span>, <span class="dv">488</span><span class="op">+</span><span class="dv">1</span>, <span class="dv">96</span><span class="op">+</span><span class="dv">1</span>, </a>
+<a class="sourceLine" id="cb621-2" title="2">         <span class="st">&quot;Hospitalized&quot;</span>, <span class="st">&quot;Not Hospitalized&quot;</span>, <span class="st">&quot;Deceased&quot;</span>, <span class="st">&quot;Alive&quot;</span>,</a>
+<a class="sourceLine" id="cb621-3" title="3">         <span class="dt">conf.level =</span> <span class="fl">0.95</span>)</a></code></pre></div>
 <pre><code>2 by 2 table analysis: 
 ------------------------------------------------------ 
 Outcome   : Deceased 

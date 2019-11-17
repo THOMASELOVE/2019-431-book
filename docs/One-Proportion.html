@@ -1036,11 +1036,11 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="a-first-example-serum-zinc-in-the-normal-range" class="section level2">
 <h2><span class="header-section-number">18.1</span> A First Example: Serum Zinc in the “Normal” Range?</h2>
 <p>Recall that in the serum zinc study, we have 462 teenage male subjects, of whom 395 (or 85.5%) fell in the “normal range” of 66 to 110 micrograms per deciliter.</p>
-<div class="sourceCode" id="cb529"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb529-1" title="1">serzinc &lt;-<span class="st"> </span>serzinc <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb529-2" title="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">in_range =</span> <span class="kw">ifelse</span>(zinc <span class="op">&gt;=</span><span class="st"> </span><span class="dv">66</span> <span class="op">&amp;</span><span class="st"> </span>zinc <span class="op">&lt;=</span><span class="st"> </span><span class="dv">110</span>, <span class="dv">1</span>, <span class="dv">0</span>))</a>
-<a class="sourceLine" id="cb529-3" title="3"></a>
-<a class="sourceLine" id="cb529-4" title="4">serzinc <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">tabyl</span>(in_range) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb529-5" title="5"><span class="st">  </span><span class="kw">adorn_totals</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">adorn_pct_formatting</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb533"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb533-1" title="1">serzinc &lt;-<span class="st"> </span>serzinc <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb533-2" title="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">in_range =</span> <span class="kw">ifelse</span>(zinc <span class="op">&gt;=</span><span class="st"> </span><span class="dv">66</span> <span class="op">&amp;</span><span class="st"> </span>zinc <span class="op">&lt;=</span><span class="st"> </span><span class="dv">110</span>, <span class="dv">1</span>, <span class="dv">0</span>))</a>
+<a class="sourceLine" id="cb533-3" title="3"></a>
+<a class="sourceLine" id="cb533-4" title="4">serzinc <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">tabyl</span>(in_range) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb533-5" title="5"><span class="st">  </span><span class="kw">adorn_totals</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">adorn_pct_formatting</span>()</a></code></pre></div>
 <pre><code> in_range   n percent
         0  67   14.5%
         1 395   85.5%
@@ -1065,7 +1065,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li><p>For the serum zinc data, we have np = (462)(0.855) = 395 and n(1-p) = 462(1 - 0.855) = 67, so this should be ok.</p></li>
 <li><p>For <span class="math inline">\(\alpha\)</span> = 0.05, we have <span class="math inline">\(Z_{\alpha/2}\)</span> = 1.96, approximately.</p></li>
 </ul>
-<div class="sourceCode" id="cb531"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb531-1" title="1"><span class="kw">qnorm</span>(<span class="fl">0.025</span>, <span class="dt">lower.tail =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb535"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb535-1" title="1"><span class="kw">qnorm</span>(<span class="fl">0.025</span>, <span class="dt">lower.tail =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
 <pre><code>[1] 1.96</code></pre>
 <ul>
 <li>Thus, for the serum zinc estimate, this confidence interval would be:</li>
@@ -1081,7 +1081,7 @@ p \pm Z_{\alpha/2} \sqrt{\frac{p(1-p)}{n}} =
 <h3><span class="header-section-number">18.1.2</span> The <code>prop.test</code> approach (Wald test)</h3>
 <p>The <code>prop.test</code> function can be used to establish a very similar confidence interval to the one we calculated above, based on something called the Wald test.</p>
 <p>Here, we specify the <code>x</code> and <code>n</code> values. <code>n</code> is the total number of observations, and <code>x</code> is the number where the event of interest (in this case, serum zinc levels in the normal range) occurs. So <code>x</code> = 395 and <code>n</code> = 462.</p>
-<div class="sourceCode" id="cb533"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb533-1" title="1"><span class="kw">prop.test</span>(<span class="dt">x =</span> <span class="dv">395</span>, <span class="dt">n =</span> <span class="dv">462</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb537"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb537-1" title="1"><span class="kw">prop.test</span>(<span class="dt">x =</span> <span class="dv">395</span>, <span class="dt">n =</span> <span class="dv">462</span>)</a></code></pre></div>
 <pre><code>
     1-sample proportions test with continuity correction
 
@@ -1096,7 +1096,7 @@ sample estimates:
 <p>The 95% confidence interval by this method is (0.819, 0.885), which is close, but not quite the same, to our original estimate of (0.823, 0.887).</p>
 <p>The difference from our calculated interval is attributable to differences in rounding, plus the addition of something called a <em>continuity correction</em>, since we are using a Normal approximation to the exact binomial distribution to establish our margin for error. R, by default, includes this continuity correction for the Wald test in <code>prop.test</code> but we didn’t include it in our original calculation.</p>
 <p>For most purposes, when using <code>prop.test</code>, I’ll use <code>tidy</code> from the <code>broom</code> package to present the results.</p>
-<div class="sourceCode" id="cb535"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb535-1" title="1"><span class="kw">tidy</span>(<span class="kw">prop.test</span>(<span class="dt">x =</span> <span class="dv">395</span>, <span class="dt">n =</span> <span class="dv">462</span>), <span class="dt">conf.int =</span> <span class="ot">TRUE</span>, <span class="dt">conf.level =</span> <span class="fl">0.95</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb539"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb539-1" title="1"><span class="kw">prop.test</span>(<span class="dt">x =</span> <span class="dv">395</span>, <span class="dt">n =</span> <span class="dv">462</span>, <span class="dt">conf.level =</span> <span class="fl">0.95</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">tidy</span>()</a></code></pre></div>
 <pre><code># A tibble: 1 x 8
   estimate statistic  p.value parameter conf.low conf.high method
      &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;     &lt;int&gt;    &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt; 
@@ -1106,7 +1106,7 @@ sample estimates:
 <div id="the-binom.test-approach-clopper-and-pearson-exact-test" class="section level3">
 <h3><span class="header-section-number">18.1.3</span> The <code>binom.test</code> approach (Clopper and Pearson “exact” test)</h3>
 <p>The <code>binom.test</code> command can be used to establish an “exact” confidence interval. This uses the method of Clopper and Pearson from 1934, and is exact in the sense that it guarantees, for instance, that the confidence level associated with the interval is at least as large as the nominal level of 95%, but not that the interval isn’t wider than perhaps it needs to be.</p>
-<div class="sourceCode" id="cb537"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb537-1" title="1"><span class="kw">binom.test</span>(<span class="dt">x =</span> <span class="dv">395</span>, <span class="dt">n =</span> <span class="dv">462</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb541"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb541-1" title="1"><span class="kw">binom.test</span>(<span class="dt">x =</span> <span class="dv">395</span>, <span class="dt">n =</span> <span class="dv">462</span>)</a></code></pre></div>
 <pre><code>
     Exact binomial test
 
@@ -1120,7 +1120,7 @@ probability of success
                  0.855 </code></pre>
 <p>The 95% confidence interval by this method is (0.820, 0.886), which is in the same general range as our previous estimates.</p>
 <p>For most purposes, when using <code>binom.test</code>, I’ll again use <code>tidy</code> from the <code>broom</code> package to present the results.</p>
-<div class="sourceCode" id="cb539"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb539-1" title="1"><span class="kw">tidy</span>(<span class="kw">binom.test</span>(<span class="dt">x =</span> <span class="dv">395</span>, <span class="dt">n =</span> <span class="dv">462</span>), <span class="dt">conf.int =</span> <span class="ot">TRUE</span>, <span class="dt">conf.level =</span> <span class="fl">0.95</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb543"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb543-1" title="1"><span class="kw">binom.test</span>(<span class="dt">x =</span> <span class="dv">395</span>, <span class="dt">n =</span> <span class="dv">462</span>, <span class="dt">conf.level =</span> <span class="fl">0.95</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">tidy</span>()</a></code></pre></div>
 <pre><code># A tibble: 1 x 8
   estimate statistic  p.value parameter conf.low conf.high method
      &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt; 
@@ -1140,7 +1140,7 @@ probability of success
 <p>Returning to the serum zinc example, we’ve got 395 “successes” (value in the normal range) out of 462 “trials” (values measured), so that X = 395 and n = 462</p>
 <p>So we have <span class="math inline">\(p_1 = \frac{X + 0}{n + 1} = \frac{395}{463} = 0.8531\)</span>, <span class="math inline">\(p_2 = \frac{X + 1}{n + 1} = \frac{396}{463} = 0.8553\)</span>, and <span class="math inline">\(q_1 = 1 - p_1 = 0.1469\)</span> and <span class="math inline">\(q_2 = 1 - p_2 = 0.1447\)</span></p>
 <p>We have <span class="math inline">\(n = 462\)</span> so if we want a 95% confidence interval (<span class="math inline">\(\alpha = 0.05\)</span>), then we have <span class="math inline">\(t_{\alpha/2, n-1} = t_{0.025, 461} = 1.9651\)</span>, which I determined using R’s <code>qt</code> function:</p>
-<div class="sourceCode" id="cb541"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb541-1" title="1"><span class="kw">qt</span>(<span class="fl">0.025</span>, <span class="dt">df =</span> <span class="dv">461</span>, <span class="dt">lower.tail=</span><span class="ot">FALSE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb545"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb545-1" title="1"><span class="kw">qt</span>(<span class="fl">0.025</span>, <span class="dt">df =</span> <span class="dv">461</span>, <span class="dt">lower.tail=</span><span class="ot">FALSE</span>)</a></code></pre></div>
 <pre><code>[1] 1.97</code></pre>
 <ul>
 <li>Thus, our lower bound for a 95% confidence interval is <span class="math inline">\(p_1 - t_{\alpha/2, n-1}\sqrt{\frac{p_1 q_1}{n}}\)</span>, or <span class="math inline">\(0.8531 - 1.9651 \sqrt{\frac{0.8531(0.1469)}{462}}\)</span>, which is 0.8531 - 0.0324 or 0.8207.</li>
@@ -1152,13 +1152,13 @@ probability of success
 <h3><span class="header-section-number">18.1.5</span> A Function in R to Calculate the SAIFS Confidence Interval</h3>
 <p>I built an R function, called <code>saifs.ci</code> and contained in the Markdown for this document as well as the <code>R functions by T Love.R</code> script on the web site, which takes as its arguments a value for X = the number of successes, n = the number of trials, and conf.level = the confidence level, and produces the sample proportion, the SAIFS lower bound and upper bound for the specified two-sided confidence interval for the population proportion, using the equations above.</p>
 <p>Here, for instance, are 95%, 90% and 99% confidence intervals for the population proportion <span class="math inline">\(\pi\)</span> that we have been studying in the example about Ebola Virus disease.</p>
-<div class="sourceCode" id="cb543"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb543-1" title="1"><span class="kw">saifs.ci</span>(<span class="dt">x =</span> <span class="dv">395</span>, <span class="dt">n =</span> <span class="dv">462</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb547"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb547-1" title="1"><span class="kw">saifs.ci</span>(<span class="dt">x =</span> <span class="dv">395</span>, <span class="dt">n =</span> <span class="dv">462</span>)</a></code></pre></div>
 <pre><code>Sample Proportion             0.025             0.975 
             0.855             0.821             0.887 </code></pre>
-<div class="sourceCode" id="cb545"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb545-1" title="1"><span class="kw">saifs.ci</span>(<span class="dt">x =</span> <span class="dv">395</span>, <span class="dt">n =</span> <span class="dv">462</span>, <span class="dt">conf=</span><span class="fl">0.9</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb549"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb549-1" title="1"><span class="kw">saifs.ci</span>(<span class="dt">x =</span> <span class="dv">395</span>, <span class="dt">n =</span> <span class="dv">462</span>, <span class="dt">conf=</span><span class="fl">0.9</span>)</a></code></pre></div>
 <pre><code>Sample Proportion              0.05              0.95 
             0.855             0.826             0.882 </code></pre>
-<div class="sourceCode" id="cb547"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb547-1" title="1"><span class="kw">saifs.ci</span>(<span class="dt">x =</span> <span class="dv">395</span>, <span class="dt">n =</span> <span class="dv">462</span>, <span class="dt">conf=</span><span class="fl">0.99</span>, <span class="dt">dig=</span><span class="dv">5</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb551"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb551-1" title="1"><span class="kw">saifs.ci</span>(<span class="dt">x =</span> <span class="dv">395</span>, <span class="dt">n =</span> <span class="dv">462</span>, <span class="dt">conf=</span><span class="fl">0.99</span>, <span class="dt">dig=</span><span class="dv">5</span>)</a></code></pre></div>
 <pre><code>Sample Proportion             0.005             0.995 
             0.855             0.811             0.898 </code></pre>
 <p>Note that in the final interval, I asked the machine to round to five digits rather than the default of three. On my desktop (and probably yours), doing so results in this output:</p>
@@ -1168,28 +1168,28 @@ probability of success
 </div>
 <div id="the-saifs.ci-function-in-r" class="section level3">
 <h3><span class="header-section-number">18.1.6</span> The <code>saifs.ci</code> function in R</h3>
-<div class="sourceCode" id="cb550"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb550-1" title="1"><span class="st">`</span><span class="dt">saifs.ci</span><span class="st">`</span> &lt;-<span class="st"> </span></a>
-<a class="sourceLine" id="cb550-2" title="2"><span class="st">  </span><span class="cf">function</span>(x, n, <span class="dt">conf.level=</span><span class="fl">0.95</span>, <span class="dt">dig=</span><span class="dv">3</span>)</a>
-<a class="sourceLine" id="cb550-3" title="3">  {</a>
-<a class="sourceLine" id="cb550-4" title="4">    p.sample &lt;-<span class="st"> </span><span class="kw">round</span>(x<span class="op">/</span>n, <span class="dt">digits=</span>dig)</a>
-<a class="sourceLine" id="cb550-5" title="5">    </a>
-<a class="sourceLine" id="cb550-6" title="6">    p1 &lt;-<span class="st"> </span>x <span class="op">/</span><span class="st"> </span>(n<span class="op">+</span><span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb550-7" title="7">    p2 &lt;-<span class="st"> </span>(x<span class="op">+</span><span class="dv">1</span>) <span class="op">/</span><span class="st"> </span>(n<span class="op">+</span><span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb550-8" title="8">    </a>
-<a class="sourceLine" id="cb550-9" title="9">    var1 &lt;-<span class="st"> </span>(p1<span class="op">*</span>(<span class="dv">1</span><span class="op">-</span>p1))<span class="op">/</span>n</a>
-<a class="sourceLine" id="cb550-10" title="10">    se1 &lt;-<span class="st"> </span><span class="kw">sqrt</span>(var1)</a>
-<a class="sourceLine" id="cb550-11" title="11">    var2 &lt;-<span class="st"> </span>(p2<span class="op">*</span>(<span class="dv">1</span><span class="op">-</span>p2))<span class="op">/</span>n</a>
-<a class="sourceLine" id="cb550-12" title="12">    se2 &lt;-<span class="st"> </span><span class="kw">sqrt</span>(var2)</a>
-<a class="sourceLine" id="cb550-13" title="13">    </a>
-<a class="sourceLine" id="cb550-14" title="14">    lowq =<span class="st"> </span>(<span class="dv">1</span> <span class="op">-</span><span class="st"> </span>conf.level)<span class="op">/</span><span class="dv">2</span></a>
-<a class="sourceLine" id="cb550-15" title="15">    tcut &lt;-<span class="st"> </span><span class="kw">qt</span>(lowq, <span class="dt">df=</span>n<span class="dv">-1</span>, <span class="dt">lower.tail=</span><span class="ot">FALSE</span>)</a>
-<a class="sourceLine" id="cb550-16" title="16">    </a>
-<a class="sourceLine" id="cb550-17" title="17">    lower.bound &lt;-<span class="st"> </span><span class="kw">round</span>(p1 <span class="op">-</span><span class="st"> </span>tcut<span class="op">*</span>se1, <span class="dt">digits=</span>dig)</a>
-<a class="sourceLine" id="cb550-18" title="18">    upper.bound &lt;-<span class="st"> </span><span class="kw">round</span>(p2 <span class="op">+</span><span class="st"> </span>tcut<span class="op">*</span>se2, <span class="dt">digits=</span>dig)</a>
-<a class="sourceLine" id="cb550-19" title="19">    res &lt;-<span class="st"> </span><span class="kw">c</span>(p.sample, lower.bound, upper.bound)</a>
-<a class="sourceLine" id="cb550-20" title="20">    <span class="kw">names</span>(res) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;Sample Proportion&#39;</span>,lowq, <span class="dv">1</span><span class="op">-</span>lowq)</a>
-<a class="sourceLine" id="cb550-21" title="21">    res</a>
-<a class="sourceLine" id="cb550-22" title="22">  }</a></code></pre></div>
+<div class="sourceCode" id="cb554"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb554-1" title="1"><span class="st">`</span><span class="dt">saifs.ci</span><span class="st">`</span> &lt;-<span class="st"> </span></a>
+<a class="sourceLine" id="cb554-2" title="2"><span class="st">  </span><span class="cf">function</span>(x, n, <span class="dt">conf.level=</span><span class="fl">0.95</span>, <span class="dt">dig=</span><span class="dv">3</span>)</a>
+<a class="sourceLine" id="cb554-3" title="3">  {</a>
+<a class="sourceLine" id="cb554-4" title="4">    p.sample &lt;-<span class="st"> </span><span class="kw">round</span>(x<span class="op">/</span>n, <span class="dt">digits=</span>dig)</a>
+<a class="sourceLine" id="cb554-5" title="5">    </a>
+<a class="sourceLine" id="cb554-6" title="6">    p1 &lt;-<span class="st"> </span>x <span class="op">/</span><span class="st"> </span>(n<span class="op">+</span><span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb554-7" title="7">    p2 &lt;-<span class="st"> </span>(x<span class="op">+</span><span class="dv">1</span>) <span class="op">/</span><span class="st"> </span>(n<span class="op">+</span><span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb554-8" title="8">    </a>
+<a class="sourceLine" id="cb554-9" title="9">    var1 &lt;-<span class="st"> </span>(p1<span class="op">*</span>(<span class="dv">1</span><span class="op">-</span>p1))<span class="op">/</span>n</a>
+<a class="sourceLine" id="cb554-10" title="10">    se1 &lt;-<span class="st"> </span><span class="kw">sqrt</span>(var1)</a>
+<a class="sourceLine" id="cb554-11" title="11">    var2 &lt;-<span class="st"> </span>(p2<span class="op">*</span>(<span class="dv">1</span><span class="op">-</span>p2))<span class="op">/</span>n</a>
+<a class="sourceLine" id="cb554-12" title="12">    se2 &lt;-<span class="st"> </span><span class="kw">sqrt</span>(var2)</a>
+<a class="sourceLine" id="cb554-13" title="13">    </a>
+<a class="sourceLine" id="cb554-14" title="14">    lowq =<span class="st"> </span>(<span class="dv">1</span> <span class="op">-</span><span class="st"> </span>conf.level)<span class="op">/</span><span class="dv">2</span></a>
+<a class="sourceLine" id="cb554-15" title="15">    tcut &lt;-<span class="st"> </span><span class="kw">qt</span>(lowq, <span class="dt">df=</span>n<span class="dv">-1</span>, <span class="dt">lower.tail=</span><span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb554-16" title="16">    </a>
+<a class="sourceLine" id="cb554-17" title="17">    lower.bound &lt;-<span class="st"> </span><span class="kw">round</span>(p1 <span class="op">-</span><span class="st"> </span>tcut<span class="op">*</span>se1, <span class="dt">digits=</span>dig)</a>
+<a class="sourceLine" id="cb554-18" title="18">    upper.bound &lt;-<span class="st"> </span><span class="kw">round</span>(p2 <span class="op">+</span><span class="st"> </span>tcut<span class="op">*</span>se2, <span class="dt">digits=</span>dig)</a>
+<a class="sourceLine" id="cb554-19" title="19">    res &lt;-<span class="st"> </span><span class="kw">c</span>(p.sample, lower.bound, upper.bound)</a>
+<a class="sourceLine" id="cb554-20" title="20">    <span class="kw">names</span>(res) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;Sample Proportion&#39;</span>,lowq, <span class="dv">1</span><span class="op">-</span>lowq)</a>
+<a class="sourceLine" id="cb554-21" title="21">    res</a>
+<a class="sourceLine" id="cb554-22" title="22">  }</a></code></pre></div>
 </div>
 </div>
 <div id="a-second-example-ebola-mortality-rates-through-9-months-of-the-epidemic" class="section level2">
@@ -1204,16 +1204,16 @@ probability of success
 <p>And our 95% confidence interval (so that we’ll use <span class="math inline">\(\alpha\)</span> = 0.05) for the true population proportion, <span class="math inline">\(\pi\)</span>, of EVD cases with definitive outcomes, who will die is
 <span class="math inline">\(p \pm Z_{.025} \sqrt{\frac{p(1-p)}{n}}\)</span>, or 0.708 <span class="math inline">\(\pm\)</span> 1.96(0.011) = <span class="math inline">\(0.708 \pm 0.022\)</span>, or (0.686, 0.730)</p>
 <p>Note that I simply recalled from our prior work that <span class="math inline">\(Z_{0.025} = 1.96\)</span>, but we can verify this:</p>
-<div class="sourceCode" id="cb551"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb551-1" title="1"><span class="kw">qnorm</span>(<span class="fl">0.025</span>, <span class="dt">lower.tail=</span><span class="ot">FALSE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb555"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb555-1" title="1"><span class="kw">qnorm</span>(<span class="fl">0.025</span>, <span class="dt">lower.tail=</span><span class="ot">FALSE</span>)</a></code></pre></div>
 <pre><code>[1] 1.96</code></pre>
 <p>Since both np=(1737)(0.708)=1230 and n(1-p)=(1737)(1-0.708)=507 are substantially greater than 5, this should be a reasonably accurate confidence interval.</p>
 <p>We are 95% confident that the true population proportion is between 0.686 and 0.730. Equivalently, we could say that we’re 95% confident that the true case fatality rate expressed as a percentage rather than a proportion, is between 68.6% and 73.0%.</p>
 </div>
 <div id="using-r-to-estimate-the-ci-for-our-ebola-example" class="section level3">
 <h3><span class="header-section-number">18.2.2</span> Using R to estimate the CI for our Ebola example</h3>
-<div class="sourceCode" id="cb553"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb553-1" title="1">pt &lt;-<span class="st"> </span><span class="kw">prop.test</span>(<span class="dt">x =</span> <span class="dv">1229</span>, <span class="dt">n =</span> <span class="dv">1737</span>)</a>
-<a class="sourceLine" id="cb553-2" title="2"><span class="kw">tidy</span>(pt, <span class="dt">conf.int =</span> <span class="ot">TRUE</span>, <span class="dt">conf.int =</span> <span class="fl">0.95</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb553-3" title="3"><span class="st">  </span>knitr<span class="op">::</span><span class="kw">kable</span>(<span class="dt">digits =</span> <span class="dv">3</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb557"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb557-1" title="1">pt &lt;-<span class="st"> </span><span class="kw">prop.test</span>(<span class="dt">x =</span> <span class="dv">1229</span>, <span class="dt">n =</span> <span class="dv">1737</span>)</a>
+<a class="sourceLine" id="cb557-2" title="2"><span class="kw">tidy</span>(pt, <span class="dt">conf.int =</span> <span class="fl">0.95</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb557-3" title="3"><span class="st">  </span>knitr<span class="op">::</span><span class="kw">kable</span>(<span class="dt">digits =</span> <span class="dv">3</span>)</a></code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -1241,9 +1241,9 @@ probability of success
 </tbody>
 </table>
 <p>The 95% confidence interval by this method is (0.685, 0.729), which is close, but not quite the same, to our original estimate of (0.686, 0.730.)</p>
-<div class="sourceCode" id="cb554"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb554-1" title="1">bt &lt;-<span class="st"> </span><span class="kw">binom.test</span>(<span class="dt">x =</span> <span class="dv">1229</span>, <span class="dt">n =</span> <span class="dv">1737</span>)</a>
-<a class="sourceLine" id="cb554-2" title="2"><span class="kw">tidy</span>(bt, <span class="dt">conf.int =</span> <span class="ot">TRUE</span>, <span class="dt">conf.int =</span> <span class="fl">0.95</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb554-3" title="3"><span class="st">  </span>knitr<span class="op">::</span><span class="kw">kable</span>(<span class="dt">digits =</span> <span class="dv">3</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb558"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb558-1" title="1">bt &lt;-<span class="st"> </span><span class="kw">binom.test</span>(<span class="dt">x =</span> <span class="dv">1229</span>, <span class="dt">n =</span> <span class="dv">1737</span>)</a>
+<a class="sourceLine" id="cb558-2" title="2"><span class="kw">tidy</span>(bt, <span class="dt">conf.int =</span> <span class="fl">0.95</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb558-3" title="3"><span class="st">  </span>knitr<span class="op">::</span><span class="kw">kable</span>(<span class="dt">digits =</span> <span class="dv">3</span>)</a></code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -1270,7 +1270,7 @@ probability of success
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb555"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb555-1" title="1"><span class="kw">saifs.ci</span>(<span class="dt">x =</span> <span class="dv">1229</span>, <span class="dt">n =</span> <span class="dv">1737</span>, <span class="dt">conf.level=</span><span class="fl">0.95</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb559"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb559-1" title="1"><span class="kw">saifs.ci</span>(<span class="dt">x =</span> <span class="dv">1229</span>, <span class="dt">n =</span> <span class="dv">1737</span>, <span class="dt">conf.level=</span><span class="fl">0.95</span>)</a></code></pre></div>
 <pre><code>Sample Proportion             0.025             0.975 
             0.708             0.686             0.729 </code></pre>
 </div>

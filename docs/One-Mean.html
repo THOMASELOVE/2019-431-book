@@ -1114,7 +1114,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="building-the-ci-by-hand-for-the-serum-zinc-data" class="section level3">
 <h3><span class="header-section-number">17.5.3</span> Building the CI “by hand” for the Serum Zinc data</h3>
 <p>In the serum zinc data, we observe the following results in our sample.</p>
-<div class="sourceCode" id="cb469"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb469-1" title="1">mosaic<span class="op">::</span><span class="kw">favstats</span>(serzinc<span class="op">$</span>zinc)</a></code></pre></div>
+<div class="sourceCode" id="cb473"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb473-1" title="1">mosaic<span class="op">::</span><span class="kw">favstats</span>(serzinc<span class="op">$</span>zinc)</a></code></pre></div>
 <pre><code> min Q1 median Q3 max mean sd   n missing
   50 76     86 98 153 87.9 16 462       0</code></pre>
 <p>Suppose we wish to build a 90% confidence interval for the true mean serum zinc level across the entire population of teenage males. The confidence level will be 90%, or 0.90, and so the <span class="math inline">\(\alpha\)</span> value, which is 1 - confidence = 0.10.</p>
@@ -1145,9 +1145,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="getting-r-to-build-a-ci-for-the-serum-zinc-data" class="section level3">
 <h3><span class="header-section-number">17.5.4</span> Getting R to build a CI for the Serum Zinc data</h3>
 <p>Happily, R does all of this work, and with less inappropriate rounding, in the context of fitting an intercept-only linear regression model. An intercept-only model is fitted by putting the number 1 on the right hand side of our linear model. The resulting model simply fits the overall mean of the data as a prediction for all subjects.</p>
-<div class="sourceCode" id="cb471"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb471-1" title="1">model_zinc &lt;-<span class="st"> </span><span class="kw">lm</span>(zinc <span class="op">~</span><span class="st"> </span><span class="dv">1</span>, <span class="dt">data =</span> serzinc)</a>
-<a class="sourceLine" id="cb471-2" title="2"></a>
-<a class="sourceLine" id="cb471-3" title="3"><span class="kw">summary</span>(model_zinc)</a></code></pre></div>
+<div class="sourceCode" id="cb475"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb475-1" title="1">model_zinc &lt;-<span class="st"> </span><span class="kw">lm</span>(zinc <span class="op">~</span><span class="st"> </span><span class="dv">1</span>, <span class="dt">data =</span> serzinc)</a>
+<a class="sourceLine" id="cb475-2" title="2"></a>
+<a class="sourceLine" id="cb475-3" title="3"><span class="kw">summary</span>(model_zinc)</a></code></pre></div>
 <pre><code>
 Call:
 lm(formula = zinc ~ 1, data = serzinc)
@@ -1163,20 +1163,20 @@ Coefficients:
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 
 Residual standard error: 16 on 461 degrees of freedom</code></pre>
-<div class="sourceCode" id="cb473"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb473-1" title="1"><span class="kw">confint</span>(model_zinc, <span class="dt">level =</span> <span class="fl">0.90</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb477"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb477-1" title="1"><span class="kw">confint</span>(model_zinc, <span class="dt">level =</span> <span class="fl">0.90</span>)</a></code></pre></div>
 <pre><code>             5 % 95 %
 (Intercept) 86.7 89.2</code></pre>
 <p>Generally, though, I’ll use the <code>tidy()</code> function in <code>broom</code> to obtain the key information from a model like this:</p>
-<div class="sourceCode" id="cb475"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb475-1" title="1"><span class="co"># requires library(broom)</span></a>
-<a class="sourceLine" id="cb475-2" title="2"><span class="kw">tidy</span>(model_zinc, <span class="dt">conf.int =</span> <span class="ot">TRUE</span>, <span class="dt">conf =</span> <span class="fl">0.90</span>) </a></code></pre></div>
+<div class="sourceCode" id="cb479"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb479-1" title="1"><span class="co"># requires library(broom)</span></a>
+<a class="sourceLine" id="cb479-2" title="2"><span class="kw">tidy</span>(model_zinc, <span class="dt">conf.int =</span> <span class="ot">TRUE</span>, <span class="dt">conf =</span> <span class="fl">0.90</span>) </a></code></pre></div>
 <pre><code># A tibble: 1 x 7
   term        estimate std.error statistic p.value conf.low conf.high
   &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
 1 (Intercept)     87.9     0.745      118.       0     86.7      89.2</code></pre>
 <p>As an alternative, we could also use the <code>t.test</code> function, which can build (in this case) a two-sided confidence interval for the zinc levels like this:</p>
-<div class="sourceCode" id="cb477"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb477-1" title="1">tt &lt;-<span class="st"> </span><span class="kw">t.test</span>(serzinc<span class="op">$</span>zinc, <span class="dt">conf.level =</span> <span class="fl">0.90</span>, <span class="dt">alternative =</span> <span class="st">&quot;two.sided&quot;</span>)</a>
-<a class="sourceLine" id="cb477-2" title="2"></a>
-<a class="sourceLine" id="cb477-3" title="3">tt</a></code></pre></div>
+<div class="sourceCode" id="cb481"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb481-1" title="1">tt &lt;-<span class="st"> </span><span class="kw">t.test</span>(serzinc<span class="op">$</span>zinc, <span class="dt">conf.level =</span> <span class="fl">0.90</span>, <span class="dt">alternative =</span> <span class="st">&quot;two.sided&quot;</span>)</a>
+<a class="sourceLine" id="cb481-2" title="2"></a>
+<a class="sourceLine" id="cb481-3" title="3">tt</a></code></pre></div>
 <pre><code>
     One Sample t-test
 
@@ -1189,9 +1189,9 @@ sample estimates:
 mean of x 
      87.9 </code></pre>
 <p>and the <code>tidy()</code> function from the <code>broom</code> package works here, too.</p>
-<div class="sourceCode" id="cb479"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb479-1" title="1"><span class="co"># requires library(broom)</span></a>
-<a class="sourceLine" id="cb479-2" title="2"><span class="kw">tidy</span>(tt, <span class="dt">conf.int =</span> <span class="ot">TRUE</span>, <span class="dt">conf =</span> <span class="fl">0.90</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb479-3" title="3"><span class="st">  </span>knitr<span class="op">::</span><span class="kw">kable</span>(<span class="dt">digits =</span> <span class="dv">2</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb483"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb483-1" title="1"><span class="co"># requires library(broom)</span></a>
+<a class="sourceLine" id="cb483-2" title="2"><span class="kw">tidy</span>(tt, <span class="dt">conf.int =</span> <span class="ot">TRUE</span>, <span class="dt">conf =</span> <span class="fl">0.90</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb483-3" title="3"><span class="st">  </span>knitr<span class="op">::</span><span class="kw">kable</span>(<span class="dt">digits =</span> <span class="dv">2</span>)</a></code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -1232,12 +1232,12 @@ mean of x
 <div id="what-if-we-want-a-95-or-99-confidence-interval-instead" class="section level3">
 <h3><span class="header-section-number">17.5.6</span> What if we want a 95% or 99% confidence interval instead?</h3>
 <p>We can obtain them using <code>tidy</code> and the same modeling approach.</p>
-<div class="sourceCode" id="cb480"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb480-1" title="1"><span class="kw">tidy</span>(model_zinc, <span class="dt">conf.int =</span> <span class="ot">TRUE</span>, <span class="dt">conf.level =</span> <span class="fl">0.95</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb484"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb484-1" title="1"><span class="kw">tidy</span>(model_zinc, <span class="dt">conf.int =</span> <span class="ot">TRUE</span>, <span class="dt">conf.level =</span> <span class="fl">0.95</span>)</a></code></pre></div>
 <pre><code># A tibble: 1 x 7
   term        estimate std.error statistic p.value conf.low conf.high
   &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
 1 (Intercept)     87.9     0.745      118.       0     86.5      89.4</code></pre>
-<div class="sourceCode" id="cb482"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb482-1" title="1"><span class="kw">tidy</span>(model_zinc, <span class="dt">conf.int =</span> <span class="ot">TRUE</span>, <span class="dt">conf.level =</span> <span class="fl">0.99</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb486"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb486-1" title="1"><span class="kw">tidy</span>(model_zinc, <span class="dt">conf.int =</span> <span class="ot">TRUE</span>, <span class="dt">conf.level =</span> <span class="fl">0.99</span>)</a></code></pre></div>
 <pre><code># A tibble: 1 x 7
   term        estimate std.error statistic p.value conf.low conf.high
   &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
@@ -1247,23 +1247,23 @@ mean of x
 <h3><span class="header-section-number">17.5.7</span> Using the <code>broom</code> package with the t test</h3>
 <p>The <code>broom</code> package takes the messy output of built-in functions in R, such as <code>lm</code>, <code>t.test</code> or <code>wilcox.test</code>, and turns them into tidy data frames. A detailed description of the package and three of its key functions is found at <a href="https://github.com/tidyverse/broom" class="uri">https://github.com/tidyverse/broom</a>.</p>
 <p>For example, we can use the <code>tidy</code> function within <code>broom</code> to create a single-row tibble of the key results from a t test.</p>
-<div class="sourceCode" id="cb484"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb484-1" title="1">tt &lt;-<span class="st"> </span><span class="kw">t.test</span>(serzinc<span class="op">$</span>zinc, <span class="dt">conf.level =</span> <span class="fl">0.95</span>, <span class="dt">alternative =</span> <span class="st">&quot;two.sided&quot;</span>)</a>
-<a class="sourceLine" id="cb484-2" title="2"><span class="kw">tidy</span>(tt)</a></code></pre></div>
+<div class="sourceCode" id="cb488"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb488-1" title="1">tt &lt;-<span class="st"> </span><span class="kw">t.test</span>(serzinc<span class="op">$</span>zinc, <span class="dt">conf.level =</span> <span class="fl">0.95</span>, <span class="dt">alternative =</span> <span class="st">&quot;two.sided&quot;</span>)</a>
+<a class="sourceLine" id="cb488-2" title="2"><span class="kw">tidy</span>(tt)</a></code></pre></div>
 <pre><code># A tibble: 1 x 8
   estimate statistic p.value parameter conf.low conf.high method
      &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt; 
 1     87.9      118.       0       461     86.5      89.4 One S~
 # ... with 1 more variable: alternative &lt;chr&gt;</code></pre>
 <p>We can thus pull the endpoints of a 99% confidence interval directly from this output. <code>broom</code> also has a <code>glance</code> function, which returns the same information as <code>tidy</code> in the case of a t-test.</p>
-<div class="sourceCode" id="cb486"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb486-1" title="1">tt2 &lt;-<span class="st"> </span><span class="kw">t.test</span>(serzinc<span class="op">$</span>zinc, <span class="dt">conf.level =</span> <span class="fl">0.90</span>, <span class="dt">alternative =</span> <span class="st">&quot;less&quot;</span>)</a>
-<a class="sourceLine" id="cb486-2" title="2"><span class="kw">glance</span>(tt2)</a></code></pre></div>
+<div class="sourceCode" id="cb490"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb490-1" title="1">tt2 &lt;-<span class="st"> </span><span class="kw">t.test</span>(serzinc<span class="op">$</span>zinc, <span class="dt">conf.level =</span> <span class="fl">0.90</span>, <span class="dt">alternative =</span> <span class="st">&quot;less&quot;</span>)</a>
+<a class="sourceLine" id="cb490-2" title="2"><span class="kw">glance</span>(tt2)</a></code></pre></div>
 <pre><code># A tibble: 1 x 8
   estimate statistic p.value parameter conf.low conf.high method
      &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt; 
 1     87.9      118.       1       461     -Inf      88.9 One S~
 # ... with 1 more variable: alternative &lt;chr&gt;</code></pre>
 <p>The <code>t.test</code> function in R also has an argument to specify the desired confidence level, for example:</p>
-<div class="sourceCode" id="cb488"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb488-1" title="1"><span class="kw">t.test</span>(serzinc<span class="op">$</span>zinc, <span class="dt">conf.level =</span> <span class="fl">0.95</span>, <span class="dt">alternative =</span> <span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb492"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb492-1" title="1"><span class="kw">t.test</span>(serzinc<span class="op">$</span>zinc, <span class="dt">conf.level =</span> <span class="fl">0.95</span>, <span class="dt">alternative =</span> <span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
 <pre><code>
     One Sample t-test
 
@@ -1334,7 +1334,7 @@ mean of x
 </div>
 <div id="calculating-a-one-sided-confidence-interval-for-the-population-mean" class="section level3">
 <h3><span class="header-section-number">17.5.10</span> Calculating a one-sided confidence interval for the population mean</h3>
-<div class="sourceCode" id="cb490"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb490-1" title="1"><span class="kw">t.test</span>(serzinc<span class="op">$</span>zinc, <span class="dt">conf.level =</span> <span class="fl">0.90</span>, <span class="dt">alternative =</span> <span class="st">&quot;greater&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb494"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb494-1" title="1"><span class="kw">t.test</span>(serzinc<span class="op">$</span>zinc, <span class="dt">conf.level =</span> <span class="fl">0.90</span>, <span class="dt">alternative =</span> <span class="st">&quot;greater&quot;</span>)</a></code></pre></div>
 <pre><code>
     One Sample t-test
 
@@ -1346,7 +1346,7 @@ alternative hypothesis: true mean is greater than 0
 sample estimates:
 mean of x 
      87.9 </code></pre>
-<div class="sourceCode" id="cb492"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb492-1" title="1"><span class="kw">t.test</span>(serzinc<span class="op">$</span>zinc, <span class="dt">conf.level =</span> <span class="fl">0.90</span>, <span class="dt">alternative =</span> <span class="st">&quot;less&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb496"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb496-1" title="1"><span class="kw">t.test</span>(serzinc<span class="op">$</span>zinc, <span class="dt">conf.level =</span> <span class="fl">0.90</span>, <span class="dt">alternative =</span> <span class="st">&quot;less&quot;</span>)</a></code></pre></div>
 <pre><code>
     One Sample t-test
 
@@ -1482,14 +1482,14 @@ mean of x
 <div id="using-r-to-estimate-a-90-ci-for-mu-with-the-bootstrap" class="section level3">
 <h3><span class="header-section-number">17.6.5</span> Using R to estimate a 90% CI for <span class="math inline">\(\mu\)</span> with the bootstrap</h3>
 <p>The command that we use to obtain a CI for <span class="math inline">\(\mu\)</span> using the basic nonparametric bootstrap and without assuming a Normally distributed population, is <code>smean.cl.boot</code>, a part of the <code>Hmisc</code> package in R.</p>
-<div class="sourceCode" id="cb494"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb494-1" title="1"><span class="kw">set.seed</span>(<span class="dv">431</span>)</a>
-<a class="sourceLine" id="cb494-2" title="2">serzinc <span class="op">%$%</span><span class="st"> </span>Hmisc<span class="op">::</span><span class="kw">smean.cl.boot</span>(zinc, <span class="dt">B =</span> <span class="dv">1000</span>, <span class="dt">conf.int =</span> <span class="fl">0.90</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb498"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb498-1" title="1"><span class="kw">set.seed</span>(<span class="dv">431</span>)</a>
+<a class="sourceLine" id="cb498-2" title="2">serzinc <span class="op">%$%</span><span class="st"> </span>Hmisc<span class="op">::</span><span class="kw">smean.cl.boot</span>(zinc, <span class="dt">B =</span> <span class="dv">1000</span>, <span class="dt">conf.int =</span> <span class="fl">0.90</span>)</a></code></pre></div>
 <pre><code> Mean Lower Upper 
  87.9  86.8  89.2 </code></pre>
 <ul>
 <li>Remember that the t-based 90% CI for <span class="math inline">\(\mu\)</span> was (86.71, 89.16), according to the following output…</li>
 </ul>
-<div class="sourceCode" id="cb496"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb496-1" title="1"><span class="kw">tidy</span>(<span class="kw">lm</span>(zinc <span class="op">~</span><span class="st"> </span><span class="dv">1</span>, <span class="dt">data =</span> serzinc), <span class="dt">conf.int =</span> <span class="ot">TRUE</span>, <span class="dt">conf.level =</span> <span class="fl">0.90</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb500"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb500-1" title="1"><span class="kw">tidy</span>(<span class="kw">lm</span>(zinc <span class="op">~</span><span class="st"> </span><span class="dv">1</span>, <span class="dt">data =</span> serzinc), <span class="dt">conf.int =</span> <span class="ot">TRUE</span>, <span class="dt">conf.level =</span> <span class="fl">0.90</span>)</a></code></pre></div>
 <pre><code># A tibble: 1 x 7
   term        estimate std.error statistic p.value conf.low conf.high
   &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
@@ -1500,11 +1500,11 @@ mean of x
 <ul>
 <li>The <code>smean.cl.boot</code> function (unlike most R functions) deletes missing data automatically, as does the <code>smean.cl.normal</code> function, which can also be used to produce the t-based confidence interval.</li>
 </ul>
-<div class="sourceCode" id="cb498"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb498-1" title="1"><span class="kw">set.seed</span>(<span class="dv">431</span>)</a>
-<a class="sourceLine" id="cb498-2" title="2">serzinc <span class="op">%$%</span><span class="st"> </span>Hmisc<span class="op">::</span><span class="kw">smean.cl.boot</span>(zinc, <span class="dt">B =</span> <span class="dv">1000</span>, <span class="dt">conf.int =</span> <span class="fl">0.90</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb502"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb502-1" title="1"><span class="kw">set.seed</span>(<span class="dv">431</span>)</a>
+<a class="sourceLine" id="cb502-2" title="2">serzinc <span class="op">%$%</span><span class="st"> </span>Hmisc<span class="op">::</span><span class="kw">smean.cl.boot</span>(zinc, <span class="dt">B =</span> <span class="dv">1000</span>, <span class="dt">conf.int =</span> <span class="fl">0.90</span>)</a></code></pre></div>
 <pre><code> Mean Lower Upper 
  87.9  86.8  89.2 </code></pre>
-<div class="sourceCode" id="cb500"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb500-1" title="1">serzinc <span class="op">%$%</span><span class="st"> </span>Hmisc<span class="op">::</span><span class="kw">smean.cl.normal</span>(zinc, <span class="dt">conf.int =</span> <span class="fl">0.90</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb504"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb504-1" title="1">serzinc <span class="op">%$%</span><span class="st"> </span>Hmisc<span class="op">::</span><span class="kw">smean.cl.normal</span>(zinc, <span class="dt">conf.int =</span> <span class="fl">0.90</span>)</a></code></pre></div>
 <pre><code> Mean Lower Upper 
  87.9  86.7  89.2 </code></pre>
 <p>Bootstrap resampling confidence intervals do not follow the general confidence interval strategy using a point estimate <span class="math inline">\(\pm\)</span> a margin for error.</p>
@@ -1516,27 +1516,27 @@ mean of x
 <div id="ci-for-mu-via-bootstrap-changing-minor-details" class="section level3">
 <h3><span class="header-section-number">17.6.7</span> 90% CI for <span class="math inline">\(\mu\)</span> via bootstrap, changing minor details</h3>
 <p>Suppose we change the random seed that we set, or change the number (<code>B</code>) of desired bootstrap replications.</p>
-<div class="sourceCode" id="cb502"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb502-1" title="1"><span class="kw">set.seed</span>(<span class="dv">431</span>) </a>
-<a class="sourceLine" id="cb502-2" title="2">serzinc <span class="op">%$%</span><span class="st"> </span>Hmisc<span class="op">::</span><span class="kw">smean.cl.boot</span>(zinc, <span class="dt">B =</span> <span class="dv">1000</span>, <span class="dt">conf.int =</span> <span class="fl">0.90</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb506"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb506-1" title="1"><span class="kw">set.seed</span>(<span class="dv">431</span>) </a>
+<a class="sourceLine" id="cb506-2" title="2">serzinc <span class="op">%$%</span><span class="st"> </span>Hmisc<span class="op">::</span><span class="kw">smean.cl.boot</span>(zinc, <span class="dt">B =</span> <span class="dv">1000</span>, <span class="dt">conf.int =</span> <span class="fl">0.90</span>)</a></code></pre></div>
 <pre><code> Mean Lower Upper 
  87.9  86.8  89.2 </code></pre>
-<div class="sourceCode" id="cb504"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb504-1" title="1"><span class="kw">set.seed</span>(<span class="dv">431212</span>)</a>
-<a class="sourceLine" id="cb504-2" title="2">serzinc <span class="op">%$%</span><span class="st"> </span>Hmisc<span class="op">::</span><span class="kw">smean.cl.boot</span>(zinc, <span class="dt">B =</span> <span class="dv">1000</span>, <span class="dt">conf.int =</span> <span class="fl">0.90</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb508"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb508-1" title="1"><span class="kw">set.seed</span>(<span class="dv">431212</span>)</a>
+<a class="sourceLine" id="cb508-2" title="2">serzinc <span class="op">%$%</span><span class="st"> </span>Hmisc<span class="op">::</span><span class="kw">smean.cl.boot</span>(zinc, <span class="dt">B =</span> <span class="dv">1000</span>, <span class="dt">conf.int =</span> <span class="fl">0.90</span>)</a></code></pre></div>
 <pre><code> Mean Lower Upper 
  87.9  86.7  89.1 </code></pre>
-<div class="sourceCode" id="cb506"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb506-1" title="1"><span class="kw">set.seed</span>(<span class="dv">431212</span>)</a>
-<a class="sourceLine" id="cb506-2" title="2">serzinc <span class="op">%$%</span><span class="st"> </span>Hmisc<span class="op">::</span><span class="kw">smean.cl.boot</span>(zinc, <span class="dt">B =</span> <span class="dv">1000</span>, <span class="dt">conf.int =</span> <span class="fl">0.90</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb510"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb510-1" title="1"><span class="kw">set.seed</span>(<span class="dv">431212</span>)</a>
+<a class="sourceLine" id="cb510-2" title="2">serzinc <span class="op">%$%</span><span class="st"> </span>Hmisc<span class="op">::</span><span class="kw">smean.cl.boot</span>(zinc, <span class="dt">B =</span> <span class="dv">1000</span>, <span class="dt">conf.int =</span> <span class="fl">0.90</span>)</a></code></pre></div>
 <pre><code> Mean Lower Upper 
  87.9  86.7  89.1 </code></pre>
 </div>
 <div id="bootstrap-changing-the-confidence-level" class="section level3">
 <h3><span class="header-section-number">17.6.8</span> Bootstrap: Changing the Confidence Level</h3>
-<div class="sourceCode" id="cb508"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb508-1" title="1"><span class="kw">set.seed</span>(<span class="dv">431654</span>)</a>
-<a class="sourceLine" id="cb508-2" title="2">serzinc <span class="op">%$%</span><span class="st"> </span>Hmisc<span class="op">::</span><span class="kw">smean.cl.boot</span>(zinc, <span class="dt">B =</span> <span class="dv">1000</span>, <span class="dt">conf.int =</span> <span class="fl">0.95</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb512"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb512-1" title="1"><span class="kw">set.seed</span>(<span class="dv">431654</span>)</a>
+<a class="sourceLine" id="cb512-2" title="2">serzinc <span class="op">%$%</span><span class="st"> </span>Hmisc<span class="op">::</span><span class="kw">smean.cl.boot</span>(zinc, <span class="dt">B =</span> <span class="dv">1000</span>, <span class="dt">conf.int =</span> <span class="fl">0.95</span>)</a></code></pre></div>
 <pre><code> Mean Lower Upper 
  87.9  86.5  89.4 </code></pre>
-<div class="sourceCode" id="cb510"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb510-1" title="1"><span class="kw">set.seed</span>(<span class="dv">431321</span>)</a>
-<a class="sourceLine" id="cb510-2" title="2">serzinc <span class="op">%$%</span><span class="st"> </span>Hmisc<span class="op">::</span><span class="kw">smean.cl.boot</span>(zinc, <span class="dt">B =</span> <span class="dv">1000</span>, <span class="dt">conf.int =</span> <span class="fl">0.99</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb514"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb514-1" title="1"><span class="kw">set.seed</span>(<span class="dv">431321</span>)</a>
+<a class="sourceLine" id="cb514-2" title="2">serzinc <span class="op">%$%</span><span class="st"> </span>Hmisc<span class="op">::</span><span class="kw">smean.cl.boot</span>(zinc, <span class="dt">B =</span> <span class="dv">1000</span>, <span class="dt">conf.int =</span> <span class="fl">0.99</span>)</a></code></pre></div>
 <pre><code> Mean Lower Upper 
  87.9  86.2  89.7 </code></pre>
 </div>
@@ -1552,8 +1552,8 @@ mean of x
 </ol>
 <p>Suppose that we want to find a 95% one-sided upper bound for the population mean serum zinc level among teenage males, <span class="math inline">\(\mu\)</span>, using the bootstrap.</p>
 <p>Since we want a 95% confidence interval, we have <span class="math inline">\(\alpha\)</span> = 0.05. We double that to get <span class="math inline">\(\alpha\)</span> = 0.10, which implies we need to instead fit a two-sided 90% confidence interval.</p>
-<div class="sourceCode" id="cb512"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb512-1" title="1"><span class="kw">set.seed</span>(<span class="dv">43101</span>)</a>
-<a class="sourceLine" id="cb512-2" title="2">serzinc <span class="op">%$%</span><span class="st"> </span>Hmisc<span class="op">::</span><span class="kw">smean.cl.boot</span>(zinc, <span class="dt">B =</span> <span class="dv">1000</span>, <span class="dt">conf.int =</span> <span class="fl">0.90</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb516"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb516-1" title="1"><span class="kw">set.seed</span>(<span class="dv">43101</span>)</a>
+<a class="sourceLine" id="cb516-2" title="2">serzinc <span class="op">%$%</span><span class="st"> </span>Hmisc<span class="op">::</span><span class="kw">smean.cl.boot</span>(zinc, <span class="dt">B =</span> <span class="dv">1000</span>, <span class="dt">conf.int =</span> <span class="fl">0.90</span>)</a></code></pre></div>
 <pre><code> Mean Lower Upper 
  87.9  86.7  89.1 </code></pre>
 <p>The upper bound of this two-sided 90% CI will also be the upper bound for a 95% one-sided CI.</p>
@@ -1562,11 +1562,11 @@ mean of x
 <h3><span class="header-section-number">17.6.10</span> Bootstrap CI for the Population Median</h3>
 <p>If we are willing to do a small amount of programming work in R, we can obtain bootstrap confidence intervals for other population parameters besides the mean. One statistic of common interest is the median. How do we find a confidence interval for the population median using a bootstrap approach? The easiest way I know of makes use of the <code>boot</code> package, as follows.</p>
 <p>In step 1, we specify a new function to capture the medians from our sample.</p>
-<div class="sourceCode" id="cb514"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb514-1" title="1">f.median &lt;-<span class="st"> </span><span class="cf">function</span>(y, id) </a>
-<a class="sourceLine" id="cb514-2" title="2">{    <span class="kw">median</span> ( y[id])  }</a></code></pre></div>
+<div class="sourceCode" id="cb518"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb518-1" title="1">f.median &lt;-<span class="st"> </span><span class="cf">function</span>(y, id) </a>
+<a class="sourceLine" id="cb518-2" title="2">{    <span class="kw">median</span> ( y[id])  }</a></code></pre></div>
 <p>In step 2, we summon the <code>boot</code> package and call the <code>boot.ci</code> function:</p>
-<div class="sourceCode" id="cb515"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb515-1" title="1"><span class="kw">set.seed</span>(<span class="dv">431787</span>)</a>
-<a class="sourceLine" id="cb515-2" title="2"><span class="kw">boot.ci</span>(<span class="kw">boot</span> (serzinc<span class="op">$</span>zinc, f.median, <span class="dv">1000</span>), <span class="dt">conf=</span><span class="fl">0.90</span>, <span class="dt">type=</span><span class="st">&quot;basic&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb519"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb519-1" title="1"><span class="kw">set.seed</span>(<span class="dv">431787</span>)</a>
+<a class="sourceLine" id="cb519-2" title="2"><span class="kw">boot.ci</span>(<span class="kw">boot</span> (serzinc<span class="op">$</span>zinc, f.median, <span class="dv">1000</span>), <span class="dt">conf=</span><span class="fl">0.90</span>, <span class="dt">type=</span><span class="st">&quot;basic&quot;</span>)</a></code></pre></div>
 <pre><code>BOOTSTRAP CONFIDENCE INTERVAL CALCULATIONS
 Based on 1000 bootstrap replicates
 
@@ -1580,21 +1580,21 @@ Level      Basic
 Calculations and Intervals on Original Scale</code></pre>
 <p>This yields a 90% confidence interval<a href="#fn12" class="footnote-ref" id="fnref12"><sup>12</sup></a> for the population median serum zinc level.</p>
 <p>Recall that the sample median for the serum zinc levels in our sample of 462 teenage males was 86 micrograms per deciliter.</p>
-<div class="sourceCode" id="cb517"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb517-1" title="1">mosaic<span class="op">::</span><span class="kw">favstats</span>(<span class="op">~</span><span class="st"> </span>zinc, <span class="dt">data =</span> serzinc)</a></code></pre></div>
+<div class="sourceCode" id="cb521"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb521-1" title="1">mosaic<span class="op">::</span><span class="kw">favstats</span>(<span class="op">~</span><span class="st"> </span>zinc, <span class="dt">data =</span> serzinc)</a></code></pre></div>
 <pre><code> min Q1 median Q3 max mean sd   n missing
   50 76     86 98 153 87.9 16 462       0</code></pre>
 </div>
 <div id="bootstrap-ci-for-the-iqr" class="section level3">
 <h3><span class="header-section-number">17.6.11</span> Bootstrap CI for the IQR</h3>
 <p>If for some reason, we want to find a 95% confidence interval for the population value of the inter-quartile range via the bootstrap, we can do it.</p>
-<div class="sourceCode" id="cb519"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb519-1" title="1"><span class="kw">IQR</span>(serzinc<span class="op">$</span>zinc)</a></code></pre></div>
+<div class="sourceCode" id="cb523"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb523-1" title="1"><span class="kw">IQR</span>(serzinc<span class="op">$</span>zinc)</a></code></pre></div>
 <pre><code>[1] 22</code></pre>
-<div class="sourceCode" id="cb521"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb521-1" title="1">f.IQR &lt;-<span class="st"> </span><span class="cf">function</span>(y, id) </a>
-<a class="sourceLine" id="cb521-2" title="2">{    <span class="kw">IQR</span> (y[id]) }</a>
-<a class="sourceLine" id="cb521-3" title="3"></a>
-<a class="sourceLine" id="cb521-4" title="4"><span class="kw">set.seed</span>(<span class="dv">431207</span>)</a>
-<a class="sourceLine" id="cb521-5" title="5"><span class="kw">boot.ci</span>(<span class="kw">boot</span> (serzinc<span class="op">$</span>zinc, f.IQR, <span class="dv">1000</span>), </a>
-<a class="sourceLine" id="cb521-6" title="6">        <span class="dt">conf=</span><span class="fl">0.95</span>, <span class="dt">type=</span><span class="st">&quot;basic&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb525"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb525-1" title="1">f.IQR &lt;-<span class="st"> </span><span class="cf">function</span>(y, id) </a>
+<a class="sourceLine" id="cb525-2" title="2">{    <span class="kw">IQR</span> (y[id]) }</a>
+<a class="sourceLine" id="cb525-3" title="3"></a>
+<a class="sourceLine" id="cb525-4" title="4"><span class="kw">set.seed</span>(<span class="dv">431207</span>)</a>
+<a class="sourceLine" id="cb525-5" title="5"><span class="kw">boot.ci</span>(<span class="kw">boot</span> (serzinc<span class="op">$</span>zinc, f.IQR, <span class="dv">1000</span>), </a>
+<a class="sourceLine" id="cb525-6" title="6">        <span class="dt">conf=</span><span class="fl">0.95</span>, <span class="dt">type=</span><span class="st">&quot;basic&quot;</span>)</a></code></pre></div>
 <pre><code>BOOTSTRAP CONFIDENCE INTERVAL CALCULATIONS
 Based on 1000 bootstrap replicates
 
@@ -1638,7 +1638,7 @@ Calculations and Intervals on Original Scale</code></pre>
 <p>We can obtain this cutoff value from R by substituting in the desired proportion for <code>alphaover2</code> into the <code>qnorm</code> function as follows:</p>
 <p><code>qnorm(alphaover2, lower.tail=FALSE)</code></p>
 <p>For example, if we are building a 95% confidence interval, we have 100(1-<span class="math inline">\(\alpha\)</span>) = 95, so that <span class="math inline">\(\alpha\)</span> is 0.05, or 5%. This means that the cutoff value we need to find is <span class="math inline">\(Z_{0.05/2} = Z_{.025}\)</span>, and this turns out to be 1.96.</p>
-<div class="sourceCode" id="cb523"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb523-1" title="1"><span class="kw">qnorm</span>(<span class="fl">0.025</span>, <span class="dt">lower.tail=</span><span class="ot">FALSE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb527"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb527-1" title="1"><span class="kw">qnorm</span>(<span class="fl">0.025</span>, <span class="dt">lower.tail=</span><span class="ot">FALSE</span>)</a></code></pre></div>
 <pre><code>[1] 1.96</code></pre>
 </div>
 <div id="commonly-used-cutoffs-based-on-the-normal-distribution" class="section level3">
@@ -1742,7 +1742,7 @@ Calculations and Intervals on Original Scale</code></pre>
 </div>
 <div id="getting-the-wilcoxon-signed-rank-based-ci-in-r" class="section level3">
 <h3><span class="header-section-number">17.8.3</span> Getting the Wilcoxon Signed Rank-based CI in R</h3>
-<div class="sourceCode" id="cb525"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb525-1" title="1">serzinc <span class="op">%$%</span><span class="st"> </span><span class="kw">wilcox.test</span>(zinc, <span class="dt">conf.int =</span> <span class="ot">TRUE</span>, <span class="dt">conf.level =</span> <span class="fl">0.95</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb529"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb529-1" title="1">serzinc <span class="op">%$%</span><span class="st"> </span><span class="kw">wilcox.test</span>(zinc, <span class="dt">conf.int =</span> <span class="ot">TRUE</span>, <span class="dt">conf.level =</span> <span class="fl">0.95</span>)</a></code></pre></div>
 <pre><code>
     Wilcoxon signed rank test with continuity correction
 
@@ -1764,8 +1764,8 @@ sample estimates:
 <div id="using-the-broom-package-with-the-wilcoxon-test" class="section level3">
 <h3><span class="header-section-number">17.8.5</span> Using the <code>broom</code> package with the Wilcoxon test</h3>
 <p>We can also use the <code>tidy</code> function within <code>broom</code> to create a single-row tibble of the key results from a Wilcoxon test, so long as we run <code>wilcox.test</code> specifying that we want a confidence interval.</p>
-<div class="sourceCode" id="cb527"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb527-1" title="1">wt &lt;-<span class="st"> </span>serzinc <span class="op">%$%</span><span class="st"> </span><span class="kw">wilcox.test</span>(zinc, <span class="dt">conf.int =</span> <span class="ot">TRUE</span>, <span class="dt">conf.level =</span> <span class="fl">0.95</span>)</a>
-<a class="sourceLine" id="cb527-2" title="2"><span class="kw">tidy</span>(wt)</a></code></pre></div>
+<div class="sourceCode" id="cb531"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb531-1" title="1">wt &lt;-<span class="st"> </span>serzinc <span class="op">%$%</span><span class="st"> </span><span class="kw">wilcox.test</span>(zinc, <span class="dt">conf.int =</span> <span class="ot">TRUE</span>, <span class="dt">conf.level =</span> <span class="fl">0.95</span>)</a>
+<a class="sourceLine" id="cb531-2" title="2"><span class="kw">tidy</span>(wt)</a></code></pre></div>
 <pre><code># A tibble: 1 x 7
   estimate statistic  p.value conf.low conf.high method         alternative
      &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;          &lt;chr&gt;      

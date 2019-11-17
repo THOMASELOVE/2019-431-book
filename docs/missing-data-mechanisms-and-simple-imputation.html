@@ -1042,24 +1042,24 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li>the subject’s systolic blood pressure at baseline</li>
 <li>the subject’s systolic blood pressure after the application of the treatment</li>
 </ul>
-<div class="sourceCode" id="cb1085"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1085-1" title="1"><span class="co"># create some temporary variables</span></a>
-<a class="sourceLine" id="cb1085-2" title="2"></a>
-<a class="sourceLine" id="cb1085-3" title="3"><span class="kw">library</span>(simputation)</a>
-<a class="sourceLine" id="cb1085-4" title="4"></a>
-<a class="sourceLine" id="cb1085-5" title="5">subject &lt;-<span class="st"> </span><span class="dv">101</span><span class="op">:</span><span class="dv">115</span></a>
-<a class="sourceLine" id="cb1085-6" title="6">x1 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;C&quot;</span>, <span class="st">&quot;A&quot;</span>, <span class="st">&quot;C&quot;</span>, <span class="st">&quot;A&quot;</span>, <span class="st">&quot;A&quot;</span>, <span class="ot">NA</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;C&quot;</span>, <span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;C&quot;</span>, <span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>)</a>
-<a class="sourceLine" id="cb1085-7" title="7">x2 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="ot">NA</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="ot">NA</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="ot">NA</span>)</a>
-<a class="sourceLine" id="cb1085-8" title="8">x3 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">120</span>, <span class="dv">145</span>, <span class="dv">150</span>, <span class="ot">NA</span>, <span class="dv">155</span>, <span class="ot">NA</span>, <span class="dv">135</span>, <span class="ot">NA</span>, <span class="dv">115</span>, <span class="dv">170</span>, <span class="dv">150</span>, <span class="dv">145</span>, <span class="dv">140</span>, <span class="dv">160</span>, <span class="dv">135</span>)</a>
-<a class="sourceLine" id="cb1085-9" title="9">x4 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">105</span>, <span class="dv">135</span>, <span class="dv">150</span>, <span class="dv">120</span>, <span class="dv">135</span>, <span class="dv">115</span>, <span class="dv">160</span>, <span class="dv">150</span>, <span class="dv">130</span>, <span class="dv">155</span>, <span class="dv">140</span>, <span class="dv">140</span>, <span class="dv">150</span>, <span class="dv">135</span>, <span class="dv">120</span>)</a>
-<a class="sourceLine" id="cb1085-10" title="10"></a>
-<a class="sourceLine" id="cb1085-11" title="11">sbp_example &lt;-<span class="st"> </span></a>
-<a class="sourceLine" id="cb1085-12" title="12"><span class="st">  </span><span class="kw">data.frame</span>(subject, <span class="dt">treat =</span> x1, <span class="dt">diabetes =</span> x2, </a>
-<a class="sourceLine" id="cb1085-13" title="13">             <span class="dt">sbp.before =</span> x3, <span class="dt">sbp.after =</span> x4) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb1085-14" title="14"><span class="st">  </span>tbl_df</a>
-<a class="sourceLine" id="cb1085-15" title="15"></a>
-<a class="sourceLine" id="cb1085-16" title="16"><span class="kw">rm</span>(subject, x1, x2, x3, x4) <span class="co"># just cleaning up</span></a>
-<a class="sourceLine" id="cb1085-17" title="17"></a>
-<a class="sourceLine" id="cb1085-18" title="18">sbp_example</a></code></pre></div>
+<div class="sourceCode" id="cb1089"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1089-1" title="1"><span class="co"># create some temporary variables</span></a>
+<a class="sourceLine" id="cb1089-2" title="2"></a>
+<a class="sourceLine" id="cb1089-3" title="3"><span class="kw">library</span>(simputation)</a>
+<a class="sourceLine" id="cb1089-4" title="4"></a>
+<a class="sourceLine" id="cb1089-5" title="5">subject &lt;-<span class="st"> </span><span class="dv">101</span><span class="op">:</span><span class="dv">115</span></a>
+<a class="sourceLine" id="cb1089-6" title="6">x1 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;C&quot;</span>, <span class="st">&quot;A&quot;</span>, <span class="st">&quot;C&quot;</span>, <span class="st">&quot;A&quot;</span>, <span class="st">&quot;A&quot;</span>, <span class="ot">NA</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;C&quot;</span>, <span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;C&quot;</span>, <span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>)</a>
+<a class="sourceLine" id="cb1089-7" title="7">x2 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="ot">NA</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="ot">NA</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="ot">NA</span>)</a>
+<a class="sourceLine" id="cb1089-8" title="8">x3 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">120</span>, <span class="dv">145</span>, <span class="dv">150</span>, <span class="ot">NA</span>, <span class="dv">155</span>, <span class="ot">NA</span>, <span class="dv">135</span>, <span class="ot">NA</span>, <span class="dv">115</span>, <span class="dv">170</span>, <span class="dv">150</span>, <span class="dv">145</span>, <span class="dv">140</span>, <span class="dv">160</span>, <span class="dv">135</span>)</a>
+<a class="sourceLine" id="cb1089-9" title="9">x4 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">105</span>, <span class="dv">135</span>, <span class="dv">150</span>, <span class="dv">120</span>, <span class="dv">135</span>, <span class="dv">115</span>, <span class="dv">160</span>, <span class="dv">150</span>, <span class="dv">130</span>, <span class="dv">155</span>, <span class="dv">140</span>, <span class="dv">140</span>, <span class="dv">150</span>, <span class="dv">135</span>, <span class="dv">120</span>)</a>
+<a class="sourceLine" id="cb1089-10" title="10"></a>
+<a class="sourceLine" id="cb1089-11" title="11">sbp_example &lt;-<span class="st"> </span></a>
+<a class="sourceLine" id="cb1089-12" title="12"><span class="st">  </span><span class="kw">data.frame</span>(subject, <span class="dt">treat =</span> x1, <span class="dt">diabetes =</span> x2, </a>
+<a class="sourceLine" id="cb1089-13" title="13">             <span class="dt">sbp.before =</span> x3, <span class="dt">sbp.after =</span> x4) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb1089-14" title="14"><span class="st">  </span>tbl_df</a>
+<a class="sourceLine" id="cb1089-15" title="15"></a>
+<a class="sourceLine" id="cb1089-16" title="16"><span class="kw">rm</span>(subject, x1, x2, x3, x4) <span class="co"># just cleaning up</span></a>
+<a class="sourceLine" id="cb1089-17" title="17"></a>
+<a class="sourceLine" id="cb1089-18" title="18">sbp_example</a></code></pre></div>
 <pre><code># A tibble: 15 x 5
    subject treat diabetes sbp.before sbp.after
      &lt;int&gt; &lt;fct&gt;    &lt;dbl&gt;      &lt;dbl&gt;     &lt;dbl&gt;
@@ -1080,21 +1080,21 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 15     115 B           NA        135       120</code></pre>
 <div id="how-many-missing-values-do-we-have-in-each-column" class="section level3">
 <h3><span class="header-section-number">38.1.1</span> How many missing values do we have in each column?</h3>
-<div class="sourceCode" id="cb1087"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1087-1" title="1"><span class="kw">colSums</span>(<span class="kw">is.na</span>(sbp_example))</a></code></pre></div>
+<div class="sourceCode" id="cb1091"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1091-1" title="1"><span class="kw">colSums</span>(<span class="kw">is.na</span>(sbp_example))</a></code></pre></div>
 <pre><code>   subject      treat   diabetes sbp.before  sbp.after 
          0          1          3          3          0 </code></pre>
 <p>We are missing one <code>treat</code>, 3 <code>diabetes</code> and 3 <code>sbp.before</code> values.</p>
 </div>
 <div id="what-is-the-pattern-of-missing-data" class="section level3">
 <h3><span class="header-section-number">38.1.2</span> What is the pattern of missing data?</h3>
-<div class="sourceCode" id="cb1089"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1089-1" title="1">mice<span class="op">::</span><span class="kw">md.pattern</span>(sbp_example)</a></code></pre></div>
+<div class="sourceCode" id="cb1093"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1093-1" title="1">mice<span class="op">::</span><span class="kw">md.pattern</span>(sbp_example)</a></code></pre></div>
 <pre><code>Registered S3 methods overwritten by &#39;lme4&#39;:
   method                          from
   cooks.distance.influence.merMod car 
   influence.merMod                car 
   dfbeta.influence.merMod         car 
   dfbetas.influence.merMod        car </code></pre>
-<p><img src="2019-431-book_files/figure-html/unnamed-chunk-229-1.png" width="672" /></p>
+<p><img src="2019-431-book_files/figure-html/unnamed-chunk-230-1.png" width="672" /></p>
 <pre><code>  subject sbp.after treat diabetes sbp.before  
 9       1         1     1        1          1 0
 2       1         1     1        1          0 1
@@ -1105,7 +1105,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="how-can-we-identify-the-subjects-with-missing-data" class="section level3">
 <h3><span class="header-section-number">38.1.3</span> How can we identify the subjects with missing data?</h3>
-<div class="sourceCode" id="cb1092"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1092-1" title="1">sbp_example <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">complete.cases</span>(.))</a></code></pre></div>
+<div class="sourceCode" id="cb1096"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1096-1" title="1">sbp_example <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">complete.cases</span>(.))</a></code></pre></div>
 <pre><code># A tibble: 6 x 5
   subject treat diabetes sbp.before sbp.after
     &lt;int&gt; &lt;fct&gt;    &lt;dbl&gt;      &lt;dbl&gt;     &lt;dbl&gt;
@@ -1169,14 +1169,14 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="building-a-complete-case-analysis" class="section level2">
 <h2><span class="header-section-number">38.7</span> Building a Complete Case Analysis</h2>
 <p>We can drop all of the missing values from a data set with <code>drop_na</code> or with <code>na.omit</code> or by filtering for <code>complete.cases</code>. Any of these approaches produces the same result - a new data set with 9 rows (after dropping the six subjects with any NA values) and 5 columns.</p>
-<div class="sourceCode" id="cb1094"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1094-1" title="1">cc<span class="fl">.1</span> &lt;-<span class="st"> </span><span class="kw">na.omit</span>(sbp_example)</a>
-<a class="sourceLine" id="cb1094-2" title="2">cc<span class="fl">.2</span> &lt;-<span class="st"> </span>sbp_example <span class="op">%&gt;%</span><span class="st"> </span>drop_na</a>
-<a class="sourceLine" id="cb1094-3" title="3">cc<span class="fl">.3</span> &lt;-<span class="st"> </span>sbp_example <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(<span class="kw">complete.cases</span>(.))</a></code></pre></div>
+<div class="sourceCode" id="cb1098"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1098-1" title="1">cc<span class="fl">.1</span> &lt;-<span class="st"> </span><span class="kw">na.omit</span>(sbp_example)</a>
+<a class="sourceLine" id="cb1098-2" title="2">cc<span class="fl">.2</span> &lt;-<span class="st"> </span>sbp_example <span class="op">%&gt;%</span><span class="st"> </span>drop_na</a>
+<a class="sourceLine" id="cb1098-3" title="3">cc<span class="fl">.3</span> &lt;-<span class="st"> </span>sbp_example <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(<span class="kw">complete.cases</span>(.))</a></code></pre></div>
 </div>
 <div id="single-imputation-with-the-mean-or-mode" class="section level2">
 <h2><span class="header-section-number">38.8</span> Single Imputation with the Mean or Mode</h2>
 <p>The most straightforward approach to single imputation is to impute a single summary of the variable, such as the mean, median or mode.</p>
-<div class="sourceCode" id="cb1095"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1095-1" title="1">skimr<span class="op">::</span><span class="kw">skim</span>(sbp_example)</a></code></pre></div>
+<div class="sourceCode" id="cb1099"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1099-1" title="1">skimr<span class="op">::</span><span class="kw">skim</span>(sbp_example)</a></code></pre></div>
 <pre><code>Skim summary statistics
  n obs: 15 
  n variables: 5 
@@ -1204,11 +1204,11 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li><code>diabetes</code> with its median (1) among non-missing values, and</li>
 <li><code>treat</code> with its most common value, or mode (A)</li>
 </ul>
-<div class="sourceCode" id="cb1097"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1097-1" title="1">si<span class="fl">.1</span> &lt;-<span class="st"> </span>sbp_example <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb1097-2" title="2"><span class="st">    </span><span class="kw">replace_na</span>(<span class="kw">list</span>(<span class="dt">sbp.before =</span> <span class="fl">143.33</span>,</a>
-<a class="sourceLine" id="cb1097-3" title="3">                    <span class="dt">diabetes =</span> <span class="dv">1</span>,</a>
-<a class="sourceLine" id="cb1097-4" title="4">                    <span class="dt">treat =</span> <span class="st">&quot;A&quot;</span>))</a>
-<a class="sourceLine" id="cb1097-5" title="5">si<span class="fl">.1</span></a></code></pre></div>
+<div class="sourceCode" id="cb1101"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1101-1" title="1">si<span class="fl">.1</span> &lt;-<span class="st"> </span>sbp_example <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb1101-2" title="2"><span class="st">    </span><span class="kw">replace_na</span>(<span class="kw">list</span>(<span class="dt">sbp.before =</span> <span class="fl">143.33</span>,</a>
+<a class="sourceLine" id="cb1101-3" title="3">                    <span class="dt">diabetes =</span> <span class="dv">1</span>,</a>
+<a class="sourceLine" id="cb1101-4" title="4">                    <span class="dt">treat =</span> <span class="st">&quot;A&quot;</span>))</a>
+<a class="sourceLine" id="cb1101-5" title="5">si<span class="fl">.1</span></a></code></pre></div>
 <pre><code># A tibble: 15 x 5
    subject treat diabetes sbp.before sbp.after
      &lt;int&gt; &lt;fct&gt;    &lt;dbl&gt;      &lt;dbl&gt;     &lt;dbl&gt;
@@ -1228,10 +1228,10 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 14     114 A            1       160        135
 15     115 B            1       135        120</code></pre>
 <p>We could accomplish the same thing with, for example:</p>
-<div class="sourceCode" id="cb1099"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1099-1" title="1">si<span class="fl">.2</span> &lt;-<span class="st"> </span>sbp_example <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb1099-2" title="2"><span class="st">    </span><span class="kw">replace_na</span>(<span class="kw">list</span>(<span class="dt">sbp.before =</span> <span class="kw">mean</span>(sbp_example<span class="op">$</span>sbp.before, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>),</a>
-<a class="sourceLine" id="cb1099-3" title="3">                    <span class="dt">diabetes =</span> <span class="kw">median</span>(sbp_example<span class="op">$</span>diabetes, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>),</a>
-<a class="sourceLine" id="cb1099-4" title="4">                    <span class="dt">treat =</span> <span class="st">&quot;A&quot;</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb1103"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1103-1" title="1">si<span class="fl">.2</span> &lt;-<span class="st"> </span>sbp_example <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb1103-2" title="2"><span class="st">    </span><span class="kw">replace_na</span>(<span class="kw">list</span>(<span class="dt">sbp.before =</span> <span class="kw">mean</span>(sbp_example<span class="op">$</span>sbp.before, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>),</a>
+<a class="sourceLine" id="cb1103-3" title="3">                    <span class="dt">diabetes =</span> <span class="kw">median</span>(sbp_example<span class="op">$</span>diabetes, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>),</a>
+<a class="sourceLine" id="cb1103-4" title="4">                    <span class="dt">treat =</span> <span class="st">&quot;A&quot;</span>))</a></code></pre></div>
 </div>
 <div id="doing-single-imputation-with-simputation" class="section level2">
 <h2><span class="header-section-number">38.9</span> Doing Single Imputation with <code>simputation</code></h2>
@@ -1243,12 +1243,12 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="mirroring-our-prior-approach-imputing-meansmediansmodes" class="section level3">
 <h3><span class="header-section-number">38.9.1</span> Mirroring Our Prior Approach (imputing means/medians/modes)</h3>
 <p>Suppose we want to mirror what we did above, simply impute the mean for <code>sbp.before</code> and the median for <code>diabetes</code> again.</p>
-<div class="sourceCode" id="cb1100"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1100-1" title="1">si<span class="fl">.3</span> &lt;-<span class="st"> </span>sbp_example <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb1100-2" title="2"><span class="st">    </span><span class="kw">impute_lm</span>(sbp.before <span class="op">~</span><span class="st"> </span><span class="dv">1</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb1100-3" title="3"><span class="st">    </span><span class="kw">impute_median</span>(diabetes <span class="op">~</span><span class="st"> </span><span class="dv">1</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb1100-4" title="4"><span class="st">    </span><span class="kw">replace_na</span>(<span class="kw">list</span>(<span class="dt">treat =</span> <span class="st">&quot;A&quot;</span>))</a>
-<a class="sourceLine" id="cb1100-5" title="5"></a>
-<a class="sourceLine" id="cb1100-6" title="6">si<span class="fl">.3</span></a></code></pre></div>
+<div class="sourceCode" id="cb1104"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1104-1" title="1">si<span class="fl">.3</span> &lt;-<span class="st"> </span>sbp_example <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb1104-2" title="2"><span class="st">    </span><span class="kw">impute_lm</span>(sbp.before <span class="op">~</span><span class="st"> </span><span class="dv">1</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb1104-3" title="3"><span class="st">    </span><span class="kw">impute_median</span>(diabetes <span class="op">~</span><span class="st"> </span><span class="dv">1</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb1104-4" title="4"><span class="st">    </span><span class="kw">replace_na</span>(<span class="kw">list</span>(<span class="dt">treat =</span> <span class="st">&quot;A&quot;</span>))</a>
+<a class="sourceLine" id="cb1104-5" title="5"></a>
+<a class="sourceLine" id="cb1104-6" title="6">si<span class="fl">.3</span></a></code></pre></div>
 <pre><code># A tibble: 15 x 5
    subject treat diabetes sbp.before sbp.after
  *   &lt;int&gt; &lt;fct&gt;    &lt;dbl&gt;      &lt;dbl&gt;     &lt;dbl&gt;
@@ -1276,14 +1276,14 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li>a predictive mean matching approach to predict <code>diabetes</code> status, on the basis of <code>sbp.after</code>, and</li>
 <li>a decision tree approach to predict <code>treat</code> status, using all other variables in the data</li>
 </ul>
-<div class="sourceCode" id="cb1102"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1102-1" title="1"><span class="kw">set.seed</span>(<span class="dv">50001</span>)</a>
-<a class="sourceLine" id="cb1102-2" title="2"></a>
-<a class="sourceLine" id="cb1102-3" title="3">imp<span class="fl">.4</span> &lt;-<span class="st"> </span>sbp_example <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb1102-4" title="4"><span class="st">    </span><span class="kw">impute_rlm</span>(sbp.before <span class="op">~</span><span class="st"> </span>sbp.after <span class="op">+</span><span class="st"> </span>diabetes) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb1102-5" title="5"><span class="st">    </span><span class="kw">impute_pmm</span>(diabetes <span class="op">~</span><span class="st"> </span>sbp.after) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb1102-6" title="6"><span class="st">    </span><span class="kw">impute_cart</span>(treat <span class="op">~</span><span class="st"> </span>.)</a>
-<a class="sourceLine" id="cb1102-7" title="7"></a>
-<a class="sourceLine" id="cb1102-8" title="8">imp<span class="fl">.4</span></a></code></pre></div>
+<div class="sourceCode" id="cb1106"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1106-1" title="1"><span class="kw">set.seed</span>(<span class="dv">50001</span>)</a>
+<a class="sourceLine" id="cb1106-2" title="2"></a>
+<a class="sourceLine" id="cb1106-3" title="3">imp<span class="fl">.4</span> &lt;-<span class="st"> </span>sbp_example <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb1106-4" title="4"><span class="st">    </span><span class="kw">impute_rlm</span>(sbp.before <span class="op">~</span><span class="st"> </span>sbp.after <span class="op">+</span><span class="st"> </span>diabetes) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb1106-5" title="5"><span class="st">    </span><span class="kw">impute_pmm</span>(diabetes <span class="op">~</span><span class="st"> </span>sbp.after) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb1106-6" title="6"><span class="st">    </span><span class="kw">impute_cart</span>(treat <span class="op">~</span><span class="st"> </span>.)</a>
+<a class="sourceLine" id="cb1106-7" title="7"></a>
+<a class="sourceLine" id="cb1106-8" title="8">imp<span class="fl">.4</span></a></code></pre></div>
 <pre><code># A tibble: 15 x 5
    subject treat diabetes sbp.before sbp.after
  *   &lt;int&gt; &lt;fct&gt;    &lt;dbl&gt;      &lt;dbl&gt;     &lt;dbl&gt;

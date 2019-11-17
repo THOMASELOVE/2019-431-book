@@ -1066,8 +1066,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="using-the-power.t.test-function" class="section level3">
 <h3><span class="header-section-number">26.1.2</span> Using the <code>power.t.test</code> function</h3>
-<div class="sourceCode" id="cb712"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb712-1" title="1"><span class="kw">power.t.test</span>(<span class="dt">n =</span> <span class="dv">25</span>, <span class="dt">delta =</span> <span class="dv">5</span>, <span class="dt">sd =</span> <span class="dv">10</span>, <span class="dt">sig.level =</span> <span class="fl">0.05</span>, </a>
-<a class="sourceLine" id="cb712-2" title="2">             <span class="dt">type=</span><span class="st">&quot;one.sample&quot;</span>, <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb716"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb716-1" title="1"><span class="kw">power.t.test</span>(<span class="dt">n =</span> <span class="dv">25</span>, <span class="dt">delta =</span> <span class="dv">5</span>, <span class="dt">sd =</span> <span class="dv">10</span>, <span class="dt">sig.level =</span> <span class="fl">0.05</span>, </a>
+<a class="sourceLine" id="cb716-2" title="2">             <span class="dt">type=</span><span class="st">&quot;one.sample&quot;</span>, <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
 <pre><code>
      One-sample t test power calculation 
 
@@ -1086,8 +1086,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="increasing-the-sample-size-absent-other-changes-will-increase-the-power" class="section level3">
 <h3><span class="header-section-number">26.1.4</span> Increasing the Sample Size, absent other changes, will Increase the Power</h3>
 <p>Suppose, we committed to using more resources and gathering data from 40 subjects instead of the 25 we assumed initially – what effect would this have on our power?</p>
-<div class="sourceCode" id="cb714"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb714-1" title="1"><span class="kw">power.t.test</span>(<span class="dt">n =</span> <span class="dv">40</span>, <span class="dt">delta =</span> <span class="dv">5</span>, <span class="dt">sd =</span> <span class="dv">10</span>, <span class="dt">sig.level =</span> <span class="fl">0.05</span>, </a>
-<a class="sourceLine" id="cb714-2" title="2">             <span class="dt">type=</span><span class="st">&quot;one.sample&quot;</span>, <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb718"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb718-1" title="1"><span class="kw">power.t.test</span>(<span class="dt">n =</span> <span class="dv">40</span>, <span class="dt">delta =</span> <span class="dv">5</span>, <span class="dt">sd =</span> <span class="dv">10</span>, <span class="dt">sig.level =</span> <span class="fl">0.05</span>, </a>
+<a class="sourceLine" id="cb718-2" title="2">             <span class="dt">type=</span><span class="st">&quot;one.sample&quot;</span>, <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
 <pre><code>
      One-sample t test power calculation 
 
@@ -1098,8 +1098,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
           power = 0.869
     alternative = two.sided</code></pre>
 <p>With more samples, we should have a more powerful test, able to detect the difference with greater probability. In fact, a sample of 40 paired differences yields 87% power. As it turns out, we would need at least 44 observations with this scenario to get to 90% power, as shown in the calculation below, which puts the power in, but leaves out the sample size.</p>
-<div class="sourceCode" id="cb716"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb716-1" title="1"><span class="kw">power.t.test</span>(<span class="dt">power=</span><span class="fl">0.9</span>, <span class="dt">delta =</span> <span class="dv">5</span>, <span class="dt">sd =</span> <span class="dv">10</span>, <span class="dt">sig.level =</span> <span class="fl">0.05</span>, </a>
-<a class="sourceLine" id="cb716-2" title="2">             <span class="dt">type=</span><span class="st">&quot;one.sample&quot;</span>, <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb720"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb720-1" title="1"><span class="kw">power.t.test</span>(<span class="dt">power=</span><span class="fl">0.9</span>, <span class="dt">delta =</span> <span class="dv">5</span>, <span class="dt">sd =</span> <span class="dv">10</span>, <span class="dt">sig.level =</span> <span class="fl">0.05</span>, </a>
+<a class="sourceLine" id="cb720-2" title="2">             <span class="dt">type=</span><span class="st">&quot;one.sample&quot;</span>, <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
 <pre><code>
      One-sample t test power calculation 
 
@@ -1114,8 +1114,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="increasing-the-effect-size-absent-other-changes-will-increase-the-power" class="section level3">
 <h3><span class="header-section-number">26.1.5</span> Increasing the Effect Size, absent other changes, will increase the Power</h3>
 <p>A larger effect should be easier to detect. If we go back to our original calculation, which had 67% power to detect an effect of size <span class="math inline">\(\delta\)</span> = 5, and now change the desired effect size to <span class="math inline">\(\delta\)</span> = 6 pounds (i.e. a value of 84 or less or 96 or more), we should obtain a more powerful design.</p>
-<div class="sourceCode" id="cb718"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb718-1" title="1"><span class="kw">power.t.test</span>(<span class="dt">n =</span> <span class="dv">25</span>, <span class="dt">delta =</span> <span class="dv">6</span>, <span class="dt">sd =</span> <span class="dv">10</span>, <span class="dt">sig.level =</span> <span class="fl">0.05</span>, </a>
-<a class="sourceLine" id="cb718-2" title="2">             <span class="dt">type=</span><span class="st">&quot;one.sample&quot;</span>, <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb722"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb722-1" title="1"><span class="kw">power.t.test</span>(<span class="dt">n =</span> <span class="dv">25</span>, <span class="dt">delta =</span> <span class="dv">6</span>, <span class="dt">sd =</span> <span class="dv">10</span>, <span class="dt">sig.level =</span> <span class="fl">0.05</span>, </a>
+<a class="sourceLine" id="cb722-2" title="2">             <span class="dt">type=</span><span class="st">&quot;one.sample&quot;</span>, <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
 <pre><code>
      One-sample t test power calculation 
 
@@ -1126,8 +1126,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
           power = 0.821
     alternative = two.sided</code></pre>
 <p>We see that this change in effect size from 5 to 6, leaving everything else the same, increases our power from 67% to 82%. To reach 90% power, we’d need to increase the effect size we were trying to detect to at least 6.76 pounds.</p>
-<div class="sourceCode" id="cb720"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb720-1" title="1"><span class="kw">power.t.test</span>(<span class="dt">n =</span> <span class="dv">25</span>, <span class="dt">power =</span> <span class="fl">0.9</span>, <span class="dt">sd =</span> <span class="dv">10</span>, <span class="dt">sig.level =</span> <span class="fl">0.05</span>, </a>
-<a class="sourceLine" id="cb720-2" title="2">             <span class="dt">type=</span><span class="st">&quot;one.sample&quot;</span>, <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb724"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb724-1" title="1"><span class="kw">power.t.test</span>(<span class="dt">n =</span> <span class="dv">25</span>, <span class="dt">power =</span> <span class="fl">0.9</span>, <span class="dt">sd =</span> <span class="dv">10</span>, <span class="dt">sig.level =</span> <span class="fl">0.05</span>, </a>
+<a class="sourceLine" id="cb724-2" title="2">             <span class="dt">type=</span><span class="st">&quot;one.sample&quot;</span>, <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
 <pre><code>
      One-sample t test power calculation 
 
@@ -1146,8 +1146,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="decreasing-the-standard-deviation-absent-other-changes-will-increase-the-power" class="section level3">
 <h3><span class="header-section-number">26.1.6</span> Decreasing the Standard Deviation, absent other changes, will increase the Power</h3>
 <p>The choice of standard deviation is usually motivated by a pilot study, or else pulled out of thin air - it’s relatively easy to convince yourself that the true standard deviation might be a little smaller than you’d guessed initially. Let’s see what happens to the power if we reduce the sample standard deviation from 10 pounds to 9. This should make the effect of 5 pounds easier to detect, because it will have smaller variation associated with it.</p>
-<div class="sourceCode" id="cb722"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb722-1" title="1"><span class="kw">power.t.test</span>(<span class="dt">n =</span> <span class="dv">25</span>, <span class="dt">delta =</span> <span class="dv">5</span>, <span class="dt">sd =</span> <span class="dv">9</span>, <span class="dt">sig.level =</span> <span class="fl">0.05</span>, </a>
-<a class="sourceLine" id="cb722-2" title="2">             <span class="dt">type=</span><span class="st">&quot;one.sample&quot;</span>, <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb726"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb726-1" title="1"><span class="kw">power.t.test</span>(<span class="dt">n =</span> <span class="dv">25</span>, <span class="dt">delta =</span> <span class="dv">5</span>, <span class="dt">sd =</span> <span class="dv">9</span>, <span class="dt">sig.level =</span> <span class="fl">0.05</span>, </a>
+<a class="sourceLine" id="cb726-2" title="2">             <span class="dt">type=</span><span class="st">&quot;one.sample&quot;</span>, <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
 <pre><code>
      One-sample t test power calculation 
 
@@ -1158,8 +1158,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
           power = 0.76
     alternative = two.sided</code></pre>
 <p>This change in standard deviation from 10 to 9, leaving everything else the same, increases our power from 67% to nearly 76%. To reach 90% power, we’d need to decrease the standard deviation of the population paired differences to no more than 7.39 pounds.</p>
-<div class="sourceCode" id="cb724"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb724-1" title="1"><span class="kw">power.t.test</span>(<span class="dt">n =</span> <span class="dv">25</span>, <span class="dt">delta =</span> <span class="dv">5</span>, <span class="dt">sd =</span> <span class="ot">NULL</span>, <span class="dt">power =</span> <span class="fl">0.9</span>, <span class="dt">sig.level =</span> <span class="fl">0.05</span>, </a>
-<a class="sourceLine" id="cb724-2" title="2">             <span class="dt">type=</span><span class="st">&quot;one.sample&quot;</span>, <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb728"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb728-1" title="1"><span class="kw">power.t.test</span>(<span class="dt">n =</span> <span class="dv">25</span>, <span class="dt">delta =</span> <span class="dv">5</span>, <span class="dt">sd =</span> <span class="ot">NULL</span>, <span class="dt">power =</span> <span class="fl">0.9</span>, <span class="dt">sig.level =</span> <span class="fl">0.05</span>, </a>
+<a class="sourceLine" id="cb728-2" title="2">             <span class="dt">type=</span><span class="st">&quot;one.sample&quot;</span>, <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
 <pre><code>
      One-sample t test power calculation 
 
@@ -1178,8 +1178,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="tolerating-a-larger-alpha-significance-level-without-other-changes-increases-power" class="section level3">
 <h3><span class="header-section-number">26.1.7</span> Tolerating a Larger <span class="math inline">\(\alpha\)</span> (Significance Level), without other changes, increases Power</h3>
 <p>We can trade off some of our Type II error (lack of power) for Type I error. If we are willing to trade off some Type I error (as described by the <span class="math inline">\(\alpha\)</span>), we can improve the power. For instance, suppose we decided to run the original test with 90% confidence.</p>
-<div class="sourceCode" id="cb726"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb726-1" title="1"><span class="kw">power.t.test</span>(<span class="dt">n =</span> <span class="dv">25</span>, <span class="dt">delta =</span> <span class="dv">5</span>, <span class="dt">sd =</span> <span class="dv">10</span>, <span class="dt">sig.level =</span> <span class="fl">0.1</span>, </a>
-<a class="sourceLine" id="cb726-2" title="2">             <span class="dt">type=</span><span class="st">&quot;one.sample&quot;</span>, <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb730"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb730-1" title="1"><span class="kw">power.t.test</span>(<span class="dt">n =</span> <span class="dv">25</span>, <span class="dt">delta =</span> <span class="dv">5</span>, <span class="dt">sd =</span> <span class="dv">10</span>, <span class="dt">sig.level =</span> <span class="fl">0.1</span>, </a>
+<a class="sourceLine" id="cb730-2" title="2">             <span class="dt">type=</span><span class="st">&quot;one.sample&quot;</span>, <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
 <pre><code>
      One-sample t test power calculation 
 
@@ -1217,8 +1217,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="using-the-power.t.test-function-1" class="section level2">
 <h2><span class="header-section-number">26.4</span> Using the <code>power.t.test</code> function</h2>
-<div class="sourceCode" id="cb728"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb728-1" title="1"><span class="kw">power.t.test</span>(<span class="dt">n =</span> <span class="dv">30</span>, <span class="dt">delta =</span> <span class="dv">5</span>, <span class="dt">sd =</span> <span class="dv">10</span>, <span class="dt">sig.level =</span> <span class="fl">0.05</span>, </a>
-<a class="sourceLine" id="cb728-2" title="2">             <span class="dt">type=</span><span class="st">&quot;paired&quot;</span>, <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb732"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb732-1" title="1"><span class="kw">power.t.test</span>(<span class="dt">n =</span> <span class="dv">30</span>, <span class="dt">delta =</span> <span class="dv">5</span>, <span class="dt">sd =</span> <span class="dv">10</span>, <span class="dt">sig.level =</span> <span class="fl">0.05</span>, </a>
+<a class="sourceLine" id="cb732-2" title="2">             <span class="dt">type=</span><span class="st">&quot;paired&quot;</span>, <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
 <pre><code>
      Paired t test power calculation 
 
@@ -1238,8 +1238,8 @@ NOTE: n is number of *pairs*, sd is std.dev. of *differences* within pairs</code
 <div id="increasing-the-sample-size-absent-other-changes-will-increase-the-power-1" class="section level3">
 <h3><span class="header-section-number">26.5.1</span> Increasing the Sample Size, absent other changes, will Increase the Power</h3>
 <p>Suppose, we committed to using more resources and gathering “Before” and “After” data from 40 subjects instead of the 30 we assumed initially – what effect would this have on our power?</p>
-<div class="sourceCode" id="cb730"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb730-1" title="1"><span class="kw">power.t.test</span>(<span class="dt">n =</span> <span class="dv">40</span>, <span class="dt">delta =</span> <span class="dv">5</span>, <span class="dt">sd =</span> <span class="dv">10</span>, <span class="dt">sig.level =</span> <span class="fl">0.05</span>, </a>
-<a class="sourceLine" id="cb730-2" title="2">             <span class="dt">type=</span><span class="st">&quot;paired&quot;</span>, <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb734"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb734-1" title="1"><span class="kw">power.t.test</span>(<span class="dt">n =</span> <span class="dv">40</span>, <span class="dt">delta =</span> <span class="dv">5</span>, <span class="dt">sd =</span> <span class="dv">10</span>, <span class="dt">sig.level =</span> <span class="fl">0.05</span>, </a>
+<a class="sourceLine" id="cb734-2" title="2">             <span class="dt">type=</span><span class="st">&quot;paired&quot;</span>, <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
 <pre><code>
      Paired t test power calculation 
 
@@ -1252,8 +1252,8 @@ NOTE: n is number of *pairs*, sd is std.dev. of *differences* within pairs</code
 
 NOTE: n is number of *pairs*, sd is std.dev. of *differences* within pairs</code></pre>
 <p>With more samples, we should have a more powerful test, able to detect the difference with greater probability. In fact, a sample of 40 paired differences yields 87% power. As it turns out, we would need at least 44 paired differences with this scenario to get to 90% power, as shown in the calculation below, which puts the power in, but leaves out the sample size.</p>
-<div class="sourceCode" id="cb732"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb732-1" title="1"><span class="kw">power.t.test</span>(<span class="dt">power=</span><span class="fl">0.9</span>, <span class="dt">delta =</span> <span class="dv">5</span>, <span class="dt">sd =</span> <span class="dv">10</span>, <span class="dt">sig.level =</span> <span class="fl">0.05</span>, </a>
-<a class="sourceLine" id="cb732-2" title="2">             <span class="dt">type=</span><span class="st">&quot;paired&quot;</span>, <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb736"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb736-1" title="1"><span class="kw">power.t.test</span>(<span class="dt">power=</span><span class="fl">0.9</span>, <span class="dt">delta =</span> <span class="dv">5</span>, <span class="dt">sd =</span> <span class="dv">10</span>, <span class="dt">sig.level =</span> <span class="fl">0.05</span>, </a>
+<a class="sourceLine" id="cb736-2" title="2">             <span class="dt">type=</span><span class="st">&quot;paired&quot;</span>, <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
 <pre><code>
      Paired t test power calculation 
 
@@ -1270,8 +1270,8 @@ NOTE: n is number of *pairs*, sd is std.dev. of *differences* within pairs</code
 <div id="increasing-the-effect-size-absent-other-changes-will-increase-the-power-1" class="section level3">
 <h3><span class="header-section-number">26.5.2</span> Increasing the Effect Size, absent other changes, will increase the Power</h3>
 <p>A larger effect should be easier to detect. If we go back to our original calculation, which had 75% power to detect an effect (i.e. a true population mean difference) of size <span class="math inline">\(\delta\)</span> = 5, and now change the desired effect size to <span class="math inline">\(\delta\)</span> = 6, we should obtain a more powerful design.</p>
-<div class="sourceCode" id="cb734"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb734-1" title="1"><span class="kw">power.t.test</span>(<span class="dt">n =</span> <span class="dv">30</span>, <span class="dt">delta =</span> <span class="dv">6</span>, <span class="dt">sd =</span> <span class="dv">10</span>, <span class="dt">sig.level =</span> <span class="fl">0.05</span>, </a>
-<a class="sourceLine" id="cb734-2" title="2">             <span class="dt">type=</span><span class="st">&quot;paired&quot;</span>, <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb738"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb738-1" title="1"><span class="kw">power.t.test</span>(<span class="dt">n =</span> <span class="dv">30</span>, <span class="dt">delta =</span> <span class="dv">6</span>, <span class="dt">sd =</span> <span class="dv">10</span>, <span class="dt">sig.level =</span> <span class="fl">0.05</span>, </a>
+<a class="sourceLine" id="cb738-2" title="2">             <span class="dt">type=</span><span class="st">&quot;paired&quot;</span>, <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
 <pre><code>
      Paired t test power calculation 
 
@@ -1293,8 +1293,8 @@ NOTE: n is number of *pairs*, sd is std.dev. of *differences* within pairs</code
 <div id="decreasing-the-standard-deviation-absent-other-changes-will-increase-the-power-1" class="section level3">
 <h3><span class="header-section-number">26.5.3</span> Decreasing the Standard Deviation, absent other changes, will increase the Power</h3>
 <p>The choice of standard deviation is usually motivated by a pilot study, or else pulled out of thin air. It’s relatively easy to convince yourself that the true standard deviation might be a little smaller than you’d guessed initially. Let’s see what happens to the power if we reduce the sample standard deviation from 10 days to 9 days. This should make the effect of 5 days easier to detect as being different from the null hypothesized value of 0, because it will have smaller variation associated with it.</p>
-<div class="sourceCode" id="cb736"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb736-1" title="1"><span class="kw">power.t.test</span>(<span class="dt">n =</span> <span class="dv">30</span>, <span class="dt">delta =</span> <span class="dv">5</span>, <span class="dt">sd =</span> <span class="dv">9</span>, <span class="dt">sig.level =</span> <span class="fl">0.05</span>, </a>
-<a class="sourceLine" id="cb736-2" title="2">             <span class="dt">type=</span><span class="st">&quot;paired&quot;</span>, <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb740"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb740-1" title="1"><span class="kw">power.t.test</span>(<span class="dt">n =</span> <span class="dv">30</span>, <span class="dt">delta =</span> <span class="dv">5</span>, <span class="dt">sd =</span> <span class="dv">9</span>, <span class="dt">sig.level =</span> <span class="fl">0.05</span>, </a>
+<a class="sourceLine" id="cb740-2" title="2">             <span class="dt">type=</span><span class="st">&quot;paired&quot;</span>, <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
 <pre><code>
      Paired t test power calculation 
 
@@ -1308,8 +1308,8 @@ NOTE: n is number of *pairs*, sd is std.dev. of *differences* within pairs</code
 NOTE: n is number of *pairs*, sd is std.dev. of *differences* within pairs</code></pre>
 <p>This change in standard deviation from 10 to 9, leaving everything else the same, increases our power from 75% to nearly 84%. To reach 90% power, we’d need to decrease the standard deviation of the population paired differences to no more than 8.16 days.</p>
 <p>Note I am rounding down here, because using <span class="math inline">\(s\)</span> = 8.17 days would not quite make it to 90.00% power. Note also that in order to get R to treat the sd as unknown, I must specify it as NULL in the formula…</p>
-<div class="sourceCode" id="cb738"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb738-1" title="1"><span class="kw">power.t.test</span>(<span class="dt">n =</span> <span class="dv">30</span>, <span class="dt">delta =</span> <span class="dv">5</span>, <span class="dt">sd =</span> <span class="ot">NULL</span>, <span class="dt">power =</span> <span class="fl">0.9</span>, </a>
-<a class="sourceLine" id="cb738-2" title="2">             <span class="dt">sig.level =</span> <span class="fl">0.05</span>, <span class="dt">type=</span><span class="st">&quot;paired&quot;</span>, <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb742"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb742-1" title="1"><span class="kw">power.t.test</span>(<span class="dt">n =</span> <span class="dv">30</span>, <span class="dt">delta =</span> <span class="dv">5</span>, <span class="dt">sd =</span> <span class="ot">NULL</span>, <span class="dt">power =</span> <span class="fl">0.9</span>, </a>
+<a class="sourceLine" id="cb742-2" title="2">             <span class="dt">sig.level =</span> <span class="fl">0.05</span>, <span class="dt">type=</span><span class="st">&quot;paired&quot;</span>, <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
 <pre><code>
      Paired t test power calculation 
 
@@ -1325,8 +1325,8 @@ NOTE: n is number of *pairs*, sd is std.dev. of *differences* within pairs</code
 <div id="tolerating-a-larger-alpha-significance-level-without-other-changes-increases-power-1" class="section level3">
 <h3><span class="header-section-number">26.5.4</span> Tolerating a Larger <span class="math inline">\(\alpha\)</span> (Significance Level), without other changes, increases Power</h3>
 <p>We can trade off some of our Type II error (lack of power) for Type I error. If we are willing to trade off some Type I error (as described by the <span class="math inline">\(\alpha\)</span>), we can improve the power. For instance, suppose we decided to run the original test with 90% confidence.</p>
-<div class="sourceCode" id="cb740"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb740-1" title="1"><span class="kw">power.t.test</span>(<span class="dt">n =</span> <span class="dv">30</span>, <span class="dt">delta =</span> <span class="dv">5</span>, <span class="dt">sd =</span> <span class="dv">10</span>, <span class="dt">sig.level =</span> <span class="fl">0.1</span>, </a>
-<a class="sourceLine" id="cb740-2" title="2">             <span class="dt">type=</span><span class="st">&quot;paired&quot;</span>, <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb744"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb744-1" title="1"><span class="kw">power.t.test</span>(<span class="dt">n =</span> <span class="dv">30</span>, <span class="dt">delta =</span> <span class="dv">5</span>, <span class="dt">sd =</span> <span class="dv">10</span>, <span class="dt">sig.level =</span> <span class="fl">0.1</span>, </a>
+<a class="sourceLine" id="cb744-2" title="2">             <span class="dt">type=</span><span class="st">&quot;paired&quot;</span>, <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
 <pre><code>
      Paired t test power calculation 
 
@@ -1367,10 +1367,10 @@ NOTE: n is number of *pairs*, sd is std.dev. of *differences* within pairs</code
 <li>using a two-sided pooled t-test.</li>
 </ul>
 <p>The appropriate R command is:</p>
-<div class="sourceCode" id="cb742"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb742-1" title="1"><span class="kw">power.t.test</span>(<span class="dt">delta =</span> <span class="fl">4.5</span>, <span class="dt">sd =</span> <span class="dv">9</span>, </a>
-<a class="sourceLine" id="cb742-2" title="2">             <span class="dt">sig.level =</span> <span class="fl">0.10</span>, <span class="dt">power =</span> <span class="fl">0.9</span>, </a>
-<a class="sourceLine" id="cb742-3" title="3">             <span class="dt">type=</span><span class="st">&quot;two.sample&quot;</span>, </a>
-<a class="sourceLine" id="cb742-4" title="4">             <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb746"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb746-1" title="1"><span class="kw">power.t.test</span>(<span class="dt">delta =</span> <span class="fl">4.5</span>, <span class="dt">sd =</span> <span class="dv">9</span>, </a>
+<a class="sourceLine" id="cb746-2" title="2">             <span class="dt">sig.level =</span> <span class="fl">0.10</span>, <span class="dt">power =</span> <span class="fl">0.9</span>, </a>
+<a class="sourceLine" id="cb746-3" title="3">             <span class="dt">type=</span><span class="st">&quot;two.sample&quot;</span>, </a>
+<a class="sourceLine" id="cb746-4" title="4">             <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
 <pre><code>
      Two-sample t test power calculation 
 
@@ -1386,10 +1386,10 @@ NOTE: n is number in *each* group</code></pre>
 <div id="another-scenario" class="section level3">
 <h3><span class="header-section-number">26.7.1</span> Another Scenario</h3>
 <p>What if resources are sparse, and we’ll be forced to do the study with no more than 120 subjects, overall? If we require 90% confidence in a two-sided test, what power will we have?</p>
-<div class="sourceCode" id="cb744"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb744-1" title="1"><span class="kw">power.t.test</span>(<span class="dt">n =</span> <span class="dv">60</span>, <span class="dt">delta =</span> <span class="fl">4.5</span>, <span class="dt">sd =</span> <span class="dv">9</span>, </a>
-<a class="sourceLine" id="cb744-2" title="2">             <span class="dt">sig.level =</span> <span class="fl">0.10</span>,</a>
-<a class="sourceLine" id="cb744-3" title="3">             <span class="dt">type=</span><span class="st">&quot;two.sample&quot;</span>, </a>
-<a class="sourceLine" id="cb744-4" title="4">             <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb748"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb748-1" title="1"><span class="kw">power.t.test</span>(<span class="dt">n =</span> <span class="dv">60</span>, <span class="dt">delta =</span> <span class="fl">4.5</span>, <span class="dt">sd =</span> <span class="dv">9</span>, </a>
+<a class="sourceLine" id="cb748-2" title="2">             <span class="dt">sig.level =</span> <span class="fl">0.10</span>,</a>
+<a class="sourceLine" id="cb748-3" title="3">             <span class="dt">type=</span><span class="st">&quot;two.sample&quot;</span>, </a>
+<a class="sourceLine" id="cb748-4" title="4">             <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
 <pre><code>
      Two-sample t test power calculation 
 
@@ -1408,9 +1408,9 @@ NOTE: n is number in *each* group</code></pre>
 <h2><span class="header-section-number">26.8</span> Power for Independent Sample T tests with Unbalanced Designs</h2>
 <p>Using the <code>pwr</code> package, R can do sample size calculations that describe the power of a two-sample t test that does not require a balanced design using the <code>pwr.t2n.test</code> command.</p>
 <p>Suppose we wanted to do the same study as we described above, using 100 “treated” patients but as few “placebo” patients as possible. What sample size would be required to maintain 90% power? There is one change here – the effect size d in the <code>pwr.t2n.test</code> command is specified using the difference in means <span class="math inline">\(\delta\)</span> that we used previously, divided by the standard deviation s that we used previously. So, in our old setup, we assumed delta = 4.5, sd = 9, so now we’ll assume d = 4.5/9 instead.</p>
-<div class="sourceCode" id="cb746"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb746-1" title="1">pwr<span class="op">::</span><span class="kw">pwr.t2n.test</span>(<span class="dt">n1 =</span> <span class="dv">100</span>, <span class="dt">d =</span> <span class="fl">4.5</span><span class="op">/</span><span class="dv">9</span>, </a>
-<a class="sourceLine" id="cb746-2" title="2">             <span class="dt">sig.level =</span> <span class="fl">0.1</span>, <span class="dt">power =</span> <span class="fl">0.9</span>,</a>
-<a class="sourceLine" id="cb746-3" title="3">             <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb750"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb750-1" title="1">pwr<span class="op">::</span><span class="kw">pwr.t2n.test</span>(<span class="dt">n1 =</span> <span class="dv">100</span>, <span class="dt">d =</span> <span class="fl">4.5</span><span class="op">/</span><span class="dv">9</span>, </a>
+<a class="sourceLine" id="cb750-2" title="2">             <span class="dt">sig.level =</span> <span class="fl">0.1</span>, <span class="dt">power =</span> <span class="fl">0.9</span>,</a>
+<a class="sourceLine" id="cb750-3" title="3">             <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
 <pre><code>
      t test power calculation 
 
@@ -1428,9 +1428,9 @@ NOTE: n is number in *each* group</code></pre>
 <li>Compare this to the balanced design, where we needed 70 subjects in each group to achieve the same power, thus, a total of 140 subjects.</li>
 </ul>
 <p>We saw earlier that a test with 60 subjects in each group would yield just under 86% power. Suppose we instead built a test with 80 subjects in the treated group, and 40 in the placebo group, then what would our power be?</p>
-<div class="sourceCode" id="cb748"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb748-1" title="1">pwr<span class="op">::</span><span class="kw">pwr.t2n.test</span>(<span class="dt">n1 =</span> <span class="dv">80</span>, <span class="dt">n2 =</span> <span class="dv">40</span>, <span class="dt">d =</span> <span class="fl">4.5</span><span class="op">/</span><span class="dv">9</span>, </a>
-<a class="sourceLine" id="cb748-2" title="2">             <span class="dt">sig.level =</span> <span class="fl">0.10</span>,</a>
-<a class="sourceLine" id="cb748-3" title="3">             <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb752"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb752-1" title="1">pwr<span class="op">::</span><span class="kw">pwr.t2n.test</span>(<span class="dt">n1 =</span> <span class="dv">80</span>, <span class="dt">n2 =</span> <span class="dv">40</span>, <span class="dt">d =</span> <span class="fl">4.5</span><span class="op">/</span><span class="dv">9</span>, </a>
+<a class="sourceLine" id="cb752-2" title="2">             <span class="dt">sig.level =</span> <span class="fl">0.10</span>,</a>
+<a class="sourceLine" id="cb752-3" title="3">             <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
 <pre><code>
      t test power calculation 
 
@@ -1451,9 +1451,9 @@ NOTE: n is number in *each* group</code></pre>
 <div id="tuberculosis-prevalence-among-iv-drug-users" class="section level2">
 <h2><span class="header-section-number">26.10</span> Tuberculosis Prevalence Among IV Drug Users</h2>
 <p><span class="citation">Pagano and Gauvreau (<a href="#ref-PaganoGauvreau">2000</a>)</span> describe a study to investigate factors affecting tuberculosis prevalence among intravenous drug users. Among 97 individuals who admit to sharing needles, 24 (24.7%) had a positive tuberculin skin test result; among 161 drug users who deny sharing needles, 28 (17.4%) had a positive test result. To start, we’ll test the null hypothesis that the proportions of intravenous drug users who have a positive tuberculin skin test result are identical for those who share needles and those who do not.</p>
-<div class="sourceCode" id="cb750"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb750-1" title="1"><span class="kw">twobytwo</span>(<span class="dv">24</span>,<span class="dv">73</span>, <span class="dv">28</span>, <span class="dv">133</span>, </a>
-<a class="sourceLine" id="cb750-2" title="2">         <span class="st">&quot;Sharing Needles&quot;</span>, <span class="st">&quot;Not Sharing&quot;</span>, </a>
-<a class="sourceLine" id="cb750-3" title="3">         <span class="st">&quot;TB test+&quot;</span>, <span class="st">&quot;TB test-&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb754"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb754-1" title="1"><span class="kw">twobytwo</span>(<span class="dv">24</span>,<span class="dv">73</span>, <span class="dv">28</span>, <span class="dv">133</span>, </a>
+<a class="sourceLine" id="cb754-2" title="2">         <span class="st">&quot;Sharing Needles&quot;</span>, <span class="st">&quot;Not Sharing&quot;</span>, </a>
+<a class="sourceLine" id="cb754-3" title="3">         <span class="st">&quot;TB test+&quot;</span>, <span class="st">&quot;TB test-&quot;</span>)</a></code></pre></div>
 <pre><code>2 by 2 table analysis: 
 ------------------------------------------------------ 
 Outcome   : TB test+ 
@@ -1481,7 +1481,7 @@ Conditional MLE Odds Ratio: 1.5588    0.8014    3.019
 <div id="using-power.prop.test-for-balanced-designs" class="section level2">
 <h2><span class="header-section-number">26.12</span> Using <code>power.prop.test</code> for Balanced Designs</h2>
 <p>Our constraints are that we want to find the sample size for a two-sample comparison of proportions using a balanced design, we will use <span class="math inline">\(\alpha\)</span> = .05, and power = .90, and that we estimate that the non-sharers will have a .174 proportion of positive tests, and we will try to detect a difference between this group and the needle sharers, who we estimate will have a proportion of .247, using a two-sided hypothesis test.</p>
-<div class="sourceCode" id="cb752"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb752-1" title="1"><span class="kw">power.prop.test</span>(<span class="dt">p1 =</span> <span class="fl">.174</span>, <span class="dt">p2  =</span> <span class="fl">.247</span>, <span class="dt">sig.level =</span> <span class="fl">0.05</span>, <span class="dt">power =</span> <span class="fl">0.90</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb756"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb756-1" title="1"><span class="kw">power.prop.test</span>(<span class="dt">p1 =</span> <span class="fl">.174</span>, <span class="dt">p2  =</span> <span class="fl">.247</span>, <span class="dt">sig.level =</span> <span class="fl">0.05</span>, <span class="dt">power =</span> <span class="fl">0.90</span>)</a></code></pre></div>
 <pre><code>
      Two-sample comparison of proportions power calculation 
 
@@ -1511,8 +1511,8 @@ NOTE: n is number in *each* group</code></pre>
 <div id="another-scenario-1" class="section level2">
 <h2><span class="header-section-number">26.14</span> Another Scenario</h2>
 <p>Suppose we can get exactly 800 subjects in total (400 sharing and 400 non-sharing). How much power would we have to detect a difference in the proportion of positive skin test results between the two groups that was identical to the data presented above or larger, using a one-sided test, with <span class="math inline">\(\alpha\)</span> = .10?</p>
-<div class="sourceCode" id="cb754"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb754-1" title="1"><span class="kw">power.prop.test</span>(<span class="dt">n=</span><span class="dv">400</span>, <span class="dt">p1=</span>.<span class="dv">174</span>, <span class="dt">p2=</span>.<span class="dv">247</span>, <span class="dt">sig.level =</span> <span class="fl">0.10</span>,</a>
-<a class="sourceLine" id="cb754-2" title="2">                <span class="dt">alternative=</span><span class="st">&quot;one.sided&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb758"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb758-1" title="1"><span class="kw">power.prop.test</span>(<span class="dt">n=</span><span class="dv">400</span>, <span class="dt">p1=</span>.<span class="dv">174</span>, <span class="dt">p2=</span>.<span class="dv">247</span>, <span class="dt">sig.level =</span> <span class="fl">0.10</span>,</a>
+<a class="sourceLine" id="cb758-2" title="2">                <span class="dt">alternative=</span><span class="st">&quot;one.sided&quot;</span>)</a></code></pre></div>
 <pre><code>
      Two-sample comparison of proportions power calculation 
 
@@ -1541,16 +1541,16 @@ NOTE: n is number in *each* group</code></pre>
 <h3><span class="header-section-number">26.15.1</span> Calculating the Effect Size <code>h</code></h3>
 <p>To calculate the effect size for a given set of proportions, just use <code>ES.h(p1, p2)</code> which is available in the <code>pwr</code> library.</p>
 <p>For instance, in our comparison, we have the following effect size.</p>
-<div class="sourceCode" id="cb756"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb756-1" title="1">pwr<span class="op">::</span><span class="kw">ES.h</span>(<span class="dt">p1 =</span> <span class="fl">.174</span>, <span class="dt">p2 =</span> <span class="fl">.247</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb760"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb760-1" title="1">pwr<span class="op">::</span><span class="kw">ES.h</span>(<span class="dt">p1 =</span> <span class="fl">.174</span>, <span class="dt">p2 =</span> <span class="fl">.247</span>)</a></code></pre></div>
 <pre><code>[1] -0.18</code></pre>
 </div>
 </div>
 <div id="using-pwr.2p2n.test-in-r" class="section level2">
 <h2><span class="header-section-number">26.16</span> Using <code>pwr.2p2n.test</code> in R</h2>
 <p>Suppose we can have 700 samples in group 1 (the not sharing group) but only half that many in group 2 (the group of users who share needles). How much power would we have to detect this same difference (p<sub>1</sub> = .174, p<sub>2</sub> = .247) with a 5% significance level in a two-sided test?</p>
-<div class="sourceCode" id="cb758"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb758-1" title="1">pwr<span class="op">::</span><span class="kw">pwr.2p2n.test</span>(<span class="dt">h =</span> pwr<span class="op">::</span><span class="kw">ES.h</span>(<span class="dt">p1 =</span> <span class="fl">.174</span>, <span class="dt">p2 =</span> <span class="fl">.247</span>), </a>
-<a class="sourceLine" id="cb758-2" title="2">              <span class="dt">n1 =</span> <span class="dv">700</span>, <span class="dt">n2 =</span> <span class="dv">350</span>,</a>
-<a class="sourceLine" id="cb758-3" title="3">              <span class="dt">sig.level =</span> <span class="fl">0.05</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb762"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb762-1" title="1">pwr<span class="op">::</span><span class="kw">pwr.2p2n.test</span>(<span class="dt">h =</span> pwr<span class="op">::</span><span class="kw">ES.h</span>(<span class="dt">p1 =</span> <span class="fl">.174</span>, <span class="dt">p2 =</span> <span class="fl">.247</span>), </a>
+<a class="sourceLine" id="cb762-2" title="2">              <span class="dt">n1 =</span> <span class="dv">700</span>, <span class="dt">n2 =</span> <span class="dv">350</span>,</a>
+<a class="sourceLine" id="cb762-3" title="3">              <span class="dt">sig.level =</span> <span class="fl">0.05</span>)</a></code></pre></div>
 <pre><code>
      difference of proportion power calculation for binomial distribution (arcsine transformation) 
 
@@ -1569,7 +1569,7 @@ NOTE: different sample sizes</code></pre>
 <div id="comparison-to-balanced-design" class="section level3">
 <h3><span class="header-section-number">26.16.1</span> Comparison to Balanced Design</h3>
 <p>How does this compare to the results with a balanced design using only 1000 drug users in total, so that we have 500 patients in each group?</p>
-<div class="sourceCode" id="cb761"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb761-1" title="1">pwr<span class="op">::</span><span class="kw">pwr.2p2n.test</span>(<span class="dt">h =</span> pwr<span class="op">::</span><span class="kw">ES.h</span>(<span class="dt">p1 =</span> <span class="fl">.174</span>, <span class="dt">p2 =</span> <span class="fl">.247</span>), <span class="dt">n1 =</span> <span class="dv">500</span>, <span class="dt">n2 =</span> <span class="dv">500</span>, <span class="dt">sig.level =</span> <span class="fl">0.05</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb765"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb765-1" title="1">pwr<span class="op">::</span><span class="kw">pwr.2p2n.test</span>(<span class="dt">h =</span> pwr<span class="op">::</span><span class="kw">ES.h</span>(<span class="dt">p1 =</span> <span class="fl">.174</span>, <span class="dt">p2 =</span> <span class="fl">.247</span>), <span class="dt">n1 =</span> <span class="dv">500</span>, <span class="dt">n2 =</span> <span class="dv">500</span>, <span class="dt">sig.level =</span> <span class="fl">0.05</span>)</a></code></pre></div>
 <pre><code>
      difference of proportion power calculation for binomial distribution (arcsine transformation) 
 
@@ -1582,7 +1582,7 @@ NOTE: different sample sizes</code></pre>
 
 NOTE: different sample sizes</code></pre>
 <p>or we could instead have used…</p>
-<div class="sourceCode" id="cb763"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb763-1" title="1"><span class="kw">power.prop.test</span>(<span class="dt">p1 =</span> <span class="fl">.174</span>, <span class="dt">p2 =</span> <span class="fl">.247</span>, <span class="dt">sig.level =</span> <span class="fl">0.05</span>, <span class="dt">n =</span> <span class="dv">500</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb767"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb767-1" title="1"><span class="kw">power.prop.test</span>(<span class="dt">p1 =</span> <span class="fl">.174</span>, <span class="dt">p2 =</span> <span class="fl">.247</span>, <span class="dt">sig.level =</span> <span class="fl">0.05</span>, <span class="dt">n =</span> <span class="dv">500</span>)</a></code></pre></div>
 <pre><code>
      Two-sample comparison of proportions power calculation 
 

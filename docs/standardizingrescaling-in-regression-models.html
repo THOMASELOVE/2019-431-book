@@ -1040,8 +1040,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li>Remember also that the intercept in such a model shows the mean outcome across all subjects.</li>
 </ul>
 <p>Consider a two-variable model, using <code>area</code> and <code>elevation</code> to predict the number of <code>species</code>…</p>
-<div class="sourceCode" id="cb1245"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1245-1" title="1">model2 &lt;-<span class="st"> </span><span class="kw">lm</span>(species <span class="op">~</span><span class="st"> </span>area <span class="op">+</span><span class="st"> </span>elevation, <span class="dt">data=</span>gala)</a>
-<a class="sourceLine" id="cb1245-2" title="2"><span class="kw">summary</span>(model2)</a></code></pre></div>
+<div class="sourceCode" id="cb1249"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1249-1" title="1">model2 &lt;-<span class="st"> </span><span class="kw">lm</span>(species <span class="op">~</span><span class="st"> </span>area <span class="op">+</span><span class="st"> </span>elevation, <span class="dt">data=</span>gala)</a>
+<a class="sourceLine" id="cb1249-2" title="2"><span class="kw">summary</span>(model2)</a></code></pre></div>
 <pre><code>
 Call:
 lm(formula = species ~ area + elevation, data = gala)
@@ -1062,8 +1062,8 @@ Residual standard error: 79.3 on 27 degrees of freedom
 Multiple R-squared:  0.554, Adjusted R-squared:  0.521 
 F-statistic: 16.8 on 2 and 27 DF,  p-value: 1.84e-05</code></pre>
 <p>Now compare these results to the ones we get after scaling the area and elevation variables. Remember that the <code>scale</code> function centers a variable on zero by subtracting the mean from each observation, and then scales the result by dividing by the standard deviation. This ensures that each regression input has mean 0 and standard deviation 1, and is thus a <em>z score</em>.</p>
-<div class="sourceCode" id="cb1247"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1247-1" title="1">model2.z &lt;-<span class="st"> </span><span class="kw">lm</span>(species <span class="op">~</span><span class="st"> </span><span class="kw">scale</span>(area) <span class="op">+</span><span class="st"> </span><span class="kw">scale</span>(elevation), <span class="dt">data=</span>gala)</a>
-<a class="sourceLine" id="cb1247-2" title="2"><span class="kw">summary</span>(model2.z)</a></code></pre></div>
+<div class="sourceCode" id="cb1251"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1251-1" title="1">model2.z &lt;-<span class="st"> </span><span class="kw">lm</span>(species <span class="op">~</span><span class="st"> </span><span class="kw">scale</span>(area) <span class="op">+</span><span class="st"> </span><span class="kw">scale</span>(elevation), <span class="dt">data=</span>gala)</a>
+<a class="sourceLine" id="cb1251-2" title="2"><span class="kw">summary</span>(model2.z)</a></code></pre></div>
 <pre><code>
 Call:
 lm(formula = species ~ scale(area) + scale(elevation), data = gala)
@@ -1094,9 +1094,9 @@ F-statistic: 16.8 on 2 and 27 DF,  p-value: 1.84e-05</code></pre>
 <div id="fully-standardized-regression-coefficients" class="section level2">
 <h2><span class="header-section-number">44.2</span> Fully Standardized Regression Coefficients</h2>
 <p>Suppose we standardize the coefficients by also taking centering and scaling (using the z score) the outcome variable: <code>species</code>, creating a <strong>fully standardized</strong> model.</p>
-<div class="sourceCode" id="cb1249"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1249-1" title="1">model2.zout &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="kw">scale</span>(species) <span class="op">~</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb1249-2" title="2"><span class="st">                  </span><span class="kw">scale</span>(area) <span class="op">+</span><span class="st"> </span><span class="kw">scale</span>(elevation), <span class="dt">data=</span>gala)</a>
-<a class="sourceLine" id="cb1249-3" title="3"><span class="kw">summary</span>(model2.zout)</a></code></pre></div>
+<div class="sourceCode" id="cb1253"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1253-1" title="1">model2.zout &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="kw">scale</span>(species) <span class="op">~</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb1253-2" title="2"><span class="st">                  </span><span class="kw">scale</span>(area) <span class="op">+</span><span class="st"> </span><span class="kw">scale</span>(elevation), <span class="dt">data=</span>gala)</a>
+<a class="sourceLine" id="cb1253-3" title="3"><span class="kw">summary</span>(model2.zout)</a></code></pre></div>
 <pre><code>
 Call:
 lm(formula = scale(species) ~ scale(area) + scale(elevation), 
@@ -1122,7 +1122,7 @@ F-statistic: 16.8 on 2 and 27 DF,  p-value: 1.84e-05</code></pre>
 <ol start="81" style="list-style-type: decimal">
 <li>How do you interpret the value 0.142 of the <code>scale(area)</code> coefficient here? You may want to start by reviewing the summary of the original <code>gala</code> data shown here.</li>
 </ol>
-<div class="sourceCode" id="cb1251"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1251-1" title="1"><span class="kw">summary</span>(gala[<span class="kw">c</span>(<span class="st">&quot;species&quot;</span>, <span class="st">&quot;area&quot;</span>, <span class="st">&quot;elevation&quot;</span>)])</a></code></pre></div>
+<div class="sourceCode" id="cb1255"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1255-1" title="1"><span class="kw">summary</span>(gala[<span class="kw">c</span>(<span class="st">&quot;species&quot;</span>, <span class="st">&quot;area&quot;</span>, <span class="st">&quot;elevation&quot;</span>)])</a></code></pre></div>
 <pre><code>    species         area        elevation   
  Min.   :  2   Min.   :   0   Min.   :  25  
  1st Qu.: 13   1st Qu.:   0   1st Qu.:  98  
@@ -1143,13 +1143,13 @@ F-statistic: 16.8 on 2 and 27 DF,  p-value: 1.84e-05</code></pre>
 <h2><span class="header-section-number">44.3</span> Robust Standardization of Regression Coefficients</h2>
 <p>Another common option for scaling is to specify lower and upper comparison points, perhaps by comparing the impact of a move from the 25th to the 75th percentile for each variable, while holding all of the other variables constant.</p>
 <p>Occasionally, you will see robust semi-standardized regression coefficients, which measure the increase in the outcome, Y, associated with an increase in that particular predictor of one IQR (inter-quartile range).</p>
-<div class="sourceCode" id="cb1253"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1253-1" title="1">gala<span class="op">$</span>area.scaleiqr &lt;-<span class="st"> </span>(gala<span class="op">$</span>area <span class="op">-</span><span class="st"> </span><span class="kw">mean</span>(gala<span class="op">$</span>area)) <span class="op">/</span><span class="st"> </span><span class="kw">IQR</span>(gala<span class="op">$</span>area)</a>
-<a class="sourceLine" id="cb1253-2" title="2">gala<span class="op">$</span>elevation.scaleiqr &lt;-<span class="st"> </span>(gala<span class="op">$</span>elevation <span class="op">-</span><span class="st"> </span><span class="kw">mean</span>(gala<span class="op">$</span>elevation)) <span class="op">/</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb1253-3" title="3"><span class="st">                            </span><span class="kw">IQR</span>(gala<span class="op">$</span>elevation)</a>
-<a class="sourceLine" id="cb1253-4" title="4"></a>
-<a class="sourceLine" id="cb1253-5" title="5">model2.iqr &lt;-<span class="st"> </span><span class="kw">lm</span>(species <span class="op">~</span><span class="st"> </span>area.scaleiqr <span class="op">+</span><span class="st"> </span>elevation.scaleiqr,</a>
-<a class="sourceLine" id="cb1253-6" title="6">                 <span class="dt">data=</span>gala)</a>
-<a class="sourceLine" id="cb1253-7" title="7"><span class="kw">summary</span>(model2.iqr)</a></code></pre></div>
+<div class="sourceCode" id="cb1257"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1257-1" title="1">gala<span class="op">$</span>area.scaleiqr &lt;-<span class="st"> </span>(gala<span class="op">$</span>area <span class="op">-</span><span class="st"> </span><span class="kw">mean</span>(gala<span class="op">$</span>area)) <span class="op">/</span><span class="st"> </span><span class="kw">IQR</span>(gala<span class="op">$</span>area)</a>
+<a class="sourceLine" id="cb1257-2" title="2">gala<span class="op">$</span>elevation.scaleiqr &lt;-<span class="st"> </span>(gala<span class="op">$</span>elevation <span class="op">-</span><span class="st"> </span><span class="kw">mean</span>(gala<span class="op">$</span>elevation)) <span class="op">/</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb1257-3" title="3"><span class="st">                            </span><span class="kw">IQR</span>(gala<span class="op">$</span>elevation)</a>
+<a class="sourceLine" id="cb1257-4" title="4"></a>
+<a class="sourceLine" id="cb1257-5" title="5">model2.iqr &lt;-<span class="st"> </span><span class="kw">lm</span>(species <span class="op">~</span><span class="st"> </span>area.scaleiqr <span class="op">+</span><span class="st"> </span>elevation.scaleiqr,</a>
+<a class="sourceLine" id="cb1257-6" title="6">                 <span class="dt">data=</span>gala)</a>
+<a class="sourceLine" id="cb1257-7" title="7"><span class="kw">summary</span>(model2.iqr)</a></code></pre></div>
 <pre><code>
 Call:
 lm(formula = species ~ area.scaleiqr + elevation.scaleiqr, data = gala)
@@ -1174,13 +1174,13 @@ F-statistic: 16.8 on 2 and 27 DF,  p-value: 1.84e-05</code></pre>
 <ol start="87" style="list-style-type: decimal">
 <li>How should we interpret the 57.96 value for the scaled <code>elevation</code> variable? You may want to start by considering the summary of the original elevation data below.</li>
 </ol>
-<div class="sourceCode" id="cb1255"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1255-1" title="1"><span class="kw">summary</span>(gala<span class="op">$</span>elevation)</a></code></pre></div>
+<div class="sourceCode" id="cb1259"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1259-1" title="1"><span class="kw">summary</span>(gala<span class="op">$</span>elevation)</a></code></pre></div>
 <pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
      25      98     192     368     435    1707 </code></pre>
 <p>A <strong>robust standardized coefficient</strong> analysis measures the increase in Y (in IQR of Y) associated with an increase in the predictor of interest of one IQR.</p>
-<div class="sourceCode" id="cb1257"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1257-1" title="1">gala<span class="op">$</span>species.scaleiqr &lt;-<span class="st"> </span>(gala<span class="op">$</span>species <span class="op">-</span><span class="st"> </span><span class="kw">mean</span>(gala<span class="op">$</span>species)) <span class="op">/</span><span class="st"> </span><span class="kw">IQR</span>(gala<span class="op">$</span>species)</a>
-<a class="sourceLine" id="cb1257-2" title="2">model2.iqrout &lt;-<span class="st"> </span><span class="kw">lm</span>(species.scaleiqr <span class="op">~</span><span class="st"> </span>area.scaleiqr <span class="op">+</span><span class="st"> </span>elevation.scaleiqr, <span class="dt">data=</span>gala)</a>
-<a class="sourceLine" id="cb1257-3" title="3">model2.iqrout</a></code></pre></div>
+<div class="sourceCode" id="cb1261"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1261-1" title="1">gala<span class="op">$</span>species.scaleiqr &lt;-<span class="st"> </span>(gala<span class="op">$</span>species <span class="op">-</span><span class="st"> </span><span class="kw">mean</span>(gala<span class="op">$</span>species)) <span class="op">/</span><span class="st"> </span><span class="kw">IQR</span>(gala<span class="op">$</span>species)</a>
+<a class="sourceLine" id="cb1261-2" title="2">model2.iqrout &lt;-<span class="st"> </span><span class="kw">lm</span>(species.scaleiqr <span class="op">~</span><span class="st"> </span>area.scaleiqr <span class="op">+</span><span class="st"> </span>elevation.scaleiqr, <span class="dt">data=</span>gala)</a>
+<a class="sourceLine" id="cb1261-3" title="3">model2.iqrout</a></code></pre></div>
 <pre><code>
 Call:
 lm(formula = species.scaleiqr ~ area.scaleiqr + elevation.scaleiqr, 
@@ -1202,7 +1202,7 @@ Coefficients:
 <li>Such a standardization can go a long way to helping us understand a model whose predictors are on different scales, and provides an interpretable starting point.</li>
 <li>Another appealing part of this approach is that in the <code>arm</code> library, Gelman and his colleagues have created an R function called <code>standardize</code>, which can be used to automate the process of checking coefficients that have been standardized in this manner, after the regression model has been fit.</li>
 </ul>
-<div class="sourceCode" id="cb1259"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1259-1" title="1">model2</a></code></pre></div>
+<div class="sourceCode" id="cb1263"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1263-1" title="1">model2</a></code></pre></div>
 <pre><code>
 Call:
 lm(formula = species ~ area + elevation, data = gala)
@@ -1210,7 +1210,7 @@ lm(formula = species ~ area + elevation, data = gala)
 Coefficients:
 (Intercept)         area    elevation  
     17.1052       0.0188       0.1717  </code></pre>
-<div class="sourceCode" id="cb1261"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1261-1" title="1">arm<span class="op">::</span><span class="kw">standardize</span>(model2)</a></code></pre></div>
+<div class="sourceCode" id="cb1265"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1265-1" title="1">arm<span class="op">::</span><span class="kw">standardize</span>(model2)</a></code></pre></div>
 <pre><code>
 Call:
 lm(formula = species ~ z.area + z.elevation, data = gala)
@@ -1224,11 +1224,11 @@ Coefficients:
 <li><p>How does this result compare to the semi-standardized regression coefficients we have seen on the previous few pages?</p></li>
 <li><p>How should we interpret the <code>z.area</code> coefficient of 32.5 here? Again, you may want to start by obtaining a statistical summary of the original <code>area</code> data, as shown below.</p></li>
 </ol>
-<div class="sourceCode" id="cb1263"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1263-1" title="1"><span class="kw">summary</span>(gala<span class="op">$</span>area)</a></code></pre></div>
+<div class="sourceCode" id="cb1267"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1267-1" title="1"><span class="kw">summary</span>(gala<span class="op">$</span>area)</a></code></pre></div>
 <pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
       0       0       3     262      59    4669 </code></pre>
 <p>To standardize the outcome in this way, as well, we use</p>
-<div class="sourceCode" id="cb1265"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1265-1" title="1">arm<span class="op">::</span><span class="kw">standardize</span>(model2, <span class="dt">standardize.y=</span><span class="ot">TRUE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb1269"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1269-1" title="1">arm<span class="op">::</span><span class="kw">standardize</span>(model2, <span class="dt">standardize.y=</span><span class="ot">TRUE</span>)</a></code></pre></div>
 <pre><code>
 Call:
 lm(formula = z.species ~ z.area + z.elevation, data = gala)

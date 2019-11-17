@@ -204,8 +204,15 @@ serzinc %>% tabyl(in_range) %>% adorn_totals()
 So, our data can be summarized as: `x = 395, n = 462`.
 
 ```{r}
-tidy(binom.test(x = 395, n = 462), conf.level = 0.90)
-tidy(prop.test(x = 395, n = 462), conf.level = 0.90)
+binom.test(x = 395, n = 462, conf.level = 0.90)
+prop.test(x = 395, n = 462, conf.level = 0.90)
+```
+
+Or, if we want to see tidied output, we have...
+
+```{r}
+binom.test(x = 395, n = 462, conf.level = 0.90) %>% tidy()
+prop.test(x = 395, n = 462, conf.level = 0.90) %>% tidy()
 ```
 
 In Chapter \@ref(One-Proportion), we will discuss the development of confidence intervals for population proportions, and develop additional alternatives for building inference about proportions, percentages and rates.
