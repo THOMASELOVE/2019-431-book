@@ -123,7 +123,7 @@ So the 95% SAIFS confidence interval estimate for the population proportion, $\p
 
 I built an R function, called `saifs.ci` and contained in the Markdown for this document as well as the `R functions by T Love.R` script on the web site, which takes as its arguments a value for X = the number of successes, n = the number of trials, and conf.level = the confidence level, and produces the sample proportion, the SAIFS lower bound and upper bound for the specified two-sided confidence interval for the population proportion, using the equations above. 
 
-Here, for instance, are 95%, 90% and 99% confidence intervals for the population proportion $\pi$ that we have been studying in the example about Ebola Virus disease. 
+Here, for instance, are 95%, 90% and 99% confidence intervals for the population proportion $\pi$ that we have been studying in the serum zinc data. 
 
 ```{r}
 saifs.ci(x = 395, n = 462)

@@ -324,7 +324,7 @@ We can consider the evidence that helps us choose between these two hypotheses w
 mantelhaen.test(whickham2.tab1, conf.level  = 0.90)
 ```
 
-- The Cochran-Mantel-Haenszel test statistic is 5.44 (after a continuity correction) leading to a *p* value of 0.02, indicating strong rejection of the null hypothesis of conditional independence of smoking and survival given age. 
+- The Cochran-Mantel-Haenszel test statistic is 5 (after a continuity correction) leading to a *p* value of 0.02, indicating strong rejection of the null hypothesis of conditional independence of smoking and survival given age. 
 - The estimated common conditional odds ratio is 0.65. This implies that (given age) being a smoker is associated with a 35% lower odds of being alive 20 years later than being a non-smoker.
 - A 90% confidence interval for that common odds ratio is (0.49, 0.87), reinforcing rejection of the conditional independence (where the odds ratio would be 1).
 

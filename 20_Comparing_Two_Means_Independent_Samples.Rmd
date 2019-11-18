@@ -1,6 +1,6 @@
 # Comparing Means/Quantities using Two Independent Samples {#CI-Indep-Sample-Means}
 
-Here, we'll consider the problem of estimating a confidence interval to describe the difference in population means (or medians) based on a comparison of two samples of quantitative data, gathered using an independent samples design. Specifically, we'll look at the randomized controlled trial of Ibuprofen in Sepsis patients described in Chapter \@ref(Sepsis_RCT). 
+Here, we'll consider the problem of estimating a confidence interval to describe the difference in population means (or medians) based on a comparison of two samples of quantitative data, gathered using an independent samples design. Specifically, we'll look at the randomized controlled trial of Ibuprofen in Sepsis patients described in Chapter \@ref(Sepsis-RCT). 
 
 In that trial, 300 patients meeting specific criteria (including elevated temperature) for a diagnosis of sepsis were randomly assigned to either the Ibuprofen group (150 patients) and 150 to the Placebo group. Group information (our exposure) is contained in the `treat` variable. The key outcome of interest to us was `temp_drop`, the change in body temperature (in $^{\circ}$C) from baseline to 2 hours later, so that positive numbers indicate drops in temperature (a good outcome.) Here's the comparison of `temp_drop` summary statistics in the two `treat` groups.
 
@@ -128,7 +128,7 @@ These questions will help specify the details of the study design involved in an
 
 Questions 7 and 8 don't apply, because these are independent samples of data, rather than paired samples.
 
-To address question 9, we'll need to look at the data in each sample. We'll repeat the boxplot and Normal Q-Q plots from Chapter \@ref(Sepsis_RCT), that allow us to assess the Normality of the distributions of (separately) the `temp_drop` results in the Ibuprofen and Placebo groups.
+To address question 9, we'll need to look at the data in each sample. We'll repeat the boxplot and Normal Q-Q plots from Chapter \@ref(Sepsis-RCT), that allow us to assess the Normality of the distributions of (separately) the `temp_drop` results in the Ibuprofen and Placebo groups.
 
 ```{r}
 ggplot(sepsis, aes(x = treat, y = temp_drop, fill = treat)) +

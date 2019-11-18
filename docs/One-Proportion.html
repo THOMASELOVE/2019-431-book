@@ -1151,7 +1151,7 @@ probability of success
 <div id="a-function-in-r-to-calculate-the-saifs-confidence-interval" class="section level3">
 <h3><span class="header-section-number">18.1.5</span> A Function in R to Calculate the SAIFS Confidence Interval</h3>
 <p>I built an R function, called <code>saifs.ci</code> and contained in the Markdown for this document as well as the <code>R functions by T Love.R</code> script on the web site, which takes as its arguments a value for X = the number of successes, n = the number of trials, and conf.level = the confidence level, and produces the sample proportion, the SAIFS lower bound and upper bound for the specified two-sided confidence interval for the population proportion, using the equations above.</p>
-<p>Here, for instance, are 95%, 90% and 99% confidence intervals for the population proportion <span class="math inline">\(\pi\)</span> that we have been studying in the example about Ebola Virus disease.</p>
+<p>Here, for instance, are 95%, 90% and 99% confidence intervals for the population proportion <span class="math inline">\(\pi\)</span> that we have been studying in the serum zinc data.</p>
 <div class="sourceCode" id="cb547"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb547-1" title="1"><span class="kw">saifs.ci</span>(<span class="dt">x =</span> <span class="dv">395</span>, <span class="dt">n =</span> <span class="dv">462</span>)</a></code></pre></div>
 <pre><code>Sample Proportion             0.025             0.975 
             0.855             0.821             0.887 </code></pre>
