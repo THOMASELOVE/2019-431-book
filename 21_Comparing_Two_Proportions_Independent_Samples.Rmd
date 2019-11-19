@@ -143,7 +143,7 @@ The conditional probability of a temperature drop given that the subject is in t
 
 ### Relative Risk, Odds Ratio and Risk Difference, with Confidence Intervals
 
-These elements are followed by estimates of the relative risk, odds ratio, and risk difference, each with associated 95% confidence intervals.
+These elements are followed by estimates of the relative risk, odds ratio, and risk difference, each with associated 90% confidence intervals.
 
 ```
                                    90% conf. interval
